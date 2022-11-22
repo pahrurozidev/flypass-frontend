@@ -1,0 +1,10 @@
+.counter {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    width: 50px;
+    transform: scale(.8);
+    font-size: 40px;
+}
