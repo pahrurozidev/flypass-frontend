@@ -23,6 +23,14 @@
         "linebreak-style": [
             "error",
             "windows"
-        ]
+        ],
+        "jsx-a11y/anchor-is-valid": 0,
+        "treact/jsx-indent": 0,
+        "react/jsx-indent": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "react/no-unescaped-entities": 0,
+        "react/jsx-one-expression-p": 0,
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-closing-tag-location": 0
     }
 }
