@@ -1,0 +1,646 @@
+body,
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden !important;
+}
+
+nav {
+    position: relative;
+    z-index: 999999;
+}
+
+.navbar-nav .slash {
+    margin: 0 5px;
+}
+
+.flypass-logo {
+    width: 120px;
+    background: #007AFF;
+    padding: 10px;
+}
+
+.jumbotron {
+    margin-top: 70px;
+}
+
+.jumbotron img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: 500px;
+}
+
+/* form search */
+.form-search {
+    height: 183px;
+    border-radius: 20px;
+    background: white;
+
+    display: flex;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+form ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    padding: 0 50px;
+}
+
+form ul:nth-child(2) {
+    justify-content: end;
+}
+
+form li {
+    display: flex;
+    flex-direction: column;
+}
+
+form select,
+input {
+    width: 217px;
+    height: 38px;
+    border: 1px solid silver;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+form .trip {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+form .date {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+form .button {
+    margin: 0;
+    padding: 0 35px;
+}
+
+form button {
+    font-size: 22px;
+}
+
+form button.btn-reset {
+    width: 80px;
+    height: 45px;
+    border: 0;
+    background: transparent;
+    color: #007AFF;
+}
+
+form .btn-search {
+    background: #007AFF;
+    color: white;
+    width: 154px;
+    height: 45px;
+    border: 1px solid silver;
+    border-radius: 6px;
+    margin: 0;
+}
+
+/* form search */
+
+/* service */
+.service {
+    margin-top: 200px;
+    background: #FAFAFA;
+    height: 328px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-radius: 10px;
+}
+
+.service h1 {
+    font-size: 36px;
+}
+
+.service h5 {
+    font-size: 16px;
+    color: #007AFF;
+}
+
+.service h3 {
+    font-size: 20px;
+}
+
+.service p {
+    font-size: 14px;
+}
+
+.main-service {
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* service */
+
+/* offer */
+.offer {
+    margin-top: 150px;
+    height: 435px;
+    background-color: #EBEEFD;
+    background-image: url('./images/map.png');
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 100px 20px 20px 20px;
+    position: relative;
+}
+
+.offer h6 {
+    font-size: 16px;
+    color: #007AFF;
+    font-weight: 700;
+}
+
+.offer h1 {
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+.offer p {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.offer button {
+    width: 250px;
+    background: #007AFF;
+    color: white;
+    border: 0;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 14px 24px;
+    gap: 10px;
+}
+
+.offer .favorite {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+}
+
+.offer .user-testing {
+    width: 250px;
+    height: 192px;
+    border-radius: 24px;
+    border: 0;
+    text-align: left;
+    padding: 20px;
+    font-size: 14px;
+
+    position: absolute;
+    bottom: -40px;
+    left: 40px;
+}
+
+.user-testing p {
+    margin-top: 8px;
+}
+
+.user-testing .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* offer */
+
+
+/* contact */
+.contact {
+    height: 486px;
+    margin-top: 150px;
+    background: #EBEEFD;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+.contact .contact-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 50px;
+}
+
+.contact-detail h6 {
+    font-size: 14px;
+}
+
+.contact-detail .flypass-logo {
+    width: 200px;
+    background: #007AFF;
+    padding: 10px;
+}
+
+.contact-detail .social-media {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-detail p {
+    margin: 10px 0 30px;
+}
+
+.social-media img {
+    width: 40px !important;
+
+    cursor: pointer;
+}
+
+.contact .fligh {
+    width: 100%;
+    grid-column-start: 3;
+    grid-column-end: 6;
+}
+
+/* contact */
+
+/* footer */
+footer {
+    height: 384px;
+    background: #232631;
+    margin-top: 150px;
+    color: #A1A1A3;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer h6 {
+    color: #fff;
+}
+
+footer a {
+    text-decoration: none;
+    color: #A1A1A3;
+}
+
+.flypass-logo-small {
+    width: 100px;
+    background: #007AFF;
+    padding: 10px;
+}
+
+.flypass-logo-large {
+    width: 300px;
+    background: #007AFF;
+    padding: 10px;
+}
+
+.footer div:nth-child(5) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* footer */
+
+
+/* responsive */
+
+/* nav */
+@media screen and (max-width: 999px) {
+    .navbar-nav {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navbar-nav a:nth-child(1),
+    .navbar-nav .user-image {
+        margin-top: 30px;
+    }
+
+    .navbar-nav img {
+        width: 50px;
+    }
+
+    .navbar-nav .slash {
+        display: none;
+    }
+
+    .navbar-nav .register {
+        margin-bottom: 30px;
+    }
+}
+
+/* nav */
+
+/* jumbotron */
+
+@media screen and (max-width: 768px) {
+    .jumbotron img {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .jumbotron img {
+        height: 220px;
+    }
+}
+
+/* jumbotron */
+
+/* form */
+@media screen and (max-width: 1500px) {
+
+    form select,
+    input {
+        width: 195px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+
+    form ul {
+        padding: 0 20px;
+    }
+
+    form select,
+    input {
+        width: 180px;
+    }
+
+    form .button {
+        margin: 0;
+        padding: 0 5px;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .form-search {
+        height: 500px;
+        bottom: 30px;
+
+        top: 450px;
+    }
+
+    form ul {
+        flex-direction: column;
+        transform: scale(.9);
+    }
+
+    form li {
+        margin-top: 20px;
+    }
+
+    form select,
+    input {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    form .button {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    form .btn-reset {
+        text-align: left;
+        padding: 0;
+        margin-top: -35px;
+    }
+
+
+    form .btn-search {
+        margin-left: -10px;
+        margin-top: -15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-search {
+        top: 580px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .form-search {
+        height: 500px;
+        bottom: 30px;
+
+        top: 540px;
+    }
+}
+
+/* form */
+
+/* service */
+@media screen and (max-width: 999px) {
+    .service {
+        height: 500px;
+        margin-top: 500px;
+        padding: 40px 30px;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 5px;
+    }
+
+    .main-service {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .service {
+
+        height: 600px;
+        margin-top: 600px;
+        padding: 40px 30px;
+
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .main-service {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .service {
+
+        height: 600px;
+        margin-top: 600px;
+        padding: 20px 30px;
+
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+}
+
+/* service */
+
+/* offer */
+@media screen and (max-width: 1250px) {
+    .offer .favorite {
+        top: -35px;
+        right: -35px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .offer {
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .offer .favorite {
+        width: 100px;
+        top: 0px;
+        right: 0px;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .offer {
+        height: 600px;
+        padding: 0 0 100px 0;
+    }
+
+    .offer .favorite {
+        width: 100px;
+        top: 0px;
+        right: 0px;
+    }
+}
+
+
+/* offer */
+
+/* contact us */
+@media screen and (max-width: 1399px) {
+    .contact .fligh {
+        height: 100%;
+        padding: 10px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .contact {
+        height: 850px;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .contact .fligh {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    .contact .contact-detail {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .contact .contact-detail {
+        padding: 30px;
+    }
+}
+
+/* contact us */
+
+/* footer */
+@media screen and (max-width: 1000px) {
+    .flypass-logo-large {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        height: 900px;
+        margin-top: 150px;
+    }
+
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+
+    .flypass-logo-large {
+        width: 150px;
+    }
+
+    .footer div:nth-child(5) {
+        align-items: flex-start;
+    }
+}
+
+
+/* footer */
