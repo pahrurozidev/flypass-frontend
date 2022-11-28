@@ -1,0 +1,331 @@
+*,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 14.06rem;
+    min-height: 100vh;
+    background: #0076CB;
+    gap: 10px;
+}
+
+.sidebar .nav-item {
+    position: relative;
+}
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .nav-item .nav-link.active {
+    background: #FFFFFF;
+    color: #0076CB;
+    border-radius: 0 18px 18px 0;
+    font-weight: 600;
+    stroke-width: 2.5;
+}
+
+.sidebar .nav-item .nav-link {
+    padding: 0.75rem 1.125rem;
+    color: #FFFFFF;
+}
+
+.sidebar .nav-item .nav-link span {
+    margin-left: 0.813rem;
+    font-size: 0.875rem;
+}
+
+hr {
+    border-top: 2px solid rgb(236, 236, 236);
+    margin: 0 1rem 1rem;
+}
+
+/* Content */
+#content-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#content-wrapper #content {
+    flex: 1 0 auto;
+}
+
+/* Navbar */
+nav.navbar {
+    width: 85vw;
+    margin-bottom: 1.875rem;
+}
+
+.topbar {
+    background-color: #FFFFFF;
+    height: 4.375rem;
+}
+
+.topbar .navbar-search {
+    margin-left: 2rem;
+    width: 25rem;
+    height: 2.813rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #C8C8C8;
+    border-radius: 50px;
+}
+
+.mw-100 {
+    max-width: 100%;
+}
+
+.shadow {
+    box-shadow: 0 0.188rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.input-search {
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #8A8A8A;
+    width: 342px;
+    height: 35px;
+    background: rgba(217, 217, 217, 0.6);
+    border: 1px solid #C8C8C8;
+    border-radius: 50px;
+    margin: 0.25rem 0 0.25rem 0.313rem;
+    padding: 0.188rem 0 0.188rem 1.625rem;
+}
+
+.btn-search {
+    margin-left: 0.513rem;
+    margin-top: 0.052rem;
+    width: 42px !important;
+    height: 42px !important;
+    background: #0076CB;
+    border-radius: 50% !important;
+}
+
+button.btn.btn-search:hover {
+    background: #FFFFFF;
+    border: 2px solid #0076CB;
+    color: #0076CB;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 3.75rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 0.25rem 0 0.25rem 0.313rem;
+    width: 9.125rem;
+    height: 2.188rem;
+    background: rgba(213, 213, 213, 0.6);
+    border: 1px solid #0076CB;
+    border-radius: 50px;
+    align-items: center;
+}
+
+.navbar-nav .dropdown-menu {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.dropdown-divider {
+    margin: 0.313rem 0;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.755em;
+    vertical-align: 0.095em;
+    content: "";
+    border-top: 0.3em solid #000;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background: rgba(213, 213, 213, 0.8);
+}
+
+.navbar-nav .nav-item .nav-link .img-profile {
+    width: 1.563rem;
+    height: 1.563rem;
+}
+
+.text-name {
+    margin-left: 0.688rem;
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #000;
+}
+
+/* Card & List All Bookings */
+.container-fluid {
+    padding-left: 5.375rem;
+}
+
+.title-dashboard {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2.063rem;
+}
+
+.welcome-card {
+    width: 63.25rem;
+    height: 10.375rem;
+    background: #F9F9F9;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+}
+
+.welcome-card .card-body {
+    padding: 1.938rem;
+}
+
+.welcome-card .card-body .card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 36px;
+    color: rgba(0, 0, 0, 0.62);
+    margin-bottom: 1.313rem;
+}
+
+.welcome-card .card-body .card-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.48);
+}
+
+.container.all-booking {
+    width: 1012px;
+}
+
+.container.all-booking h5 {
+    margin: 1.938rem 0 1.625rem 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.opsi-filter .btn-departure,
+.opsi-filter .btn-booking,
+.opsi-filter .btn-date {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+    text-align: center;
+    width: 10.25rem;
+    height: 2.25rem;
+    background: #E8E8E8;
+    color: rgba(0, 0, 0, 0.59);
+    border: 1px solid #D9D9D9;
+    border-radius: 59px;
+}
+
+.opsi-filter .btn-departure:hover,
+.opsi-filter .btn-booking:hover,
+.opsi-filter .btn-date:hover {
+    background: #D8D8D8;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.opsi-filter .btn-booking,
+.opsi-filter .btn-date {
+    margin-left: 1.125rem;
+}
+
+.container.list-booking {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4.375rem;
+}
+
+.container.list-booking .title-list {
+    margin-top: 2.063rem;
+    padding-left: 5.188rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.59);
+}
+
+.container.list-booking .list-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.list-card .card {
+    box-sizing: border-box;
+    background: #F3F3F3;
+    border: 1px solid #C8C8C8;
+    border-radius: 6px;
+}
+
+
+.list-card .card .card-body {
+    gap: 8px;
+}
+
+.list-card .card .column {
+    margin-right: 2.438rem;
+}
+
+.list-card .card .name-plane {
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #000;
+    padding: 0 0 0 0.875rem;
+    margin-bottom: 0;
+}
+
+.list-card .card .airplane {
+    width: 2.688rem;
+    height: 2.188rem;
+}
+
+.list-card .card .departure-time,
+.list-card .card .arrival-time {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 0.438rem;
+}
+
+.list-card .card .from-flight,
+.list-card .card .to-flight,
+.list-card .card .direct {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 18px;
+    color: #687176;
+}
+
+.list-card .card .duration {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 0.438rem;
+}
+
+.list-card .card .departure-date {
+    margin-right: 3rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.list-card .card .people {
+    width: 6.25rem;
+    height: 2.813rem;
+    align-items: center;
+}
