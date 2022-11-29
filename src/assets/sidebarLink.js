@@ -10,11 +10,6 @@ const sidebarLink = [
         display: 'Customers',
     },
     {
-        path: '/ticket',
-        icon: 'bi bi-ticket-perforated',
-        display: 'Ticket',
-    },
-    {
         path: '/flight',
         icon: 'bi bi-airplane',
         display: 'Flight',

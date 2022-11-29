@@ -10,7 +10,6 @@ export default function Routes() {
                 <Route exact path="/" element={<Home />} />
                 <Route path="/dashboard" element={<DashboardAdmin />} />
                 <Route path="/customers" element={<DashboardAdmin />} />
-                <Route path="/ticket" element={<DashboardAdmin />} />
                 <Route path="/flight" element={<DashboardAdmin />} />
             </Switch>
         </BrowserRouter>
