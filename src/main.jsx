@@ -4,6 +4,7 @@ import Routes from './routes/Routes'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducer/globalReducer';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles/style.css'
 
 const storeRedux = createStore(rootReducer);
