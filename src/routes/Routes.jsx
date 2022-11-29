@@ -15,9 +15,6 @@ export default function Routes() {
                 <Route exact path="/" element={<Home />} />
 
                 {/* auth */}
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/register" element={<Register />} />
-                <Route exact path="/register2" element={<Register2 />} />
 
                 {/* admin */}
                 <Route path="/dashboard" element={<DashboardAdmin />} />
