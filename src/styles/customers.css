@@ -1,0 +1,148 @@
+table {
+    width: 100%;
+    margin: 30px 0 50px;
+
+    font-size: 12px !important;
+}
+
+.broadcrumb {
+    display: flex;
+    gap: 20px;
+}
+
+.all-booking {
+    margin-left: 40px !important;
+}
+
+th {
+    padding-bottom: 10px;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+tbody {
+    border: 1px solid silver;
+    line-height: 50px;
+}
+
+/* customer detail */
+.customer-detail section {
+    margin-bottom: -20px;
+}
+
+.data-list {
+    display: flex;
+
+    gap: 30px;
+}
+
+.data-item {
+    font-size: 12px !important;
+    width: 450px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.data-item__name {
+    font-weight: bold;
+}
+
+.data-item__value {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.paid {
+    color: #2ccd03;
+    font-weight: bold;
+}
+
+section h5 {
+    font-size: 16px !important;
+    color: #0076CB !important;
+    border-bottom: 1px solid silver;
+}
+
+/* customer detail */
+
+
+@media screen and (max-width: 1380px) {
+    .all-booking {
+        margin-left: 0px !important;
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    table {
+        width: 95%;
+    }
+
+    .data-item {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    table {
+        width: 100%;
+    }
+
+    .customer {
+        width: 110%;
+        background: silver;
+        overflow: auto;
+    }
+
+    .customer-detail {
+        width: 850px;
+    }
+}
+
+@media screen and (max-width: 861px) {
+    .all-booking {
+        margin-left: 0px !important;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .customers {
+        width: 110% !important;
+        overflow: auto;
+    }
+
+    table {
+        width: 150% !important;
+    }
+}
+
+@media screen and (max-width: 463px) {
+    table {
+        width: 200% !important;
+    }
+}
+
+@media screen and (max-width: 345px) {
+
+    .customers {
+        width: 120% !important;
+    }
+
+    table {
+        width: 250% !important;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    .customers {
+        width: 120% !important;
+    }
+
+    table {
+        width: 400% !important;
+    }
+}
