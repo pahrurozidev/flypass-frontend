@@ -12,9 +12,9 @@ export default function NavItem() {
             </div>
             <div className="navbar-nav user ms-4">
                 <img src={UserCircle} className="nav-link user-image" alt="" />
-                <a className="nav-link px-0 mt-1" href="#">Login</a>
+                <a className="nav-link px-0 mt-1" href="/login">Login</a>
                 <a className="nav-link px-0 mt-1 slash">/</a>
-                <a className="nav-link px-0 mt-1 register" href="#">Register</a>
+                <a className="nav-link px-0 mt-1 register" href="/register">Register</a>
             </div>
         </div>
     )
