@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Register2 from "../pages/Register2";
 
 import DashboardAdmin from "../pages/DashboardAdmin";
+import Customer from "../pages/Customer";
 
 export default function Routes() {
     return (
@@ -22,7 +23,8 @@ export default function Routes() {
 
                 {/* admin */}
                 <Route path="/dashboard" element={<DashboardAdmin />} />
-                <Route path="/customers" element={<DashboardAdmin />} />
+                <Route path="/customer" element={<Customer />} />
+                <Route path="/customer/:id" element={<Customer />} />
                 <Route path="/ticket" element={<DashboardAdmin />} />
                 <Route path="/flight" element={<DashboardAdmin />} />
 

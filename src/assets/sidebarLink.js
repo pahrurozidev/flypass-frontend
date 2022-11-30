@@ -5,7 +5,7 @@ const sidebarLink = [
         display: 'Dashboard',
     },
     {
-        path: '/customers',
+        path: '/customer',
         icon: 'bi bi-people',
         display: 'Customers',
     },

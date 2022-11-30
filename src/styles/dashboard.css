@@ -68,8 +68,8 @@ hr {
 
 /* Navbar */
 .topbar {
-    width: 85vw;
     margin-bottom: 1.875rem;
+    width: 100%;
     background-color: #FFFFFF;
     height: 4.375rem;
 }
