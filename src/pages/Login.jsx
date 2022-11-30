@@ -1,27 +1,20 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/homepage/navbar/Navbar';
-import Jumbotron from '../components/homepage/jumbotron/Jumbotron';
-import Search from '../components/homepage/search/Search';
-import Service from '../components/homepage/service/Service';
-import Offer from '../components/homepage/offer/Offer';
-import Contact from '../components/homepage/contact/Contact';
+import LoginPage from '../components/login/LoginPage';
 import Footer from '../components/homepage/footer/Footer';
 import { actionType } from '../redux/reducer/globalActionType';
 
 // style homepage
 import '../styles/homepage.css'
+import '../styles/login.css'
 
-class Home extends Component {
+class Login extends Component {
     render() {
         return (
             <Fragment>
                 <Navbar />
-                <Jumbotron />
-                <Search />
-                <Service />
-                <Offer />
-                <Contact />
+                <LoginPage />
                 <Footer />
 
                 {/* example using redux */}
@@ -53,4 +46,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
