@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from './sidebar/Sidebar'
-import Navbar from './navbar/navbar'
+import Sidebar from '../layouts/sidebar/Sidebar'
+import Navbar from '../layouts/navbar/navbar'
 import CardList from './card/Card'
 
 function dashboard() {
@@ -17,4 +17,4 @@ function dashboard() {
     )
 }
 
-export default dashboard
+export default dashboard;
