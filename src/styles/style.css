@@ -1,10 +1,479 @@
-.counter {
-    display: flex;
-    gap: 10px;
+#nav{
+    position: absolute;
+width: 1440px;
+height: 51px;
+left: 0px;
+top: 1px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
-button {
-    width: 50px;
-    transform: scale(.8);
-    font-size: 40px;
+#nav1{
+    display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+position: absolute;
+width: 349px;
+height: 17px;
+left: 805px;
+top: 5px;
+}
+
+#logo{
+    position: absolute;
+width: 34px;
+height: 17px;
+left: 140px;
+top: 17px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 17px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#flogin{
+position: absolute;
+width: 482px;
+height: 521px;
+left: 25px;
+top: 151px;
+
+background: #FFFFFF;
+border: 1px solid #DADCE3;
+box-shadow: 0px 15px 9px 2px rgba(0, 0, 0, 0.25);
+border-radius: 36px;
+}
+
+#login1{
+    position: absolute;
+width: 38px;
+height: 21px;
+left: 210px;
+top: 31px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+#register1{
+    position: absolute;
+width: 38px;
+height: 21px;
+left: 203px;
+top: 31px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+#email{
+    position: absolute;
+width: 108px;
+height: 21px;
+left: 42px;
+top: 72px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#fname{
+    position: absolute;
+width: 108px;
+height: 21px;
+left: 42px;
+top: 92px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#ps{
+    position: absolute;
+width: 108px;
+height: 21px;
+left: 42px;
+top: 250px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#lname{
+    position: absolute;
+width: 108px;
+height: 21px;
+left: 252px;
+top: 92px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#pc{
+    position: absolute;
+width: 208px;
+height: 21px;
+left: 252px;
+top: 250px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#email1{
+    position: absolute;
+width: 404px;
+height: 34px;
+left: 40px;
+top: 100px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#fname1{
+    position: absolute;
+width: 190px;
+height: 34px;
+left: 40px;
+top: 120px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#ps1{
+    position: absolute;
+width: 190px;
+height: 34px;
+left: 40px;
+top: 280px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#lname1{
+    position: absolute;
+width: 190px;
+height: 34px;
+left: 250px;
+top: 120px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#pc1{
+    position: absolute;
+width: 190px;
+height: 34px;
+left: 250px;
+top: 280px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#password{
+    position: absolute;
+width: 38px;
+height: 21px;
+left: 42px;
+top: 150px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#emaila{
+    position: absolute;
+width: 138px;
+height: 21px;
+left: 42px;
+top: 170px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #000000;
+
+}
+
+#password1{
+    position: absolute;
+width: 404px;
+height: 34px;
+left: 40px;
+top: 178px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#emaila1{
+    position: absolute;
+width: 404px;
+height: 34px;
+left: 40px;
+top: 198px;
+
+border: 1px solid #DADCE3;
+border-radius: 6px;
+}
+
+#login2{
+    box-sizing: border-box;
+
+position: absolute;
+width: 404px;
+height: 38px;
+left: 40px;
+top: 255px;
+
+background: #007AFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 4px;
+}
+
+#login7{
+    box-sizing: border-box;
+
+position: absolute;
+width: 404px;
+height: 38px;
+left: 40px;
+top: 405px;
+
+background: #007AFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 4px;
+}
+
+#login3{
+    position: absolute;
+width: 219px;
+height: 15px;
+left: 155px;
+top: 350px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #080808;
+}
+
+#login4{
+    position: absolute;
+    width: 165px;
+    height: 15px;
+    left: 193px;
+    top: 370px;
+    text-decoration: none;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 15px;
+    /* identical to box height */
+    
+    
+    color: #007AFF;
+    
+}
+
+#login5{
+    position: absolute;
+width: 37px;
+height: 21px;
+left: 180px;
+top: 7px;
+text-decoration: none;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+#login6{
+    position: absolute;
+width: 237px;
+height: 21px;
+left: 134px;
+top: 7px;
+text-decoration: none;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+#gambar1{
+    position: absolute;
+width: 910px;
+height: 764px;
+left: 530px;
+top: 52px;
+}
+
+#p1{
+    position: absolute;
+width: 331px;
+height: 44px;
+left: 1062px;
+top: 113px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+#p2{
+    position: absolute;
+width: 382px;
+height: 38px;
+left: 1027px;
+top: 177px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+
+color: #FFFFFF;
+
+}
+
+#nav2{
+    position: absolute;
+width: 31px;
+height: 31px;
+left: 1175px;
+top: 9px;
+
+border-radius: 20px;
+}
+
+#nav3{
+    position: absolute;
+width: 129px;
+height: 11px;
+left: 1220px;
+top: 18px;
+text-decoration: none;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #7a7575;
 }

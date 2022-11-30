@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import Register from "../components/Register/Register";
 import Navbar from "../components/navbar/Navbar";
 import { actionType } from '../redux/reducer/globalActionType';
 
-class Home extends Component {
+class RegisterPage extends Component {
     render() {
         return (
             <Fragment>
                 {/* import components here */}
                 <Navbar />
+                <Register />
             </Fragment>
         )
     }
@@ -31,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
