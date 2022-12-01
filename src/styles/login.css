@@ -1,15 +1,30 @@
 /* login */
 .login {
-    height: 486px;
-    margin-top: 150px;
-    background: #EBEEFD;
+    width: 520px;
+    height: 620px;
+    margin-top: 130px;
     padding: 0;
     overflow: hidden;
-    border-radius: 5px;
+    background: #FFFFFF;
+    border: 1px solid #DADCE3;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
+}
+
+.profil {
+    margin-top: 20px;
+    margin-left: 19.625rem;
+    margin-bottom: -100px;
+}
+
+.arrowleft {
+    margin-top: -60px;
+    margin-left: 16.5rem;
+    margin-bottom: -160px;
 }
 
 .login .login-detail {
@@ -22,20 +37,25 @@
     padding: 50px;
 }
 
-.login-detail h3 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 50px;
-
-}
-
-.login-detail input {
-    width: 350px;
-    margin-top: -100px;
-}
-
 .login-detail p {
-    margin: 10px 0 10px;
+    margin-left: 20px;
+    width: 300px;
+    font-size: 14px;
+}
+
+.login-detail hr {
+    border: 3px;
+    margin-top: -10px;
+    width: 400px;
+    margin-left: -0px;
+    margin-bottom: 2px;
+}
+
+.login-detail img {
+    width: 140px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 144px;
 }
 
 .login-detail button {
@@ -43,91 +63,60 @@
     width: 350px;
 }
 
+
 .login-detail a {
     text-decoration: none;
-}
-
-.login-detail .rref {
-    margin-top: 30px;
-    text-align: center;
-    text-decoration: none;
+    margin-left: 42px;
 }
 
 
-.login .fligh {
-    width: 100%;
-    grid-column-start: 3;
-    grid-column-end: 6;
+.login-detail h6 {
+    width: 300px;
+
 }
 
-.login .login-detail2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.login-detail h3 {
+    font-size: 20px;
+    margin-left: 160px;
+    margin-bottom: 40px;
+    width: 300px;
 
-    grid-column-start: 1;
-    grid-column-end: 3;
-    padding: 50px;
 }
 
-.login-detail2 h3 {
-    text-align: center;
-    font-size: 30px;
+.login-detail h2 {
+    font-size: 20px;
+    margin-left: 148px;
     margin-bottom: 30px;
+    width: 300px;
 
 }
 
-.login-detail2 input {
-    width: 350px;
-    margin-top: -100px;
+.login-detail h5 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 300px;
+
 }
 
-.login-detail2 p {
-    margin: 10px 0 10px;
-}
+.login-detail input {
+    margin-left: 40px;
+    width: 100px;
 
-.login-detail2 button {
-    margin-top: 20px;
-    width: 350px;
-}
-
-.login-detail2 a {
-    text-decoration: none;
-}
-
-.login-detail2 .rref {
-    margin-top: 30px;
-    text-align: center;
-    text-decoration: none;
-}
-
-.login-detail2 .name input {
-    width: 160px;
-}
-
-.login-detail2 .name label {
-    width: 360px;
-}
-
-.login-detail2 .name .poto input {
-    width: 101px;
-    height: 32px;
 }
 
 /* login */
 
 /* login */
 @media screen and (max-width: 1399px) {
-    .login .fligh {
-        height: 100%;
-        padding: 10px;
-        padding: 0;
-    }
+
 
     .login-detail input {
         width: 350px;
         margin-top: -100px;
     }
+    
 
     .login-detail2 input {
         width: 350px;
@@ -139,29 +128,56 @@
     }
 }
 
+@media screen and (max-width: 1075px) {
+
+
+    .profil {
+        margin-top: 100px;
+        margin-left: 280px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 100px;
+        margin-left: 230px;
+        margin-bottom: -160px;
+    }
+}
+
 @media screen and (max-width: 1000px) {
+    .profil {
+        margin-top: 100px;
+        margin-left: 240px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 100px;
+        margin-left: 200px;
+        margin-bottom: -160px;
+    }
+
     .login {
-        height: 950px;
+        height: 620px;
         grid-template-rows: repeat(2, 1fr);
     }
 
-    .login .fligh {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 6;
+    .login-detail a {
+        text-decoration: none;
+        margin-left: 15px;
     }
 
-    .login .login-detail {
-        grid-row-start: 2;
-        grid-row-end: 3;
-        grid-column-start: 1;
-        grid-column-end: 6;
-    }
-
-    .login-detail input {
+    .login-detail hr {
+        margin-top: -10px;
         width: 400px;
-        margin-top: -100px;
+        margin-bottom: 2px;
+    }
+
+    .login-detail img {
+        width: 140px;
+        margin-top: -30px;
+        margin-bottom: 20px;
+        margin-left: 134px;
     }
 
     .login-detail2 .name input {
@@ -192,7 +208,35 @@
 
 }
 
+@media screen and (max-width: 800px) {
+
+
+    .profil {
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 100px;
+        margin-left: 10px;
+        margin-bottom: -160px;
+    }
+}
+
 @media screen and (max-width: 425px) {
+    .profil {
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 90px;
+        margin-left: 2px;
+        margin-bottom: -160px;
+    }
+
     .login .login-detail {
         padding: 30px;
     }
@@ -207,5 +251,3 @@
 }
 
 /* login us */
-
-
