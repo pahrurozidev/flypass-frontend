@@ -4,7 +4,6 @@ import Home from '../pages/Home';
 import DashboardAdmin from '../pages/DashboardAdmin';
 import MyTicketUsers from '../pages/users/ListTicketUsers';
 import DetailTicketUsers from '../pages/users/DetailTicketUsers';
-import WishlistUsers from '../pages/users/WishlistsUsers';
 
 export default function Routes() {
     return (
@@ -26,7 +25,7 @@ export default function Routes() {
                 <Route path="/profile" element={<MyTicketUsers />} />
                 <Route path="/my-ticket" element={<MyTicketUsers />} />
                 <Route path="/my-ticket/detail-ticket" element={<DetailTicketUsers />} />
-                <Route path="/wishlist" element={<WishlistUsers />} />
+                <Route path="/transaction" element={<MyTicketUsers />} />
                 <Route path="/transaction" element={<MyTicketUsers />} />
             </Switch>
         </BrowserRouter>
