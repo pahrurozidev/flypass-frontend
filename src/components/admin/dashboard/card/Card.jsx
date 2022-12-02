@@ -1,5 +1,5 @@
-import React from 'react'
-import ListBooking from '../listBooking/ListBooking'
+import React from 'react';
+import ListBooking from '../listBooking/ListBooking';
 
 export default function Card() {
     return (

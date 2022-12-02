@@ -1,7 +1,6 @@
 import React from 'react';
-import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
-import Line from '../../../../assets/dasboard-admin/line.svg';
-import Ellipse from '../../../../assets/dasboard-admin/EllipsePeople.svg';
+import Garuda from '../../../../assets/dasboard/garuda.svg';
+import Line from '../../../../assets/dasboard/line.svg';
 
 export default function ListBooking() {
     return (

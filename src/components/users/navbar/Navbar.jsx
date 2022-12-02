@@ -1,12 +1,12 @@
 import React from 'react';
-import { Search, Bell } from "react-feather";
+import { Search, Bell } from 'react-feather';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import Profile from '../../../../assets/dasboard/profile.svg';
+import Profile from '../../../assets/dasboard/profile.svg';
 
 export default function navbar() {
     return (
-        <nav className='navbar navbar-expand topbar static-top shadow'>
+        <nav className='navbar navbar-expand topbar topbar-sm static-top shadow'>
             <div className='d-none d-sm-inline-block form-inline ml-md-3 my-2 my-md-0 mw-100 navbar-search'>
                 <div className='search-form'>
                     <input type="text" className='input-search' placeholder='Search...' aria-label='Search' aria-describedby='basic-add-on2' />
@@ -25,11 +25,11 @@ export default function navbar() {
                 <li className="nav-item dropdown user-profile">
                     <a href="#" className='nav-link dropdown-toggle link-profile' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img className='img-profile rounded-circle' src={Profile} alt="" />
-                        <span className='d-none d-lg-inline text-name'>Hi, Admin</span>
+                        <span className='d-none d-lg-inline text-name'>Hi, John</span>
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="#">Customers</a></li>
-                        <li><a className="dropdown-item" href="#">Flight</a></li>
+                        <li><a className="dropdown-item" href="#">Profile</a></li>
+                        <li><a className="dropdown-item" href="#">My Tickets</a></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#">Logout</a></li>
                     </ul>

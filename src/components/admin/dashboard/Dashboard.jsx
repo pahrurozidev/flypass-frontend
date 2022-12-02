@@ -1,7 +1,7 @@
-import React from 'react'
-import Sidebar from './sidebar/Sidebar'
-import Navbar from './navbar/navbar'
-import CardList from './card/Card'
+import React from 'react';
+import Sidebar from './sidebar/Sidebar';
+import Navbar from './navbar/navbar';
+import CardList from './card/Card';
 
 function dashboard() {
     return (

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Home, Users } from 'react-feather';
-import { LogoutCurve, Airplane } from 'iconsax-react';
-import { TicketPerforated } from 'react-bootstrap-icons';
+import { LogoutCurve } from 'iconsax-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../../../assets/dasboard/Logo.svg';
+import Logo from '../../../assets/dasboard/Logo.svg';
 import { NavLink } from 'react-router-dom';
-import sidebarLink from '../../../../assets/admin/sidebarLink';
+import sidebarLink from '../../../assets/user/sidebarLink';
 
 export default function Sidebar() {
     return (
