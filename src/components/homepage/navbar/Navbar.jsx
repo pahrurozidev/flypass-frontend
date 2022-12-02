@@ -1,7 +1,8 @@
 import React from 'react';
 import NavList from './NavList';
 import UserCircle from '../../../assets/homepage/user-circle.png';
-import FlyPass from '../../../assets/homepage/FlyPass.png';
+import Logo from '../../../assets/homepage/Logo.png';
+import Bell from '../../../assets/homepage/bell.png';
 
 export default function Navbar() {
     return (
@@ -10,8 +11,8 @@ export default function Navbar() {
         // </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src={FlyPass} alt="" class="flypass-logo" />
+                <a class="navbar-brand" href="/">
+                    <img src={Logo} alt="" class="flypass-logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +24,9 @@ export default function Navbar() {
                         <a class="nav-link" href="#">My Bookings</a>
                         <a class="nav-link" href="#">services</a>
                         <a class="nav-link" href="#">Contact us</a>
+                    </div>
+                    <div className='bell'>
+                        <a href="#"><img src={Bell} alt="bell icon" /></a>
                     </div>
                     <div class="navbar-nav user ms-4">
                         <img src={UserCircle} class="nav-link user-image" alt="" />

@@ -6,7 +6,7 @@ import ArrowLeft from '../../../assets/dasboard-admin/arrow-left.png';
 export default function CustomerList() {
     return (
         <div className='container-fluid'>
-            <h1 className='title-dashboard'>Dashboard</h1>
+            <h1 className='title-dashboard'>Customers</h1>
             <h6 className='broadcrumb'>
                 <img src={ArrowLeft} alt="" />
                 <span>Customer Lists</span>

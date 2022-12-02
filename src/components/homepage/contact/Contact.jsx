@@ -1,15 +1,15 @@
 import React from 'react';
-import Flypass from '../../../assets/homepage/FlyPass.png';
 import Instagram from '../../../assets/homepage/instagram.png';
 import Twitter from '../../../assets/homepage/twitter.png';
 import Whatsapp from '../../../assets/homepage/whatsapp.png';
 import Fligh from '../../../assets/homepage/flight.webp';
+import Logo from '../../../assets/homepage/Logo.png';
 
 export default function Contact() {
     return (
         <section className="container contact">
             <div className="contact-detail">
-                <img src={Flypass} alt="" className="flypass-logo" />
+                <img src={Logo} alt="" className="flypass-logo" />
                 <p>Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore.
