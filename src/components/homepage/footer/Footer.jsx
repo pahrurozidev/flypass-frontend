@@ -1,5 +1,5 @@
 import React from 'react';
-import Flypass from '../../../assets/homepage/FlyPass.png';
+import Logo from '../../../assets/dasboard-admin/Logo.svg';
 
 export default function Footer() {
     return (
@@ -7,7 +7,7 @@ export default function Footer() {
         <footer>
             <div className="container footer">
                 <div>
-                    <img src={Flypass} alt="" className="flypass-logo-small" />
+                    <img src={Logo} alt="" className="flypass-logo-small" />
                     <p>Copyright © 2022. <br />
                         All Rights Reserved.</p>
                 </div>
@@ -31,7 +31,7 @@ export default function Footer() {
                 </div>
                 <div>
                     <div>
-                        <img src={Flypass} alt="" className="flypass-logo-large" />
+                        <img src={Logo} alt="" className="flypass-logo-large" />
                     </div>
                 </div>
             </div>

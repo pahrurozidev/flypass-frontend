@@ -7,6 +7,7 @@ import Register2 from "../pages/Register2";
 
 import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
+import Flight from "../pages/Flight";
 
 export default function Routes() {
     return (
@@ -20,13 +21,14 @@ export default function Routes() {
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/register2" element={<Register2 />} />
 
-
                 {/* admin */}
                 <Route path="/dashboard" element={<DashboardAdmin />} />
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/customer/:id" element={<Customer />} />
-                <Route path="/ticket" element={<DashboardAdmin />} />
-                <Route path="/flight" element={<DashboardAdmin />} />
+                <Route path="/flight" element={<Flight />} />
+                <Route path="/flight/:id" element={<Flight />} />
+                <Route path="/flight/create" element={<Flight />} />
+                <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
             </Switch>

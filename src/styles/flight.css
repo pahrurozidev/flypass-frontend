@@ -1,0 +1,160 @@
+/* list flight */
+.add-flight {
+    font-size: 12px;
+    background: #0076CB;
+    color: white;
+
+    width: 100px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+}
+
+.add-flight:hover {
+    color: white;
+}
+
+.title-list span:nth-child(6) {
+    margin: 0 30px 0 -50px !important;
+}
+
+.people {
+    margin: 0 60px 0 -20px !important;
+}
+
+/* list flight */
+
+/* detail */
+.appBar {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 14px;
+}
+
+.appBar .button {
+    display: flex;
+}
+
+.appBar button {
+    color: white;
+}
+
+.appBar .btn {
+    width: 90px;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+    margin-left: -5px;
+}
+
+.appBar .btn:hover {
+    color: white;
+}
+
+.appBar .btn_update {
+    background: #0076CB;
+}
+
+.appBar .button {
+    position: relative;
+    right: -160px;
+}
+
+/* detail */
+
+/* create */
+.list-booking form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    font-size: 14px !important;
+}
+
+.list-booking form ul:nth-child(1) {
+    /* background: skyblue; */
+}
+
+.list-booking form ul {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+    padding: 0 50px;
+}
+
+.list-booking form ul:nth-child(2) {
+    /* background: orange; */
+    justify-content: flex-start;
+}
+
+.list-booking form input,
+.list-booking form select {
+    width: 100% !important;
+}
+
+label {
+    margin: 20px 0 -8px;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-btn {
+    background: #0076CB;
+    border: 0;
+    color: white;
+    font-size: 14px;
+
+    height: 40px;
+    width: 100px;
+
+    border-radius: 10px;
+    margin: 25px 0 -8px;
+}
+
+@media screen and (max-width: 991px) {
+
+    .list-booking form ul {
+        padding: 0 20px;
+    }
+
+    .list-booking form {
+        width: 105%;
+    }
+
+    label {
+        margin: 10px 0 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .list-booking form {
+        padding-top: 0px !important;
+    }
+
+    .list-booking form ul:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .list-booking form .right-form {
+        margin-top: -70px;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1 !important;
+        grid-column-end: 3 !important;
+    }
+}
+
+/* create */
