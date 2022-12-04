@@ -9,13 +9,13 @@ export default function RegisterPage2() {
                     <div className='name'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Pos Code</label>
+                                <label htmlFor="" className='mb-3'>Pos Code</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3'/>
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>City</label>
+                                <label htmlFor="" className='mb-3'>City</label>
                             </div>
                             <div className='poto col-md-6'>
                                 <input type="text" className='mb-3' />
@@ -25,31 +25,31 @@ export default function RegisterPage2() {
                     <div className='name'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Address</label>
+                                <label htmlFor="" className='mb-3'>Address</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Gender</label>
+                                <label htmlFor="" className='mb-3'>Gender</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Birthday</label>
+                                <label htmlFor="" className='mb-3'>Birthday</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="date" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Password</label>
+                                <label htmlFor="" className='mb-3'>Password</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Password Confirm</label>
+                                <label htmlFor="" className='mb-3'>Password Confirm</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />

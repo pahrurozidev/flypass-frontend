@@ -1,14 +1,27 @@
 import React from 'react'
-import ArrowLeft from '../../../assets/dasboard-admin/arrow-left.png';
+import { Link } from 'react-router-dom';
+import { Airplane, ArrowCircleLeft2, Warning2, AddSquare } from 'iconsax-react';
 
 export default function UpdateFlight() {
     return (
-        <div className='container-fluid'>
-            <h1 className='title-dashboard'>Dashboard</h1>
-            <h6 className='broadcrumb'>
-                <img src={ArrowLeft} alt="" />
-                <span>Flight Lists / Update Flight</span>
-            </h6>
+        <div className='container-fluid mt-5 pb-5'>
+            <div className='container all-booking p-0 ms-0 flight-header'>
+                <div className='d-flex'>
+                    <Airplane size={35} style={{
+                        marginRight: '10px',
+                        transform: 'rotate(45deg)'
+                    }} />
+                    <h2 className=''>Flight</h2>
+                </div>
+            </div>
+            <div className="container all-booking p-0 ms-0 mt-4 broadcrumb">
+                <div className='flight-list'>
+                    <Link to={'/flight'} className="text-decoration-none fs-6 text-dark d-flex gap-2">
+                        <ArrowCircleLeft2 size={30} />
+                        <div className='pt-1'>Flight Lists / Update</div>
+                    </Link>
+                </div>
+            </div>
             <div className="container all-booking p-0 ms-0 mt-4">
                 <div className="container list-booking p-0">
                     <form action="" className='shadow pb-5 pt-3'>

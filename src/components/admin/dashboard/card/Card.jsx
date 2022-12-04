@@ -4,7 +4,7 @@ import ListBooking from '../listBooking/ListBooking'
 export default function Card() {
     return (
         <div className='container-fluid'>
-            <h1 className='title-dashboard'>Dashboard</h1>
+            <h1 className='title-dashboard mt-5'>Dashboard</h1>
             <div className="card welcome-card">
                 <div className="card-body">
                     <h4 className='card-title'>Selamat Datang, Admin</h4>

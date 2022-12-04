@@ -7,11 +7,11 @@ export default function LoginPage() {
             <div className="login-detail">
                 <form action="">
                     <h3>Login</h3>
-                    <p>Email</p>
+                    <p className='mb-3'>Email</p>
                     <input type="text" />
-                    <p>Password</p>
-                    <input type="text" />
-                    <a href="">Forget Password?</a>
+                    <p className='mb-3'>Password</p>
+                    <input type="text" /><br />
+                    <a href="" className='forget_pass'>Forget Password?</a>
                     <button type="button" className="btn btn-primary">Login</button>
                 </form>
                 <div className="rref">

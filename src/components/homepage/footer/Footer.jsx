@@ -8,8 +8,8 @@ export default function Footer() {
             <div className="container footer">
                 <div>
                     <img src={Logo} alt="" className="flypass-logo-small" />
-                    <p>Copyright © 2022. <br />
-                        All Rights Reserved.</p>
+                    <span href="">Copyright © 2022</span>
+                    <span href="">All Rights Reserved</span>
                 </div>
                 <div>
                     <h6>Page Menus</h6>

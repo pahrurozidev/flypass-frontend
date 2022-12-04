@@ -1,16 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Profile from '../../../assets/dasboard-admin/profile.svg';
-import ArrowLeft from '../../../assets/dasboard-admin/arrow-left.png';
+import {
+    People,
+    Airplane, ArrowCircleLeft2, Warning2, AddSquare
+} from 'iconsax-react';
 
 export default function CustomerDetail() {
     return (
-        <div className='container-fluid'>
-            <h1 className='title-dashboard'>Dashboard</h1>
-            <h6 className='broadcrumb mb-4'>
-                <img src={ArrowLeft} alt="" />
-                <span>Customer Lists / Customer Detail</span>
-            </h6>
-            <div className="container all-booking p-0 ms-0 mb-5 pb-5">
+        <div className='container-fluid mt-5 pb-5'>
+            <div className='container all-booking p-0 ms-0 flight-header'>
+                <div className='d-flex'>
+                    <People size={35} style={{
+                        marginRight: '10px',
+                    }} />
+                    <h2 className=''>Customer</h2>
+                </div>
+            </div>
+            <div className="container all-booking p-0 ms-0 mt-4 broadcrumb">
+                <div className='flight-list'>
+                    <Link to={'/flight'} className="text-decoration-none fs-6 text-dark d-flex gap-2">
+                        <ArrowCircleLeft2 size={30} />
+                        <div className='pt-1'>Customer / Detail</div>
+                    </Link>
+                </div>
+            </div>
+            <div className="container all-booking p-0 ms-0 mb-5 pb-5 mt-4">
                 <div className='customer'>
                     <div className="customer-detail shadow px-5 py-1 pb-5">
                         <section>

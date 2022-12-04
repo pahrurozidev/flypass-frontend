@@ -35,7 +35,7 @@ export default function ListBooking() {
                                     <p className='departure-time'>08:05</p>
                                     <span className='from-flight'>Jakarta</span>
                                 </div>
-                                <img className='col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
+                                <img className='line col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
                                 <div className="col-lg-4 col-md-4 p-0">
                                     <p className='arrival-time'>09:50</p>
                                     <span className='to-flight'>Singapore</span>

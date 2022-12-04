@@ -93,7 +93,7 @@ section h5 {
 
     .customer {
         width: 110%;
-        background: silver;
+        /* background: silver; */
         overflow: auto;
     }
 

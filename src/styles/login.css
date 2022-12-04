@@ -240,6 +240,7 @@
         width: 310px;
         margin-top: -100px;
     }
+
     .login-detail button {
         margin-top: 20px;
         margin-left: 50px;
@@ -283,6 +284,7 @@
         width: 270px;
         margin-top: -100px;
     }
+
     .login-detail button {
         margin-top: 20px;
         margin-left: 40px;
@@ -303,7 +305,7 @@
 
     .login-detail2 button {
         width: 200px;
-        margin-left:85px ;
+        margin-left: 85px;
     }
 
     .login-detail2 label {
@@ -316,5 +318,3 @@
 }
 
 /* login us */
-
-

@@ -10,13 +10,13 @@ export default function RegisterPage() {
                     <div className='name'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>First Name</label>
+                                <label htmlFor="" className='mb-3'>First Name</label>
                             </div>
                             <div className='col-md-6'>
-                                <input type="text" className='mb-3'/>
+                                <input type="text" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Last Name</label>
+                                <label htmlFor="" className='mb-3'>Last Name</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
@@ -26,7 +26,7 @@ export default function RegisterPage() {
                     <div className='name'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Email</label>
+                                <label htmlFor="" className='mb-3'>Email</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
@@ -36,19 +36,19 @@ export default function RegisterPage() {
                     <div className='name'>
                         <div className='row'>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>No Hp</label>
+                                <label htmlFor="" className='mb-3'>No Hp</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Photo</label>
+                                <label htmlFor="" className='mb-3'>Photo</label>
                             </div>
                             <div className='col-md-6'>
-                                <input type="file" className='mb-3' />
+                                <input type="file" className='mb-3 bg-white' />
                             </div>
                             <div className='col-md-6'>
-                                <label htmlFor="" className='mb-2'>Country</label>
+                                <label htmlFor="" className='mb-3'>Country</label>
                             </div>
                             <div className='col-md-6'>
                                 <input type="text" className='mb-3' />

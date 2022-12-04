@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Search, Bell } from "react-feather";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +7,7 @@ import Profile from '../../../../assets/dasboard-admin/profile.svg';
 
 export default function navbar() {
     return (
-        <nav className='navbar navbar-expand topbar static-top shadow'>
+        <nav className='navbar navbar-expand topbar static-top card fixed-top border-end-0'>
             <div></div>
             <ul className='navbar-nav profile-dropdown ms-auto'>
                 <li className="nav-item dropdown">
@@ -23,10 +24,13 @@ export default function navbar() {
                         <span className='d-none d-lg-inline text-name'>Hi, Pahrurozi</span>
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="#">Customers</a></li>
-                        <li><a className="dropdown-item" href="#">Tickets</a></li>
-                        <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#">Logout</a></li>
+                        <Link to={'/'} className="dropdown-item">Beranda</Link>
+                        <li>
+                            <hr className="dropdown-divider" />
+                        </li>
+                        <li>
+                            <a className="dropdown-item" href="#">Logout</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

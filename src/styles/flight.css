@@ -1,28 +1,206 @@
-/* list flight */
+.broadcrumb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.broadcrumb .flight-list {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.broadcrumb img {
+    transform: scale(.9);
+}
+
+.flight-detail__title,
+.flight-detail__update,
+.flight-detail__create {
+    margin-top: 40px;
+}
+
+.flight-detail__title {
+    margin-left: 38px;
+}
+
 .add-flight {
-    font-size: 12px;
+    text-decoration: none;
     background: #0076CB;
     color: white;
+    /* width: 100px;
+    height: 30px; */
+    /* text-align: center;
+    line-height: 40px; */
+    border-radius: 20px;
+    padding: 8px 15px;
+    transform: scale(.8);
+    margin-right: -10px;
+}
 
-    width: 100px;
-    height: 35px;
+
+.broadcrumb span {
+    /* margin-left: -10px;
+    margin-top: 3px; */
+}
+
+/* list flight */
+.flgiht.flight-list {
+    margin-top: -30px;
+    font-size: 14px;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    background: #F3F3F3;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border-radius: 10px;
+
+    gap: 10px;
+}
+
+
+/* flight-item 1 */
+
+.flgiht.flight-list .flight-item:nth-child(1) {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+}
 
+.flgiht.flight-list .tag {
+    background: #0076CB;
+    width: 50px;
+    text-align: center;
+    color: white;
     border-radius: 20px;
 }
 
-.add-flight:hover {
+.flgiht.flight-list .time {
+    font-size: 20px;
+}
+
+.flgiht.flight-list .departure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.flgiht.flight-list .ring {
+    display: flex;
+    width: 100%;
+    height: 2px;
+    background: #0000009E;
+}
+
+/* flight-item 1 */
+
+/* flight-item 2 */
+.flgiht.flight-list .flight-item:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+/* flight-item 2 */
+
+/* flight-item 3 */
+.flgiht.flight-list .flight-item:nth-child(3) {
+    text-align: right;
+}
+
+.flgiht.flight-list .flight-item:nth-child(3) h5 {
+    margin-top: -3px !important;
+    font-size: 18px !important;
+}
+
+.flgiht.flight-list .flight-item:nth-child(3) p {
+    margin-top: -15px;
+    color: #0076CB;
+}
+
+.flgiht.flight-list .flight-item:nth-child(3) span {
+    color: #0000009E;
+}
+
+/* flight-item 3 */
+
+/* flight-item 4 */
+.flgiht.flight-list .flight-item:nth-child(4) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+}
+
+.flgiht.flight-list .flight-item:nth-child(4) a {
+    text-decoration: none;
     color: white;
+    background: #0076CB;
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 
-.title-list span:nth-child(6) {
-    margin: 0 30px 0 -50px !important;
+@media screen and (min-width: 766px) {
+
+    .flight-header {
+        margin-left: 0px;
+    }    
+
+    .flgiht.flight-list {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 50px;
+    }
+
+    .flgiht.flight-list .flight-item:nth-child(2) {
+        grid-row-start: 2;
+    }
+
+    .flgiht.flight-list .flight-item:nth-child(3) p {
+        font-size: 20px;
+    }
+
+    .flgiht.flight-list .flight-item:nth-child(4) {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+    }
+
+    .flgiht.flight-list .flight-item:nth-child(4) a {
+        text-decoration: none;
+        color: white;
+        background: #0076CB;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
 }
 
-.people {
-    margin: 0 60px 0 -20px !important;
+
+@media screen and (max-width: 425px) {
+    .flgiht.flight-list {
+        width: 300px;
+    }
+
+}
+
+
+@media screen and (max-width: 320px) {
+    .flight-header {
+        margin-left: -25px;
+    }
+
+    .flgiht.flight-list {
+        width: 238px;
+        margin-left: -25px;
+    }
+
+
+    .flgiht.flight-list .departure {
+        padding: 0px;
+    }
 }
 
 /* list flight */

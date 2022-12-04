@@ -1,26 +1,44 @@
 import React from 'react'
+import { Airplane, ArrowCircleLeft2, Trash, Edit, AddSquare } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import ArrowLeft from '../../../assets/dasboard-admin/arrow-left.png';
 
 export default function FlightDetail() {
     return (
-        <div className='container-fluid'>
-            <h1 className='title-dashboard'>Dashboard</h1>
-            <div className="container all-booking p-0 ms-0 mb-5 pb-5">
-                <div className='appBar'>
-                    <h6 className='broadcrumb mb-4'>
-                        <img src={ArrowLeft} alt="" />
-                        <span>Flight / Flgiht Detail</span>
-                    </h6>
-                    <div className='button'>
-                        <Link to={'/flight/update'}>
-                            <button className='btn btn_update'>Update</button>
-                        </Link>
-                        <div>
-                            <button className='btn btn_delete'>Delete</button>
-                        </div>
-                    </div>
+        <div className='container-fluid mt-5 pb-5'>
+            <div className='container all-booking p-0 ms-0 flight-header'>
+                <div className='d-flex'>
+                    <Airplane size={35} style={{
+                        marginRight: '10px',
+                        transform: 'rotate(45deg)'
+                    }} />
+                    <h2 className=''>Flight</h2>
                 </div>
+            </div>
+            <div className="container all-booking p-0 ms-0 mt-4 broadcrumb">
+                <div className='flight-list'>
+                    <Link to={'/flight'} className="text-decoration-none fs-6 text-dark d-flex gap-2">
+                        <ArrowCircleLeft2 size={30} />
+                        <div className='pt-1'>Flight Lists / Detail</div>
+                    </Link>
+                </div>
+                <div className='d-flex'>
+                    <Link to={'/flight/update'}>
+                        <div className='add-flight fs-6 d-flex gap-2'>
+                            <Edit />
+                            <div>Update</div>
+                        </div>
+                    </Link>
+                    <Link to={''}>
+                        <div className='add-flight bg-danger fs-6 d-flex gap-2'>
+                            <Trash />
+                            <div>Delete</div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="container all-booking p-0 ms-0 mt-4 mb-5 pb-5">
                 <div className='customer mt-3'>
                     <div className="customer-detail shadow px-5 py-1 pb-5">
                         <section>

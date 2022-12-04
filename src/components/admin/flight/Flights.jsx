@@ -20,11 +20,14 @@ function Flights() {
 
                     <Navbar />
 
-                    {id && <FlightDetail />}
 
-                    {(location === '/flight') ? <FlightList /> :
-                        (location === '/flight/create') ? <CreateFlight /> :
-                            (location === '/flight/update') ? <UpdateFlight /> : ''}
+                    <div className="main-container">
+                        {id && <FlightDetail />}
+
+                        {(location === '/flight') ? <FlightList /> :
+                            (location === '/flight/create') ? <CreateFlight /> :
+                                (location === '/flight/update') ? <UpdateFlight /> : ''}
+                    </div>
                 </div>
             </div>
         </div>

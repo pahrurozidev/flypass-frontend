@@ -88,6 +88,7 @@ form ul:nth-child(2) {
 form li {
     display: flex;
     flex-direction: column;
+    margin-bottom: -5px;
 }
 
 form select,
@@ -638,6 +639,12 @@ footer a {
 
 /* contact us */
 @media screen and (max-width: 1399px) {
+
+    form select,
+    input {
+        height: 45px;
+    }
+
     .contact .fligh {
         height: 100%;
         padding: 10px;
@@ -702,6 +709,3 @@ footer a {
         align-items: flex-start;
     }
 }
-
-
-/* footer */

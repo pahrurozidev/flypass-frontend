@@ -9,6 +9,20 @@ body {
     box-sizing: border-box;
 }
 
+.sidebar {
+    position: relative;
+    z-index: 2;
+}
+
+.topbar {
+    z-index: 1 !important;
+}
+
+.main-container {
+    position: relative;
+    top: 70px;
+}
+
 /* Sidebar */
 .sidebar {
     position: fixed;
@@ -133,6 +147,11 @@ hr {
 
 .profile-dropdown .user-profile {
     margin-right: 3.75rem;
+    /* margin-top: 8px; */
+
+    position: absolute !important;
+    top: 15px !important;
+    right: 20px !important;
 }
 
 .profile-dropdown .user-profile .link-profile {
@@ -426,7 +445,7 @@ hr {
 
     /* Navbar */
     .topbar {
-        height: 3.125rem !important;
+        height: 4.3rem !important;
         justify-content: flex-end;
         width: calc(100% - 60px) !important;
     }
@@ -824,7 +843,9 @@ hr {
         margin-left: -50px !important;
     }
 
-
+    .line {
+        height: 10px !important;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -833,4 +854,11 @@ hr {
         right: 30px !important;
     }
 
+}
+
+@media screen and (max-width: 380px) {
+    .user-profile {
+        position: relative !important;
+        right: -20px !important;
+    }
 }
