@@ -158,14 +158,7 @@ hr {
 }
 
 .dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0.755em;
-    vertical-align: 0.095em;
-    content: "";
-    border-top: 0.3em solid #000;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
+    display: none;
 }
 
 .toggle-notif::after {
@@ -278,35 +271,74 @@ hr {
     margin-bottom: 3.438rem;
 }
 
-.container.list-booking .title-list {
-    margin-top: 2.063rem;
-    padding-left: 5.188rem;
+.container.list-booking .table thead th {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 21px;
-    display: flex;
     align-items: center;
     color: rgba(0, 0, 0, 0.59);
 }
 
-.container.list-booking .title-list span:first-child {
-    margin-right: 155px;
+.table>:not(caption)>*>* {
+    padding: 1rem;
 }
 
-.container.list-booking .title-list span:nth-child(2) {
-    margin-right: 205px;
+.table tbody tr .line-flight {
+    width: 9.375rem;
 }
 
-.container.list-booking .title-list span:nth-child(3) {
-    margin-right: 95px;
+.table tbody {
+    vertical-align: middle;
 }
 
-.container.list-booking .title-list span:nth-child(4) {
-    margin-right: 75px;
+.table tbody tr .airlines {
+    text-align: start;
 }
 
-.container.list-booking .title-list span:nth-child(5) {
-    margin-right: 102px;
+.table tbody tr .airlines img {
+    width: 2.688rem;
+    height: 2.188rem;
+}
+
+.table tbody tr .airlines span {
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #000;
+    margin-left: 0.875rem;
+}
+
+.table tbody tr .departure-from .departure-time,
+.table tbody tr .arrival-to .arrival-time {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+.table tbody tr .departure-from .from-flight,
+.table tbody tr .arrival-to .to-flight,
+.table tbody tr .duration .type-direct {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 18px;
+    color: #687176;
+}
+
+.table tbody tr .duration .duration-flight {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 0.438rem;
+}
+
+.table tbody tr .departure-date,
+.table tbody tr .people {
+    margin-right: 3rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .container.list-booking .list-card {
@@ -381,13 +413,13 @@ hr {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
     /* Sidebar */
     .sidebar {
         position: fixed;
         top: 0;
         left: 0;
-        width: 60px;
+        width: 60px !important;
         height: 100%;
         background: #0076CB;
         gap: 10px;
@@ -416,12 +448,68 @@ hr {
         margin-bottom: 8px;
     }
 
-    
+    .topbar .navbar-search {
+        display: none !important;
+    }
+
+    .opsi-filter {
+        display: none ;
+    }
+
+    .table thead,
+    .table tbody .line-flight {
+        display: none;
+    }
+
+    .table tbody {
+        border: 0;
+    }
+
+    .table {
+        display: block;
+        width: 100% !important;
+        margin-top: 0.625rem;
+    }
+
+    .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        border-radius: 0.5rem;
+        margin-bottom: 0.938rem;
+        border: 1px solid #D9D9D9;
+    }
+
+    .table td {
+        text-align: end !important;
+        padding-left: 30%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 30%;
+        padding-left: 0.938rem;
+        text-align: start;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 21px;
+        color: rgba(0, 0, 0, 0.59);
+    }
+
+    .table tbody tr .airlines {
+        text-align: end;
+    }
+
     /* Navbar */
     .topbar {
         height: 3.125rem !important;
         justify-content: flex-end;
-        width: calc(100% - 60px) !important;
+        width: 100% !important;
     }
 
     .profile-dropdown {
@@ -441,7 +529,7 @@ hr {
     }
 
     .profile-dropdown .dropdown-menu {
-        left: -30vw;
+        left: -300% !important;
     }
 
     .profile-dropdown .dropdown-menu .dropdown-item {
@@ -458,7 +546,7 @@ hr {
 
     /* Content */
     #content-wrapper {
-        margin-left: 60px;
+        margin-left: 60px !important;
         width: 100%;
     }
 
@@ -473,7 +561,7 @@ hr {
     }
 
     .welcome-card {
-        width: calc(100% - 90px) !important;
+        width: calc(100% - 50px) !important;
         height: 100% !important;
     }
 
@@ -491,7 +579,7 @@ hr {
     }
 
     .container.all-booking {
-        width: 80% !important;
+        width: calc(100% - 50px) !important;
     }
 
     .container.all-booking h5 {
@@ -590,46 +678,77 @@ hr {
     }
 }
 
-@media only screen and (max-width: 995px) {
-    /* Sidebar */
+@media only screen and (max-width: 999px) {
     .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 60px;
-        height: 100%;
-        background: #0076CB;
-        gap: 10px;
+        width: 12.5rem;
     }
 
-    .sidebar hr {
-        width: 60px;
-        margin: 0 0 10px 0;
+    #content-wrapper {
+        margin-left: 200px;
     }
 
-    .list-sidebar {
-        width: 100%;
+    .topbar {
+        text-align: center !important;
     }
 
-    .nav-link span {
-        display: none;
+    .topbar .navbar-search {
+        width: 18.75rem;
+        height: 2.188rem;
     }
 
-    .logo-large {
-        display: none !important;
+    .topbar .navbar-search .search-form {
+        height: 35px;
+        display: flex;
     }
 
-    .logo-small {
-        display: block;
-        color: #FFFFFF;
-        margin-bottom: 8px;
+    .input-search {
+        font-size: 0.75rem;
+        line-height: 18px;
+        width: 252px;
+        height: 25px;
+        padding-left: 18px;
+    }
+
+    .btn-search {
+        margin-left: 7px;
+        margin-top: 1.5px;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .btn-search svg {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 2px;
+    }
+
+    .profile-dropdown .user-profile .link-profile {
+        padding: 0.25rem 0 0.25rem 0;
+        width: 9.125rem;
+        height: 33px;
     }
 
     
-    /* Navbar */
-    .topbar {
-        justify-content: space-between;
-        width: 100% !important;
+    .profile-dropdown {
+        margin-left: auto !important;
+    }
+    
+    .profile-dropdown .li-notification .toggle-notif,
+    .profile-dropdown .user-profile .link-profile {
+        margin-top: 0;
+    }
+
+    .text-name {
+        margin-left: 0.688rem;
+        font-size: 0.75rem;
+        line-height: 18px;
+        color: #000;
+    }
+
+    .profile-dropdown .dropdown-menu {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
     }
 
     .profile-dropdown {
@@ -640,17 +759,6 @@ hr {
         position: relative;
         margin-right: 0 !important;
     }
-    
-    .profile-dropdown .user-profile .link-profile {
-        margin-top: 0 !important; 
-        padding: 0.25rem 0 0.25rem 0.313rem;
-        width: 9.125rem;
-        height: 2.188rem;
-        background: rgba(213, 213, 213, 0.6);
-        border: 1px solid #0076CB;
-        border-radius: 50px;
-        align-items: center;
-    }
 
     .profile-dropdown .dropdown-menu {
         left: -1vw;
@@ -660,32 +768,19 @@ hr {
         margin-top: 10px;
     }
 
-    .dropdown-toggle::after {
-        display: none !important;
-    }
-
-    .toggle-notif {
-        margin-top: 0 !important;
-    }
-
-    .text-name {
-        display: inline !important;
-    }
-
-    /* Content */
-    #content-wrapper {
-        margin-left: 60px;
-        width: 100%;
-    }
-
     .container-fluid {
         padding-left: 35px !important;
     }
 
+    .container.list-booking .title-list {
+        padding-left: 4.950rem !important;
+    }
+
     .title-dashboard {
-        font-size: 28px !important;
-        font-weight: 500 !important;
-        margin-bottom: 1.75rem !important;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 28px;
+        margin-bottom: 2.063rem;
     }
 
     .welcome-card {
@@ -696,94 +791,76 @@ hr {
     .welcome-card .card-body {
         padding: 1.313rem !important;
     }
-    
+
     .welcome-card .card-body .card-title {
-        font-size: 24px !important;
-        line-height: 26px !important;
+        font-size: 1.125rem;
+        line-height: 30px;
     }
-    
+
     .welcome-card .card-body .card-text {
-        font-size: 1rem !important;
+        font-size: 0.875rem;
+        line-height: 20px;
     }
 
     .container.all-booking {
-        width: calc(100% - 50px) !important;
+        width: calc(100% - 50px);
     }
 
     .container.all-booking h5 {
-        margin: 31px 0 24px 0 !important;
-        font-size: 20px !important;
+        font-size: 1rem;
+        line-height: 26px;
     }
 
-    .container.list-booking .title-list {
-        padding-left: 4.950rem !important;
+    .opsi-filter .btn-departure,
+    .opsi-filter .btn-booking,
+    .opsi-filter .btn-date {
+        font-size: 0.75rem;
+        width: 9.688rem;
     }
 
-    .container.list-booking .title-list span:first-child {
-        margin-right: 52px !important;
-    }
-
-    .container.list-booking .title-list span:nth-child(2) {
-        margin-right: 164px !important;
-    }
-
-    .container.list-booking .title-list span:nth-child(3) {
-        margin-right: 49px !important;
-    }
-
-    .container.list-booking .title-list span:nth-child(4) {
-        margin-right: 35px !important;
-    }
-    
-    .container.list-booking .title-list span:nth-child(5) {
-        margin-right: 32px !important;
-    }
-
-    .airplane-row {
-        margin-right: 10px !important;
-        flex-wrap: nowrap !important;
-    }
-
-    .list-card .card .card-body {
-        gap: 5px !important;
-    }
-
-    .destination {
-        width: 500px !important;
-        margin-right: 0px !important;
-    }
-
-    .destination img {
-        padding: 0 3px !important;
-    }
-
-    .duration-row {
-        margin-right: 20px !important;
-    }
-
-    .list-card .card .departure-time,
-    .list-card .card .arrival-time {
-        font-size: 18px !important;
-        line-height: 20px !important;
-    }
-
-    .list-card .card .from-flight,
-    .list-card .card .to-flight,
-    .list-card .card .direct,
-    .list-card .card .departure-date {
-        font-size: 12px !important;
-    }
-
-    .list-card .card .duration {
-        width:75px !important;
-    }
-    
-    .list-card .card .departure-date {
-        margin-right: 0px !important;
+    .table tbody tr .airlines {
         text-align: center;
     }
 
-    .list-card .card .people {
-        margin: 0 15px 0 40px !important;
+    .table tbody tr .airlines br {
+        display: block !important;
+    }
+
+    .table tbody tr .airlines span {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 0;
+        margin-left: 0;
+    }
+
+    .table tbody tr .departure-from .departure-time,
+    .table tbody tr .arrival-to .arrival-time {
+        font-size: 1rem;
+        line-height: 16px;
+    }
+
+    .table tbody tr .arrival-to .to-flight,
+    .table tbody tr .duration .type-direct {
+        font-size: 0.75rem;
+        line-height: 18px;
+    }
+
+    .table tbody tr .line-flight {
+        width: 6.25rem;
+    }
+
+    .table tbody tr .line-flight img {
+        width: 84px;
+    }
+
+    .table tbody tr .duration .duration-flight {
+        font-size: 0.875rem;
+        line-height: 18px;
+        margin-bottom: 0;
+    }
+
+    .table tbody tr .departure-date, .table tbody tr .people {
+        font-size: 0.75rem;
+        line-height: 16px;
     }
 }

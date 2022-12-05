@@ -14,7 +14,7 @@ export default function navbar() {
                 </div>
             </div>
             <ul className='navbar-nav profile-dropdown ms-auto'>
-                <li className="nav-item dropdown">
+                <li className="nav-item dropdown li-notification">
                     <a href="#" className='nav-link dropdown-toggle toggle-notif' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <Bell className='notification-icon' />
                     </a>
@@ -25,7 +25,7 @@ export default function navbar() {
                 <li className="nav-item dropdown user-profile">
                     <a href="#" className='nav-link dropdown-toggle link-profile' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img className='img-profile rounded-circle' src={Profile} alt="" />
-                        <span className='d-none d-lg-inline text-name'>Hi, Admin</span>
+                        <span className='d-lg-inline text-name'>Hi, Admin</span>
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a className="dropdown-item" href="#">Customers</a></li>
