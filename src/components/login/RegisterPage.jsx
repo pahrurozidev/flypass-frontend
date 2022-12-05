@@ -1,64 +1,44 @@
 import React from 'react';
+import { redirect } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 
 export default function RegisterPage() {
+
+    const redirectToPersonalInfo = () => {
+        alert('redirect to personal information')
+        return redirect("/register2")
+    }
+
     return (
-        <section className="container login">
-            <div className="login-detail2">
-                <form action="">
-                    <h3>Register</h3>
-                    <div className='name'>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>First Name</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="text" className='mb-3' />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>Last Name</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="text" className='mb-3' />
-                            </div>
-                        </div>
+        <section className="container login-container">
+            <section>
+                <div>
+                    <div className='login-header'>
+                        <h1>Sign Up</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <div className='name'>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>Email</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="text" className='mb-3' />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='name'>
-                        <div className='row'>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>No Hp</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="text" className='mb-3' />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>Photo</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="file" className='mb-3 bg-white' />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor="" className='mb-3'>Country</label>
-                            </div>
-                            <div className='col-md-6'>
-                                <input type="text" className='mb-3' />
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/register2"><button type="button" className="btn btn-primary">Next</button></a>
-                </form>
-            </div>
-            <img src={Fligh} alt="" className="fligh" />
+                    <form action="">
+                        <ul>
+                            <li>
+                                <label htmlFor="email">Email</label>
+                                <input type="email" />
+                            </li>
+                            <li>
+                                <label htmlFor="password">Password</label>
+                                <input type="password" />
+                            </li>
+                            <li>
+                                <label htmlFor="confirmasi_password">Confirmation</label>
+                                <input type="password" />
+                            </li>
+                            <li>
+                                <input type="button" value='Register' onClick={() => redirectToPersonalInfo()} />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <img src={Fligh} alt="" />
+            </section>
         </section>
     );
 }

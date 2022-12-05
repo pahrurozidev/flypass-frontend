@@ -2,24 +2,33 @@ import React from 'react';
 import Fligh from '../../assets/homepage/flight.webp';
 
 export default function LoginPage() {
+
     return (
-        <section className="container login">
-            <div className="login-detail">
-                <form action="">
-                    <h3>Login</h3>
-                    <p className='mb-3'>Email</p>
-                    <input type="text" />
-                    <p className='mb-3'>Password</p>
-                    <input type="text" /><br />
-                    <a href="" className='forget_pass'>Forget Password?</a>
-                    <button type="button" className="btn btn-primary">Login</button>
-                </form>
-                <div className="rref">
-                    <p className="p1">Don't Have Any Account?</p>
-                    <a href="/register" style={{textDecoration:"none"}}>Register Now</a>
+        <section className="container login-container">
+            <section>
+                <div>
+                    <div className='login-header'>
+                        <h1>Login</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                    <form action="">
+                        <ul>
+                            <li>
+                                <label htmlFor="email">Email</label>
+                                <input type="email" />
+                            </li>
+                            <li>
+                                <label htmlFor="password">Password</label>
+                                <input type="password" />
+                            </li>
+                            <li>
+                                <input type="button" value='Login' />
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-            </div>
-            <img src={Fligh} alt="" className="fligh" />
+                <img src={Fligh} alt="" />
+            </section>
         </section>
     );
 }

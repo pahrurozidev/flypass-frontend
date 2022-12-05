@@ -3,7 +3,7 @@ import Change from '../../../assets/homepage/change.png';
 
 export default function Form() {
     return (
-        <form action="">
+        <form action="" id='booking'>
             <ul>
                 {/* <!-- departure --> */}
                 <li>

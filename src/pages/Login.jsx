@@ -11,6 +11,7 @@ import '../styles/login.css'
 
 class Login extends Component {
     render() {
+
         return (
             <Fragment>
                 <Navbar />

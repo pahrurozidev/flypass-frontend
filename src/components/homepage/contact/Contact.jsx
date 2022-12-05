@@ -7,7 +7,7 @@ import Logo from '../../../assets/homepage/Logo.png';
 
 export default function Contact() {
     return (
-        <section className="container contact">
+        <section className="container contact" id='contact'>
             <div className="contact-detail">
                 <img src={Logo} alt="" className="flypass-logo" />
                 <p>Lorem ipsum dolor sit amet, consectetur
