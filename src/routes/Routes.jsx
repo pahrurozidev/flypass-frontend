@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
+import { HashRouter, Routes as Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -11,7 +11,7 @@ import Flight from "../pages/Flight";
 
 export default function Routes() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Switch>
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
@@ -19,7 +19,7 @@ export default function Routes() {
                 {/* auth */}
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
-                <Route exact path="/register2" element={<Register2 />} />
+                <Route exact path="/register/personal" element={<Register2 />} />
 
                 {/* admin */}
                 <Route path="/dashboard" element={<DashboardAdmin />} />
@@ -32,6 +32,6 @@ export default function Routes() {
 
                 {/* user */}
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
