@@ -8,6 +8,8 @@ import Register2 from "../pages/Register2";
 import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
 
+import TicketUser from "../pages/MyTicketUser";
+
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -25,10 +27,11 @@ export default function Routes() {
                 <Route path="/dashboard" element={<DashboardAdmin />} />
                 <Route path="/customer" element={<Customer />} />
                 <Route path="/customer/:id" element={<Customer />} />
-                <Route path="/ticket" element={<DashboardAdmin />} />
                 <Route path="/flight" element={<DashboardAdmin />} />
 
                 {/* user */}
+                <Route path="/my-ticket" element={<TicketUser />} />
+                <Route path="/my-ticket/:id" element={<TicketUser />} />
             </Switch>
         </BrowserRouter>
     )
