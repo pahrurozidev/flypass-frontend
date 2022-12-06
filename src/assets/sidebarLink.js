@@ -1,6 +1,6 @@
 const sidebarLink = [
     {
-        path: '/dashboard',
+        path: '/dashboarduser',
         icon: 'bi bi-house-door',
         display: 'Dashboard',
     },
