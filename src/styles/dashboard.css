@@ -773,7 +773,7 @@ hr {
     }
 
     .list-card .card .card-body {
-        /* gap: 5px !important; */
+        gap: 5px !important;
     }
 
     .destination {
@@ -812,7 +812,7 @@ hr {
     }
 
     .list-card .card .people {
-        /* margin: 0 15px 0 40px !important; */
+        margin: 0 15px 0 40px !important;
     }
 }
 
