@@ -1,0 +1,604 @@
+/* Card & List All Bookings */
+.container-fluid {
+    top: 100px;
+}
+.container.my-ticket {
+    width: 1012px;
+}
+
+.container.my-ticket .title-ticket {
+    margin: 1.938rem 0 1.625rem 0;
+}
+
+.container.my-ticket .title-ticket a {
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.container.my-ticket h5 {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.container.my-ticket h5.breadcrumb-detail {
+    font-weight: 900;
+}
+
+.container.list-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 3.438rem;
+}
+
+.container.list-ticket .title-list {
+    margin-top: 2.063rem;
+    padding-left: 5.188rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.59);
+}
+
+.container.list-ticket .table thead th {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.59);
+}
+
+.table>:not(caption)>*>* {
+    padding: 1rem;
+}
+
+.table tbody tr .line-flight {
+    width: 9.375rem;
+}
+
+.table tbody {
+    vertical-align: middle;
+}
+
+.table tbody tr .airlines {
+    text-align: start;
+}
+
+.table tbody tr .airlines img {
+    width: 2.688rem;
+    height: 2.188rem;
+}
+
+.table tbody tr .airlines span {
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #000;
+    margin-left: 0.875rem;
+}
+
+.table tbody tr .departure-from .departure-time,
+.table tbody tr .arrival-to .arrival-time {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+.table tbody tr .departure-from .from-flight,
+.table tbody tr .arrival-to .to-flight,
+.table tbody tr .duration .type-direct {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 18px;
+    color: #687176;
+}
+
+.table tbody tr .duration .duration-flight {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 0.438rem;
+}
+
+.table tbody tr .departure-date,
+.table tbody tr .people {
+    margin-right: 3rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Detail Ticket */
+.container.e-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 3.438rem;
+}
+
+.container.e-ticket .card-e-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.card-e-ticket .card {
+    box-sizing: border-box;
+    width: 52.938rem;
+    height: 16.75rem;
+    background: #FFFFFF;
+    border: 1px solid #B9B9B9;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-e-ticket .card .card-body {
+    gap: 0.5rem;
+}
+
+.card-e-ticket .card .card-body .e-ticket-detail {
+    width: 100%;
+    height: 100%;
+}
+
+.card-e-ticket .card .blue-top {
+    display: flex;
+    align-items: center;
+    width: 52.938rem;
+    height: 2.188rem;
+    border-radius: 9px 9px 0 0;
+    background: linear-gradient(90deg, #007AFF 31.91%, rgba(0, 122, 255, 0.6) 68.86%);
+    color: #FFFFFF;
+}
+
+.card-e-ticket .card .blue-top svg {
+    margin-left: 2.063rem;
+    width: 1.875rem;
+    height: 1.563rem;
+}
+
+.card-e-ticket .card .blue-top span {
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    margin-left: 1.938rem;
+}
+
+.card-e-ticket .card .line-vertical {
+    position: absolute;
+    top: 0;
+    left: 71.3%;
+    width: 0;
+    height: 16.75rem;
+    border: 1px dashed #9c9c9c;
+}
+
+.card-e-ticket .e-ticket-detail .ticket-left {
+    width: 34.938rem;
+    height: 11.938rem;
+}
+
+.card-e-ticket .ticket-left .divider-plane {
+    width: 0;
+    height: 1.75rem;
+    border: .5px solid #B9B9B9;
+}
+
+.card-e-ticket .ticket-left .frame-top img {
+    width: 3.75rem;
+    height: 1.75rem;
+}
+
+.card-e-ticket .ticket-left .frame-top .name-plane {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: #000;
+    padding: 0 0 0 0.875rem;
+    margin: 0 1rem 0 0;
+}
+
+.card-e-ticket .ticket-left .frame-top .classes {
+    margin-left: 1rem;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 18px;
+    color: #808080;
+}
+
+.card-e-ticket .ticket-left .frame-top {
+    margin-bottom: 1.563rem;
+}
+
+.card-e-ticket .ticket-left .frame-bottom {
+    gap: 1.563rem;
+    width: 34.938rem;
+    height: 8.813rem;
+}
+
+.ticket-left .frame-bottom .country-depart h1,
+.ticket-left .frame-bottom .country-arrive h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 40px;
+    color: #000;
+}
+
+.ticket-left .frame-bottom .country-depart span,
+.ticket-left .frame-bottom .country-arrive span,
+.ticket-left .frame-bottom .time-depart span,
+.ticket-left .frame-bottom .time-arrive span,
+.ticket-left .frame-bottom .time-depart p,
+.ticket-left .frame-bottom .time-arrive p {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: #687176;
+}
+
+.ticket-left .frame-bottom .time-depart p,
+.ticket-left .frame-bottom .time-arrive p {
+    color: #000;
+    margin-bottom: 0;
+}
+
+.ticket-left .frame-bottom .depart-frame,
+.ticket-left .frame-bottom .arrive-frame {
+    width: 13.25rem;
+    height: 8.813rem;
+    column-gap: 1.5rem;
+}
+
+.ticket-left .frame-bottom svg {
+    width: 2.813rem;
+    height: 2.5rem;
+    color: #808080;
+}
+
+.ticket-right .ticket-right-top {
+    margin-bottom: 1.25rem;
+}
+
+.ticket-right .ticket-right-top span:first-child,
+.ticket-right .ticket-right-bottom span,
+.ticket-right .ticket-right-bottom .title-passenger-info .title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 21px;
+    color: #808080;
+}
+
+.ticket-right .ticket-right-top span:last-child {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 30px;
+    color: #000;
+}
+
+.ticket-right .ticket-right-bottom span {
+    color: #000;
+}
+
+@media only screen and (max-width: 767px) {
+    .card-e-ticket .card {
+        width: calc(100% - 20px) !important;
+    }
+
+    .container.my-ticket {
+        width: calc(100% - 50px) !important;
+    }
+
+    .container.my-ticket h5 {
+        margin: 1.625rem 0 1.25rem 0 !important;
+        font-size: 1rem !important;
+    }
+
+    .opsi-filter {
+        display: none !important;
+    }
+
+    .container.my-ticket .title-ticket {
+        margin: 0;
+    }
+
+    .table thead,
+    .table tbody .line-flight {
+        display: none;
+    }
+
+    .table tbody {
+        border: 0;
+    }
+
+    .table {
+        display: block;
+        width: 100% !important;
+        margin-top: 0.625rem;
+    }
+
+    .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        border-radius: 0.5rem;
+        margin-bottom: 0.938rem;
+        border: 1px solid #D9D9D9;
+    }
+
+    .table td {
+        text-align: end !important;
+        padding-left: 30%;
+        position: relative;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 30%;
+        padding-left: 0.938rem;
+        text-align: start;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 21px;
+        color: rgba(0, 0, 0, 0.59);
+    }
+
+    .table tbody tr .airlines {
+        text-align: end;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .card-e-ticket .ticket-left .frame-top .name-plane {
+        padding-left: 8px !important;
+        margin-right: 8px !important;
+    }
+
+    .ticket-left .frame-bottom svg {
+        width: 20px !important;
+        height: 15px !important;
+    }
+
+    .ticket-left .frame-bottom .country-depart span,
+    .ticket-left .frame-bottom .country-arrive span,
+    .ticket-left .frame-bottom .time-depart span,
+    .ticket-left .frame-bottom .time-arrive span,
+    .ticket-left .frame-bottom .time-depart p,
+    .ticket-left .frame-bottom .time-arrive p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .ticket-right .ticket-right-top span:last-child {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container.my-ticket .title-ticket {
+        margin-bottom: 15px;
+    }
+
+    .card-e-ticket .card {
+        height: 450px;
+    }
+
+    .title-dashboard {
+        margin-bottom: 1rem !important;
+    }
+
+    .container.my-ticket .title-ticket a svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container.my-ticket h5 {
+        margin: 20px 0 !important;
+        font-size: 1rem !important;
+    }
+
+    .container.my-ticket .next-breadcrumb {
+        font-size: 14px;
+    }
+
+    .card-e-ticket .card .card-body,
+    .card-e-ticket .card .card-body .e-ticket-detail {
+        flex-direction: column !important;
+    }
+
+    .card-e-ticket .card .line-vertical {
+        display: none;
+    }
+
+    .card-e-ticket .e-ticket-detail .ticket-left,
+    .card-e-ticket .e-ticket-detail .ticket-right {
+        width: 100% !important;
+    }
+
+    .card-e-ticket .ticket-left .frame-top {
+        margin-bottom: 1.563rem !important;
+    }
+
+    .card-e-ticket .ticket-left .divider-plane {
+        display: none;
+    }
+
+    .card-e-ticket .ticket-left .frame-top .classes {
+        font-size: 12px !important;
+        margin-left: 0 !important;
+    }
+
+    .card-e-ticket .card .card-body .e-ticket-detail {
+        justify-content: stretch !important;
+        gap: 40px !important;
+    }
+
+    .ticket-left .frame-bottom .arrive-frame {
+        text-align: end;
+    }
+
+    .ticket-left .frame-bottom .country-depart h1,
+    .ticket-left .frame-bottom .country-arrive h1 {
+        font-size: 30px;
+        line-height: 20px;
+    }
+
+    .ticket-left .frame-bottom .time-depart p,
+    .ticket-left .frame-bottom .time-arrive p {
+        line-height: 18px;
+    }
+
+    .ticket-left .frame-bottom svg {
+        margin-top: 5px;
+    }
+
+    .ticket-right .ticket-right-top {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        margin-bottom: 10px !important;
+    }
+
+    .ticket-right .ticket-right-bottom .title-passenger-info {
+        margin-top: 10px;
+    }
+    
+    .ticket-right .ticket-right-bottom .title-passenger-info .title {
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+    .container.my-ticket {
+        width: calc(100% - 50px);
+    }
+
+    .container.my-ticket h5 {
+        font-size: 1rem;
+        line-height: 26px;
+    }
+
+    .card-e-ticket .card,
+    .card-e-ticket .card .blue-top {
+        width: 100%;
+    }
+
+    .card-e-ticket .card .blue-top svg {
+        width: 25px;
+        height: 20px;
+    }
+
+    .card-e-ticket .card .blue-top span {
+        font-size: 16px;
+    }
+
+    .card-e-ticket .ticket-left .frame-top img {
+        width: 50px;
+        height: 18px;
+    }
+
+    .card-e-ticket .ticket-left .frame-top .name-plane {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .card-e-ticket .ticket-left .frame-top .classes {
+        font-size: 10px;
+    }
+
+    .card-e-ticket .e-ticket-detail .ticket-left {
+        width: 70%;
+    }
+
+    .card-e-ticket .e-ticket-detail .ticket-right {
+        width: 20%;
+        margin-right: 1rem;
+    }
+
+    .card-e-ticket .ticket-left .frame-bottom {
+        gap: 15px;
+        width: 100%;
+    }
+
+    .ticket-left .frame-bottom .depart-frame,
+    .ticket-left .frame-bottom .arrive-frame {
+        width: 192px;
+    }
+
+    .ticket-left .frame-bottom svg {
+        width: 35px;
+        height: 30px;
+    }
+
+    .ticket-right .ticket-right-top span:first-child,
+    .ticket-right .ticket-right-bottom span,
+    .ticket-right .ticket-right-bottom .title-passenger-info .title {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .ticket-right .ticket-right-top span:last-child {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .card-e-ticket .ticket-left .frame-top {
+        margin-bottom: 1rem;
+    }
+
+    .table tbody tr .airlines {
+        text-align: center;
+    }
+
+    .table tbody tr .airlines br {
+        display: block !important;
+    }
+
+    .table tbody tr .airlines span {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 0;
+        margin-left: 0;
+    }
+
+    .table tbody tr .departure-from .departure-time,
+    .table tbody tr .arrival-to .arrival-time {
+        font-size: 1rem;
+        line-height: 16px;
+    }
+
+    .table tbody tr .arrival-to .to-flight,
+    .table tbody tr .duration .type-direct {
+        font-size: 0.75rem;
+        line-height: 18px;
+    }
+
+    .table tbody tr .line-flight {
+        width: 6.25rem;
+    }
+
+    .table tbody tr .line-flight img {
+        width: 84px;
+    }
+
+    .table tbody tr .duration .duration-flight {
+        font-size: 0.875rem;
+        line-height: 18px;
+        margin-bottom: 0;
+    }
+
+    .table tbody tr .departure-date, .table tbody tr .people {
+        font-size: 0.75rem;
+        line-height: 16px;
+    }
+}

@@ -9,6 +9,8 @@ import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
 import Flight from "../pages/Flight";
 
+import MyTicket from "../pages/MyTicketUser";
+
 export default function Routes() {
     return (
         <HashRouter>
@@ -31,6 +33,8 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
+                <Route path="/my-ticket" element={<MyTicket />} />
+                <Route path="/my-ticket/:id" element={<MyTicket />} />
             </Switch>
         </HashRouter>
     )
