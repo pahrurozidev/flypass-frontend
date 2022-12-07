@@ -1,7 +1,6 @@
 import React from 'react';
 import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../../assets/dasboard-admin/line.svg';
-import Ellipse from '../../../../assets/dasboard-admin/EllipsePeople.svg';
 
 export default function ListBooking() {
     return (
@@ -13,112 +12,68 @@ export default function ListBooking() {
                 <a className="btn btn-date"><span>Date Range</span></a>
             </div>
             <div className="container list-booking p-0">
-                <div className="title-list">
-                    <span>Airlines</span>
-                    <span>From</span>
-                    <span>To</span>
-                    <span>Duration</span>
-                    <span>Date</span>
-                    <span>People</span>
-                </div>
-                <div className="list-card">
-                    <div className="card">
-                        <div className="card-body d-flex flex-row align-items-center">
-                            <div className="row align-items-center ms-2 column airplane-row" style={{ width: "189px" }}>
-                                <div className='airplane col-lg-3 p-0 pt-1'>
-                                    <img src={Garuda} alt="Airplanes" className='align-items-center' />
-                                </div>
-                                <h6 className='col-lg-9 name-plane'>Garuda Indonesia</h6>
-                            </div>
-                            <div className="row text-center column destination" style={{ width: "350px" }}>
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='departure-time'>08:05</p>
-                                    <span className='from-flight'>Jakarta</span>
-                                </div>
-                                <img className='line col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='arrival-time'>09:50</p>
-                                    <span className='to-flight'>Singapore</span>
-                                </div>
-                            </div>
-                            <div className="text-center column duration-row">
-                                <p className='duration'>1h 45m</p>
-                                <span className='direct'>Non Stop</span>
-                            </div>
-                            <span className='departure-date'>01 Dec 2022</span>
-                            {/* <div className="row people d-flex flex-row">
-                                <div className="col-4 p-0 img-user">
-                                    <img src={Ellipse} alt="" />
-                                </div>
-                                <div className="col-4 p-0 img-user">
-                                    <img src={Ellipse} alt="" />
-                                </div>
-                                <div className="col-4 p-0 img-user">
-                                    <img src={Ellipse} alt="" />
-                                </div>
-                            </div> */}
-                            <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-body d-flex flex-row align-items-center">
-                            <div className="row align-items-center ms-2 column airplane-row" style={{ width: "189px" }}>
-                                <div className='airplane col-lg-3 p-0 pt-1'>
-                                    <img src={Garuda} alt="Airplanes" className='align-items-center' />
-                                </div>
-                                <h6 className='col-lg-9 name-plane'>Garuda Indonesia</h6>
-                            </div>
-                            <div className="row text-center column destination" style={{ width: "350px" }}>
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='departure-time'>08:05</p>
-                                    <span className='from-flight'>Jakarta</span>
-                                </div>
-                                <img className='col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='arrival-time'>09:50</p>
-                                    <span className='to-flight'>Singapore</span>
-                                </div>
-                            </div>
-                            <div className="text-center column duration-row">
-                                <p className='duration'>1h 45m</p>
-                                <span className='direct'>Non Stop</span>
-                            </div>
-                            <span className='departure-date'>01 Dec 2022</span>
-                            <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-body d-flex flex-row align-items-center">
-                            <div className="row align-items-center ms-2 column airplane-row" style={{ width: "189px" }}>
-                                <div className='airplane col-lg-3 p-0 pt-1'>
-                                    <img src={Garuda} alt="Airplanes" className='align-items-center' />
-                                </div>
-                                <h6 className='col-lg-9 name-plane'>Garuda Indonesia</h6>
-                            </div>
-                            <div className="row text-center column destination" style={{ width: "350px" }}>
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='departure-time'>08:05</p>
-                                    <span className='from-flight'>Jakarta</span>
-                                </div>
-                                <img className='col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
-                                <div className="col-lg-4 col-md-4 p-0">
-                                    <p className='arrival-time'>09:50</p>
-                                    <span className='to-flight'>Singapore</span>
-                                </div>
-                            </div>
-                            <div className="text-center column duration-row">
-                                <p className='duration'>1h 45m</p>
-                                <span className='direct'>Non Stop</span>
-                            </div>
-                            <span className='departure-date'>01 Dec 2022</span>
-                            <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
-                        </div>
-                    </div>
-                </div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Airlines</th>
+                            <th>From</th>
+                            <th> </th>
+                            <th>To</th>
+                            <th>Duration</th>
+                            <th>Date</th>
+                            <th>People</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Airlines" className="airlines">
+                                <img src={Garuda} alt="Airplanes" /><br className="d-none" />
+                                <span>Garuda Indonesia</span>
+                            </td>
+                            <td data-title="From" className="departure-from">
+                                <p className="departure-time">08:05</p>
+                                <span className="from-flight">Jakarta</span>
+                            </td>
+                            <td className="line-flight">
+                                <img src={Line} alt="" />
+                            </td>
+                            <td data-title="To" className="arrival-to">
+                                <p className="arrival-time">09:50</p>
+                                <span className="to-flight">Singapore</span>
+                            </td>
+                            <td data-title="Duration" className="duration">
+                                <p className="duration-flight">1h 45m</p>
+                                <span className="type-direct">Direct</span>
+                            </td>
+                            <td data-title="Date" className="departure-date">01 Dec 2022</td>
+                            <td data-title="People" className="people">5</td>
+                        </tr>
+                        <tr>
+                            <td data-title="Airlines" className="airlines">
+                                <img src={Garuda} alt="Airplanes" /><br className="d-none" />
+                                <span>Garuda Indonesia</span>
+                            </td>
+                            <td data-title="From" className="departure-from">
+                                <p className="departure-time">08:05</p>
+                                <span className="from-flight">Jakarta</span>
+                            </td>
+                            <td className="line-flight">
+                                <img src={Line} alt="" />
+                            </td>
+                            <td data-title="To" className="arrival-to">
+                                <p className="arrival-time">09:50</p>
+                                <span className="to-flight">Singapore</span>
+                            </td>
+                            <td data-title="Duration" className="duration">
+                                <p className="duration-flight">1h 45m</p>
+                                <span className="type-direct">Direct</span>
+                            </td>
+                            <td data-title="Date" className="departure-date">01 Dec 2022</td>
+                            <td data-title="People" className="people">5</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </>
-    )
+    );
 }
