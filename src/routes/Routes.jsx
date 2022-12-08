@@ -9,6 +9,7 @@ import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
 import Flight from "../pages/Flight";
 import Search from "../pages/Search";
+import Payments from "../pages/Payments";
 
 export default function Routes() {
     return (
@@ -17,6 +18,8 @@ export default function Routes() {
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
                 <Route path="/search" element={<Search />} />
+                <Route path="/search/flight/detail" element={<Payments />} />
+                <Route path="/search/flight/payment" element={<Payments />} />
 
                 {/* auth */}
                 <Route exact path="/login" element={<Login />} />

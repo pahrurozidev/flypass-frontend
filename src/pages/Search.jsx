@@ -9,9 +9,9 @@ class Search extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar/>
+                <Navbar />
                 <Searched />
-                <Footer/>
+                <Footer />
             </Fragment>
         )
     }

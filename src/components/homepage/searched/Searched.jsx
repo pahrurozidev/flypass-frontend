@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../../../styles/search.css';
 import Garuda from '../../../assets/homepage/garuda.svg'
 import Clock from '../../../assets/homepage/clock.png'
@@ -42,7 +43,9 @@ export default function Searched() {
                     </div>
                     <div class="bg flight-price">
                         <div class="price"><span class="value">Rp 8.016.500</span>/org</div>
-                        <div className="pilih-btn shadow">Pilih</div>
+                        <Link to={'/search/flight/detail'}>
+                            <div className="pilih-btn shadow">Pilih</div>
+                        </Link>
                     </div>
                     <div class="bg flight-detail-refaund">
                         <div class="flight-detail__btn">Flight Details</div>
@@ -134,7 +137,9 @@ export default function Searched() {
                     </div>
                     <div class="bg flight-price">
                         <div class="price"><span class="value">Rp 8.016.500</span>/org</div>
-                        <div className="pilih-btn shadow">Pilih</div>
+                        <Link to={'/search/flight/detail'}>
+                            <div className="pilih-btn shadow">Pilih</div>
+                        </Link>
                     </div>
                     <div class="bg flight-detail-refaund">
                         <div class="flight-detail__btn">Flight Details</div>
@@ -170,7 +175,9 @@ export default function Searched() {
                     </div>
                     <div class="bg flight-price">
                         <div class="price"><span class="value">Rp 8.016.500</span>/org</div>
-                        <div className="pilih-btn shadow">Pilih</div>
+                        <Link to={'/search/flight/detail'}>
+                            <div className="pilih-btn shadow">Pilih</div>
+                        </Link>
                     </div>
                     <div class="bg flight-detail-refaund">
                         <div class="flight-detail__btn">Flight Details</div>

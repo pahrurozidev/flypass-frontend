@@ -27,6 +27,8 @@ export default function Navbar() {
                         location === "/register" ||
                         location === "/register2" ||
                         location === "/register/personal" ||
+                        location === "/search/flight/detail" ||
+                        location === "/search/flight/payment" ||
                         location === "/search") ?
                         <div className='navbar-nav ms-auto'></div> :
                         <div className="navbar-nav ms-auto">
