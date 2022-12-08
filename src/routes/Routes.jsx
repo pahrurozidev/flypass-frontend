@@ -10,6 +10,7 @@ import Customer from "../pages/Customer";
 import Flight from "../pages/Flight";
 
 import MyTicket from "../pages/MyTicketUser";
+import Transaction from "../pages/TransactionUser";
 
 export default function Routes() {
     return (
@@ -35,6 +36,8 @@ export default function Routes() {
                 {/* user */}
                 <Route path="/my-ticket" element={<MyTicket />} />
                 <Route path="/my-ticket/:id" element={<MyTicket />} />
+                <Route path="/transaction" element={<Transaction />} />
+                <Route path="/transaction/:id" element={<Transaction />} />
             </Switch>
         </HashRouter>
     )
