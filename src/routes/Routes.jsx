@@ -11,6 +11,8 @@ import Flight from "../pages/Flight";
 import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
+import MyTicket from "../pages/MyTicketUser";
+
 export default function Routes() {
     return (
         <HashRouter>
@@ -36,6 +38,8 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
+                <Route path="/my-ticket" element={<MyTicket />} />
+                <Route path="/my-ticket/:id" element={<MyTicket />} />
             </Switch>
         </HashRouter>
     )
