@@ -8,6 +8,7 @@ import Register2 from "../pages/Register2";
 import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
 import Flight from "../pages/Flight";
+import Search from "../pages/Search";
 
 export default function Routes() {
     return (
@@ -15,6 +16,7 @@ export default function Routes() {
             <Switch>
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
 
                 {/* auth */}
                 <Route exact path="/login" element={<Login />} />
