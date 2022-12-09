@@ -71,7 +71,7 @@ export default function PaymentList() {
             <div class="text-center mt-4 mb-5">
               <Link to={''}>
                 <div
-                  class="d-flex border-1 rounded text-white col-12 justify-content-center border-0 price-button">Continue</div>
+                  class="d-flex border-1 rounded text-white col-12 justify-content-center border-0 price-button py-2 shadow">Continue</div>
               </Link>
             </div>
           </div>

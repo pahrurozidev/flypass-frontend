@@ -1,5 +1,5 @@
 import React from 'react';
-import { redirect } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 
 export default function RegisterPage() {
@@ -17,8 +17,8 @@ export default function RegisterPage() {
                         <h1>Sign Up</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <form action="">
-                        <ul>
+                    <form action="" className='px-5 pb-4'>
+                        <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
                                 <input type="email" />
@@ -32,7 +32,15 @@ export default function RegisterPage() {
                                 <input type="password" />
                             </li>
                             <li>
-                                <input type="button" value='Register' onClick={() => redirectToPersonalInfo()} />
+                                <Link to={'/register/personal'}>
+                                    <input type="button" value='Continue' className='shadow' />
+                                </Link>
+                                <div className="pt-3 text-center">
+                                    Already have account?
+                                    <Link to={'/login'}>
+                                        <span> Login</span>
+                                    </Link>
+                                </div>
                             </li>
                         </ul>
                     </form>

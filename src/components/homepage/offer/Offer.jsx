@@ -6,11 +6,11 @@ import UserTesting from '../../../assets/homepage/user-testing.png';
 
 export default function Offer() {
     return (
-        <section className="container offer">
+        <section className="container offer shadow">
 
             <img src={Love} alt="" className="favorite" />
 
-            <div className="card user-testing">
+            <div className="card user-testing shadow">
                 <div>
                     <img src={Rates} alt="" />
                     <p>
@@ -31,7 +31,7 @@ export default function Offer() {
                 </div>
             </div>
 
-            <div>
+            <div className='offer-desc'>
                 <h6>New User</h6>
                 <h2>
                     Dont Miss The 50% Discount
@@ -43,7 +43,7 @@ export default function Offer() {
                     <br />
                     with the best experience.
                 </p>
-                <button type="submit">Register Account</button>
+                <button type="submit" className='shadow'>Register Account</button>
             </div>
         </section>
     );

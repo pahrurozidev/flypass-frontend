@@ -140,7 +140,7 @@ export default function FlightDetail() {
                     </div>
                     <div class="text-center button-price__continue mt-4 mb-5">
                         <Link to={'/search/flight/payment'}>
-                            <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button">Continue</div>
+                            <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow">Continue</div>
                         </Link>
                     </div>
                 </div>

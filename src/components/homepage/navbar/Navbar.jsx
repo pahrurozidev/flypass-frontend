@@ -39,7 +39,8 @@ export default function Navbar() {
                         </div>
                     }
                     <div className='bell'>
-                        <a href="#"><img src={Bell} alt="bell icon" /></a>
+                        {(location === '/') &&
+                            <a href="#"><img src={Bell} alt="bell icon" /></a>}
                     </div>
                     <div className="navbar-nav user ms-4">
                         <img src={UserCircle} className="nav-link user-image" alt="" />

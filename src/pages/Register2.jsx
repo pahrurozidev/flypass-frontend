@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/homepage/navbar/Navbar';
-import RegisterPage2 from '../components/login/RegisterPage2';
+import Personal from '../components/login/Personal';
 import Footer from '../components/homepage/footer/Footer';
 import { actionType } from '../redux/reducer/globalActionType';
 
@@ -14,7 +14,7 @@ class Register2 extends Component {
         return (
             <Fragment>
                 <Navbar />
-                <RegisterPage2 />
+                <Personal />
                 <Footer />
 
                 {/* example using redux */}

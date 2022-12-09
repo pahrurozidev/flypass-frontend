@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Change from '../../../assets/homepage/change.png';
 
 export default function Form() {
     return (
-        <form action="" id='booking'>
+        <form action="" className='booking-form' id='booking'>
             <ul>
                 {/* <!-- departure --> */}
                 <li>
@@ -14,7 +15,7 @@ export default function Form() {
                 </li>
                 <li className='change-icon'>
                     <div>
-                        <img src={Change} alt="" />
+                        <img src={Change} alt="" className='shadow' />
                     </div>
                 </li>
                 {/* <!-- destination --> */}
@@ -27,7 +28,7 @@ export default function Form() {
                 <li>
                     <div className="d-flex trip-date">
                         {/* <!-- trip --> */}
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column col">
                             <label htmlFor="trip">Trip</label>
                             <select name="trip" id="trip" className="trip">
                                 <option value="">Trip</option>
@@ -36,7 +37,7 @@ export default function Form() {
                             </select>
                         </div>
                         {/* <!-- Date --> */}
-                        <div className="d-flex flex-column">
+                        <div className="d-flex flex-column col">
                             <label htmlFor="date">Date</label>
                             <input type="date" id="date" name="date" className="date" />
                         </div>
@@ -53,10 +54,12 @@ export default function Form() {
             </ul>
             <ul className="button">
                 <li>
-                    <button className="button_reset">Reset</button>
+                    <button type='button' className="button_reset">Reset</button>
                 </li>
                 <li>
-                    <button className="button_search">Fly Now</button>
+                    <Link to={'/search'}>
+                        <button className="button_search">Fly Now</button>
+                    </Link>
                 </li>
             </ul>
         </form>

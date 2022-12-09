@@ -84,7 +84,7 @@ export default function Searched() {
                                     <div>GA828 - Economy</div>
                                 </div>
                             </div>
-                            <div class="attr_service">
+                            <div class="attr_service flight-detail-service">
                                 <div class="attr_service_item">
                                     <div><img src={Bagasi} alt="" /></div>
                                     <div>Bagasi 30 kg</div>

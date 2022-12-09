@@ -259,6 +259,11 @@ body {
     .search-detail__attr-item .attr_service {
         padding: 0 100px;
     }
+
+    .flight-detail-service {
+        width: 70%;
+        margin: auto;
+    }
 }
 
 /* flight detail */
