@@ -15,7 +15,7 @@ export default function Form() {
                 </li>
                 <li className='change-icon'>
                     <div>
-                        <img src={Change} alt="" className='shadow' />
+                        <img src={Change} alt="" className='shadow rounded-circle' />
                     </div>
                 </li>
                 {/* <!-- destination --> */}

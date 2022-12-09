@@ -52,9 +52,7 @@ export default function Personal() {
                         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
                     </div>
                     <div className="mb-0 mt-3 col-lg-3 pb-5 pb-lg-0 float-lg-end">
-                        <input type="button" class="btn shadow btn-sm btn-primary mt-4" value={'Save'} style={{
-                            height: '35px'
-                        }} />
+                        <input type="button" class="btn shadow btn-sm btn-primary mt-4" value={'Save'} />
                     </div>
                 </div>
             </form>

@@ -33,12 +33,14 @@
     grid-row-start: 1;
 }
 
-.login-container .login-form {
-    padding: 0 50px 30px 50px;
+.login-container .login-form,
+.login-container .register-form {
+    padding: 0 25px 30px 25px;
 }
 
 @media screen and (min-width: 1000px) {
-    .login-container .login-form {
+    .login-container .login-form,
+    .login-container .register-form {
         padding: 0 80px 60px 80px;
     }
 }

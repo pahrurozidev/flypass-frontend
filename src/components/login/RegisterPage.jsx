@@ -12,12 +12,12 @@ export default function RegisterPage() {
     return (
         <section className="container login-container">
             <section>
-                <div>
+                <div className='register-form'>
                     <div className='login-header'>
                         <h1>Sign Up</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <form action="" className='px-5 pb-4'>
+                    <form action="">
                         <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
