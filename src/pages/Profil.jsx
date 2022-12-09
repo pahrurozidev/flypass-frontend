@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import Navbar from '../components/admin/layouts/navbar/navbar';
+import Navbar from '../components/customer/dashboard/navbar/navbar';
 import Sidebar from '../components/customer/dashboard/sidebar/Sidebar';
 import ProfilPage from '../components/customer/ProfilPage';
 import { actionType } from '../redux/reducer/globalActionType';

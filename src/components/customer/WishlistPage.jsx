@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from './dashboard/sidebar/Sidebar'
-import Navbar from '../admin/layouts/navbar/navbar'
+import Navbar from './dashboard/navbar/navbar'
 import CardList from './dashboard/card/WishCard'
 
 function WishlistPage() {
