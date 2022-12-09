@@ -1,4 +1,4 @@
-/* Card & List All Bookings */
+/* Ticket List % Ticket Detail */
 .container-fluid {
     top: 100px;
 }
@@ -52,52 +52,52 @@
     color: rgba(0, 0, 0, 0.59);
 }
 
-.table>:not(caption)>*>* {
+.list-ticket .table>:not(caption)>*>* {
     padding: 1rem;
 }
 
-.table tbody tr .line-flight {
+.list-ticket .table tbody tr .line-flight {
     width: 9.375rem;
 }
 
-.table tbody {
+.list-ticket .table tbody {
     vertical-align: middle;
 }
 
-.table tbody tr .airlines {
+.list-ticket .table tbody tr .airlines {
     text-align: start;
 }
 
-.table tbody tr .airlines img {
+.list-ticket .table tbody tr .airlines img {
     width: 2.688rem;
     height: 2.188rem;
 }
 
-.table tbody tr .airlines span {
+.list-ticket .table tbody tr .airlines span {
     font-size: 0.875rem;
     line-height: 21px;
     color: #000;
     margin-left: 0.875rem;
 }
 
-.table tbody tr .departure-from .departure-time,
-.table tbody tr .arrival-to .arrival-time {
+.list-ticket .table tbody tr .departure-from .departure-time,
+.list-ticket .table tbody tr .arrival-to .arrival-time {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 20px;
     margin-bottom: 0;
 }
 
-.table tbody tr .departure-from .from-flight,
-.table tbody tr .arrival-to .to-flight,
-.table tbody tr .duration .type-direct {
+.list-ticket .table tbody tr .departure-from .from-flight,
+.list-ticket .table tbody tr .arrival-to .to-flight,
+.list-ticket .table tbody tr .duration .type-direct {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 18px;
     color: #687176;
 }
 
-.table tbody tr .duration .duration-flight {
+.list-ticket .table tbody tr .duration .duration-flight {
     font-size: 1rem;
     font-weight: 400;
     line-height: 24px;
@@ -105,8 +105,8 @@
     margin-bottom: 0.438rem;
 }
 
-.table tbody tr .departure-date,
-.table tbody tr .action {
+.list-ticket .table tbody tr .departure-date,
+.list-ticket .table tbody tr .action {
     margin-right: 3rem;
     font-size: 0.875rem;
     font-weight: 400;
@@ -114,7 +114,7 @@
     color: rgba(0, 0, 0, 0.5);
 }
 
-table thead tr th {
+.list-ticket table thead tr th {
     border: 0 !important;
 }
 
@@ -290,18 +290,80 @@ table thead tr th {
     color: #000;
 }
 
+@media only screen and (max-width: 330px) {
+    .list-ticket .table tbody tr .airlines span,
+    .list-ticket .table tbody tr .departure-date,
+    .list-ticket .table tbody tr .action {
+        font-size: 10px !important;
+    }
+
+    .list-ticket .table tbody tr .departure-from .departure-time,
+    .list-ticket .table tbody tr .arrival-to .arrival-time {
+        font-size: 14px !important;
+    }
+
+    .list-ticket .table tbody tr .duration .duration-flight,
+    .list-ticket .table tbody tr .departure-from .from-flight,
+    .list-ticket .table tbody tr .arrival-to .to-flight,
+    .list-ticket .table tbody tr .duration .type-direct,
+    .list-ticket .table.table-ticket tbody tr td::before {
+        font-size: 12px !important;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .list-ticket .table tbody tr .airlines {
+        line-height: 32.5px;
+    }
+}
+
+@media only screen and (max-width: 476px) {
+    .list-ticket .table>:not(caption)>*>* {
+        padding: 8px;
+    }
+
+    .list-ticket .table tbody tr .airlines span,
+    .list-ticket .table tbody tr .departure-date,
+    .list-ticket .table tbody tr .action {
+        font-size: 12px;
+    }
+
+    .list-ticket .table tbody tr .departure-from .departure-time,
+    .list-ticket .table tbody tr .arrival-to .arrival-time {
+        font-size: 16px;
+    }
+
+    .list-ticket .table tbody tr .duration .duration-flight {
+        font-size: 14px;
+    }
+
+    .list-ticket .table tbody tr .departure-date,
+    .list-ticket .table tbody tr .action {
+        line-height: 26px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .card-e-ticket .card {
-        width: calc(100% - 20px) !important;
+        width: 100% !important;
     }
 
     .container.my-ticket {
-        width: calc(100% - 50px) !important;
+        width: 100% !important;
+    }
+
+    .container.e-ticket .card-e-ticket {
+        width: calc(100% - 65px);
+        margin-bottom: 50px;
     }
 
     .container.my-ticket h5 {
         margin: 1.625rem 0 1.25rem 0 !important;
         font-size: 1rem !important;
+    }
+
+    .container.list-ticket {
+        width: 100%;
     }
 
     .opsi-filter {
@@ -312,8 +374,8 @@ table thead tr th {
         margin: 0;
     }
 
-    .table thead,
-    .table tbody tr td.line-flight {
+    .list-ticket .table thead,
+    .list-ticket .table tbody tr td.line-flight {
         display: none;
     }
 
@@ -325,31 +387,32 @@ table thead tr th {
         border: 0;
     }
 
-    .table {
+    .list-ticket .table {
         display: block;
         width: 100% !important;
         margin-top: 0.625rem;
     }
 
-    .table tbody, .table tbody tr {
+    .list-ticket .table tbody, .table tbody tr {
         display: block;
         width: 100%;
     }
 
-    .table tbody tr td {
+    .list-ticket .table tbody tr td {
         display: block;
         width: 50%;
         float: left;
     }
 
-    .table tbody th {
+    .list-ticket .table tbody th {
         display: block;
         width: 50%;
         float: left;
     }
 
-    .table tbody tr {
-        border: 1px solid gray;
+    .list-ticket .table tbody tr {
+        border: 1px solid #B9B9B9;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
         border-radius: 6px;
         margin-bottom: 16px;
         float: left;
@@ -360,35 +423,48 @@ table thead tr th {
         margin-bottom: 0;
     }
 
-    .table tbody th::before,
-    .table tbody tr td::before {
+    .list-ticket .table tbody th::before,
+    .list-ticket .table.table-ticket tbody tr td::before {
         content: attr(data-label);
         display: block;
         font-size: 0.875rem;
         font-weight: 600;
         color: #000;
-    }
-
-    .table tbody tr .airlines {
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding-left: 0;
         text-align: center;
+        line-height: 21px;
     }
 
-    .table tbody tr .airlines span {
+    .list-ticket .table tbody tr td {
+        text-align: center !important;
+        border-bottom-width: 0;
+    }
+    
+    .list-ticket .table tbody tr td:nth-of-type(2),
+    .list-ticket .table tbody tr td:nth-of-type(5),
+    .list-ticket .table tbody tr td:nth-of-type(7) {
+        border-left-width: 1px;
+    }
+    
+    .list-ticket .table tbody tr .airlines span {
         margin-left: 0;
     }
 
-    .table tbody tr .departure-from .departure-time,
-    .table tbody tr .arrival-to .arrival-time {
+    .list-ticket .table tbody tr .departure-from .departure-time,
+    .list-ticket .table tbody tr .arrival-to .arrival-time {
         line-height: 50px;
     }
 
-    .table tbody tr .duration .duration-flight {
+    .list-ticket .table tbody tr .duration .duration-flight {
         line-height: 50px;
         margin-bottom: 0; 
     }
 
-    .table tbody tr .departure-date,
-    .table tbody tr .action {
+    .list-ticket .table tbody tr .departure-date,
+    .list-ticket .table tbody tr .action {
         margin-right: 0;
     }
 }
@@ -521,6 +597,12 @@ table thead tr th {
     .container.my-ticket h5 {
         font-size: 1rem;
         line-height: 26px;
+    }
+
+    .list-ticket .table tbody tr .airlines span {
+        margin-left: 0;
+        text-align: center;
+        line-height: 16px;
     }
 
     .card-e-ticket .card,

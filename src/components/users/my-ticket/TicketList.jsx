@@ -17,7 +17,7 @@ export default function Card() {
                     <a className="btn btn-date"><span>Date Range</span></a>
                 </div>
                 <div className="container list-ticket p-0">
-                    <table className="table">
+                    <table className="table table-ticket">
                         <thead>
                             <tr>
                                 <th>Airlines</th>
