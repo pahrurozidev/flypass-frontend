@@ -6,7 +6,10 @@
     color: rgba(0, 0, 0, 0.62);
 }
 
-.container.transaction-list,
+.container.transaction-list {
+    width: 100%;
+}
+
 .container.all-transaction {
     width: 1012px;
 }
@@ -32,6 +35,7 @@
 }
 
 .container.table-transaction {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -39,13 +43,13 @@
 }
 
 .transaction-card {
-    margin-left: 60px;
+    margin-left: 45px;
     margin-bottom: 60px;
     width: 100%;
     border: 0;
 }
 .transaction-card .transaction-card-detail {
-    width: calc(100% - 150px);
+    width: calc(100% - 90px);
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 100px;
@@ -109,25 +113,30 @@
 }
 
 
-table {
+.container.table-transaction table.table {
+    width: calc(100% - 20px);
     margin-top: 50px;
 }
 
-tbody tr td.booking_code,
-thead th.booking_code {
+.container.table-transaction tbody tr td.booking_code,
+.container.table-transaction thead th.booking_code {
     text-align: start;
     padding-left: 27px;
 }
 
-tbody tr td {
+.container.table-transaction tbody tr td {
     font-size: 0.875rem;
 }
 
-tbody tr td.col_date {
+.container.table-transaction tbody tr td.col_date {
     color: #8A8A8A;
 }
 
-.table>:not(caption)>*>* {
+.container.table-transaction tbody tr td.status_col {
+    vertical-align: middle;
+}
+
+.container.table-transaction .table>:not(caption)>*>* {
     padding: 0;
 }
 
@@ -161,6 +170,63 @@ tbody tr td.col_date {
     border-color: #dbbaba;
 }
 
+@media only screen and (max-width: 395px) {
+    .container-fluid .title-dashboard {
+        font-size: 18px !important;
+    }
+
+    .container.transaction-list h5.breadcrumb-detail {
+        font-size: 12px !important;
+        margin-left: 0 !important;
+    }
+
+    .container.transaction-list .next-breadcrumb {
+        font-size: 10px !important;
+    }
+    
+    .section_top .data-item__name,
+    .section_bottom .data-item__name {
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .section_top .data-item p.data-item__value,
+    .section_bottom .data-item p.data-item__value {
+        font-size: 10px !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .container-fluid {
+        padding-left: 15px !important;
+    }
+
+    .container.table-transaction {
+        width: calc(100% - 20px) !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container.table-transaction table.table {
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+
+    .container.table-transaction .table tbody tr td {
+        width: 100% !important;
+    }
+
+    .container.table-transaction .table tbody tr td:nth-of-type(1),
+    .container.table-transaction .table tbody tr td:nth-of-type(3),
+    .container.table-transaction .table tbody tr td:nth-of-type(5) {
+        border-right-width: 0 !important;
+    }
+
+    .container.table-transaction .table tbody tr td.td_action {
+        border-bottom: 0;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .data-item .data-item__value {
         font-size: 12px !important;
@@ -183,8 +249,30 @@ tbody tr td.col_date {
         font-size: 14px;
     }
 
+    .container.transaction-list,
+    .container.all-transaction {
+        width: 100%;
+    }
+
     .transaction-card {
         margin-left: 0;
+        width: calc(100% - 10px);
+    }
+
+    .transaction-card .transaction-card-detail {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section_top .data-item,
+    .section_bottom .data-item {
+        width: 100% !important;
+    }
+
+    .transaction-card-detail .section_top .data-item,
+    .transaction-card-detail .section_bottom .data-item {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .section_top .right-list,
@@ -204,53 +292,72 @@ tbody tr td.col_date {
     .section_bottom .right-list .subtotal-price {
         text-align: end;
     }
+
+    .container.table-transaction .table tbody tr td:nth-of-type(1),
+    .container.table-transaction .table tbody tr td:nth-of-type(3),
+    .container.table-transaction .table tbody tr td:nth-of-type(5) {
+        border-right-width: 1px;
+    }
     
-    .table thead {
+    .container.table-transaction .table thead {
         display: none;
     }
 
-    .table tbody {
+    .container.table-transaction .table tbody {
         border: 0;
     }
 
-    .table {
+    .container.table-transaction .table {
         display: block;
         width: 100% !important;
         margin-top: 0.625rem;
     }
 
-    .table tbody, .table tr, .table td {
+    .container.table-transaction .table tbody,
+    .table tr,
+    .table td {
         display: block;
         width: 100%;
     }
 
-    .table tr {
+    .container.table-transaction .table tr {
         border-radius: 0.5rem;
         margin-bottom: 0.938rem;
         border: 1px solid #D9D9D9;
     }
 
-    .table td {
+    .container.table-transaction .table td {
         text-align: end !important;
         padding: 0 15px;
         position: relative;
     }
 
-    .table td.status_col {
+    .container.table-transaction .table tbody tr td {
+        display: block;
+        width: 50%;
+        float: left;
+    }
+
+    .container.table-transaction .table td.status_col {
         text-align: end;
         padding: 10px;
     }
 
-    .table td .detail_transaction svg {
+    .container.table-transaction .table td.td_action {
+        width: 100%;
+    }
+
+    .container.table-transaction .table td .detail_transaction svg {
         display: none;
     }
 
-    .table td .detail_transaction::before {
+    .container.table-transaction .table td .detail_transaction::before {
         content: "Detail";
     }
 
-    .table td::before {
+    .container.table-transaction .table td::before {
         content: attr(data-label);
+        display: block;
         position: absolute;
         top: 5px;
         left: 0;
@@ -263,13 +370,19 @@ tbody tr td.col_date {
         color: rgba(0, 0, 0, 0.59);
     }
 
-    .table tbody tr .booking_code {
-        text-align: end;
-    }
-
     .alert {
         margin-left: auto;
         margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 996px) {
+    .container.all-transaction {
+        width: 100%;
+    }
+
+    .transaction-card .transaction-card-detail {
+        width: 69%;
     }
 }
 
