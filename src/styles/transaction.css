@@ -1,0 +1,280 @@
+.container.all-transaction h5 {
+    margin: 1rem 0 1.625rem 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.container.transaction-list,
+.container.all-transaction {
+    width: 1012px;
+}
+
+.container.transaction-list .title-transaction {
+    margin: 1.938rem 0 1.625rem 0;
+}
+
+.container.transaction-list .title-transaction a {
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.container.transaction-list h5 {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.62);
+}
+
+.container.transaction-list h5.breadcrumb-detail {
+    font-weight: 900;
+}
+
+.container.table-transaction {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 3.438rem;
+}
+
+.transaction-card {
+    margin-left: 60px;
+    margin-bottom: 60px;
+    width: 100%;
+    border: 0;
+}
+.transaction-card .transaction-card-detail {
+    width: calc(100% - 150px);
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 100px;
+    box-sizing: border-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+}
+
+.section_top,
+.section_bottom {
+    gap: 40px;
+}
+
+.section_top .right-list,
+.section_top .left-list,
+.section_bottom .right-list,
+.section_bottom .left-list {
+    width: 45%;
+}
+
+.data-item {
+    font-size: 12.5px !important;
+    width: 450px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.data-item .data-item__value {
+    font-size: 14px !important;
+}
+
+.data-item .data-item__value > span.alert-status {
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #0f5132;
+    background-color: #BFFCBA;
+    border-color: #badbcc;
+}
+
+.section_bottom .right-list h5.total-price {
+    font-size: 20px !important;
+    font-weight: 500;
+    line-height: 30px;
+    color: #000 !important;
+    margin-bottom: 1rem;
+}
+
+.section_bottom .right-list .subtotal-price {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
+    color: #007AFF;
+}
+
+.container.table-transaction .table thead th {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.59);
+}
+
+
+table {
+    margin-top: 50px;
+}
+
+tbody tr td.booking_code,
+thead th.booking_code {
+    text-align: start;
+    padding-left: 27px;
+}
+
+tbody tr td {
+    font-size: 0.875rem;
+}
+
+tbody tr td.col_date {
+    color: #8A8A8A;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0;
+}
+
+.alert {
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.alert_success {
+    color: #0f5132;
+    background-color: #BFFCBA;
+    border-color: #badbcc;
+}
+
+.alert_warning {
+    color: #514a0f;
+    background-color: #F2FFA5;
+    border-color: #dbdaba;
+}
+
+.alert_danger {
+    color: #510f0f;
+    background-color: #ffa5a5;
+    border-color: #dbbaba;
+}
+
+@media only screen and (max-width: 767px) {
+    .data-item .data-item__value {
+        font-size: 12px !important;
+    }
+
+    .title-dashboard {
+        font-size: 21px !important;
+    }
+
+    .container.transaction-list .title-transaction a svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container.transaction-list h5.breadcrumb-detail {
+        font-size: 16px;
+    }
+
+    .container.transaction-list .next-breadcrumb {
+        font-size: 14px;
+    }
+
+    .transaction-card {
+        margin-left: 0;
+    }
+
+    .section_top .right-list,
+    .section_top .left-list,
+    .section_bottom .right-list,
+    .section_bottom .left-list {
+        width: 100%;
+    }
+
+    .section_top,
+    .section_bottom {
+        gap: 20px;
+        flex-direction: column !important;
+    }
+
+    .section_bottom .right-list h5.total-price,
+    .section_bottom .right-list .subtotal-price {
+        text-align: end;
+    }
+    
+    .table thead {
+        display: none;
+    }
+
+    .table tbody {
+        border: 0;
+    }
+
+    .table {
+        display: block;
+        width: 100% !important;
+        margin-top: 0.625rem;
+    }
+
+    .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tr {
+        border-radius: 0.5rem;
+        margin-bottom: 0.938rem;
+        border: 1px solid #D9D9D9;
+    }
+
+    .table td {
+        text-align: end !important;
+        padding: 0 15px;
+        position: relative;
+    }
+
+    .table td.status_col {
+        text-align: end;
+        padding: 10px;
+    }
+
+    .table td .detail_transaction svg {
+        display: none;
+    }
+
+    .table td .detail_transaction::before {
+        content: "Detail";
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 30%;
+        padding-left: 0.938rem;
+        text-align: start;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 21px;
+        color: rgba(0, 0, 0, 0.59);
+    }
+
+    .table tbody tr .booking_code {
+        text-align: end;
+    }
+
+    .alert {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    .data-item .data-item__value {
+        font-size: 12px !important;
+    }
+}

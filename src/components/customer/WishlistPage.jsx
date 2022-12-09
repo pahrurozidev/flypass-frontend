@@ -1,16 +1,19 @@
 import React from 'react'
 import Sidebar from './dashboard/sidebar/Sidebar'
-import Navbar from './dashboard/navbar/navbar3'
+import Navbar from '../admin/layouts/navbar/navbar'
 import CardList from './dashboard/card/WishCard'
 
 function WishlistPage() {
     return (
+
         <div className='d-flex'>
             <Sidebar />
-            <div id='content-wrapper' className='d-flex flex-column'>
-                <div id="content">
-                    <Navbar />
-                    <CardList />
+            <div className='main-container'>
+                <div id='content-wrapper' className='d-flex flex-column'>
+                    <div id="content">
+                        <Navbar />
+                        <CardList />
+                    </div>
                 </div>
             </div>
         </div>

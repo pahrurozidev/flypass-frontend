@@ -5,7 +5,7 @@ export default function EditProfilPage() {
     return (
         <>
         <a href="/profil"><img src={ArrowLeft} className="arrowleft" alt="" /></a>
-        <h3 className='profil'>Edit Profil</h3>
+        <h2 className='profil1'>Edit Profil</h2>
         <section className="container login">
             <div className="login-detail">
                 <form action="">

@@ -14,6 +14,11 @@ import Profil from "../pages/Profil";
 import EditProfil from "../pages/EditProfil";
 import Wishlist from "../pages/Wishlist";
 import Notification from "../pages/Notification";
+import Search from "../pages/Search";
+import Payments from "../pages/Payments";
+
+import MyTicket from "../pages/MyTicketUser";
+import Transaction from "../pages/TransactionUser";
 
 export default function Routes() {
     return (
@@ -21,6 +26,9 @@ export default function Routes() {
             <Switch>
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/search/flight/detail" element={<Payments />} />
+                <Route path="/search/flight/payment" element={<Payments />} />
 
                 {/* auth */}
                 <Route exact path="/login" element={<Login />} />
@@ -42,6 +50,10 @@ export default function Routes() {
                 <Route exact path="/editprofil" element={<EditProfil />} />
                 <Route exact path="/wishlist" element={<Wishlist />} />
                 <Route exact path="/notifuser" element={<Notification />} />
+                <Route path="/my-ticket" element={<MyTicket />} />
+                <Route path="/my-ticket/:id" element={<MyTicket />} />
+                <Route path="/transaction" element={<Transaction />} />
+                <Route path="/transaction/:id" element={<Transaction />} />
             </Switch>
         </HashRouter>
     )

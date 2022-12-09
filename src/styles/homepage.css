@@ -28,6 +28,7 @@ nav {
 
 .bell {
     margin-left: 5px;
+    margin-left: 25px;
 }
 
 .bell::after {
@@ -80,12 +81,12 @@ nav {
     box-shadow: .1px .1px 2px .1px silver;
 }
 
-form {
+.booking-form {
     width: 100%;
     font-size: 14px !important;
 }
 
-form ul {
+.booking-form ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -93,17 +94,17 @@ form ul {
     padding: 0 50px;
 }
 
-form ul:nth-child(2) {
+.booking-form ul:nth-child(2) {
     justify-content: end;
 }
 
-form li {
+.booking-form li {
     display: flex;
     flex-direction: column;
     margin-bottom: -5px;
 }
 
-form select,
+.booking-form select,
 input {
     width: 217px;
     height: 38px;
@@ -120,27 +121,27 @@ input {
     top: 50px;
 }
 
-form .trip {
+.booking-form .trip {
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-form .date {
+.booking-form .date {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-form .button {
+.booking-form .button {
     margin: 0;
     padding: 0 35px;
 }
 
-form button {
+.booking-form button {
     font-size: 16px;
 }
 
-form button.button_reset {
+.booking-form button.button_reset {
     width: 80px;
     height: 45px;
     border: 0;
@@ -149,7 +150,7 @@ form button.button_reset {
     font-size: 18px;
 }
 
-form .button_search {
+.booking-form .button_search {
     background: #007AFF;
     color: white;
     width: 130px;
@@ -170,7 +171,7 @@ form .button_search {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-radius: 10px;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .service h1 {
@@ -204,9 +205,8 @@ form .button_search {
 
 .service-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 /* service */
@@ -228,7 +228,7 @@ form .button_search {
 }
 
 .offer h6 {
-    font-size: 16px;
+    font-size: 20px;
     color: #007AFF;
     font-weight: 700;
 }
@@ -251,7 +251,7 @@ form .button_search {
     margin-top: 20px;
     font-size: 20px;
     border-radius: 12px;
-    padding: 14px 24px;
+    padding: 12px 24px 14px;
     gap: 10px;
 }
 
@@ -310,7 +310,7 @@ form .button_search {
 .contact .contact-detail {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
 
     grid-column-start: 1;
     grid-column-end: 3;
@@ -449,23 +449,23 @@ footer a {
 /* form */
 @media screen and (max-width: 1500px) {
 
-    form select,
+    .booking-form select,
     input {
         width: 195px;
     }
 }
 
 @media screen and (max-width: 1250px) {
-    form ul {
+    .booking-form ul {
         padding: 0 20px;
     }
 
-    form select,
+    .booking-form select,
     input {
         width: 200px;
     }
 
-    form .button {
+    .booking-form .button {
         margin: 0;
         padding: 0 5px;
     }
@@ -473,7 +473,7 @@ footer a {
 
 @media screen and (max-width: 1199px) {
 
-    form select,
+    .booking-form select,
     input {
         width: 160px;
     }
@@ -487,50 +487,50 @@ footer a {
     }
 
     .form-search {
-        height: 580px;
+        height: 520px;
         /* width: 400px; */
         bottom: 30px;
 
         top: 500px;
     }
 
-    form ul {
+    .booking-form ul {
         flex-direction: column;
         transform: scale(.9);
-        margin-top: -50px;
+        margin-top: -40px;
     }
 
-    form li {
-        margin-top: 20px;
+    .booking-form li {
+        margin-top: 15px;
     }
 
     .change-icon {
         top: 5px;
     }
 
-    form select,
+    .booking-form select,
     input {
         width: 100%;
         margin-top: 0px;
     }
 
-    form .button {
+    .booking-form .button {
         margin: 0;
         padding: 0 10px;
     }
 
-    form label {
+    .booking-form label {
         margin-bottom: 5px;
     }
 
-    form .button_reset {
+    .booking-form .button_reset {
         text-align: left;
         padding: 0;
         margin-top: -35px;
     }
 
 
-    form .button_search {
+    .booking-form .button_search {
         margin-left: -5px;
         margin-top: -15px;
     }
@@ -563,15 +563,24 @@ footer a {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 5px;
-    }
 
+    }
+    
     .main-service {
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 1;
         grid-column-end: 3;
-
+        
         align-items: flex-start;
+    }
+    
+    .main-service h1 {
+        font-size: 25px;
+    }
+    
+    .service-item h3 {
+        font-size: 18px;
     }
 }
 
@@ -620,9 +629,13 @@ footer a {
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 999px) {
     .offer {
         height: 600px;
+    }
+
+    .offer .offer-desc {
+        margin-top: -80px;
     }
 }
 
@@ -654,7 +667,7 @@ footer a {
 /* contact us */
 @media screen and (max-width: 1399px) {
 
-    form select,
+    .booking-form select,
     input {
         height: 45px;
     }

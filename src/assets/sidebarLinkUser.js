@@ -24,6 +24,11 @@ const sidebarLinkUser = [
         icon: 'bi bi-cash-stack',
         display: 'Transaction',
     },
+    {
+        path: '/notifuser',
+        icon: 'bi bi-bell',
+        display: 'Notification',
+    },
 ];
 
 export default sidebarLinkUser;

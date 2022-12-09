@@ -25,7 +25,11 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     {(location === "/login" ||
                         location === "/register" ||
-                        location === "/register2") ?
+                        location === "/register2" ||
+                        location === "/register/personal" ||
+                        location === "/search/flight/detail" ||
+                        location === "/search/flight/payment" ||
+                        location === "/search") ?
                         <div className='navbar-nav ms-auto'></div> :
                         <div className="navbar-nav ms-auto">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>

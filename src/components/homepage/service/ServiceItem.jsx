@@ -11,10 +11,9 @@ export default function ServiceItem() {
             <div className="main-service">
                 <div>
                     <h5>Our Service</h5>
-                    <h1>
-                        We Offer
-                        <br />
-                        Best Service
+                    <h1 className='d-flex flex-column gap-1 mt-2'>
+                        <span>We Offer</span>
+                        <span>Best Service</span>
                     </h1>
                 </div>
             </div>

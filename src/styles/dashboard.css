@@ -23,6 +23,7 @@ body {
     top: 70px;
 }
 
+
 /* Sidebar */
 .sidebar {
     position: fixed;
@@ -404,10 +405,6 @@ hr {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.list-card .card .title-user {
-    display: none;
-}
-
 @media only screen and (max-width: 600px) {
 
     /* Sidebar */
@@ -539,10 +536,6 @@ hr {
         margin-right: 20px !important;
     }
 
-    .list-card .card .card-body {
-        gap: 4px !important;
-    }
-
     .list-card .card .name-plane {
         font-size: 12px !important;
         padding: 0 !important;
@@ -569,13 +562,15 @@ hr {
 
     .destination {
         flex-direction: column !important;
+        width: 100% !important;
+        align-items: center !important;
         height: 190px !important;
         row-gap: 3px !important;
         margin-right: 20px !important;
-        justify-content: center !important;
     }
 
     .destination img {
+        width: 70px !important;
         height: 70px !important;
         rotate: 90deg !important;
         padding: 0 3px !important;
@@ -611,6 +606,7 @@ hr {
     }
 
     .list-card .card .people {
+        margin-left: 0 !important;
         font-size: 14px;
         position: absolute;
         top: 49%;
@@ -878,5 +874,162 @@ hr {
     .user-profile {
         position: relative !important;
         right: -20px !important;
+    }
+}
+
+.container.list-booking .booking-table .table thead th {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.59);
+}
+
+.booking-table .table>:not(caption)>*>* {
+    padding: 1rem;
+}
+
+.booking-table .table tbody tr .line-flight {
+    width: 9.375rem;
+}
+
+.booking-table .table tbody {
+    vertical-align: middle;
+}
+
+.booking-table .table tbody tr .airlines {
+    text-align: start;
+}
+
+.booking-table .table tbody tr .airlines img {
+    width: 2.688rem;
+    height: 2.188rem;
+}
+
+.booking-table .table tbody tr .airlines span {
+    font-size: 0.875rem;
+    line-height: 21px;
+    color: #000;
+    margin-left: 0.875rem;
+}
+
+.booking-table .table tbody tr .departure-from .departure-time,
+.booking-table .table tbody tr .arrival-to .arrival-time {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+.booking-table .table tbody tr .departure-from .from-flight,
+.booking-table .table tbody tr .arrival-to .to-flight,
+.booking-table .table tbody tr .duration .type-direct {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 18px;
+    color: #687176;
+}
+
+.booking-table .table tbody tr .duration .duration-flight {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 0.438rem;
+}
+
+.booking-table .table tbody tr .departure-date,
+.booking-table .table tbody tr .people {
+    margin-right: 3rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.table thead tr th {
+    border: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+    .opsi-filter {
+        display: none;
+    }
+
+    br.d-none {
+        display: block !important;
+    }
+
+    .table {
+        width: 100% !important;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody {
+        border: 0;
+    }
+    
+    .table tbody, .table tbody tr {
+        display: block;
+        width: 100%;
+    }
+
+    .table tbody tr th::before,
+    .table tbody tr td::before { 
+        content: attr(data-title);
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .booking-table .table tbody tr .airlines {
+        text-align: center;
+    }
+
+    .table tbody tr td.line-flight {
+        display: none;
+    }
+
+    .table tbody tr td {
+        display: block;
+        width: 50%;
+        float: left;
+    }
+
+    .table tbody tr th {
+        display: block;
+        width: 50%;
+        float: left;
+    }
+
+    .table tbody tr {
+        border: 1px solid gray;
+        border-radius: 6px;
+        margin-bottom: 16px;
+        float: left;
+        clear: both;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .booking-table .table tbody tr .departure-from .departure-time,
+    .booking-table .table tbody tr .arrival-to .arrival-time {
+        line-height: 50px;
+    }
+
+    .booking-table .table tbody tr .duration .duration-flight {
+        line-height: 50px;
+        margin-bottom: 0; 
+    }
+
+    .booking-table .table tbody tr .departure-date,
+    .booking-table .table tbody tr .people {
+        margin-right: 0;
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import Navbar from '../components/customer/dashboard/navbar/navbar3';
+import Navbar from '../components/admin/layouts/navbar/navbar';
 import Sidebar from '../components/customer/dashboard/sidebar/Sidebar';
 import EditProfilPage from '../components/customer/EditProfilPage';
 import { actionType } from '../redux/reducer/globalActionType';
@@ -16,12 +16,12 @@ class EditProfil extends Component {
             <Fragment>
                 <div className='d-flex'>
                     <Sidebar />
-                    <div id='content-wrapper' className='d-flex flex-column'>
-                        <div id="content">
-                            <Navbar />
-                            <EditProfilPage />
+                        <div id='content-wrapper' className='d-flex flex-column'>
+                            <div id="content">
+                                <Navbar />
+                                <EditProfilPage />
+                            </div>
                         </div>
-                    </div>
                 </div>
             </Fragment>
         )

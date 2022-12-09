@@ -6,7 +6,7 @@ export default function ProfilPage() {
     return (
         <>
         <img src={ArrowLeft} className="arrowleft" alt="" />
-        <h3 className='profil'>Your Profil</h3>
+        <h2 className='profil1'>Your Profil</h2>
         <section className="container login ">
             <div className="login-detail">
             <img src={UserCircle} class="nav-link user-image" alt="" />
@@ -37,6 +37,7 @@ export default function ProfilPage() {
                 <hr />
                 <h6>Country :</h6>
                 <p>Thailand</p>
+                <hr />
                 <h6>Address :</h6>
                 <p>Indonesia Utara</p>
                 <hr />
