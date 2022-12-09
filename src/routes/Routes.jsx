@@ -39,10 +39,11 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
-                <Route path="/my-ticket" element={<MyTicket />} />
-                <Route path="/my-ticket/:id" element={<MyTicket />} />
-                <Route path="/transaction" element={<Transaction />} />
-                <Route path="/transaction/:id" element={<Transaction />} />
+                <Route path="/user/dashboard/ticket" element={<MyTicket />} />
+                <Route path="/user/dashboard/ticket/:id" element={<MyTicket />} />
+                <Route path="/user/dashboard/transaction" element={<Transaction />} />
+                <Route path="/user/dashboard/transaction/:id" element={<Transaction />} />
+
             </Switch>
         </HashRouter>
     )
