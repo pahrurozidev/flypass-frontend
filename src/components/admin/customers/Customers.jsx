@@ -12,11 +12,13 @@ export default function Customers() {
     return (
         <div className='d-flex'>
             <Sidebar />
-            <div id='content-wrapper' className='d-flex flex-column'>
-                <div id="content">
-                    <Navbar />
-                    {id && <CustomerDetail />}
-                    {!id && <CustomerList />}
+            <div className="main-container">
+                <div id='content-wrapper' className='d-flex flex-column'>
+                    <div id="content">
+                        <Navbar />
+                        {id && <CustomerDetail />}
+                        {!id && <CustomerList />}
+                    </div>
                 </div>
             </div>
         </div>

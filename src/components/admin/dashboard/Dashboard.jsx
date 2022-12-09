@@ -7,10 +7,12 @@ function dashboard() {
     return (
         <div className='d-flex'>
             <Sidebar />
-            <div id='content-wrapper' className='d-flex flex-column'>
-                <div id="content">
-                    <Navbar />
-                    <CardList />
+            <div className='main-container'>
+                <div id='content-wrapper' className='d-flex flex-column'>
+                    <div id="content">
+                        <Navbar />
+                        <CardList />
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../../assets/dasboard-admin/line.svg';
+import Eye from '../../../../assets/dasboard-admin/eye.svg';
 import Ellipse from '../../../../assets/dasboard-admin/EllipsePeople.svg';
 
 export default function ListBooking() {
     return (
         <>
-            <h5>All Bookings</h5>
+            <h5>Recent Bookings</h5>
             <div className="opsi-filter">
                 <a className="btn btn-departure"><span>Departure Date</span></a>
                 <a className="btn btn-booking"><span>Booking Type</span></a>
@@ -19,7 +20,7 @@ export default function ListBooking() {
                     <span>To</span>
                     <span>Duration</span>
                     <span>Date</span>
-                    <span>People</span>
+                    <span>Action</span>
                 </div>
                 <div className="list-card">
                     <div className="card">
@@ -35,7 +36,7 @@ export default function ListBooking() {
                                     <p className='departure-time'>08:05</p>
                                     <span className='from-flight'>Jakarta</span>
                                 </div>
-                                <img className='line col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
+                                <img className='col-lg-4 col-md-4 p-0 px-2' src={Line} alt="" />
                                 <div className="col-lg-4 col-md-4 p-0">
                                     <p className='arrival-time'>09:50</p>
                                     <span className='to-flight'>Singapore</span>
@@ -58,7 +59,9 @@ export default function ListBooking() {
                                 </div>
                             </div> */}
                             <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
+                            <a href="/detailticket">
+                                <span className='people' style={{ marginLeft: "32px" }}><img src={Eye} alt="Eye" className='align-items-center' /></span>
+                            </a>
                         </div>
                     </div>
                     <div className="card">
@@ -86,7 +89,9 @@ export default function ListBooking() {
                             </div>
                             <span className='departure-date'>01 Dec 2022</span>
                             <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
+                            <a href="/detailticket">
+                                <span className='people' style={{ marginLeft: "32px" }}><img src={Eye} alt="Eye" className='align-items-center' /></span>
+                            </a>
                         </div>
                     </div>
                     <div className="card">
@@ -114,7 +119,9 @@ export default function ListBooking() {
                             </div>
                             <span className='departure-date'>01 Dec 2022</span>
                             <span className='title-user'>Customers</span>
-                            <span className='people' style={{ marginLeft: "40px" }}>5</span>
+                            <a href="/detailticket">
+                                <span className='people' style={{ marginLeft: "32px" }}><img src={Eye} alt="Eye" className='align-items-center' /></span>
+                            </a>
                         </div>
                     </div>
                 </div>

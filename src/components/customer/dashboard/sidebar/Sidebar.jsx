@@ -5,18 +5,18 @@ import { TicketPerforated } from 'react-bootstrap-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
-import { NavLink, Link } from 'react-router-dom';
-import sidebarLink from '../../../../assets/sidebarLink';
+import { NavLink } from 'react-router-dom';
+import sidebarLinkUser from '../../../../assets/sidebarLinkUser';
 
 export default function Sidebar() {
     return (
-        <ul className="nav flex-column border-end sidebar">
-            <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
-                <img src={Logo} alt="FlyPass" className='logo-large mb-4' />
+        <ul className="nav flex-column sidebar">
+            <a href="#" className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
+                <img src={Logo} alt="FlyPass" className='logo-large' />
                 <FontAwesomeIcon icon={faPlaneDeparture} className='logo-small' />
-            </Link>
-            {/* <hr className="my-lg-3" /> */}
-            {sidebarLink.map((item, index) => (
+            </a>
+            <hr className="my-lg-3" />
+            {sidebarLinkUser.map((item, index) => (
                 <li className="nav-item list-sidebar" key={index}>
                     <NavLink to={item.path} className={(navClass) => navClass.isActive ? "active nav-link" : "nav-link"}>
                         <i className={item.icon}></i>

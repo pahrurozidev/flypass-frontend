@@ -3,8 +3,24 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
     box-sizing: border-box;
+}
+
+.sidebar {
+    position: relative;
+    z-index: 2;
+}
+
+.topbar {
+    z-index: 1 !important;
+}
+
+.main-container {
+    position: relative;
+    top: 70px;
 }
 
 /* Sidebar */
@@ -91,6 +107,10 @@ hr {
     box-shadow: 0 0.188rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
+.search-form {
+    display: flex;
+}
+
 .input-search {
     font-size: 0.875rem;
     line-height: 21px;
@@ -127,11 +147,16 @@ hr {
 
 .profile-dropdown .user-profile {
     margin-right: 3.75rem;
+    /* margin-top: 8px; */
+
+    position: absolute !important;
+    top: 15px !important;
+    right: 20px !important;
 }
 
 .profile-dropdown .user-profile .link-profile {
-    padding: 0.25rem 0 0.25rem 0.313rem;
-    width: 9.125rem;
+    padding: 0.25rem 10px 0.313rem;
+    /* width: 9.125rem; */
     height: 2.188rem;
     background: rgba(213, 213, 213, 0.6);
     border: 1px solid #0076CB;
@@ -173,6 +198,8 @@ hr {
 }
 
 .toggle-notif .notification-icon {
+    margin-bottom: 5px;
+    margin-right: 15px;
     width: 20px;
     height: 20px;
 }
@@ -382,6 +409,7 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
+
     /* Sidebar */
     .sidebar {
         position: fixed;
@@ -416,10 +444,10 @@ hr {
         margin-bottom: 8px;
     }
 
-    
+
     /* Navbar */
     .topbar {
-        height: 3.125rem !important;
+        height: 4.3rem !important;
         justify-content: flex-end;
         width: calc(100% - 60px) !important;
     }
@@ -432,10 +460,10 @@ hr {
         position: relative;
         margin-right: 0 !important;
     }
-    
+
     .profile-dropdown .user-profile .link-profile {
         padding: 4px !important;
-        width: 35px !important;
+        /* width: 35px !important; */
         height: 35px !important;
         margin-top: 0 !important;
     }
@@ -480,12 +508,12 @@ hr {
     .welcome-card .card-body {
         padding: 1.313rem !important;
     }
-    
+
     .welcome-card .card-body .card-title {
         font-size: 1.25rem !important;
         line-height: 26px !important;
     }
-    
+
     .welcome-card .card-body .card-text {
         font-size: 0.875rem !important;
     }
@@ -559,13 +587,13 @@ hr {
         margin-right: 0px !important;
         margin-bottom: 95px !important;
     }
-    
+
     .list-card .card .duration {
         font-size: 14px !important;
         width: 70px !important;
         line-height: 18px !important;
     }
-    
+
     .list-card .card .departure-date {
         margin-right: 0 !important;
         font-size: 12px !important;
@@ -573,7 +601,7 @@ hr {
         top: 24%;
         left: 5%;
     }
-    
+
     .list-card .card .title-user {
         display: block !important;
         font-size: 12px;
@@ -588,9 +616,17 @@ hr {
         top: 49%;
         left: 64%;
     }
+
+
 }
 
 @media only screen and (max-width: 995px) {
+
+    .profile-dropdown .user-profile .link-profile {
+        padding: 0.25rem 10px 0.313rem !important;
+    }
+    
+
     /* Sidebar */
     .sidebar {
         position: fixed;
@@ -625,7 +661,7 @@ hr {
         margin-bottom: 8px;
     }
 
-    
+
     /* Navbar */
     .topbar {
         justify-content: space-between;
@@ -640,11 +676,26 @@ hr {
         position: relative;
         margin-right: 0 !important;
     }
-    
+
+    .toggle-notif .notification-icon {
+        margin-bottom: 6px;
+        margin-left: 690px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+    }
+
+    .profile-dropdown .notification .notif-menu {
+        margin-left: 570px;
+        width: 100px;
+        position: relative;
+        margin-right: 0 !important;
+    }
+
     .profile-dropdown .user-profile .link-profile {
-        margin-top: 0 !important; 
+        margin-top: 0 !important;
         padding: 0.25rem 0 0.25rem 0.313rem;
-        width: 9.125rem;
+        /* width: 9.125rem; */
         height: 2.188rem;
         background: rgba(213, 213, 213, 0.6);
         border: 1px solid #0076CB;
@@ -696,12 +747,12 @@ hr {
     .welcome-card .card-body {
         padding: 1.313rem !important;
     }
-    
+
     .welcome-card .card-body .card-title {
         font-size: 24px !important;
         line-height: 26px !important;
     }
-    
+
     .welcome-card .card-body .card-text {
         font-size: 1rem !important;
     }
@@ -734,7 +785,7 @@ hr {
     .container.list-booking .title-list span:nth-child(4) {
         margin-right: 35px !important;
     }
-    
+
     .container.list-booking .title-list span:nth-child(5) {
         margin-right: 32px !important;
     }
@@ -775,9 +826,9 @@ hr {
     }
 
     .list-card .card .duration {
-        width:75px !important;
+        width: 75px !important;
     }
-    
+
     .list-card .card .departure-date {
         margin-right: 0px !important;
         text-align: center;
@@ -785,5 +836,47 @@ hr {
 
     .list-card .card .people {
         margin: 0 15px 0 40px !important;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .navbar-search {
+        width: 15rem !important;
+        background: red;
+        display: flex;
+    }
+
+    .search-form,
+    .input-search {
+        width: 190px !important;
+        display: flex;
+    }
+
+    .search-form .btn-search {
+        margin-left: 0px;
+    }
+
+    .dropdown {
+        margin-left: -50px !important;
+    }
+
+    .line {
+        height: 10px !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .dropdown {
+        position: absolute !important;
+        right: 30px !important;
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+    .user-profile {
+        position: relative !important;
+        right: -20px !important;
     }
 }

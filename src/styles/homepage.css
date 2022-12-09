@@ -7,18 +7,53 @@ body {
     overflow-x: hidden !important;
 }
 
+.d-notif{
+    margin-right: "rem";
+}
+
 nav {
     position: relative;
     z-index: 999999;
+}
+
+/* button */
+.navbar-toggler {
+    padding-right: 41px !important;
+    border: 0;
+
+    transform: scale(1.1);
+}
+
+/* button */
+
+.bell {
+    margin-left: 5px;
+}
+
+.bell::after {
+    content: '';
+    width: 110px !important;
+    height: 115px !important;
+    border-radius: 100%;
+    position: relative;
+    /* top: -10px;
+    left: 10px; */
 }
 
 .navbar-nav .slash {
     margin: 0 5px;
 }
 
+.bell .nav-item .dropdown-menu{
+    margin-left: -345px;
+}
+
+.bell .nav-item .dropdown-menu .dropdown-header{
+    background-color: #007AFF;
+}
+
 .flypass-logo {
     width: 120px;
-    background: #007AFF;
     padding: 10px;
 }
 
@@ -41,10 +76,13 @@ nav {
 
     display: flex;
     align-items: center;
+
+    box-shadow: .1px .1px 2px .1px silver;
 }
 
 form {
     width: 100%;
+    font-size: 14px !important;
 }
 
 form ul {
@@ -62,6 +100,7 @@ form ul:nth-child(2) {
 form li {
     display: flex;
     flex-direction: column;
+    margin-bottom: -5px;
 }
 
 form select,
@@ -72,6 +111,13 @@ input {
     border-radius: 6px;
     margin-top: 10px;
     padding: 0 10px;
+}
+
+.change-icon {
+    position: relative;
+    /* margin */
+
+    top: 50px;
 }
 
 form .trip {
@@ -91,21 +137,22 @@ form .button {
 }
 
 form button {
-    font-size: 22px;
+    font-size: 16px;
 }
 
-form button.btn-reset {
+form button.button_reset {
     width: 80px;
     height: 45px;
     border: 0;
     background: transparent;
     color: #007AFF;
+    font-size: 18px;
 }
 
-form .btn-search {
+form .button_search {
     background: #007AFF;
     color: white;
-    width: 154px;
+    width: 130px;
     height: 45px;
     border: 1px solid silver;
     border-radius: 6px;
@@ -123,6 +170,7 @@ form .btn-search {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-radius: 10px;
+    padding-top: 100px;
 }
 
 .service h1 {
@@ -132,6 +180,8 @@ form .btn-search {
 .service h5 {
     font-size: 16px;
     color: #007AFF;
+
+    border-bottom: 0;
 }
 
 .service h3 {
@@ -139,7 +189,7 @@ form .btn-search {
 }
 
 .service p {
-    font-size: 14px;
+    font-size: 14px !important;
 }
 
 .main-service {
@@ -174,6 +224,7 @@ form .btn-search {
     text-align: center;
     border-radius: 100px 20px 20px 20px;
     position: relative;
+    padding-top: 100px;
 }
 
 .offer h6 {
@@ -271,9 +322,8 @@ form .btn-search {
 }
 
 .contact-detail .flypass-logo {
-    width: 200px;
-    background: #007AFF;
-    padding: 10px;
+    width: 250px;
+    padding: 0;
 }
 
 .contact-detail .social-media {
@@ -331,13 +381,14 @@ footer a {
 
 .flypass-logo-small {
     width: 100px;
-    background: #007AFF;
     padding: 10px;
+
+    background: #007AFF;
+    border-radius: 5px;
 }
 
 .flypass-logo-large {
     width: 300px;
-    background: #007AFF;
     padding: 10px;
 }
 
@@ -405,14 +456,13 @@ footer a {
 }
 
 @media screen and (max-width: 1250px) {
-
     form ul {
         padding: 0 20px;
     }
 
     form select,
     input {
-        width: 180px;
+        width: 200px;
     }
 
     form .button {
@@ -421,27 +471,47 @@ footer a {
     }
 }
 
+@media screen and (max-width: 1199px) {
+
+    form select,
+    input {
+        width: 160px;
+    }
+}
+
 @media screen and (max-width: 999px) {
+    .bell {
+        position: absolute;
+        right: 50px;
+        top: 310px;
+    }
+
     .form-search {
-        height: 500px;
+        height: 580px;
+        /* width: 400px; */
         bottom: 30px;
 
-        top: 450px;
+        top: 500px;
     }
 
     form ul {
         flex-direction: column;
         transform: scale(.9);
+        margin-top: -50px;
     }
 
     form li {
         margin-top: 20px;
     }
 
+    .change-icon {
+        top: 5px;
+    }
+
     form select,
     input {
         width: 100%;
-        margin-top: 5px;
+        margin-top: 0px;
     }
 
     form .button {
@@ -449,15 +519,19 @@ footer a {
         padding: 0 10px;
     }
 
-    form .btn-reset {
+    form label {
+        margin-bottom: 5px;
+    }
+
+    form .button_reset {
         text-align: left;
         padding: 0;
         margin-top: -35px;
     }
 
 
-    form .btn-search {
-        margin-left: -10px;
+    form .button_search {
+        margin-left: -5px;
         margin-top: -15px;
     }
 }
@@ -470,7 +544,7 @@ footer a {
 
 @media screen and (max-width: 425px) {
     .form-search {
-        height: 500px;
+        height: 550px;
         bottom: 30px;
 
         top: 540px;
@@ -531,6 +605,8 @@ footer a {
 
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(5, 1fr);
+
+        gap: 20px;
     }
 }
 
@@ -577,6 +653,12 @@ footer a {
 
 /* contact us */
 @media screen and (max-width: 1399px) {
+
+    form select,
+    input {
+        height: 45px;
+    }
+
     .contact .fligh {
         height: 100%;
         padding: 10px;
@@ -641,6 +723,3 @@ footer a {
         align-items: flex-start;
     }
 }
-
-
-/* footer */

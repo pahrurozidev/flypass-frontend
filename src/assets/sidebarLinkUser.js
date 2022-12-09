@@ -1,0 +1,29 @@
+const sidebarLinkUser = [
+    {
+        path: '/dashboarduser',
+        icon: 'bi bi-house-door',
+        display: 'Dashboard',
+    },
+    {
+        path: '/profil',
+        icon: 'bi bi-people',
+        display: 'Profil',
+    },
+    {
+        path: '/myticket',
+        icon: 'bi bi-ticket-perforated',
+        display: 'My Ticket',
+    },
+    {
+        path: '/wishlist',
+        icon: 'bi bi-list-task',
+        display: 'Wishlist',
+    },
+    {
+        path: '/transaction',
+        icon: 'bi bi-cash-stack',
+        display: 'Transaction',
+    },
+];
+
+export default sidebarLinkUser;
