@@ -14,17 +14,13 @@ table {
     margin-left: 40px !important;
 }
 
-th {
-    padding-bottom: 10px;
-}
-
 th,
 td {
     text-align: center;
 }
 
 tbody {
-    border: 1px solid silver;
+    /* border: 1px solid silver; */
     line-height: 50px;
 }
 
@@ -51,10 +47,10 @@ tbody {
     font-weight: bold;
 }
 
-.data-item__value {
+/* .data-item__value {
     grid-column-start: 2;
     grid-column-end: 5;
-}
+} */
 
 .paid {
     color: #2ccd03;
@@ -146,3 +142,91 @@ section h5 {
         width: 400% !important;
     }
 }
+
+
+/* redesign */
+
+/* customer list */
+.admin-customer-header {
+    display: grid;
+
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
+@media screen and (min-width: 922px) {
+    .admin-customer-header {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.customers {
+    width: 100% !important;
+    font-size: 14px !important;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.customer-header,
+.customer-body,
+.customer-detail-button {
+    text-align: center;
+
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.customer-detail-button {
+    margin: auto !important;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* customer list */
+
+/* customer detail */
+.admin-customer-detail {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.data-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    width: 100% !important;
+
+    gap: 8px;
+}
+
+@media screen and (min-width: 750px) {
+    .data-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.data-item {
+    width: 0px !important;
+    width: 100% !important;
+
+    /* background: silver; */
+    grid-template-columns: repeat(8, 1fr) !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.data-item .data-item__name {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.data-item .data-item__value {
+    grid-column-start: 4;
+    grid-column-end: 9;
+}
+
+/* customer detail */

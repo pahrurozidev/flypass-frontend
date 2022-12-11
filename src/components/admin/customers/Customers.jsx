@@ -10,15 +10,13 @@ export default function Customers() {
     const { id } = useParams();
 
     return (
-        <div className='d-flex'>
+        <div>
             <Sidebar />
-            <div className="main-container">
-                <div id='content-wrapper' className='d-flex flex-column'>
-                    <div id="content">
-                        <Navbar />
-                        {id && <CustomerDetail />}
-                        {!id && <CustomerList />}
-                    </div>
+            <div>
+                <Navbar />
+                <div className="main-container">
+                    {id && <CustomerDetail />}
+                    {!id && <CustomerList />}
                 </div>
             </div>
         </div>

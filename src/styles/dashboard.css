@@ -146,7 +146,7 @@ hr {
 }
 
 .profile-dropdown .user-profile {
-    margin-right: 3.75rem;
+    /* margin-right: 3.75rem; */
     /* margin-top: 8px; */
 
     position: absolute !important;
@@ -271,13 +271,11 @@ hr {
 .opsi-filter .btn-departure,
 .opsi-filter .btn-booking,
 .opsi-filter .btn-date {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 21px;
+    font-size: 14px;
+    /* font-weight: 400; */
+    /* line-height: 21px; */
     align-items: center;
     text-align: center;
-    width: 10.25rem;
-    height: 2.25rem;
     background: #E8E8E8;
     color: rgba(0, 0, 0, 0.59);
     border: 1px solid #B9B9B9;
@@ -293,7 +291,7 @@ hr {
 
 .opsi-filter .btn-booking,
 .opsi-filter .btn-date {
-    margin-left: 1.125rem;
+    /* margin-left: 1.125rem; */
 }
 
 .container.list-booking {
@@ -521,9 +519,9 @@ hr {
         font-size: 1rem !important;
     }
 
-    .opsi-filter {
+    /* .opsi-filter {
         display: none !important;
-    }
+    } */
 
     .list-booking .title-list {
         display: none !important;
@@ -934,7 +932,7 @@ hr {
 
 @media screen and (max-width: 767px) {
     .opsi-filter {
-        display: none;
+        /* display: none; */
     }
 
     br.d-none {
@@ -952,14 +950,15 @@ hr {
     .table tbody {
         border: 0;
     }
-    
-    .table tbody, .table tbody tr {
+
+    .table tbody,
+    .table tbody tr {
         display: block;
         width: 100%;
     }
 
     .table tbody tr th::before,
-    .table tbody tr td::before { 
+    .table tbody tr td::before {
         content: attr(data-title);
         display: block;
         font-size: 0.875rem;
@@ -988,7 +987,7 @@ hr {
     }
 
     .table tbody tr {
-        border: 1px solid gray;
+        /* border: 1px solid gray; */
         border-radius: 6px;
         margin-bottom: 16px;
         float: left;
@@ -1006,11 +1005,120 @@ hr {
 
     .booking-table .table tbody tr .duration .duration-flight {
         line-height: 50px;
-        margin-bottom: 0; 
+        margin-bottom: 0;
     }
 
     .booking-table .table tbody tr .departure-date,
     .booking-table .table tbody tr .people {
         margin-right: 0;
     }
+}
+
+
+
+
+/* ============================ */
+.sidebar-toggle {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.sidebar {
+    width: 0px;
+}
+
+.sidebar .nav-item {
+    display: none;
+}
+
+.nav-link span {
+    display: inline-block;
+}
+
+.sidebar-logo {
+    padding: 0 18px;
+}
+
+.sidebar .arrow-left-circle {
+    display: none;
+}
+
+.sidebar-toggle {
+    cursor: pointer;
+
+    margin-top: -6px;
+}
+
+.show-sidebar {
+    width: 270px;
+
+    transition: all .1s;
+}
+
+.show-logo-large {
+    display: inline-block !important;
+}
+
+.show-nav-item {
+    display: inline-block !important;
+}
+
+.show-arrow-left-circle {
+    display: inline-block !important;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 996px) {
+
+    .sidebar-toggle {
+        display: none;
+    }
+
+    .sidebar .arrow-left-circle {
+        display: none;
+    }
+
+    .sidebar .nav-item {
+        display: inline-block;
+    }
+
+    .sidebar {
+        width: 230px;
+    }
+
+    .user-profile {
+        margin-top: -30px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .user-profile {
+        margin-top: 0px;
+    }
+}
+
+/* ============================ */
+
+
+/* redesign */
+
+.table {
+    margin: 0;
+    padding: 0;
+    border: 0 !important;
+
+}
+
+td {
+    border-bottom: 1px solid silver !important;
+}
+
+.opsi-filter {
+    display: flex !important;
+
+    justify-content: flex-start;
+    gap: 10px;
+
+    flex-wrap: wrap !important;
 }

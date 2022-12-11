@@ -13,21 +13,15 @@ function Flights() {
     const { id } = useParams();
 
     return (
-        <div className='d-flex'>
+        <div>
             <Sidebar />
-            <div id='content-wrapper' className='d-flex flex-column'>
-                <div id="content">
-
-                    <Navbar />
-
-
-                    <div className="main-container">
-                        {id && <FlightDetail />}
-
-                        {(location === '/flight') ? <FlightList /> :
-                            (location === '/flight/create') ? <CreateFlight /> :
-                                (location === '/flight/update') ? <UpdateFlight /> : ''}
-                    </div>
+            <div>
+                <Navbar />
+                <div className="main-container">
+                    {id && <FlightDetail />}
+                    {(location === '/flight') ? <FlightList /> :
+                        (location === '/flight/create') ? <CreateFlight /> :
+                            (location === '/flight/update') ? <UpdateFlight /> : ''}
                 </div>
             </div>
         </div>

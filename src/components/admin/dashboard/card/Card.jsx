@@ -3,18 +3,17 @@ import ListBooking from '../listBooking/ListBooking'
 
 export default function Card() {
     return (
-        <div className='container-fluid'>
-            <h1 className='title-dashboard mt-5'>Dashboard</h1>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Admin</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
-                </div>
+        <>
+ 
+            {/* header label */}
+            <div className='border rounded p-3 pb-md-1'>
+                <h2 className='fs-4'>Selamat Datang, Admin</h2>
+                <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
             </div>
-            <div className="container all-booking p-0 ms-0">
+
+            <div className="card p-3 mt-3">
                 <ListBooking />
             </div>
-        </div>
+        </>
     )
 }

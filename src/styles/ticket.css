@@ -366,9 +366,9 @@
         width: 100%;
     }
 
-    .opsi-filter {
+    /* .opsi-filter {
         display: none !important;
-    }
+    } */
 
     .container.my-ticket .title-ticket {
         margin: 0;

@@ -5,13 +5,15 @@ import CardList from './card/Card'
 
 function dashboard() {
     return (
-        <div className='d-flex'>
+        <div>
             <Sidebar />
-            <div className='main-container'>
-                <div id='content-wrapper' className='d-flex flex-column'>
-                    <div id="content">
-                        <Navbar />
-                        <CardList />
+            <div>
+                <Navbar />
+                <div className='main-container'>
+                    <div className='container-fluid pb-5'>
+                        <div className='admin-content px-lg-2'>
+                            <CardList />
+                        </div>
                     </div>
                 </div>
             </div>

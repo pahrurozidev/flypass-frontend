@@ -13,7 +13,7 @@ export default function Form() {
                         <option value="">Departure</option>
                     </select>
                 </li>
-                <li className='change-icon'>
+                <li className='change-icon mx-lg-2'>
                     <div>
                         <img src={Change} alt="" className='shadow rounded-circle' />
                     </div>

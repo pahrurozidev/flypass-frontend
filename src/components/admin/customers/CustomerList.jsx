@@ -1,173 +1,126 @@
 import React from 'react';
-import {
-    People,
-    Airplane, ArrowCircleLeft2, Warning2, AddSquare
-} from 'iconsax-react';
+import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
-import Eye from '../../../assets/dasboard-admin/eye.png';
-import ArrowLeft from '../../../assets/dasboard-admin/arrow-left.png';
+import { Eye } from 'react-feather';
 
 export default function CustomerList() {
     return (
-        <div className='container-fluid mt-5 pb-5'>
-            <div className='container all-booking p-0 ms-0 flight-header'>
-                <div className='d-flex'>
-                    <People size={35} style={{
-                        marginRight: '10px',
-                    }} />
-                    <h2 className=''>Customer</h2>
-                </div>
-            </div>
-            <div className="container all-booking p-0 ms-0 mt-4 broadcrumb">
-                <div className='flight-list'>
-                    <Link to={'/flight'} className="text-decoration-none fs-6 text-dark d-flex gap-2">
-                        <ArrowCircleLeft2 size={30} />
-                        <div className='pt-1'>Customer List</div>
-                    </Link>
-                </div>
-            </div>
-            <div className="container all-booking p-0 ms-0">
-                <div className="customers">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Gender</th>
-                                <th>Password</th>
-                                <th>Departure</th>
-                                <th>Destination</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td>
-                                    <Link to={`/customer/1`}>
-                                        <img src={Eye} alt="" />
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>L</td>
-                                <td>ID 123456</td>
-                                <td>Jakarta</td>
-                                <td>Singapore</td>
-                                <td>01/12/2022</td>
-                                <td>08:05</td>
-                                <td><a href=""><img src={Eye} alt="" /></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div className='container-fluid admin-flight pb-5'>
+            <div className='admin-content px-lg-2'>
+                <div>
+                    {/* header label */}
+                    <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
+                        <h2 className='fs-4'>Customer</h2>
+                        <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                    </div>
+
+                    {/* broadcrumb */}
+                    <div className="border rounded py-2 px-3 d-flex justify-content-between mt-3 admin-flight-broadcrumb">
+                        <Link to={'/customer'} className="text-decoration-none text-dark d-flex btn gap-2 ps-0">
+                            <ArrowCircleLeft2 size={20} />
+                            <div className='label'>Customer lists</div>
+                        </Link>
+                    </div>
+
+                    {/* customer list */}
+                    <section className='mt-3 admin-customer-header'>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                        <div className="card customers overflow-hidden shadow">
+                            <div className='customer-header border-bottom py-3 fw-bold'>
+                                <div>Name</div>
+                                <div>Departure</div>
+                                <div>Arrival</div>
+                            </div>
+                            <div className='customer-body py-3'>
+                                <div>Pahrurozi</div>
+                                <div>Jakarta</div>
+                                <div>Lombok</div>
+                            </div>
+                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                <Eye size={20} />
+                                <div>Detail</div>
+                            </Link>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

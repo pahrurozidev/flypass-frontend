@@ -39,23 +39,16 @@
     margin-right: -10px;
 }
 
-
-.broadcrumb span {
-    /* margin-left: -10px;
-    margin-top: 3px; */
-}
-
 /* list flight */
 .flgiht.flight-list {
-    margin-top: -30px;
-    font-size: 14px;
+    width: 100% !important;
+    font-size: 14px !important;
     padding: 20px;
-    margin-bottom: 40px;
-
+    margin: auto !important;
     background: #F3F3F3;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    border-radius: 10px;
+    /* border-radius: 2px; */
 
     gap: 10px;
 }
@@ -139,8 +132,18 @@
 .flgiht.flight-list .flight-item:nth-child(4) a {
     text-decoration: none;
     color: white;
+    /* background: #0076CB; */
+    padding: 4px 8px 5px;
+    border-radius: 20px;
+    font-size: 12px !important;
+}
+
+.flgiht.flight-list .flight-item:nth-child(4) a {
+    height: 30px;
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
     background: #0076CB;
-    padding: 5px 10px;
     border-radius: 20px;
 }
 
@@ -148,7 +151,7 @@
 
     .flight-header {
         margin-left: 0px;
-    }    
+    }
 
     .flgiht.flight-list {
         grid-template-columns: repeat(2, 1fr);
@@ -167,14 +170,6 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 15px;
-    }
-
-    .flgiht.flight-list .flight-item:nth-child(4) a {
-        text-decoration: none;
-        color: white;
-        background: #0076CB;
-        padding: 5px 10px;
-        border-radius: 20px;
     }
 }
 
@@ -336,3 +331,63 @@ label {
 }
 
 /* create */
+
+
+/* redesign */
+
+/* flight list */
+.main-container {
+    /* background: silver; */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+
+    padding-top: 30px !important;
+    width: 100% !important;
+}
+
+.admin-content .header-text {
+    font-size: 14px;
+}
+
+.admin-flight .label {
+    font-size: 14px !important;
+}
+
+
+@media screen and (min-width: 551px) {
+    .admin-content {
+        margin-left: -20px;
+    }
+}
+
+@media screen and (min-width: 996px) {
+    .admin-content {
+        /* width: 83%; */
+        margin-left: 210px;
+    }
+}
+
+/* flight list */
+
+/* flight detail */
+.admin-flight-detail {
+    font-size: 14px !important;
+}
+
+section h5 {
+    border: 0;
+}
+
+/* flight detail */
+
+/* add flight */
+.admin-add-flight {
+    font-size: 14px;
+}
+
+.crud-flight-btn {
+    font-size: 14px;
+}
+
+/* add flight */
