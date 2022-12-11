@@ -46,7 +46,7 @@
 .login-detail p {
     margin-left: 20px;
     width: 300px;
-    font-size: 19px;
+    font-size: 14px;
 }
 
 .login-detail hr {
@@ -80,7 +80,7 @@
 
 
 .login-detail h6 {
-    font-size: 22px;
+    font-size: 16px;
     width: 300px;
 
 }
@@ -331,6 +331,20 @@
         margin-bottom: -100px;
     }
 
+}
+
+@media screen and (max-width: 666px) {
+    .profil1 {
+        margin-left: 50px;
+        margin-top: 80px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 49px;
+        margin-left: 0.8rem;
+        margin-bottom: -160px;
+    }
 }
 
 @media screen and (max-width: 425px) {

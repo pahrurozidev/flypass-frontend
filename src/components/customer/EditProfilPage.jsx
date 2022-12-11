@@ -4,7 +4,7 @@ import ArrowLeft from '../../assets/homepage/arrow-left.png';
 export default function EditProfilPage() {
     return (
         <>
-        <a href="/profil"><img src={ArrowLeft} className="arrowleft" alt="" /></a>
+        <a href="/#/profil"><img src={ArrowLeft} className="arrowleft" alt="" /></a>
         <h2 className='profil1'>Edit Profil</h2>
         <section className="container login">
             <div className="login-detail">

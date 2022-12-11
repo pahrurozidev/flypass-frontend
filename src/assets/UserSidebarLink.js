@@ -1,18 +1,18 @@
 const UserSidebarLink = [
     {
-        path: '/dashboard-user',
+        path: '/dashboarduser',
         icon: 'bi bi-house-door',
         display: 'Dashboard',
+    },
+    {
+        path: '/profil',
+        icon: 'bi bi-person-circle',
+        display: 'Profile',
     },
     {
         path: '/my-ticket',
         icon: 'bi bi-ticket-perforated',
         display: 'My Ticket',
-    },
-    {
-        path: '/profile',
-        icon: 'bi bi-person-circle',
-        display: 'Profile',
     },
     {
         path: '/wishlist',
@@ -23,6 +23,11 @@ const UserSidebarLink = [
         path: '/transaction',
         icon: 'bi bi-receipt',
         display: 'Transaction',
+    },
+    {
+        path: '/notifuser',
+        icon: 'bi bi-bell',
+        display: 'Notification',
     },
 ];
 

@@ -1,13 +1,6 @@
 .login-container section {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
-
-    margin-top: 100px;
-    background: rgb(233, 233, 233);
-    border-radius: 5px;
-    overflow: hidden;
-=======
 
     margin-top: 100px;
     background: rgb(233, 233, 233);
@@ -19,7 +12,6 @@
 
 .login-container ul {
     list-style: none;
->>>>>>> c6fd75d76bd84c063bcd449c79c0e104891b722c
 }
 
 .login-container .login-header {
@@ -29,27 +21,10 @@
     font-size: 14px;
 }
 
-.login-container section input[type="button"] {
+.login-container section input[type="submit"] {
     margin-top: 20px;
     background: #007AFF;
     color: white;
-<<<<<<< HEAD
-}
-
-.login-container section img {
-    width: 100%;
-
-    grid-row-start: 1;
-}
-
-/* personal */
-
-.personal-container {
-    padding-top: 50px;
-    background: rgb(233, 233, 233);
-    border-radius: 5px;
-    margin-top: 120px;
-=======
 }
 
 .login-container section img {
@@ -81,7 +56,6 @@
 
 .personal-container input {
     margin-top: -3px;
->>>>>>> c6fd75d76bd84c063bcd449c79c0e104891b722c
 }
 
 .personal-container .personal_header {

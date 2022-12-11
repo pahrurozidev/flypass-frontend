@@ -6,11 +6,11 @@ const sidebarLinkUser = [
     },
     {
         path: '/profil',
-        icon: 'bi bi-people',
+        icon: 'bi bi-person-circle',
         display: 'Profil',
     },
     {
-        path: '/myticket',
+        path: '/my-ticket',
         icon: 'bi bi-ticket-perforated',
         display: 'My Ticket',
     },
@@ -21,7 +21,7 @@ const sidebarLinkUser = [
     },
     {
         path: '/transaction',
-        icon: 'bi bi-cash-stack',
+        icon: 'bi bi-receipt',
         display: 'Transaction',
     },
     {

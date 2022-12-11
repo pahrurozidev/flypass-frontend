@@ -45,10 +45,12 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
-                <Route exact path="/dashboarduser" element={<Dashboard />} />   
+                <Route exact path="/dashboarduser" element={<Dashboard />} />
+                <Route path="/dashboarduser/:id" element={<Dashboard />} />   
                 <Route exact path="/profil" element={<Profil />} />
                 <Route exact path="/editprofil" element={<EditProfil />} />
                 <Route exact path="/wishlist" element={<Wishlist />} />
+                <Route path="/wishlist/:id" element={<Wishlist />} />
                 <Route exact path="/notifuser" element={<Notification />} />
                 <Route path="/my-ticket" element={<MyTicket />} />
                 <Route path="/my-ticket/:id" element={<MyTicket />} />
