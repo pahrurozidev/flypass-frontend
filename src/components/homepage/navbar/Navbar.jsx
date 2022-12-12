@@ -39,8 +39,55 @@ export default function Navbar() {
                         </div>
                     }
                     <div className='bell'>
-                        {(location === '/') &&
-                            <a href="#"><img src={Bell} alt="bell icon" /></a>}
+                        <div className="nav-item dropdown no-arrow">
+                            <a href="#" className='nav-link' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src={Bell} alt="bell icon" />
+                            </a>
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li className='dropdown-header' >
+                                    <a className="dropdown-item large text-center" href="#">Notification Center</a>
+                                </li>
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a className="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <div className="small text-gray-500">December 12, 2019</div>
+                                            <span className="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a className="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <div className="small text-gray-500">December 12, 2019</div>
+                                            <span className="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a className="dropdown-item d-flex align-items-center" href="#">
+                                        <div>
+                                            <div className="small text-gray-500">December 12, 2019</div>
+                                            <span className="font-weight-bold">A new monthly report is ready to download!</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+                                <li>
+                                    <a className="dropdown-item small text-center" href="/#/notifuser">Show All Notification</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="navbar-nav user ms-4">
                         <img src={UserCircle} className="nav-link user-image" alt="" />
