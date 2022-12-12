@@ -6,13 +6,13 @@ import { faPlane } from '@fortawesome/free-solid-svg-icons';
 export default function Card() {
     return (
         <div className="container-fluid position-relative">
-            <h1 className="title-dashboard">My Ticket</h1>
+            <h1 className="title-dashboard">Wish List</h1>
             <div className="container my-ticket p-0 ms-0">
                 <div className="title-ticket d-flex flex-row align-items-center">
-                    <a href="#/user/dashboard/ticket"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                    <a href="#/user/dashboard/wishlist"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg></a>
-                    <h5 className="breadcrumb-detail ms-3">Tikcet List /</h5><span className="mb-0 next-breadcrumb">&nbsp;Detail Ticket</span>
+                    <h5 className="breadcrumb-detail ms-3">Wish List /</h5><span className="mb-0 next-breadcrumb">&nbsp;Detail Ticket</span>
                 </div>
                 <div className="container e-ticket p-0">
                     <div className="card-e-ticket">
@@ -37,10 +37,6 @@ export default function Card() {
                                                     <h1>CGK</h1>
                                                     <span>Jakarta</span>
                                                 </div>
-                                                <div className="time-depart">
-                                                    <span>Depart</span>
-                                                    <p>01 Dec - 08:05</p>
-                                                </div>
                                             </div>
                                             <FontAwesomeIcon icon={faPlane} className="col-lg-2" />
                                             <div className="arrive-frame col-lg-5 d-flex flex-column justify-content-between">
@@ -48,30 +44,13 @@ export default function Card() {
                                                     <h1>SIN</h1>
                                                     <span>Singapore</span>
                                                 </div>
-                                                <div className="time-arrive">
-                                                    <span>Arrive</span>
-                                                    <p>03 Dec - 09:50</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-3 ticket-right p-0">
                                         <div className="ticket-right-top d-flex flex-column">
-                                            <span>Booking Code</span>
-                                            <span>T312B4NG</span>
-                                        </div>
-                                        <div className="ticket-right-bottom d-flex flex-column">
-                                            <span>Passenger Info :</span>
-                                            <div className="title-passenger-info d-flex flex-row justify-content-between">
-                                                <div className="name-passenger col-6 d-flex flex-column">
-                                                    <span className="title">Name</span>
-                                                    <span>John Doe</span>
-                                                </div>
-                                                <div className="type-passenger col-6 d-flex flex-column text-end">
-                                                    <span className="title">Type</span>
-                                                    <span>Adult</span>
-                                                </div>
-                                            </div>
+                                            <span>Wish Code</span>
+                                            <span>1</span>
                                         </div>
                                     </div>
                                 </div>

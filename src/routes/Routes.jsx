@@ -11,6 +11,11 @@ import Flight from "../pages/Flight";
 import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
+import Dashboard from "../pages/Dashboard";
+import Profil from "../pages/Profil";
+import EditProfil from "../pages/EditProfil";
+import Wishlist from "../pages/Wishlist";
+import Notification from "../pages/Notification";
 import MyTicket from "../pages/MyTicketUser";
 import Transaction from "../pages/TransactionUser";
 
@@ -39,6 +44,13 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
+                <Route exact path="/user/dashboard/dashboarduser" element={<Dashboard />} />
+                <Route path="/user/dashboard/dashboarduser/:id" element={<Dashboard />} />   
+                <Route exact path="/user/dashboard/profile" element={<Profil />} />
+                <Route exact path="/user/dashboard/editprofile" element={<EditProfil />} />
+                <Route exact path="/user/dashboard/wishlist" element={<Wishlist />} />
+                <Route path="/user/dashboard/wishlist/:id" element={<Wishlist />} />
+                <Route exact path="/user/dashboard/notifuser" element={<Notification />} />
                 <Route path="/user/dashboard/ticket" element={<MyTicket />} />
                 <Route path="/user/dashboard/ticket/:id" element={<MyTicket />} />
                 <Route path="/user/dashboard/transaction" element={<Transaction />} />

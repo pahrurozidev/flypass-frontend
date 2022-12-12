@@ -147,7 +147,7 @@
         height: 100%;
     }
 
-    .login-container section input[type="button"] {
+    .login-container section input[type="submit"] {
         margin-top: 40px;
     }
 
