@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import FlightDetail from './FlightDetail';
 import PaymentList from './PaymentList';
@@ -11,6 +12,8 @@ import BookingBar from './BookingBar';
 export default function Payment() {
 
     const location = useLocation().pathname;
+    const { id } = useParams();
+    console.log(id);
 
     return (
         <React.Fragment>
@@ -18,7 +21,7 @@ export default function Payment() {
 
             <main className='container'>
                 <BookingBar />
-                {(location === '/search/flight/detail') && <FlightDetail />}
+                {(location === `/search/flight/${id}`) && <FlightDetail />}
                 {(location === '/search/flight/payment') && <PaymentList />}
             </main>
 

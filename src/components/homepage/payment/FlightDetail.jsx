@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Plane45 from '../../../assets/homepage/plane45.png';
 import LongAAR from '../../../assets/homepage/long-arrow-alt-right.png';
 import Garuda from '../../../assets/homepage/garuda.svg';
@@ -11,8 +12,16 @@ import Food from '../../../assets/homepage/food.png'
 import Entertain from '../../../assets/homepage/entertain.png'
 import Warning from '../../../assets/homepage/warning.png'
 import { Link } from 'react-router-dom';
+import { API } from '../../../services';
+import moment from 'moment';
 
 export default function FlightDetail() {
+    const { id } = useParams();
+
+    API.flightDetail(id).then((flight) => {
+        console.log(flight);
+    })
+
     return (
         <>
             {/* <!-- selected flight --> */}

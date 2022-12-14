@@ -26,8 +26,8 @@ export default function Routes() {
             <Switch>
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/search/flight/detail" element={<Payments />} />
+                {/* <Route path="/search" element={<Search />} /> */}
+                <Route path="/search/flight/:id" element={<Payments />} />
                 <Route path="/search/flight/payment" element={<Payments />} />
 
                 {/* auth */}

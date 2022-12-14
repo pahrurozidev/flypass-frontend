@@ -3,6 +3,15 @@ import { actionType } from "./globalActionType";
 const globalState = {
     counter: 10,
     showSidebar: false,
+
+    flights: [],
+    flight: {
+        departure: '',
+        destination: '',
+        trip: '',
+        date: '',
+        passenger: '',
+    }
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -25,6 +34,39 @@ const rootReducer = (state = globalState, action) => {
         return {
             ...state,
             showSidebar: false
+        }
+
+        // search flight
+    } else if (action.type === actionType.SUBMIT_SEARCH_FLIGHT) {
+        const flight = { ...state.flight };
+
+        const flights = action.flights.filter((data) => {
+            return data.departureAirport.name === flight.departure &&
+                data.arrivalAirport.name === flight.destination &&
+                data.FlightType.name === flight.trip &&
+                data.departureDate === flight.date &&
+                data.FlightClass.name === flight.passenger
+        })
+
+        console.log(flights);
+
+        return {
+            ...state,
+            flights: flights,
+        }
+    } else if (action.type === actionType.INPUT_SEARCH_FLIGHT) {
+        const inputForm = { ...state.flight };
+        inputForm[action.event.target.name] = action.event.target.value;
+
+        return {
+            ...state,
+            flight: {
+                departure: inputForm.departure,
+                destination: inputForm.destination,
+                trip: inputForm.trip,
+                date: inputForm.date,
+                passenger: inputForm.passenger,
+            },
         }
     } else {
         return state;

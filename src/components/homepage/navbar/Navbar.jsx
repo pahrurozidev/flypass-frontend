@@ -40,7 +40,7 @@ export default function Navbar() {
                     }
                     <div className='bell'>
                         <div className="nav-item dropdown no-arrow">
-                            <a href="#" className='nav-link' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src={Bell} alt="bell icon" />
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
