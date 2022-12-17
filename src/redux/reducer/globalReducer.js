@@ -11,7 +11,9 @@ const globalState = {
         trip: '',
         date: '',
         passenger: '',
-    }
+    },
+    flightDetail: '',
+    onSubmit: false,
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -39,6 +41,7 @@ const rootReducer = (state = globalState, action) => {
         // search flight
     } else if (action.type === actionType.SUBMIT_SEARCH_FLIGHT) {
         const flight = { ...state.flight };
+        console.log(flight);
 
         const flights = action.flights.filter((data) => {
             return data.departureAirport.name === flight.departure &&
@@ -52,6 +55,7 @@ const rootReducer = (state = globalState, action) => {
 
         return {
             ...state,
+            onSubmit: true,
             flights: flights,
         }
     } else if (action.type === actionType.INPUT_SEARCH_FLIGHT) {
@@ -67,6 +71,16 @@ const rootReducer = (state = globalState, action) => {
                 date: inputForm.date,
                 passenger: inputForm.passenger,
             },
+        }
+    } else if (action.type === actionType.GET_FLIGHT) {
+        return {
+            ...state,
+            flights: action.flights
+        }
+    } else if (action.type === actionType.FLIGHT_DETAIL) {
+        return {
+            ...state,
+            flightDetail: action.flight
         }
     } else {
         return state;

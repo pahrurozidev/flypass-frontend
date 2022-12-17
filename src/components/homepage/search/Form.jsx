@@ -17,6 +17,7 @@ class Form extends Component {
 
     componentDidMount() {
         API.airports().then((airports) => {
+            // console.log(airports.length);
             this.setState({
                 airports: airports
             })
@@ -43,14 +44,13 @@ class Form extends Component {
                     {/* <!-- departure --> */}
                     <li>
                         <label htmlFor="departure">From</label>
-                        <select name="departure" id="departure" onChange={(event) => this.props.inputSearchFlightDispatch(event)}>
-                            <option value="">Departure</option>
-                            {
-                                this.state.airports.map((airports) => (
+                        <input type="text" name="departure" id="departure" onChange={(event) => this.props.inputSearchFlightDispatch(event)} placeholder="Departure" />
+                        {/* <select name="departure" id="departure" onChange={(event) => this.props.inputSearchFlightDispatch(event)}>
+                            <option value="Soekarno-Hatta International Airport">Departure</option>
+                            {this.state.airports.map((airports) => (
                                     <option value={airports.name}>{airports.name}</option>
-                                ))
-                            }
-                        </select>
+                                ))}
+                        </select> */}
                     </li>
                     <li className='change-icon mx-lg-2'>
                         <div>
@@ -60,14 +60,15 @@ class Form extends Component {
                     {/* <!-- destination --> */}
                     <li>
                         <label htmlFor="destionation">To</label>
-                        <select name="destination" id="destination" onChange={(event) => this.props.inputSearchFlightDispatch(event)} >
-                            <option value="">Destionation</option>
+                        <input type="text" name="destination" id="destination" onChange={(event) => this.props.inputSearchFlightDispatch(event)} placeholder="Arrival" />
+                        {/* <select name="destination" id="destination" onChange={(event) => this.props.inputSearchFlightDispatch(event)} >
+                            <option value="Ngurah Rai (Bali) International Airport">Destionation</option>
                             {
                                 this.state.airports.map((airports) => (
                                     <option value={airports.name}>{airports.name}</option>
                                 ))
                             }
-                        </select>
+                        </select> */}
                     </li>
                     <li>
                         <div className="d-flex trip-date">
@@ -93,7 +94,7 @@ class Form extends Component {
                         <select name="passenger" id="passenger" onChange={(event) => this.props.inputSearchFlightDispatch(event)}>
                             <option value="">Passenger</option>
                             <option value="Economy">Economy</option>
-                            <option value="VIP">VIP</option>
+                            <option value="Business">Business</option>
                         </select>
                     </li>
                 </ul>

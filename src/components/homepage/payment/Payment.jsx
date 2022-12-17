@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import FlightDetail from './FlightDetail';
@@ -13,7 +15,6 @@ export default function Payment() {
 
     const location = useLocation().pathname;
     const { id } = useParams();
-    console.log(id);
 
     return (
         <React.Fragment>

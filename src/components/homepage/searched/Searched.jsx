@@ -16,29 +16,29 @@ import moment from 'moment';
 class Searched extends Component {
 
     render() {
+        // console.log(this.props.flights);
         return (
-            <section class="container m-auto pb-0 mb-0 mt-5 pt-1 px-0">
+            <section class="container m-auto card pt-3 flight-result">
                 <div className="search_result-header card p-3">
                     <h1>Select Flight</h1>
                     <p className="col-12 col-md-10 col-lg-8 text-select">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laborum eius aperiam ut adipisci cum, quia quam repudiandae perferendis a expedita nobis ipsa.</p>
                 </div>
 
                 {this.props.flights.map((flight) => (
-                    <div class="card search_result search_result p-0">
+                    <div class="card search_result p-0">
                         <div class="flight-name bg">
-                            <div><img src={Garuda} alt="garuda logo" /></div>
-                            <span>{flight.Airline.name}</span>
+                            <div><img src={flight.Airline.image} alt="garuda logo" width={100} /></div>
+                            {/* <span>{flight.Airline.name}</span> */}
                         </div>
                         <div class="flight-duration-ring bg">
                             <div class="cgk-time">
                                 {/* 20010704T120854 */}
-                                {console.log(flight.departureTime)}
-                                {console.log(flight.arrivalTime)}
                                 <div class="time">{moment(`20010704T${'120854'}`).format("LT")}</div>
                                 <div class="cgk">{flight.departureAirport.iata}</div>
                             </div>
                             <div class="ring-time">
-                                <div>{flight.duration}</div>
+                                {/* <div>Duration: {flight.duration}</div> */}
+                                <div>Duration: 1h, 45m</div>
                                 <div class="ring"></div>
                                 <div>Direct</div>
                             </div>
@@ -53,19 +53,17 @@ class Searched extends Component {
                             <div>Bagasi 30kg, Makan, Hiburan</div>
                         </div>
                         <div class="bg flight-price">
-                            <div class="price"><span class="value">{flight.price}</span>/org</div>
+                            <div class="price"><span class="value">Rp {flight.price}</span>/org</div>
                             <Link to={`/search/flight/${flight.id}`}>
                                 <div className="pilih-btn shadow">Pilih</div>
                             </Link>
                         </div>
-                        <div class="bg flight-detail-refaund">
+                        {/* <div class="bg flight-detail-refaund">
                             <div class="flight-detail__btn">Flight Details</div>
                             <div class="flight-refaund__btn">Refaund</div>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
-
-
 
                 {/* <div class="search_result__first m-auto">
                     <div class="card search_result p-0 rounded-0 rounded-top">
