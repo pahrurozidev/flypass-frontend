@@ -16,20 +16,97 @@ import { API } from '../../../services';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-function FlightDetail() {
+function FlightDetail({booking}) {
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
     const [show, setShow] = useState(false);
+    const [bookValue, setBookValue] = useState({
+        contactTitle: '',
+        contactFirstName: '',
+        contactLastName: '',
+        contactPhone: '',
+        contactEmail: '',
+        identityType: '',
+        identityNumber: '',
+        baggage: [''],
+    });
+    const [book, setBook] = useState({
+        contactTitle: '',
+        contactFirstName: '',
+        contactLastName: '',
+        contactPhone: '',
+        contactEmail: '',
+        passenger: [
+            {
+                firstName: '',
+                lastName: '',
+                identityType: '',
+                identityNumber: '',
+                baggage: ['']
+            },
+        ],
+        flight1Id: '',
+        flight2Id: ''
+    })
+
 
     useEffect(() => {
         API.flightDetail(id).then((flights) => {
             setFlight(flights);
         })
+
     }, [])
+
+    const bookingValueHandler = (event) => {
+        const books = { ...bookValue };
+
+        books[event.target.name] = event.target.value;
+
+        // console.log(books);
+
+        setBookValue({
+            contactTitle: books.contactTitle,
+            contactFirstName: books.contactFirstName,
+            contactLastName: books.contactLastName,
+            contactPhone: books.contactPhone,
+            contactEmail: books.contactEmail,
+            identityType: books.identityType,
+            identityNumber: books.identityNumber,
+            baggage: [`${books.baggage}`],
+        })
+
+        // console.log(bookValue.baggage);
+
+        setBook({
+            contactTitle: bookValue.contactTitle,
+            contactFirstName: bookValue.contactFirstName,
+            contactLastName: bookValue.contactLastName,
+            contactPhone: bookValue.contactPhone,
+            contactEmail: bookValue.contactEmail,
+            passenger: [
+                {
+                    firstName: bookValue.contactFirstName,
+                    lastName: bookValue.contactLastName,
+                    identityType: bookValue.identityType,
+                    identityNumber: bookValue.identityNumber,
+                    baggage: [`${bookValue.baggage}`]
+                },
+            ],
+            flight1Id: `${flight.id}`,
+            flight2Id: ''
+        })
+
+        // console.log(book);
+    }
+
+    const bookingHandler = () => {
+        API.book(book).then((b) => console.log(b));
+    }
 
     setTimeout(() => {
         setShow(true);
-    }, 1000);
+    }, 2000);
+
 
     return (
         <div>
@@ -158,7 +235,7 @@ function FlightDetail() {
                             </div>
                             <div class="text-center button-price__continue mt-4 mb-5">
                                 <Link to={'/search/flight/payment'}>
-                                    <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow">Continue</div>
+                                    <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow" onClick={() => bookingHandler()}>Continue</div>
                                 </Link>
                             </div>
                         </div>
@@ -170,22 +247,44 @@ function FlightDetail() {
                         <div class="card p-3 contact-detail-item">
                             <div class="input-left">
                                 <div class="mb-3">
-                                    <label for="first-name" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="first-name" placeholder="ex: John" />
+                                    <label for="contactFirstName" class="form-label">First Name</label>
+                                    <input type="text" name='contactFirstName' class="form-control" id="contactFirstName" placeholder="ex: John" onChange={(event) => bookingValueHandler(event)} />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="last-name" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="last-name" placeholder="ex: Doe" />
+                                    <label for="contactTitle" class="form-label">Title</label>
+                                    <select class="form-select contact-title" aria-label="Default select example" name='contactTitle' onChange={(event) => bookingValueHandler(event)}>
+                                        <option selected>Select title</option>
+                                        <option value="mr">Tn</option>
+                                        <option value="mr">Mr</option>
+                                        <option value="ms">Ms</option>
+                                        <option value="mrs">Mrs</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactPhone" class="form-label">No. Handphone</label>
+                                    <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="0821xxxxxxxx" onChange={(event) => bookingValueHandler(event)} />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="identityNumber" class="form-label">Identity Number</label>
+                                    <input type="text" class="form-control" id="identityNumber" name="identityNumber" placeholder="521xxxxxxxx" onChange={(event) => bookingValueHandler(event)} />
                                 </div>
                             </div>
                             <div class="input-right">
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                                    <label for="contactLastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="contactLastName" id="contactLastName" placeholder="ex: Doe" onChange={(event) => bookingValueHandler(event)} />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="notelp" class="form-label">No. Handphone</label>
-                                    <input type="text" class="form-control" id="notelp" placeholder="0821xxxxxxxx" />
+                                    <label for="contactEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name='contactEmail' id="contactEmail" placeholder="name@example.com" onChange={(event) => bookingValueHandler(event)} />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="identityType" class="form-label">Identity Type</label>
+                                    <select class="form-select contact-title" aria-label="Default select example" name='identityType' onChange={(event) => bookingValueHandler(event)}>
+                                        <option selected>Identity Type</option>
+                                        <option value="ktp">KTP</option>
+                                        <option value="passport">Passport</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -197,18 +296,17 @@ function FlightDetail() {
                         <div class="card p-3 border-bottom-0 rounded-0 rounded-top">Add Baggage</div>
                         <div class="card p-3 rounded-0 gap-3 rounded-bottom">
                             <div class="d-flex justify-content-between">
-                                <div>Jakarta (CGK) - Singapore (SIN)</div>
-                                <div>GA828</div>
+                                <div>{flight.departureAirport.city} ({flight.departureAirport.iata}) - {flight.arrivalAirport.city} ({flight.arrivalAirport.iata})</div>
+                                <div>{flight.flightCode}</div>
                             </div>
 
                             <div class="d-flex flex-column gap-1 add-ons__input">
-                                <div>Adult 1</div>
-                                <select class="form-select" aria-label="Default select example">
+                                <div>Baggage</div>
+                                <select class="form-select" aria-label="Default select example" name='baggage' onChange={(event) => bookingValueHandler(event)}>
                                     <option selected>Open this select menu</option>
-                                    <option value="4">30 kg - free</option>
-                                    <option value="1">30 kg + 5 kg - Rp. 150.000</option>
-                                    <option value="2">30 kg + 5 kg - Rp. 150.000</option>
-                                    <option value="3">30 kg + 5 kg - Rp. 150.000</option>
+                                    <option value="0">20 kg - free</option>
+                                    <option value="25">5 + 20 kg - Rp. 165.000</option>
+                                    <option value="30">10 + 20 kg - Rp. 165.000</option>
                                 </select>
                             </div>
                         </div>

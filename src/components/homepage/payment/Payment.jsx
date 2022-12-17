@@ -22,7 +22,7 @@ export default function Payment() {
 
             <main className='container'>
                 <BookingBar />
-                {(location === `/search/flight/${id}`) && <FlightDetail />}
+                {(location === `/search/flight/${id}`) && <FlightDetail booking={booking} />}
                 {(location === '/search/flight/payment') && <PaymentList />}
             </main>
 
