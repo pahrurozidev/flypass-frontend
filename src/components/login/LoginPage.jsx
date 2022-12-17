@@ -1,69 +1,34 @@
 import React,{useEffect,useState} from 'react';
 import { Link,Navigate } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
+import axios from 'axios';
+import { useHistory } from 'react-router-use-history'
 
 export default function LoginPage() {
-    const [field, setField] = useState({});
-    const [err, setErr] = useState("");
-    const [isLoggedIn,setIsLoggedIn] = useState(false)
-    const [user, setUser] = useState({})
-    
 
-    useEffect(() =>{
-        const accesstToken = localStorage.getItem('accesstToken');
-        setIsLoggedIn(!!accesstToken);
-    },[]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [msg, setMsg] = useState('');
+    const history = useHistory();
 
-    function setValue(e) {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-
-        console.log({ name, value });
-
-        setField({
-            ...field,
-            [name]: value
-        });
-    }
-
-    async function doLogin(e) {
+    const Auth = async (e) => {
         e.preventDefault();
-
-
-        const response = await fetch('https://flypass-api.up.railway.app/v1/login', {
-      method : 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(field)
-    });
-
-    const data = await response.json();
-    if (data.status === "OK") {
-      localStorage.setItem("accesstToken", data.data.token);
-      setIsLoggedIn(true);
-      alert("Kamu Berhasil Login");
-
-      return <Navigate to="/" replace={true}/>
-    } else {
-      const errStatus = data.status;
-      const errMessage = data.message;
-      setErr(`${errStatus} ${errMessage}`);
+        try {
+            const data = await axios.post('https://flypass-api.up.railway.app/v1/login',{
+                email: email,
+                password: password,
+            });
+            alert("Kamu Berhasil Login");
+            console.log(data);
+            localStorage.setItem("token", data.data.user.accesstToken)
+            localStorage.setItem("id", data.data.user.id)
+            history.push('/user/dashboard/dashboarduser');
+        } catch (error) {
+            if (error.response) {
+                setMsg(error.response.data);
+            }
+        }
     }
-
-    console.log(data.data, "data here");
-
-    const userdata = data.data;
-    setUser(userdata);
-    console.log(data)
-
-    setField({});
-    e.target.reset();
-
-    
-  }
-
 
     return (
         <section className="container login-container">
@@ -73,18 +38,18 @@ export default function LoginPage() {
                         <h1>Login</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <form onSubmit={doLogin}>
+                    <form onSubmit={ Auth }>
                         <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
-                                <input type="email" name='email' onChange={setValue} />
+                                <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" name='password' onChange={setValue}/>
+                                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             </li>
                             <li>
-                            <input type="submit" name='submit' value='Login' className='shadow' /> 
+                            <input type="submit" name='submit' value='Login' className='shadow' style={{backgroundColor:"blue"}} /> 
                                 <div className="pt-3 text-center">
                                     Not already have account?
                                     <Link to={'/register'}>

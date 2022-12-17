@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../admin/layouts/sidebar/sidebaruser'
-import Navbar from '../admin/layouts/navbar/navbaruser'
+import Navbar from '../users/layouts/navbar/Navbar'
 import NotifCard from './dashboard/card/NotifCard'
 
 function NotificationPage() {

@@ -1,65 +1,40 @@
 import React,{useState} from 'react';
 import { Link, redirect } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
+import axios from 'axios';
+import { useHistory } from 'react-router-use-history';
 
 export default function RegisterPage() {
-    const [field, setField] = useState({});
-   
-    const [err, setErr] = useState("");
 
-    // const redirectToPersonalInfo = () => {
-    //     alert('redirect to personal information')
-    //     return redirect("/register2")
-    // }
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmationPassword, setConfirmationPassword] = useState('');
+    const [name, setName] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [gender, setGender] = useState('');
+    const [msg, setMsg] = useState('');
+    const [phone, setPhone] = useState('');
+    const history = useHistory();
 
-
-    function setValue(e) {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-
-        console.log({ name, value });
-
-        setField({
-            ...field,
-            [name]: value
-        });
-    }
-
-    async function doRegister(e) {
+    const Register = async (e) => {
         e.preventDefault();
-
-
-        const req = await fetch('https://flypass-api.up.railway.app/v1/register/',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(field)
-            }).catch((err) => {
-                throw err;
+        try {
+            await axios.post('https://flypass-api.up.railway.app/v1/register',{
+                email: email,
+                password: password,
+                confirmationPassword: confirmationPassword,
+                name: name,
+                birthDate: birthDate,
+                gender: gender,
+                phone: phone
             });
-
-        const data = await req.json();
-        if (data.status === "OK") {
-            alert("Congratulation!! , Your accounnt has been Registered")
-            return redirect("/register/personal")
-            
-
-        } else {
-            const errStatus = data.status;
-            const errMessage = data.message;
-            setErr(`${errStatus} ${errMessage}`);
-        };
-
-        console.log(data.data, "data here");
-
-        setField({});
-        e.target.reset();
-
-        console.log(data)
-
+            alert("Kamu Berhasil Register Silahkan Login");
+            history.push('/login');
+        } catch (error) {
+            if (error.response) {
+                setMsg(error.response.data);
+            }
+        }
     }
 
 
@@ -71,38 +46,39 @@ export default function RegisterPage() {
                         <h1>Sign Up</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <form onSubmit={doRegister} className='px-5 pb-4'>
+                    <p className='text-center'>{msg}</p>
+                    <form onSubmit={ Register } className='px-5 pb-4'>
                         <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
-                                <input type="email" name='email' onChange={setValue}/>
+                                <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" name='password' onChange={setValue}/>
+                                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="confirmasi_password">Confirmation</label>
-                                <input type="password" name='confirmationPassword'onChange={setValue}/>
+                                <input type="password" name='confirmationPassword' value={confirmationPassword} onChange={(e) => setConfirmationPassword(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="name">Name</label>
-                                <input type="name" name='name' onChange={setValue}/>
+                                <input type="name" name='name' value={name} onChange={(e) => setName(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="date">Date Of Birth</label>
-                                <input type="date" name='birthDate' onChange={setValue}/>
+                                <input type="date" name='birthDate' value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="gender">Gender</label>
-                                <input type="gender" name='gender'onChange={setValue}/>
+                                <input type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} />
                             </li>
                             <li>
                                 <label htmlFor="phone">Phone</label>
-                                <input type="phone" name='phone'onChange={setValue}/>
+                                <input type="phone" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </li>
                             <li>
-                                <input type="submit" name='submit' value='Continue' className='shadow' />                                   
+                                <input type="submit" name='submit' value='Register' className='shadow' style={{backgroundColor:"blue"}}/>                                   
                                 <div className="pt-3 text-center">
                                     Already have account?
                                     <Link to={'/login'}>

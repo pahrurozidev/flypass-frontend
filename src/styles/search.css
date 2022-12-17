@@ -10,7 +10,7 @@ body {
 /* search_result */
 
 .search_result-header {
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 .search_result__first {
@@ -238,6 +238,30 @@ body {
     width: 20px;
 }
 
+/* ======== */
+.flight-result {
+    margin-top: 550px !important;
+    margin-bottom: -470px !important;
+}
+
+.not-found {
+    margin-top: 580px !important;
+    height: 60px;
+    width: 95%;
+    line-height: 60px;
+    margin-bottom: -470px !important;
+
+    font-size: 14px !important;
+}
+
+@media screen and (min-width: 1000px) {
+    .flight-result,
+    .not-found {
+        margin-top: 150px !important;
+        margin-bottom: -100px !important;
+    }
+}
+
 @media screen and (min-width: 767px) {
     .search-detail__attr-item .attr_service {
         flex-direction: row;
@@ -280,13 +304,15 @@ body {
         gap: 3px;
     }
 
+
     .search_result .flight-duration-ring {
         grid-column-start: 2;
         grid-column-end: 4;
 
         padding-right: 20px;
-        padding-left: 20px;
+        padding-left: 0px;
     }
+
 
     .search_result .flight-price {
         padding-right: 10px;
@@ -308,7 +334,7 @@ body {
 @media screen and (min-width: 992px) {
     .search_result .flight-duration-ring {
         padding-right: 50px;
-        padding-left: 50px;
+        padding-left: 0px;
     }
 }
 
@@ -326,6 +352,10 @@ body {
     .search_result .flight-service {
         padding-left: 30px;
     }
+}
+
+.search_result {
+    margin: 15px 0px !important;
 }
 
 /* search_result */

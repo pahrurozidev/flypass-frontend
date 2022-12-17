@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, useState, useEffect } from "react";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useHistory } from 'react-router-use-history';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Menu } from "react-feather";
@@ -20,7 +23,7 @@ class navbaruser extends Component {
                     <li className="nav-item dropdown user-profile">
                         <a href="#" className='nav-link dropdown-toggle link-profile' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className='img-profile rounded-circle' src={Profile} alt="" />
-                            <span className='d-none d-lg-inline text-name'>Hi, Pahrurozi</span>
+                            <span className='d-none d-lg-inline text-name'>Hi, John Doe</span>
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                             <Link to={'/'} className="dropdown-item">Beranda</Link>

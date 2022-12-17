@@ -7,6 +7,10 @@ body {
     overflow-x: hidden !important;
 }
 
+.d-notif{
+    margin-right: "rem";
+}
+
 nav {
     position: relative;
     z-index: 999999;
@@ -23,7 +27,8 @@ nav {
 /* button */
 
 .bell {
-    margin-left: 25px;
+    margin-left: -410px;
+    margin-bottom: -25px;
 }
 
 .bell::after {
@@ -38,6 +43,14 @@ nav {
 
 .navbar-nav .slash {
     margin: 0 5px;
+}
+
+.bell .nav-item .dropdown-menu{
+    margin-left: -345px;
+}
+
+.bell .nav-item .dropdown-menu .dropdown-header{
+    background-color: #007AFF;
 }
 
 .flypass-logo {
@@ -211,6 +224,7 @@ input {
     text-align: center;
     border-radius: 100px 20px 20px 20px;
     position: relative;
+    padding-top: 100px;
 }
 
 .offer h6 {

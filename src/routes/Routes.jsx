@@ -8,14 +8,15 @@ import Register2 from "../pages/Register2";
 import DashboardAdmin from "../pages/DashboardAdmin";
 import Customer from "../pages/Customer";
 import Flight from "../pages/Flight";
-import Search from "../pages/Search";
-import Payments from "../pages/Payments";
 
 import Dashboard from "../pages/Dashboard";
 import Profil from "../pages/Profil";
 import EditProfil from "../pages/EditProfil";
 import Wishlist from "../pages/Wishlist";
 import Notification from "../pages/Notification";
+import Search from "../pages/Search";
+import Payments from "../pages/Payments";
+
 import MyTicket from "../pages/MyTicketUser";
 import Transaction from "../pages/TransactionUser";
 
@@ -25,8 +26,8 @@ export default function Routes() {
             <Switch>
                 {/* homepage */}
                 <Route exact path="/" element={<Home />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/search/flight/detail" element={<Payments />} />
+                {/* <Route path="/search" element={<Search />} /> */}
+                <Route path="/search/flight/:id" element={<Payments />} />
                 <Route path="/search/flight/payment" element={<Payments />} />
 
                 {/* auth */}
@@ -55,7 +56,6 @@ export default function Routes() {
                 <Route path="/user/dashboard/ticket/:id" element={<MyTicket />} />
                 <Route path="/user/dashboard/transaction" element={<Transaction />} />
                 <Route path="/user/dashboard/transaction/:id" element={<Transaction />} />
-
             </Switch>
         </HashRouter>
     )

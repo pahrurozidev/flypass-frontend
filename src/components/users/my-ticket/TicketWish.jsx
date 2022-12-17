@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Sidebar from '../../admin/layouts/sidebar/sidebaruser';
-import Navbar from '../../admin/layouts/navbar/navbaruser';
+import Navbar from '../../users/layouts/navbar/Navbar';
 import TicketList from './TicketListWish';
 import TicketDetail from './TicketDetailWish';
 

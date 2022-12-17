@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { Component, Fragment, useState, useEffect } from "react";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useHistory } from 'react-router-use-history';
 import { Link } from 'react-router-dom';
 import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../assets/dasboard-admin/line.svg';
 
 export default function Card() {
+    const [name, setUsername] = useState('');
+    const [token, setToken] = useState('');
+    // const [user, setUser] = useState('');
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
+            method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // setUser(data.data.user);
+            setUsername(data.name);
+          });
+        // setIsLoggedIn(!!token);
+      }, []);
+
     return (
         <div className="container-fluid position-relative">
             <h1 className="title-dashboard">Dashboard</h1>
             <div className="container my-ticket p-0 ms-0">
                 <div className="card welcome-card">
                 <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Pahrurozi</h4>
+                    <h4 className='card-title'>Selamat Datang, {name}</h4>
                     <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
                         aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
                 </div>

@@ -4,7 +4,7 @@ import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
-import sidebarLink from '../../../../assets/sidebarLink';
+import AdminSidebarLink from '../../../../assets/adminSidebarLink';
 
 class Sidebar extends Component {
     render() {
@@ -24,7 +24,7 @@ class Sidebar extends Component {
                         onClick={this.props.hideSidebarDispatch} />
 
                 </div>
-                {sidebarLink.map((item, index) => (
+                {AdminSidebarLink.map((item, index) => (
                     <li className={`nav-item list-sidebar ${(this.props.showSidebarProps && `show-nav-item`)}`} key={index}>
                         <NavLink to={item.path} className={(navClass) => navClass.isActive ? "active nav-link" : "nav-link"}>
                             <i className={item.icon}></i>

@@ -5,9 +5,18 @@ import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
+import axios from 'axios';
+import { useHistory } from 'react-router-use-history';
+import { Navigate } from 'react-router-dom';
 
 class Sidebaruser extends Component {
     render() {
+        function handleLogout() {
+            localStorage.removeItem("id");
+            localStorage.removeItem("token");
+            alert("Kamu Berhasil Logout");
+            Navigate('/#/login')
+        }
         return (
             <ul className={`nav flex-column border-end sidebar 
             ${(this.props.showSidebarProps && `show-sidebar`)}`}>
@@ -33,7 +42,7 @@ class Sidebaruser extends Component {
                     </li>
                 ))}
                 <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                    <a className="nav-link link-sidebar" href="#">
+                    <a className="nav-link link-sidebar" href='/#/login' onClick={handleLogout}>
                         <LogoutCurve size={20} />
                         <span>Logout</span>
                     </a>
