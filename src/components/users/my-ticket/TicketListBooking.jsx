@@ -9,13 +9,13 @@ export default function Card() {
             <h1 className="title-dashboard">Dashboard</h1>
             <div className="container my-ticket p-0 ms-0">
                 <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Pahrurozi</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <div className="card-body">
+                        <h4 className='card-title'>Selamat Datang, Pahrurozi</h4>
+                        <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
+                            aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
                 </div>
-            </div>
-            <div className="title-ticket d-flex flex-row align-items-center">
+                <div className="title-ticket d-flex flex-row align-items-center">
                     <h5>Recent Booking</h5>
                 </div>
                 <div className="opsi-filter">
