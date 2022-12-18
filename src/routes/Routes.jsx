@@ -50,7 +50,7 @@ export default function Routes() {
                 <Route path="/user/dashboard/transaction" element={<Transaction />} />
                 <Route path="/user/dashboard/transaction/:id" element={<Transaction />} />
 
-                <Route exact path="/user/dashboard" element={<Dashboard />} />
+                <Route exact path="/dashboard/user" element={<Dashboard />} />
                 <Route path="/user/dashboard/:id" element={<Dashboard />} />
                 <Route exact path="/user/dashboard/profile" element={<Profil />} />
                 <Route exact path="/user/dashboard/profile/edit" element={<EditProfil />} />
