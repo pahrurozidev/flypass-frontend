@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useParams } from 'react-router-dom';
+import { redirect, useParams } from 'react-router-dom';
 import Plane45 from '../../../assets/homepage/plane45.png';
 import LongAAR from '../../../assets/homepage/long-arrow-alt-right.png';
 import Garuda from '../../../assets/homepage/garuda.svg';
@@ -15,11 +15,13 @@ import { Link } from 'react-router-dom';
 import { API } from '../../../services';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { SaveAdd } from 'iconsax-react';
 
-function FlightDetail({booking}) {
+function FlightDetail() {
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
     const [show, setShow] = useState(false);
+    const [price, setPrice] = useState();
     const [bookValue, setBookValue] = useState({
         contactTitle: '',
         contactFirstName: '',
@@ -49,11 +51,12 @@ function FlightDetail({booking}) {
         flight2Id: ''
     })
 
-
     useEffect(() => {
         API.flightDetail(id).then((flights) => {
             setFlight(flights);
         })
+
+        setPrice(flight.price);
 
     }, [])
 
@@ -75,7 +78,14 @@ function FlightDetail({booking}) {
             baggage: [`${books.baggage}`],
         })
 
-        // console.log(bookValue.baggage);
+        const baggage = parseInt(books.baggage);
+        if (baggage === 25) {
+            setPrice(flight.price * 0.1 + flight.price);
+        } else if (baggage === 30) {
+            setPrice(flight.price * 0.15 + flight.price);
+        } else {
+            setPrice(flight.price);
+        }
 
         setBook({
             contactTitle: bookValue.contactTitle,
@@ -100,7 +110,24 @@ function FlightDetail({booking}) {
     }
 
     const bookingHandler = () => {
-        API.book(book).then((b) => console.log(b));
+
+        if (book.contactTitle !== "" &&
+            book.contactFirstName !== "" &&
+            book.contactLastName !== "" &&
+            book.contactPhone !== "" &&
+            book.contactEmail !== "" &&
+            book.passenger[0].identityNumber !== "" &&
+            book.passenger[0].identityType !== "" &&
+            book.passenger[0].baggage !== [""]) {
+            console.log(book);
+            API.book(book).then((b) => console.log(b));
+
+            redirect('/search/flight/payment');
+        } else {
+            alert('Fill form required!');
+            return;
+    
+        }
     }
 
     setTimeout(() => {
@@ -118,11 +145,16 @@ function FlightDetail({booking}) {
                         <div class="selected-flight">
                             {/* <!-- flight header --> */}
                             <div class="selected-flight-header card p-3 rounded-0 rounded-top">
-                                <div class="order_flight__header">
-                                    <div><img src={Plane45} alt="" /></div>
-                                    <div>{flight.departureAirport.city}</div>
-                                    <div><img src={LongAAR} alt="" /></div>
-                                    <div>{flight.arrivalAirport.city}</div>
+                                <div className='d-flex justify-content-between'>
+                                    <div class="order_flight__header">
+                                        <div><img src={Plane45} alt="" /></div>
+                                        <div>{flight.departureAirport.city}</div>
+                                        <div><img src={LongAAR} alt="" /></div>
+                                        <div>{flight.arrivalAirport.city}</div>
+                                    </div>
+                                    <div>
+                                        <SaveAdd width={20} className="wishlist-button" />
+                                    </div>
                                 </div>
 
                                 <div class="order_flight__body">
@@ -149,7 +181,7 @@ function FlightDetail({booking}) {
                                     </div>
 
                                     <div>
-                                        <img src={ArrowBottom} alt="" />
+                                        {/* <img src={ArrowBottom} alt="" /> */}
                                     </div>
                                 </div>
                             </div>
@@ -222,21 +254,21 @@ function FlightDetail({booking}) {
                                                 <div>Additional Cost</div>
                                             </div>
                                             <div class="d-flex flex-column gap-3">
-                                                <div>Rp {flight.price}</div>
+                                                <div>Rp {price}</div>
                                                 <div>Rp 0</div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">
                                             <div>Total Price</div>
-                                            <div class="text-primary">Rp {flight.price}</div>
+                                            <div class="text-primary">Rp {price}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center button-price__continue mt-4 mb-5">
-                                <Link to={'/search/flight/payment'}>
-                                    <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow" onClick={() => bookingHandler()}>Continue</div>
-                                </Link>
+                                {/* <Link to={'/search/flight/payment'}> */}
+                                <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow" onClick={() => bookingHandler()}>Booking</div>
+                                {/* </Link> */}
                             </div>
                         </div>
                     </div>
@@ -248,11 +280,11 @@ function FlightDetail({booking}) {
                             <div class="input-left">
                                 <div class="mb-3">
                                     <label for="contactFirstName" class="form-label">First Name</label>
-                                    <input type="text" name='contactFirstName' class="form-control" id="contactFirstName" placeholder="ex: John" onChange={(event) => bookingValueHandler(event)} />
+                                    <input type="text" name='contactFirstName' class="form-control" id="contactFirstName" placeholder="ex: John" onChange={(event) => bookingValueHandler(event)} required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="contactTitle" class="form-label">Title</label>
-                                    <select class="form-select contact-title" aria-label="Default select example" name='contactTitle' onChange={(event) => bookingValueHandler(event)}>
+                                    <select class="form-select contact-title" aria-label="Default select example" name='contactTitle' onChange={(event) => bookingValueHandler(event)} required>
                                         <option selected>Select title</option>
                                         <option value="mr">Tn</option>
                                         <option value="mr">Mr</option>
@@ -262,25 +294,25 @@ function FlightDetail({booking}) {
                                 </div>
                                 <div class="mb-3">
                                     <label for="contactPhone" class="form-label">No. Handphone</label>
-                                    <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="0821xxxxxxxx" onChange={(event) => bookingValueHandler(event)} />
+                                    <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="0821xxxxxxxx" onChange={(event) => bookingValueHandler(event)} required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="identityNumber" class="form-label">Identity Number</label>
-                                    <input type="text" class="form-control" id="identityNumber" name="identityNumber" placeholder="521xxxxxxxx" onChange={(event) => bookingValueHandler(event)} />
+                                    <input type="text" class="form-control" id="identityNumber" name="identityNumber" placeholder="521xxxxxxxx" onChange={(event) => bookingValueHandler(event)} required />
                                 </div>
                             </div>
                             <div class="input-right">
                                 <div class="mb-3">
                                     <label for="contactLastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" name="contactLastName" id="contactLastName" placeholder="ex: Doe" onChange={(event) => bookingValueHandler(event)} />
+                                    <input type="text" class="form-control" name="contactLastName" id="contactLastName" placeholder="ex: Doe" onChange={(event) => bookingValueHandler(event)} required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="contactEmail" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name='contactEmail' id="contactEmail" placeholder="name@example.com" onChange={(event) => bookingValueHandler(event)} />
+                                    <input type="email" class="form-control" name='contactEmail' id="contactEmail" placeholder="name@example.com" onChange={(event) => bookingValueHandler(event)} required />
                                 </div>
                                 <div class="mb-3">
                                     <label for="identityType" class="form-label">Identity Type</label>
-                                    <select class="form-select contact-title" aria-label="Default select example" name='identityType' onChange={(event) => bookingValueHandler(event)}>
+                                    <select class="form-select contact-title" aria-label="Default select example" name='identityType' onChange={(event) => bookingValueHandler(event)} required>
                                         <option selected>Identity Type</option>
                                         <option value="ktp">KTP</option>
                                         <option value="passport">Passport</option>
@@ -302,11 +334,11 @@ function FlightDetail({booking}) {
 
                             <div class="d-flex flex-column gap-1 add-ons__input">
                                 <div>Baggage</div>
-                                <select class="form-select" aria-label="Default select example" name='baggage' onChange={(event) => bookingValueHandler(event)}>
+                                <select class="form-select" aria-label="Default select example" name='baggage' onChange={(event) => bookingValueHandler(event)} required>
                                     <option selected>Open this select menu</option>
                                     <option value="0">20 kg - free</option>
-                                    <option value="25">5 + 20 kg - Rp. 165.000</option>
-                                    <option value="30">10 + 20 kg - Rp. 165.000</option>
+                                    <option value="25">5 + 20 kg - Rp. {flight.price * 0.1}</option>
+                                    <option value="30">10 + 20 kg - Rp. {flight.price * 0.15}</option>
                                 </select>
                             </div>
                         </div>

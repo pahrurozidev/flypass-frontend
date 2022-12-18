@@ -55,6 +55,10 @@ body,
 }
 
 
+.wishlist-button {
+    cursor: pointer;
+}
+
 .order_flight {
     margin-top: 50px;
     font-size: 14px;
@@ -284,7 +288,7 @@ body,
     }
 
     .flight-detail.search-detail {
-        margin-top: -107px;
+        margin-top: -70px;
     }
 
     .search-detail {
@@ -480,7 +484,7 @@ body,
     font-size: 12px;
 }
 
-@media screen and (min-width: 992px) { 
+@media screen and (min-width: 992px) {
     .payment-contact-detail {
         /*  */
         grid-row-start: 8;
