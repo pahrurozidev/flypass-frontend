@@ -31,7 +31,15 @@ export default function Navbar() {
                 setUsername(data.name);
                 setImage(data.image);
             });
-        setLogin(true);
+    }, []);
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            setLogin(false)
+        } else {
+            setLogin(true)
+        }
     }, []);
 
     return (
@@ -63,7 +71,7 @@ export default function Navbar() {
                             <a className="nav-link" href="#contact">Contact us</a>
                         </div>
                     }
-                    {!!login ? (
+                    {!login ? (
                         <div>
                             <div className='bell'>
                                 {(location === '/') &&
@@ -125,7 +133,7 @@ export default function Navbar() {
                                             <hr className="dropdown-divider" />
                                         </li>
                                         <li>
-                                            <a className="dropdown-item small text-center" href="/#/notifuser">Show All Notification</a>
+                                            <a className="dropdown-item small text-center" href="/#/user/dashboard/notifuser">Show All Notification</a>
                                         </li>
                                     </ul>
                                 </div>
