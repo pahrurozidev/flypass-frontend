@@ -125,7 +125,7 @@ export default function Navbar() {
                                             <hr className="dropdown-divider" />
                                         </li>
                                         <li>
-                                            <a className="dropdown-item small text-center" href="/#/user/dashboard/notifuser">Show All Notification</a>
+                                            <a className="dropdown-item small text-center" href="/#/notifuser">Show All Notification</a>
                                         </li>
                                     </ul>
                                 </div>

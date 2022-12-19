@@ -3,6 +3,7 @@ import { HashRouter, Routes as Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Protected from "../components/protected/Protected";
 import Register2 from "../pages/Register2";
 
 import DashboardAdmin from "../pages/DashboardAdmin";
@@ -45,17 +46,18 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
-                <Route exact path="/user/dashboard/dashboarduser" element={<Dashboard />} />
-                <Route path="/user/dashboard/dashboarduser/:id" element={<Dashboard />} />   
-                <Route exact path="/user/dashboard/profile" element={<Profil />} />
-                <Route exact path="/user/dashboard/editprofile" element={<EditProfil />} />
-                <Route exact path="/user/dashboard/wishlist" element={<Wishlist />} />
-                <Route path="/user/dashboard/wishlist/:id" element={<Wishlist />} />
-                <Route exact path="/user/dashboard/notifuser" element={<Notification />} />
-                <Route path="/user/dashboard/ticket" element={<MyTicket />} />
-                <Route path="/user/dashboard/ticket/:id" element={<MyTicket />} />
-                <Route path="/user/dashboard/transaction" element={<Transaction />} />
-                <Route path="/user/dashboard/transaction/:id" element={<Transaction />} />
+                
+                <Route exact path="/user/dashboard/dashboarduser" element={<Protected><Dashboard /></Protected>} />
+                <Route path="/user/dashboard/dashboarduser/:id" element={<Protected><Dashboard /></Protected>} />   
+                <Route exact path="/user/dashboard/profile" element={<Protected><Profil /></Protected>} />
+                <Route exact path="/user/dashboard/editprofile" element={<Protected><EditProfil /></Protected>} />
+                <Route exact path="/user/dashboard/wishlist" element={<Protected><Wishlist /></Protected>} />
+                <Route path="/user/dashboard/wishlist/:id" element={<Protected><Wishlist /></Protected>} />
+                <Route exact path="/user/dashboard/notifuser" element={<Protected><Notification /></Protected>} />
+                <Route path="/user/dashboard/ticket" element={<Protected><MyTicket /></Protected>} />
+                <Route path="/user/dashboard/ticket/:id" element={<Protected><MyTicket /></Protected>} />
+                <Route path="/user/dashboard/transaction" element={<Protected><Transaction /></Protected>} />
+                <Route path="/user/dashboard/transaction/:id" element={<Protected><Transaction /></Protected>} />
             </Switch>
         </HashRouter>
     )
