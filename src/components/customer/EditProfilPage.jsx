@@ -18,6 +18,7 @@ export default function EditProfilPage() {
 
     function submit(e){
         e.preventDefault();
+        console.log(data.image)
         const token = localStorage.getItem("token");
         axios.put('https://flypass-api.up.railway.app/v1/user', data,{
             headers: {
@@ -25,17 +26,17 @@ export default function EditProfilPage() {
             },
         })
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             alert("Data kamu berhasil diedit");
             history.push('/user/dashboard/profile');
         })
     }
 
     function handle(e){
+
         const newdata={...data}
         newdata[e.target.id] = e.target.value
         setData(newdata)
-        console.log(newdata)
     }
 
     return (

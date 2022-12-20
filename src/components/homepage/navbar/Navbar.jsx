@@ -5,6 +5,7 @@ import NavList from './NavList';
 import UserCircle from '../../../assets/homepage/user-circle.png';
 import Logo from '../../../assets/homepage/Logo.png';
 import Bell from '../../../assets/homepage/bell.png';
+import { Navigate } from 'react-router-dom';
 
 export default function Navbar() {
     const location = useLocation().pathname;
@@ -41,6 +42,13 @@ export default function Navbar() {
             setLogin(true)
         }
     }, []);
+
+    function handleLogout() {
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        alert("Kamu Berhasil Logout");
+        Navigate('/#/login')
+    }
 
     return (
         // <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -140,7 +148,38 @@ export default function Navbar() {
                             </div>
                             <div className="navbar-nav user ms-4">
                                 <a href="/#/user/dashboard/dashboarduser"><img src={image} className="rounded-circle" style={{ marginRight: "8px" }} width={"50px"} alt="" /></a>
-                                <Link to={'/user/dashboard/dashboarduser'} className="nav-link px-0 mt-1">{name}</Link>
+                                <div className="nav-item dropdown no-arrow">
+                                    <a href="/user/dashboard/dashboarduser" className='nav-link px-0 mt-1' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{name}</a>
+                                    <ul className="dropdown-menu " style={{marginTop:"-5px", marginLeft:"-100px"}} aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/dashboarduser">
+                                                <div>
+                                                <div className="small text-gray-500">Dashboard</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr className="dropdown-divider" />
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/profile">
+                                                <div>
+                                                <div className="small text-gray-500">Profil</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr className="dropdown-divider" />
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item d-flex align-items-center" href="/#/login">
+                                                <div>
+                                                <div onClick={handleLogout} className="small text-gray-500">Logout</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 

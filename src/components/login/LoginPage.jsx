@@ -22,7 +22,7 @@ export default function LoginPage() {
             console.log(data);
             localStorage.setItem("token", data.data.user.accesstToken)
             localStorage.setItem("id", data.data.user.id)
-            history.push('/user/dashboard/dashboarduser');
+            history.push('/');
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data);

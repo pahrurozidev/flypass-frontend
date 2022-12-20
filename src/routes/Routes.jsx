@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Protected from "../components/protected/Protected";
+import ProtectedLogin from "../components/protected/ProtectedLogin";
 import Register2 from "../pages/Register2";
 
 import DashboardAdmin from "../pages/DashboardAdmin";
@@ -32,9 +33,9 @@ export default function Routes() {
                 <Route path="/search/flight/payment" element={<Payments />} />
 
                 {/* auth */}
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/register" element={<Register />} />
-                <Route exact path="/register/personal" element={<Register2 />} />
+                <Route exact path="/login" element={<ProtectedLogin><Login /></ProtectedLogin>} />
+                <Route exact path="/register" element={<ProtectedLogin><Register /></ProtectedLogin>} />
+                <Route exact path="/register/personal" element={<ProtectedLogin><Register2 /></ProtectedLogin>} />
 
                 {/* admin */}
                 <Route path="/dashboard" element={<DashboardAdmin />} />
