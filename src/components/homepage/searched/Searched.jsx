@@ -16,11 +16,10 @@ import moment from 'moment';
 class Searched extends Component {
 
     render() {
-        // console.log(this.props.flights);
         return (
             <section class="container m-auto card pt-3 flight-result">
                 <div className="search_result-header card p-3">
-                    <h1>Select Flight</h1>
+                    <h1>Departure Flight to {this.props.flights[0].arrivalAirport.city}</h1>
                     <p className="col-12 col-md-10 col-lg-8 text-select">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laborum eius aperiam ut adipisci cum, quia quam repudiandae perferendis a expedita nobis ipsa.</p>
                 </div>
 

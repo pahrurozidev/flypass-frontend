@@ -12,13 +12,13 @@ import Flight from "../pages/Flight";
 import Dashboard from "../pages/Dashboard";
 import Profil from "../pages/Profil";
 import EditProfil from "../pages/EditProfil";
-import Wishlist from "../pages/Wishlist";
 import Notification from "../pages/Notification";
 import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
 import MyTicket from "../pages/MyTicketUser";
 import Transaction from "../pages/TransactionUser";
+import Wishlists from "../pages/Wishlists";
 
 export default function Routes() {
     return (
@@ -54,8 +54,7 @@ export default function Routes() {
                 <Route path="/user/dashboard/:id" element={<Dashboard />} />
                 <Route exact path="/user/dashboard/profile" element={<Profil />} />
                 <Route exact path="/user/dashboard/profile/edit" element={<EditProfil />} />
-                <Route exact path="/user/dashboard/wishlist" element={<Wishlist />} />
-                <Route path="/user/dashboard/wishlist/:id" element={<Wishlist />} />
+                <Route path="/user/dashboard/wishlist" element={<Wishlists />} />
                 <Route exact path="/user/dashboard/notification" element={<Notification />} />
                 <Route exact path="/user/dashboard/notification/:id" element={<Notification />} />
             </Switch>

@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import WishlistPage from '../components/customer/WishlistPage';
 import { actionType } from '../redux/reducer/globalActionType';
-import Ticket from '../components/users/my-ticket/TicketWish';
+import Wishlist from '../components/users/wishlist/Wishlist';
 
 // style homepage
 import '../styles/dashboard.css'
 import '../styles/ticket.css';
 
-class Wishlist extends Component {
+class Wishlists extends Component {
     render() {
         return (
             <Fragment>
-                <Ticket />
+                <Wishlist />
             </Fragment>
         )
     }
@@ -35,4 +34,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Wishlist);
+export default connect(mapStateToProps, mapDispatchToProps)(Wishlists);

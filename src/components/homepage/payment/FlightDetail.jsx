@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { redirect, useParams } from 'react-router-dom';
+import { redirect, useParams, useNavigate } from 'react-router-dom';
 import Plane45 from '../../../assets/homepage/plane45.png';
 import LongAAR from '../../../assets/homepage/long-arrow-alt-right.png';
 import Garuda from '../../../assets/homepage/garuda.svg';
@@ -18,10 +18,13 @@ import { useEffect } from 'react';
 import { SaveAdd } from 'iconsax-react';
 
 function FlightDetail() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
     const [show, setShow] = useState(false);
     const [price, setPrice] = useState();
+    const [wishlist, setWishlist] = useState([]);
+    const [baggage, setBaggage] = useState(0);
     const [bookValue, setBookValue] = useState({
         contactTitle: '',
         contactFirstName: '',
@@ -54,10 +57,8 @@ function FlightDetail() {
     useEffect(() => {
         API.flightDetail(id).then((flights) => {
             setFlight(flights);
+            setPrice(flights.price);
         })
-
-        setPrice(flight.price);
-
     }, [])
 
     const bookingValueHandler = (event) => {
@@ -81,10 +82,13 @@ function FlightDetail() {
         const baggage = parseInt(books.baggage);
         if (baggage === 25) {
             setPrice(flight.price * 0.1 + flight.price);
+            setBaggage(flight.price * 0.1)
         } else if (baggage === 30) {
             setPrice(flight.price * 0.15 + flight.price);
+            setBaggage(flight.price * 0.15);
         } else {
             setPrice(flight.price);
+            setBaggage(0);
         }
 
         setBook({
@@ -99,11 +103,11 @@ function FlightDetail() {
                     lastName: bookValue.contactLastName,
                     identityType: bookValue.identityType,
                     identityNumber: bookValue.identityNumber,
-                    baggage: [`${bookValue.baggage}`]
+                    baggage: [`${books.baggage}`]
                 },
             ],
             flight1Id: `${flight.id}`,
-            flight2Id: ''
+            flight2Id: `${flight.id}`,
         })
 
         // console.log(book);
@@ -122,17 +126,30 @@ function FlightDetail() {
             console.log(book);
             API.book(book).then((b) => console.log(b));
 
-            redirect('/search/flight/payment');
+            return navigate('/search/flight/payment');
         } else {
             alert('Fill form required!');
             return;
-    
+
+        }
+    }
+
+    const addWishListHandler = () => {
+        if (wishlist.length !== 0) {
+            API.deleteWishlists(flight.id).then((res) => console.log(res));
+        } else {
+            API.addWishlists(flight.id).then((res) => console.log(res));
         }
     }
 
     setTimeout(() => {
         setShow(true);
-    }, 2000);
+
+        API.wishlists().then((flights) => {
+            const wishFlight = flights.filter((f) => f.id === flight.id);
+            setWishlist(wishFlight);
+        })
+    }, 3000);
 
 
     return (
@@ -152,8 +169,10 @@ function FlightDetail() {
                                         <div><img src={LongAAR} alt="" /></div>
                                         <div>{flight.arrivalAirport.city}</div>
                                     </div>
-                                    <div>
-                                        <SaveAdd width={20} className="wishlist-button" />
+                                    <div
+                                        className={`border p-2 rounded shadow wishlist-button ${wishlist.length !== 0 && 'bg-primary text-white'}`}
+                                        onClick={() => addWishListHandler()} >
+                                        <SaveAdd width={40} className="" />
                                     </div>
                                 </div>
 
@@ -254,8 +273,8 @@ function FlightDetail() {
                                                 <div>Additional Cost</div>
                                             </div>
                                             <div class="d-flex flex-column gap-3">
-                                                <div>Rp {price}</div>
-                                                <div>Rp 0</div>
+                                                <div>Rp {flight.price}</div>
+                                                <div>Rp {baggage}</div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">

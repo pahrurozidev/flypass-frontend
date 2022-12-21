@@ -299,7 +299,7 @@ body,
 
     .price-detail-header {
         margin-top: 0px;
-        grid-row-start: 1;
+        grid-row-start: 1 !important;
         grid-column-start: 15;
         grid-column-end: 21;
     }
@@ -491,6 +491,8 @@ body,
         /*  */
         grid-column-start: 15;
         grid-column-end: 21;
+
+        margin-top: -140px;
     }
 }
 
@@ -500,4 +502,20 @@ body,
 .contact-title {
     height: 45px;
     margin-top: 10px;
+}
+
+.payment-header h6 {
+    font-size: 14px !important;
+}
+
+.payment-header h5 {
+    font-size: 16px !important;
+}
+
+.btn-send {
+    font-size: 14px;
+}
+
+.payment-item-name {
+    cursor: pointer;
 }

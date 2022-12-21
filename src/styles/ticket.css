@@ -139,7 +139,7 @@
     background: #FFFFFF;
     border: 1px solid #B9B9B9;
     border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); */
 }
 
 .card-e-ticket .card .card-body {
@@ -412,7 +412,7 @@
 
     .list-ticket .table tbody tr {
         border: 1px solid #B9B9B9;
-        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+        /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4); */
         border-radius: 6px;
         margin-bottom: 16px;
         float: left;
