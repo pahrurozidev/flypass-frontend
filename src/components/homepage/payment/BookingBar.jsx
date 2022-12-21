@@ -28,8 +28,8 @@ export default function BookingBar() {
 
                 {/* 3 */}
                 <div className="status_label">
-                    <div className="number bg-secondary">3</div>
-                    <div>Complete</div>
+                    <div className={`number ${(location === '/search/flight/payment/completed') ? 'bg-primary' : 'bg-secondary'}`}>3</div>
+                    <div className={`${(location === '/search/flight/payment/completed') ? 'text-primary' : 'text-secondary'}`}>Completed</div>
                 </div>
             </div>
         </div>

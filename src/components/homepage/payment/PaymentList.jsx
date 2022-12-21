@@ -7,12 +7,13 @@ import ShopeePay from '../../../assets/homepage/shopeepay.png';
 import CheckCircle from '../../../assets/homepage/check-circle.png';
 import BCA from '../../../assets/homepage/bca.png';
 import BNI from '../../../assets/homepage/bni.png';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { API } from '../../../services'
 
 export default function PaymentList() {
 
+  const navigate = useNavigate();
   const [showCheck, setShowCheck] = useState({
     shopeePay: false,
     flightPay: false,
@@ -50,7 +51,12 @@ export default function PaymentList() {
   }
 
   const submitPaymentHandler = () => {
-    API.transactions(921, image).then((res) => console.log(res));
+    API.transactions(921, image).then((res) => {
+      console.log(res);
+      if (res.data.message === 'created successfully') {
+        return navigate('/search/flight/payment/completed');
+      }
+    });
   }
 
   return (

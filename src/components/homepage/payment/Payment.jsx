@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import FlightDetail from './FlightDetail';
 import PaymentList from './PaymentList';
+import PaymentCompleted from './PaymentCompleted';
 import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 
@@ -22,8 +23,9 @@ export default function Payment() {
 
             <main className='container'>
                 <BookingBar />
-                {(location === `/search/flight/${id}`) && <FlightDetail/>}
+                {(location === `/search/flight/${id}`) && <FlightDetail />}
                 {(location === '/search/flight/payment') && <PaymentList />}
+                {(location === '/search/flight/payment/completed') && <PaymentCompleted />}
             </main>
 
             <Footer />
