@@ -1,9 +1,9 @@
-import React from 'react';
-import { LogoutCurve } from 'iconsax-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
+import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history';
@@ -43,3 +43,4 @@ export default function Sidebar() {
         </ul>
     );
 }
+

@@ -5,14 +5,14 @@ const UserSidebarLink = [
         display: 'Dashboard',
     },
     {
-        path: '/user/dashboard/ticket',
-        icon: 'bi bi-ticket-perforated',
-        display: 'My Ticket',
-    },
-    {
         path: '/user/dashboard/profile',
         icon: 'bi bi-person-circle',
         display: 'Profile',
+    },
+    {
+        path: '/user/dashboard/ticket',
+        icon: 'bi bi-ticket-perforated',
+        display: 'My Ticket',
     },
     {
         path: '/user/dashboard/wishlist',

@@ -14,13 +14,13 @@ import Flight from "../pages/Flight";
 import Dashboard from "../pages/Dashboard";
 import Profil from "../pages/Profil";
 import EditProfil from "../pages/EditProfil";
-import Wishlist from "../pages/Wishlist";
 import Notification from "../pages/Notification";
 import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
 import MyTicket from "../pages/MyTicketUser";
 import Transaction from "../pages/TransactionUser";
+import Wishlists from "../pages/Wishlists";
 
 export default function Routes() {
     return (

@@ -9,7 +9,8 @@ const globalState = {
         departure: '',
         destination: '',
         trip: '',
-        date: '',
+        departureDate: '',
+        returnDate: '',
         passenger: '',
     },
     flightDetail: '',
@@ -47,7 +48,7 @@ const rootReducer = (state = globalState, action) => {
             return data.departureAirport.name === flight.departure &&
                 data.arrivalAirport.name === flight.destination &&
                 data.FlightType.name === flight.trip &&
-                data.departureDate === flight.date &&
+                data.departureDate >= flight.departureDate &&
                 data.FlightClass.name === flight.passenger
         })
 
@@ -68,7 +69,8 @@ const rootReducer = (state = globalState, action) => {
                 departure: inputForm.departure,
                 destination: inputForm.destination,
                 trip: inputForm.trip,
-                date: inputForm.date,
+                departureDate: inputForm.departureDate,
+                returnDate: inputForm.returnDate,
                 passenger: inputForm.passenger,
             },
         }
@@ -81,6 +83,22 @@ const rootReducer = (state = globalState, action) => {
         return {
             ...state,
             flightDetail: action.flight
+        }
+    } else if (action.type === actionType.CHANGE_DEPARTURE) {
+        return {
+            ...state,
+            flight: {
+                departure: action.airport,
+                destination: state.flight.destination
+            },
+        }
+    } else if (action.type === actionType.CHANGE_ARRIVAL) {
+        return {
+            ...state,
+            flight: {
+                departure: state.flight.departure,
+                destination: action.airport,
+            },
         }
     } else {
         return state;

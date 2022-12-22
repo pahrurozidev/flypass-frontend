@@ -58,7 +58,7 @@ export default function RegisterPage() {
                                 <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             </li>
                             <li>
-                                <label htmlFor="confirmasi_password">Confirmation</label>
+                                <label htmlFor="confirmasi_password">Password Confirmation</label>
                                 <input type="password" name='confirmationPassword' value={confirmationPassword} onChange={(e) => setConfirmationPassword(e.target.value)} />
                             </li>
                             <li>

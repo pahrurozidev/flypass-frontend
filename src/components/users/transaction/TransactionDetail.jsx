@@ -12,7 +12,7 @@ export default function CustomerDetail() {
                     <h5 className="breadcrumb-detail ms-3">Transaction /</h5><span className="mb-0 next-breadcrumb">&nbsp;Transaction Detail</span>
                 </div>
             </div>
-            <div className="container all-transaction p-0 ms-0">
+            <div className="container all-transaction p-0 ms-0">``
                 <div className="card transaction-card">
                     <div className="transaction-card-detail shadow py-3">
                         <section className="section_top d-flex">

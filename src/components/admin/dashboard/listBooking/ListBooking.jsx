@@ -18,7 +18,7 @@ export default function ListBooking() {
                 </div>
             </div>
 
-            <div className="card mt-3">
+            <div className="card booking-table mt-3">
                 <table className="table">
                     <thead className='border-bottom'>
                         <tr>

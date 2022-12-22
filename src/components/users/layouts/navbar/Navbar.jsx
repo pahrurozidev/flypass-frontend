@@ -3,10 +3,9 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-use-history';
 import { Link } from 'react-router-dom';
-import { Search, Bell } from "react-feather";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Menu } from 'react-feather';
 import Profile from '../../../../assets/dasboard-admin/profile.svg';
+import { actionType } from '../../../../redux/reducer/globalActionType';
 
 export default function navbar() {
     const [name, setUsername] = useState('');
@@ -53,3 +52,5 @@ export default function navbar() {
         </nav>
     )
 }
+
+

@@ -10,25 +10,25 @@ export default function BookingBar() {
 
     return (
         <div className="card order_status-header p-3 col-lg-8 m-auto">
-            <div class="order_status">
+            <div className="order_status">
 
                 {/* 1 */}
-                <div class="status_label">
+                <div className="status_label">
                     <div className={`number ${(location === `/search/flight/${id}`) ? 'bg-primary' : 'bg-secondary'}`}>1</div>
                     <div className={`${(location === `/search/flight/${id}`) ? 'text-primary' : 'text-secondary'}`}>Booking</div>
                 </div>
                 <div><img src={(location === `/search/flight/${id}`) ? Plane90Primary : Plane90PSecondary} alt="" /></div>
 
                 {/* 2 */}
-                <div class="status_label">
+                <div className="status_label">
                     <div className={`number ${(location === '/search/flight/payment') ? 'bg-primary' : 'bg-secondary'}`}>2</div>
                     <div className={`${(location === '/search/flight/payment') ? 'text-primary' : 'text-secondary'}`}>Payment</div>
                 </div>
                 <div><img src={(location === '/search/flight/payment') ? Plane90Primary : Plane90PSecondary} alt="" /></div>
 
                 {/* 3 */}
-                <div class="status_label">
-                    <div class="number bg-secondary">3</div>
+                <div className="status_label">
+                    <div className="number bg-secondary">3</div>
                     <div>Complete</div>
                 </div>
             </div>
