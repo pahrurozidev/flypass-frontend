@@ -1,6 +1,6 @@
 const UserSidebarLink = [
     {
-        path: '/dashboard/user',
+        path: '/user/dashboard/dashboarduser',
         icon: 'bi bi-house-door',
         display: 'Dashboard',
     },
@@ -25,7 +25,7 @@ const UserSidebarLink = [
         display: 'Transaction',
     },
     {
-        path: '/user/dashboard/notification',
+        path: '/user/dashboard/notifuser',
         icon: 'bi bi-bell',
         display: 'Notification',
     },

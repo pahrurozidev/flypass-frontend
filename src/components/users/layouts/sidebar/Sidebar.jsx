@@ -5,59 +5,42 @@ import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
+import axios from 'axios';
+import { useHistory } from 'react-router-use-history';
 
-class Sidebar extends Component {
-    render() {
-        return (
-            <ul id='sidebar' className={`nav flex-column border-end sidebar 
-            ${(this.props.showSidebarProps && `show-sidebar`)}`}>
-                <div className="d-flex align-items-center mt-3 text-decoration-none d-flex justify-content-between items-center sidebar-logo pb-4">
+export default function Sidebar() {
+    const history = useHistory();
 
-                    <Link to={"/"}>
-                        <img src={Logo} alt="FlyPass" className={`logo-large 
-                    ${(this.props.showSidebarProps && `show-logo-large`)}`} />
-                    </Link>
-
-                    <ArrowCircleLeft
-                        size={33}
-                        className={`shadow bg-light rounded-circle border text-secondary arrow-left-circle ${(this.props.showSidebarProps && `show-arrow-left-circle`)}`}
-                        onClick={this.props.hideSidebarDispatch} />
-
-                </div>
-                {UserSidebarLink.map((item, index) => (
-                    <li className={`nav-item list-sidebar ${(this.props.showSidebarProps && `show-nav-item`)}`} key={index}>
-                        <NavLink to={item.path} className={(navClass) => navClass.isActive ? "active nav-link" : "nav-link"}>
-                            <i className={item.icon}></i>
-                            <span>{item.display}</span>
-                        </NavLink>
-                    </li>
-                ))}
-                <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                    <a className="nav-link link-sidebar" href="#">
-                        <LogoutCurve size={20} />
-                        <span>Logout</span>
-                    </a>
+    const Logout = async() =>{
+        try {
+            await axios.delete('https://flypass-api.up.railway.app/v1/logout')
+            history.push("/login")
+        } catch (error) {
+            console.log(error)
+        }
+    } 
+    return (
+        <ul className="nav flex-column border-end sidebar">
+            <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
+                <img src={Logo} alt="FlyPass" className='logo-large mb-4' />
+                <FontAwesomeIcon icon={faPlaneDeparture} className='logo-small' />
+            </Link>
+            {/* <hr className="my-lg-3" /> */}
+            {UserSidebarLink.map((item, index) => (
+                <li className="nav-item list-sidebar" key={index}>
+                    <NavLink to={item.path} className={(navClass) => navClass.isActive ? "active nav-link" : "nav-link"}>
+                        <i className={item.icon}></i>
+                        <span>{item.display}</span>
+                    </NavLink>
                 </li>
-            </ul>
-        )
-    }
+            ))}
+            <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
+                <a className="nav-link link-sidebar" href="#">
+                    <LogoutCurve size={20} />
+                    <span onClick={Logout}>Logout</span>
+                </a>
+            </li>
+        </ul>
+    );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        showSidebarProps: state.showSidebar
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        showSidebarDispatch: () => dispatch({
-            type: actionType.SHOW_SIDEBAR
-        }),
-        hideSidebarDispatch: () => dispatch({
-            type: actionType.HIDE_SIDEBAR
-        }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

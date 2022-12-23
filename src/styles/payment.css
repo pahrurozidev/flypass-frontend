@@ -488,7 +488,7 @@ body,
     font-size: 12px;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) { 
     .payment-contact-detail {
         /*  */
         grid-row-start: 8;

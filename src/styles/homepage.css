@@ -27,7 +27,8 @@ nav {
 /* button */
 
 .bell {
-    margin-left: 25px;
+    margin-left: -410px;
+    margin-bottom: -28px;
 }
 
 .bell::after {

@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Sidebar from '../../admin/layouts/sidebar/sidebaruser';
 import Navbar from '../../users/layouts/navbar/Navbar';
-import TicketList from './TicketList';
-import TicketDetail from './TicketDetail';
+import TicketList from './TicketListWish';
+import TicketDetail from './TicketDetailWish';
 
 export default function Customers() {
     const { id } = useParams();
