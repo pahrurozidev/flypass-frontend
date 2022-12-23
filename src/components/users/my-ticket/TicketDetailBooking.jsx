@@ -3,76 +3,25 @@ import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import Putih from '../../../assets/dasboard-admin/putih.png';
+import axios from "axios";
 
 
 export default function Card() {
 
-    const [name, setUsername] = useState('');
-    const [token, setToken] = useState('');
+    const [allBookings, setAllBookings] = useState([]);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
-            method: "GET",
+        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
+                Authorization: `Bearer ${token}`
+            }
+        }).then((res) => {
+            setAllBookings(res.data.booking);
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setUsername(data.name);
-            });
     }, []);
 
-    const [departureAirport, setDepartureAirport] = useState('');
-    const [arrivalAirport, setArrivalAirport] = useState('');
-    const [departureTime, setDepartureTime] = useState('');
-    const [arrivalTime, setArrivalTime] = useState('');
-    const [arrivalDate, setArrivalDate] = useState('');
-    const [departureDate, setDepartureDate] = useState('');
-    const [duration, setDuration] = useState('');
-    const [airlineName, setAirlineName] = useState('');
-    const [airlineImage, setAirlineImage] = useState('');
-    const [flightclassId, setFlightclassId] = useState('');
-    const [bookingCode, setBookingCode] = useState('');
-    const [bookings, setBookings] = useState(false)
-
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/bookings`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                localStorage.setItem("bookings", data.booking.length)
-                setAirlineImage(data.airlineImage);
-                setAirlineName(data.airlaneName);
-                setDepartureTime(data.departureTime);
-                setDepartureAirport(data.departureAirport);
-                setArrivalTime(data.arrivalTime);
-                setArrivalDate(data.arrivalDate);
-                setArrivalAirport(data.arrivalAirport);
-                setDuration(data.duration);
-                setDepartureDate(data.departureDate);
-                setFlightclassId(data.flightclassId);
-            });
-    }, []);
-
-    useEffect(() => {
-        const bookings = localStorage.getItem("bookings");
-        if (bookings == 0) {
-            setBookings(false)
-        } else {
-            setBookings(true)
-        }
-    }, []);
+    console.log(allBookings);
 
     return (
         <div className="container-fluid position-relative">
@@ -86,97 +35,42 @@ export default function Card() {
                 </div>
                 <div className="container e-ticket p-0">
                     <div className="card-e-ticket">
-                        <div className="card">
-                            <div className="blue-top">
-                                <FontAwesomeIcon icon={faPlane} />
-                                <span>E-TICKET</span>
-                            </div>
-                            {bookings == 0 ? (
-                                <div className="card-body d-flex flex-row align-items-center">
-                                    <div className="line-vertical"></div>
-                                    <div className="row e-ticket-detail flex-row justify-content-between m-0">
-                                        <div className="col-lg-8 ticket-left p-0">
-                                            <div className="frame-top d-flex flex-row align-items-center">
-                                                <img src={Putih} alt="Airplanes" />
-                                                <h6 className="name-plane">Tiket Anda Saai Ini Masih Kosong</h6>
-                                                <span className="classes"></span>
-                                            </div>
-                                            <div className="frame-bottom d-flex flex-row">
-                                                <div className="depart-frame col-lg-5 d-flex flex-column justify-content-between">
-                                                    <div className="country-depart">
-                                                        <h1></h1>
-                                                        <span></span>
-                                                    </div>
-                                                    <div className="time-depart">
-                                                        <span></span>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                                <FontAwesomeIcon icon={Putih} className="col-lg-2" />
-                                                <div className="arrive-frame col-lg-5 d-flex flex-column justify-content-between">
-                                                    <div className="country-arrive">
-                                                        <h1></h1>
-                                                        <span></span>
-                                                    </div>
-                                                    <div className="time-arrive">
-                                                        <span></span>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-3 ticket-right p-0">
-                                            <div className="ticket-right-top d-flex flex-column">
-                                                <span></span>
-                                                <span></span>
-                                            </div>
-                                            <div className="ticket-right-bottom d-flex flex-column">
-                                                <span></span>
-                                                <div className="title-passenger-info d-flex flex-row justify-content-between">
-                                                    <div className="name-passenger col-6 d-flex flex-column">
-                                                        <span className="title"></span>
-                                                        <span></span>
-                                                    </div>
-                                                    <div className="type-passenger col-6 d-flex flex-column text-end">
-                                                        <span className="title"></span>
-                                                        <span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    {allBookings.map((booking) => (
+                            <div className="card" key={booking.id}>
+                                <div className="blue-top">
+                                    <FontAwesomeIcon icon={faPlane} />
+                                    <span>E-TICKET</span>
                                 </div>
-                            ) : (
                                 <div className="card-body d-flex flex-row align-items-center">
                                     <div className="line-vertical"></div>
                                     <div className="row e-ticket-detail flex-row justify-content-between m-0">
                                         <div className="col-lg-8 ticket-left p-0">
                                             <div className="frame-top d-flex flex-row align-items-center">
-                                                <img src={airlineImage} alt="Airplanes" />
-                                                <h6 className="name-plane">{airlineName}</h6>
+                                                <img src={booking.flight1.Airlane.image} alt="Airplanes" />
+                                                <h6 className="name-plane">{booking.flight1.Airlane.name}</h6>
                                                 <div className="divider-plane"></div>
-                                                <span className="classes">{flightclassId}</span>
+                                                <span className="classes">{booking.flight1.FlightClass.name}</span>
                                             </div>
                                             <div className="frame-bottom d-flex flex-row">
                                                 <div className="depart-frame col-lg-5 d-flex flex-column justify-content-between">
                                                     <div className="country-depart">
-                                                        <h1>CGK</h1>
-                                                        <span>{departureAirport}</span>
+                                                        <h1>Depart</h1>
+                                                        <span>{booking.flight1.departureAirport.city}</span>
                                                     </div>
                                                     <div className="time-depart">
-                                                        <span>Depart</span>
-                                                        <p>{departureDate} - {departureTime}</p>
+                                                        <span>{booking.flight1.departureAirport.Airlane.iata}</span>
+                                                        <p>{booking.flight1.departureDate} - {booking.flight1.departureTime}</p>
                                                     </div>
                                                 </div>
                                                 <FontAwesomeIcon icon={faPlane} className="col-lg-2" />
                                                 <div className="arrive-frame col-lg-5 d-flex flex-column justify-content-between">
                                                     <div className="country-arrive">
-                                                        <h1>SIN</h1>
-                                                        <span>{arrivalAirport}</span>
+                                                        <h1>Arrive</h1>
+                                                        <span>{booking.flight1.arrivalAirport.city}</span>
                                                     </div>
                                                     <div className="time-arrive">
-                                                        <span>Arrive</span>
-                                                        <p>{arrivalDate} - {arrivalTime}</p>
+                                                        <span>{booking.flight1.arrivalAirport.Airlane.iata}</span>
+                                                        <p>{booking.flight1.arrivalDate} - {booking.flight1.arrivalTime}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,19 +85,19 @@ export default function Card() {
                                                 <div className="title-passenger-info d-flex flex-row justify-content-between">
                                                     <div className="name-passenger col-6 d-flex flex-column">
                                                         <span className="title">Name</span>
-                                                        <span>{name}</span>
+                                                        <span>{booking.Passenger.firstName}</span>
                                                     </div>
                                                     <div className="type-passenger col-6 d-flex flex-column text-end">
                                                         <span className="title">Type</span>
-                                                        <span>Adult</span>
+                                                        <span>{booking.Passenger.identityType}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            )}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
