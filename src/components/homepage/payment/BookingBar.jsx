@@ -21,8 +21,8 @@ export default function BookingBar() {
 
                 {/* 2 */}
                 <div className="status_label">
-                    <div className={`number ${(location === '/search/flight/payment') ? 'bg-primary' : 'bg-secondary'}`}>2</div>
-                    <div className={`${(location === '/search/flight/payment') ? 'text-primary' : 'text-secondary'}`}>Payment</div>
+                    <div className={`number ${(location === `/search/flight/payment/${id}`) ? 'bg-primary' : 'bg-secondary'}`}>2</div>
+                    <div className={`${(location === `/search/flight/payment/${id}`) ? 'text-primary' : 'text-secondary'}`}>Payment</div>
                 </div>
                 <div><img src={(location === '/search/flight/payment') ? Plane90Primary : Plane90PSecondary} alt="" /></div>
 

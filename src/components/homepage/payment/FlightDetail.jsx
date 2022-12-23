@@ -17,14 +17,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { SaveAdd } from 'iconsax-react';
 
-function FlightDetail() {
+function FlightDetail({ priceTotal }) {
     const navigate = useNavigate();
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
     const [show, setShow] = useState(false);
     const [price, setPrice] = useState();
     const [wishlist, setWishlist] = useState([]);
-    const [baggage, setBaggage] = useState(0);
+    const [roundTrip, setRoundTrip] = useState(false);
+    const [priceFlight, setPriceFlight] = useState(0);
+    const [oneWayPrice, setOneWayPrice] = useState(0);
+    const [departureBaggage, setDepartureBaggage] = useState(0);
+    const [returnBaggage, setReturnBaggage] = useState(0);
+    const [returnFlight, setReturnFlight] = useState([]);
     const [bookValue, setBookValue] = useState({
         contactTitle: '',
         contactFirstName: '',
@@ -33,7 +38,8 @@ function FlightDetail() {
         contactEmail: '',
         identityType: '',
         identityNumber: '',
-        baggage: [''],
+        departureBaggage: '',
+        returnBaggage: '',
     });
     const [book, setBook] = useState({
         contactTitle: '',
@@ -55,9 +61,20 @@ function FlightDetail() {
     })
 
     useEffect(() => {
-        API.flightDetail(id).then((flights) => {
+
+        const flights = id.split('&');
+
+        const departureFlightId = parseInt(flights[0]);
+        const returnFlightId = parseInt(flights[1]);
+
+        API.flightDetail(flights.length === 2 ? departureFlightId : id).then((flights) => {
             setFlight(flights);
             setPrice(flights.price);
+        })
+
+        flights.length === 2 && API.flightDetail(returnFlightId).then((flights) => {
+            setReturnFlight(flights);
+            setRoundTrip(true)
         })
     }, [])
 
@@ -65,8 +82,6 @@ function FlightDetail() {
         const books = { ...bookValue };
 
         books[event.target.name] = event.target.value;
-
-        // console.log(books);
 
         setBookValue({
             contactTitle: books.contactTitle,
@@ -76,19 +91,34 @@ function FlightDetail() {
             contactEmail: books.contactEmail,
             identityType: books.identityType,
             identityNumber: books.identityNumber,
-            baggage: [`${books.baggage}`],
+            departureBaggage: [`${books.departureBaggage}`],
+            returnBaggage: [`${books.returnBaggage}`],
         })
 
-        const baggage = parseInt(books.baggage);
-        if (baggage === 25) {
-            setPrice(flight.price * 0.1 + flight.price);
-            setBaggage(flight.price * 0.1)
-        } else if (baggage === 30) {
-            setPrice(flight.price * 0.15 + flight.price);
-            setBaggage(flight.price * 0.15);
+        const departureBag = parseInt(books.departureBaggage);
+        const returnBag = parseInt(books.returnBaggage);
+
+        if (departureBag === 25) {
+            setDepartureBaggage(flight.price * 0.1)
+        } else if (departureBag === 30) {
+            setDepartureBaggage(flight.price * 0.15)
         } else {
-            setPrice(flight.price);
-            setBaggage(0);
+            setDepartureBaggage(0);
+        }
+
+        if (roundTrip) {
+            if (returnBag === 25) {
+                setReturnBaggage(returnFlight.price * 0.1)
+            } else if (returnBag === 30) {
+                setReturnBaggage(returnFlight.price * 0.15)
+            } else {
+                setReturnBaggage(0);
+            }
+
+            setPriceFlight(flight.price + departureBaggage + returnFlight.price + returnBaggage);
+            priceTotal(priceFlight);
+        } else {
+            priceTotal(flight.price + departureBaggage);
         }
 
         setBook({
@@ -103,11 +133,11 @@ function FlightDetail() {
                     lastName: bookValue.contactLastName,
                     identityType: bookValue.identityType,
                     identityNumber: bookValue.identityNumber,
-                    baggage: [`${books.baggage}`]
+                    baggage: [`${books.departureBaggage}`, '25']
                 },
             ],
             flight1Id: `${flight.id}`,
-            flight2Id: `${flight.id}`,
+            flight2Id: `${returnFlight.id ? returnFlight.id : '1'}`,
         })
 
         // console.log(book);
@@ -124,9 +154,12 @@ function FlightDetail() {
             book.passenger[0].identityType !== "" &&
             book.passenger[0].baggage !== [""]) {
             console.log(book);
-            API.book(book).then((b) => console.log(b));
-
-            return navigate('/search/flight/payment');
+            API.book(book).then((f) => {
+                if (f.data) {
+                    const id = f.data.booking.id;
+                    return navigate(`/search/flight/payment/${id}`);
+                }
+            });
         } else {
             alert('Fill form required!');
             return;
@@ -151,14 +184,13 @@ function FlightDetail() {
         })
     }, 3000);
 
-
     return (
         <div>
             {show && (
                 <>
-                    {/* <!-- selected flight --> */}
+                    {/* <!-- departure flight --> */}
                     <div class="order_flight">
-                        <h1>Selected flight</h1>
+                        <h1>Departure flight</h1>
                         <div class="selected-flight">
                             {/* <!-- flight header --> */}
                             <div class="selected-flight-header card p-3 rounded-0 rounded-top">
@@ -169,11 +201,12 @@ function FlightDetail() {
                                         <div><img src={LongAAR} alt="" /></div>
                                         <div>{flight.arrivalAirport.city}</div>
                                     </div>
-                                    <div
-                                        className={`border p-2 rounded shadow wishlist-button ${wishlist.length !== 0 && 'bg-primary text-white'}`}
-                                        onClick={() => addWishListHandler()} >
-                                        <SaveAdd width={40} className="" />
-                                    </div>
+                                    {roundTrip === false &&
+                                        <div
+                                            className={`border p-2 rounded shadow wishlist-button ${wishlist.length !== 0 && 'bg-primary text-white'}`}
+                                            onClick={() => addWishListHandler()} >
+                                            <SaveAdd width={40} className="" />
+                                        </div>}
                                 </div>
 
                                 <div class="order_flight__body">
@@ -267,20 +300,55 @@ function FlightDetail() {
                                 <div class="card overflow-hidden">
                                     <div class="price-detail">
                                         <div class="card p-3 border-0 border-bottom rounded-0">Price Details</div>
-                                        <div class="p-3 d-flex justify-content-between">
-                                            <div class="d-flex flex-column gap-3">
-                                                <div>Dewasa 1x</div>
-                                                <div>Additional Cost</div>
-                                            </div>
-                                            <div class="d-flex flex-column gap-3">
-                                                <div>Rp {flight.price}</div>
-                                                <div>Rp {baggage}</div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">
-                                            <div>Total Price</div>
-                                            <div class="text-primary">Rp {price}</div>
-                                        </div>
+                                        {roundTrip ?
+                                            <>
+                                                <div class="p-3 d-flex justify-content-between">
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <div>Departure ({flight.departureAirport.iata} - {flight.arrivalAirport.iata})</div>
+                                                        <div>Dewasa 1x</div>
+                                                        <div>Additional Cost</div>
+                                                    </div>
+                                                    <div class="d-flex flex-column gap-3 text-end">
+                                                        <div>Rp {flight.price + departureBaggage}</div>
+                                                        <div>Rp {flight.price}</div>
+                                                        <div>Rp {departureBaggage}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-3 d-flex justify-content-between border-top">
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <div>Return ({flight.departureAirport.iata} - {flight.arrivalAirport.iata})</div>
+                                                        <div>Dewasa 1x</div>
+                                                        <div>Additional Cost</div>
+                                                    </div>
+                                                    <div class="d-flex flex-column gap-3 text-end">
+                                                        <div>Rp {returnFlight.price + returnBaggage}</div>
+                                                        <div>Rp {returnFlight.price}</div>
+                                                        <div>Rp {returnBaggage}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">
+                                                    <div>Total Price</div>
+                                                    <div class="text-primary">Rp {priceFlight}</div>
+                                                </div>
+                                            </> :
+                                            <>
+                                                <div class="p-3 d-flex justify-content-between">
+                                                    <div class="d-flex flex-column gap-3">
+                                                        <div>Departure ({flight.departureAirport.iata} - {flight.arrivalAirport.iata})</div>
+                                                        <div>Dewasa 1x</div>
+                                                        <div>Additional Cost</div>
+                                                    </div>
+                                                    <div class="d-flex flex-column gap-3 text-end">
+                                                        <div>Rp {flight.price + departureBaggage}</div>
+                                                        <div>Rp {flight.price}</div>
+                                                        <div>Rp {departureBaggage}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">
+                                                    <div>Total Price</div>
+                                                    <div class="text-primary">Rp {flight.price + departureBaggage}</div>
+                                                </div>
+                                            </>}
                                     </div>
                                 </div>
                             </div>
@@ -291,6 +359,110 @@ function FlightDetail() {
                             </div>
                         </div>
                     </div>
+
+                    {/* return flight */}
+                    {roundTrip &&
+                        <div class="order_flight">
+                            <h1>Return flight</h1>
+                            <div class="selected-flight">
+                                {/* <!-- flight header --> */}
+                                <div class="selected-flight-header card p-3 rounded-0 rounded-top">
+                                    <div className='d-flex justify-content-between'>
+                                        <div class="order_flight__header">
+                                            <div><img src={Plane45} alt="" /></div>
+                                            <div>{returnFlight.departureAirport.city}</div>
+                                            <div><img src={LongAAR} alt="" /></div>
+                                            <div>{returnFlight.arrivalAirport.city}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="order_flight__body">
+                                        <div class="order_flight__body-main">
+                                            <div class="order_flight__body-main-name">
+                                                <div class="plan-logo"><img src={returnFlight.Airline.image} alt="" width={70} /></div>
+                                                <div class="name">
+                                                    <div>
+                                                        <div>{returnFlight.Airline.name}</div>
+                                                        <div>{returnFlight.FlightClass.name}</div>
+                                                    </div>
+                                                    <div class="mobile-timeline">
+                                                        <div>Thu, 01 Dec</div>
+                                                        <div>Direct - 1h 45m</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="desktop-timeline">
+                                                <div><img src={LineVertical} alt="" /></div>
+                                                <div>Thu, 01 Dec</div>
+                                                <div><img src={LineVertical} alt="" /></div>
+                                                <div>Direct - 1h 45m</div>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            {/* <img src={ArrowBottom} alt="" /> */}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* <!-- flight detail --> */}
+                                <div class="flight-detail search-detail return-flight card rounded-0 rounded-bottom border-top-0">
+                                    <div class="search-detail__time s-detail">
+                                        <div class="search-detail__time_departure">08:05 - 01 Dec</div>
+                                        <div class="search-detail__time_estimation">
+                                            <div><img src={Clock} alt="" /></div>
+                                            <div>1h 45m</div>
+                                        </div>
+                                        <div class="search-detail__time_arrival">10:50 - 01 Dec</div>
+                                    </div>
+                                    <div class="s-detail search-detail__ring">
+                                        <img src={FlightRing} alt="" />
+                                    </div>
+                                    <div class="s-detail search-detail__destination">
+                                        <div>
+                                            <div>{returnFlight.departureAirport.city} ({returnFlight.departureAirport.iata})</div>
+                                            <div>{returnFlight.departureAirport.name}</div>
+                                        </div>
+                                        <div>
+                                            <div>{returnFlight.arrivalAirport.city} ({returnFlight.arrivalAirport.iata})</div>
+                                            <div>{returnFlight.arrivalAirport.name}</div>
+                                        </div>
+                                    </div>
+                                    <div class="search-detail__attr">
+                                        <div class="search-detail__attr-item card">
+                                            <div class="attr_name">
+                                                <div><img src={returnFlight.Airline.image} alt="" width={60} /></div>
+                                                <div>
+                                                    <div>{returnFlight.Airline.name}</div>
+                                                    <div>{returnFlight.flightCode} - {returnFlight.FlightClass.name}</div>
+                                                </div>
+                                            </div>
+                                            <div class="attr_service">
+                                                <div class="attr_service_item">
+                                                    <div><img src={Bagasi} alt="" /></div>
+                                                    <div>Bagasi 30 kg</div>
+                                                </div>
+                                                <div class="attr_service_item">
+                                                    <div><img src={Food} alt="" /></div>
+                                                    <div>Makanan di Pesawat</div>
+                                                </div>
+                                                <div class="attr_service_item">
+                                                    <div><img src={Entertain} alt="" /></div>
+                                                    <div>Hiburan di Pesawat</div>
+                                                </div>
+                                                <div class="attr_service_item">
+                                                    <div><img src={Warning} alt="" /></div>
+                                                    <div>
+                                                        <div><span class="fw-bold">Pesawat</span>: Airbus A330</div>
+                                                        <div><span class="fw-bold">Total Kursi</span>: 3-3</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>}
 
                     {/* <!-- Contact detail --> */}
                     <div class="contact-detail">
@@ -353,7 +525,7 @@ function FlightDetail() {
 
                             <div class="d-flex flex-column gap-1 add-ons__input">
                                 <div>Baggage</div>
-                                <select class="form-select" aria-label="Default select example" name='baggage' onChange={(event) => bookingValueHandler(event)} required>
+                                <select class="form-select" aria-label="Default select example" name='departureBaggage' onChange={(event) => bookingValueHandler(event)} required>
                                     <option selected>Open this select menu</option>
                                     <option value="0">20 kg - free</option>
                                     <option value="25">5 + 20 kg - Rp. {flight.price * 0.1}</option>
@@ -361,6 +533,23 @@ function FlightDetail() {
                                 </select>
                             </div>
                         </div>
+                        {roundTrip &&
+                            <div class="card p-3 rounded-0 gap-3 rounded-0 border-top-0">
+                                <div class="d-flex justify-content-between">
+                                    <div>{flight.arrivalAirport.city} ({flight.arrivalAirport.iata} - {flight.departureAirport.city} ({flight.departureAirport.iata}))</div>
+                                    <div>{flight.flightCode}</div>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 add-ons__input">
+                                    <div>Baggage</div>
+                                    <select class="form-select" aria-label="Default select example" name='returnBaggage' onChange={(event) => bookingValueHandler(event)} required>
+                                        <option selected>Open this select menu</option>
+                                        <option value="0">20 kg - free</option>
+                                        <option value="25">5 + 20 kg - Rp. {flight.price * 0.1}</option>
+                                        <option value="30">10 + 20 kg - Rp. {flight.price * 0.15}</option>
+                                    </select>
+                                </div>
+                            </div>}
                     </div>
 
                     {/* <!-- payment --> */}

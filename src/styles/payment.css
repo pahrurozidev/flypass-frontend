@@ -288,7 +288,11 @@ body,
     }
 
     .flight-detail.search-detail {
-        margin-top: -70px;
+        margin-top: -107px;
+    }
+
+    .flight-detail.return-flight {
+        margin-top: 0px;
     }
 
     .search-detail {
@@ -492,7 +496,7 @@ body,
         grid-column-start: 15;
         grid-column-end: 21;
 
-        margin-top: -140px;
+        margin-top: 20px;
     }
 }
 

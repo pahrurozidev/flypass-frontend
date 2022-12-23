@@ -165,7 +165,7 @@ input {
 
 /* service */
 .service {
-    margin-top: 200px;
+    margin-top: 280px;
     background: #FAFAFA;
     height: 328px;
     display: grid;
@@ -545,10 +545,10 @@ footer a {
 
 @media screen and (max-width: 425px) {
     .form-search {
-        height: 550px;
+        height: 680px;
         bottom: 30px;
 
-        top: 540px;
+        top: 610px;
     }
 }
 
@@ -558,7 +558,7 @@ footer a {
 @media screen and (max-width: 999px) {
     .service {
         height: 500px;
-        margin-top: 800px;
+        margin-top: 630px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(2, 1fr);
@@ -589,7 +589,7 @@ footer a {
     .service {
 
         height: 600px;
-        margin-top: 800px;
+        margin-top: 750px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(1, 1fr);
@@ -610,7 +610,7 @@ footer a {
     .service {
 
         height: 600px;
-        margin-top: 600px;
+        margin-top: 700px;
         padding: 20px 30px;
 
         grid-template-columns: repeat(1, 1fr);
@@ -811,4 +811,59 @@ footer a {
     .booking-form input {
         width: 180px !important;
     }
+}
+
+.select-flight {
+    font-size: 14px !important;
+}
+
+/* .price-return-flight {
+    margin-top: -8px;
+} */
+
+.flight-result {
+    top: 180px;
+    font-size: 14px !important;
+}
+
+@media screen and (min-width: 769px) {
+    .flight-result {
+        top: 50px;
+    }
+}
+@media screen and (min-width: 900px) {
+    .flight-result {
+        top: -20px;
+    }
+}
+
+.select-flight h6 {
+    font-size: 16px;
+}
+
+.select-flight-detail {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr) !important;
+}
+
+.select-flight-detail-departure {
+    grid-column-start: 1 !important;
+    grid-column-end: 4 !important;
+}
+
+.select-flight-detail-btn {
+    grid-column-start: 4 !important;
+    grid-column-end: 6 !important;
+    margin: auto;
+}
+
+.select-flight-detail-return {
+    grid-column-start: 6 !important;
+    grid-column-end: 9 !important;
+}
+
+.btn-booking {
+    font-size: 14px;
+    height: 35px;
+    margin-top: 17px !important;
 }

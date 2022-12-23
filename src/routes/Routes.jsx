@@ -28,7 +28,7 @@ export default function Routes() {
                 <Route exact path="/" element={<Home />} />
                 {/* <Route path="/search" element={<Search />} /> */}
                 <Route path="/search/flight/:id" element={<Payments />} />
-                <Route path="/search/flight/payment" element={<Payments />} />
+                <Route path="/search/flight/payment/:id" element={<Payments />} />
                 <Route path="/search/flight/payment/completed" element={<Payments />} />
 
                 {/* auth */}

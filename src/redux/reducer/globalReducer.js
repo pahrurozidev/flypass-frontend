@@ -15,6 +15,10 @@ const globalState = {
     },
     flightDetail: '',
     onSubmit: false,
+    departureFlight: false,
+    returnFlight: false,
+    departureFlightId: '',
+    returnFlightId: '',
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -42,17 +46,14 @@ const rootReducer = (state = globalState, action) => {
         // search flight
     } else if (action.type === actionType.SUBMIT_SEARCH_FLIGHT) {
         const flight = { ...state.flight };
-        console.log(flight);
 
         const flights = action.flights.filter((data) => {
             return data.departureAirport.name === flight.departure &&
                 data.arrivalAirport.name === flight.destination &&
-                data.FlightType.name === flight.trip &&
+                data.FlightType.name === "Domestic" &&
                 data.departureDate >= flight.departureDate &&
                 data.FlightClass.name === flight.passenger
         })
-
-        console.log(flights);
 
         return {
             ...state,
@@ -99,6 +100,18 @@ const rootReducer = (state = globalState, action) => {
                 departure: state.flight.departure,
                 destination: action.airport,
             },
+        }
+    } else if (action.type === actionType.DEPARTURE_FLIGHT) {
+        return {
+            ...state,
+            departureFlight: true,
+            departureFlightId: action.id,
+        }
+    } else if (action.type === actionType.RETURN_FLIGHT) {
+        return {
+            ...state,
+            returnFlight: true,
+            returnFlightId: action.id,
         }
     } else {
         return state;

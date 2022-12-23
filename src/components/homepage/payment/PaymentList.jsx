@@ -7,12 +7,14 @@ import ShopeePay from '../../../assets/homepage/shopeepay.png';
 import CheckCircle from '../../../assets/homepage/check-circle.png';
 import BCA from '../../../assets/homepage/bca.png';
 import BNI from '../../../assets/homepage/bni.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { API } from '../../../services'
+import { useEffect } from 'react';
 
-export default function PaymentList() {
+export default function PaymentList({ price }) {
 
+  const { id } = useParams();
   const navigate = useNavigate();
   const [showCheck, setShowCheck] = useState({
     shopeePay: false,
@@ -51,7 +53,7 @@ export default function PaymentList() {
   }
 
   const submitPaymentHandler = () => {
-    API.transactions(921, image).then((res) => {
+    API.transactions(id, image).then((res) => {
       console.log(res);
       if (res.data.message === 'created successfully') {
         return navigate('/search/flight/payment/completed');
@@ -118,7 +120,7 @@ export default function PaymentList() {
                   </div>
                   <div className='d-flex'>
                     <div className='col-3 mb-2'>Amount ( IDR )</div>
-                    <div className='col-3 mb-2'>: 1,903,624.00</div>
+                    <div className='col-3 mb-2'>: Rp {price}</div>
                   </div>
                   <p>*Please pay before
                     21/12/2022 17:38:00</p>

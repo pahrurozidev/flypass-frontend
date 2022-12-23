@@ -17,14 +17,16 @@ export default function Payment() {
     const location = useLocation().pathname;
     const { id } = useParams();
 
+    const [totalPrice, setTotalPrice] = useState(0);
+
     return (
         <React.Fragment>
             <Navbar />
 
             <main className='container'>
                 <BookingBar />
-                {(location === `/search/flight/${id}`) && <FlightDetail />}
-                {(location === '/search/flight/payment') && <PaymentList />}
+                {(location === `/search/flight/${id}`) && <FlightDetail priceTotal={(price) => setTotalPrice(price)} />}
+                {(location === `/search/flight/payment/${id}`) && <PaymentList price={totalPrice} />}
                 {(location === '/search/flight/payment/completed') && <PaymentCompleted />}
             </main>
 
