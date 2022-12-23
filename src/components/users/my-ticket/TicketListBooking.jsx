@@ -28,48 +28,20 @@ export default function Card() {
             });
     }, []);
 
-    const [departureAirport, setDepartureAirport] = useState('');
-    const [arrivalAirport, setArrivalAirport] = useState('');
-    const [departureTime, setDepartureTime] = useState('');
-    const [arrivalTime, setArrivalTime] = useState('');
-    const [departureDate, setDepartureDate] = useState('');
-    const [duration, setDuration] = useState('');
-    const [airlineName, setAirlineName] = useState('');
-    const [airlineImage, setAirlineImage] = useState('');
-    const [bookings, setBookings] = useState(false)
+    const [allBookings, setAllBookings] = useState([]);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/bookings`, {
-            method: "GET",
+        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                localStorage.setItem("bookings", data.booking.length)
-                setAirlineImage(data.airlineImage);
-                setAirlineName(data.airlaneName);
-                setDepartureTime(data.departureTime);
-                setDepartureAirport(data.departureAirport);
-                setArrivalTime(data.arrivalTime);
-                setArrivalAirport(data.arrivalAirport);
-                setDuration(data.duration);
-                setDepartureDate(data.departureDate);
-            });
+                Authorization: `Bearer ${token}`
+            }
+        }).then((res) => {
+            setAllBookings(res.data.booking);
+        })            
     }, []);
 
-    useEffect(() => {
-        const bookings = localStorage.getItem("bookings");
-        if (bookings == 0) {
-            setBookings(false)
-        } else {
-            setBookings(true)
-        }
-    }, []);
+    console.log(allBookings);
 
     return (
         <div className="container-fluid position-relative">
@@ -103,64 +75,31 @@ export default function Card() {
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        {bookings == 0 ? (
-                            <tbody>
-                                <tr>
+                        <tbody>
+                                {allBookings.map((booking) => (
+                                    <tr key={booking.id}>
                                     <td data-label="Airlines" className="airlines">
-                                        <img src={Putih} alt="" /><br className="d-none" />
-                                        <span>Data</span>
+                                        <img src={booking.flight1.Airlane.image} alt="Airplanes" /><br className="d-none" />
+                                        <span>{booking.flight1.Airlane.name}</span>
                                     </td>
                                     <td data-label="From" className="departure-from">
-                                        <p className="departure-time"></p>
-                                        <span className="from-flight">Booking</span>
-                                    </td>
-                                    <td className="line-flight">
-                                        <img src={Putih} alt="" />
-                                    </td>
-                                    <td data-label="To" className="arrival-to">
-                                        <p className="arrival-time"></p>
-                                        <span className="to-flight"></span>
-                                    </td>
-                                    <td data-label="Duration" className="duration">
-                                        <p className="duration-flight"></p>
-                                        <span className="type-direct">Anda</span>
-                                    </td>
-                                    <td data-label="Date" className="departure-date">Kosong</td>
-                                    <td data-label="Action" className="action">
-                                    <Link to={`/user/dashboard/dashboarduser/1`} className="detail">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
-                                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                                        </svg>
-                                    </Link>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        ) : (
-                            <tbody>
-                                <tr>
-                                    <td data-label="Airlines" className="airlines">
-                                        <img src={airlineImage} alt="Airplanes" /><br className="d-none" />
-                                        <span>{airlineName}</span>
-                                    </td>
-                                    <td data-label="From" className="departure-from">
-                                        <p className="departure-time">{departureTime}</p>
-                                        <span className="from-flight">{departureAirport}</span>
+                                        <p className="departure-time">{booking.flight1.departureTime}</p>
+                                        <span className="from-flight">{booking.flight1.departureAirport.city}</span>
                                     </td>
                                     <td className="line-flight">
                                         <img src={Line} alt="" />
                                     </td>
                                     <td data-label="To" className="arrival-to">
-                                        <p className="arrival-time">{arrivalTime}</p>
-                                        <span className="to-flight">{arrivalAirport}</span>
+                                        <p className="arrival-time">{booking.flight1.arrivalTime}</p>
+                                        <span className="to-flight">{booking.flight1.arrivalAirport.city}</span>
                                     </td>
                                     <td data-label="Duration" className="duration">
-                                        <p className="duration-flight">{duration}</p>
+                                        <p className="duration-flight">{booking.flight1.duration}</p>
                                         <span className="type-direct">Direct</span>
                                     </td>
-                                    <td data-label="Date" className="departure-date">{departureDate}</td>
+                                    <td data-label="Date" className="departure-date">{booking.flight1.departureDate}</td>
                                     <td data-label="Action" className="action">
-                                        <Link to={`/user/dashboard/dashboarduser/1`} className="detail">
+                                        <Link to={`/user/dashboard/ticket/1`} className="detail">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
                                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
@@ -168,8 +107,8 @@ export default function Card() {
                                         </Link>
                                     </td>
                                 </tr>
+                                ))}                            
                             </tbody>
-                        )}
                     </table>
                 </div>
             </div>
