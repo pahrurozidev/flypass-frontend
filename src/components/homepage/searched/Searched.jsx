@@ -20,6 +20,7 @@ class Searched extends Component {
         super(props);
 
         this.state = {
+            flights: [],
             flight: {
                 departureId: this.props.departureFlightId,
                 returnId: this.props.returnFlightId,
@@ -27,8 +28,19 @@ class Searched extends Component {
         }
     }
 
-    selectReturnFlightHandler = (id) => {
+    componentDidMount() {
+        API.flights().then((flight) => {
+            this.setState({
+                flights: flight,
+            })
+        });
+    }
 
+    selectDepartureFlightHandler = (id, flights) => {
+        this.props.onSelectDepartureFlight(id, flights);
+    }
+
+    selectReturnFlightHandler = (id) => {
         this.props.onSelectReturnFlight(id);
     }
 
@@ -36,33 +48,32 @@ class Searched extends Component {
         return (
             <section class="container m-auto card pt-3 pb-3 flight-result">
                 <div className='card p-3 pb-md-0 select-flight d-flex flex-row'>
-
                     {this.props.departureFlight ?
                         <div className='d-flex flex-column flex-md-row justify-content-between col-12'>
                             <div className='select-flight-detail d-flex justify-content-between col-12 col-md-6 pb-3'>
                                 <div className='select-flight-detail-departure'>
                                     <div className='d-flex flex-column'>
-                                        <div className='fw-bold'>{this.props.flights[0].departureAirport.iata} - {this.props.flights[0].arrivalAirport.iata}</div>
-                                        <div className='mt-1'>Fri, 23 Dec</div>
+                                        <div className='fw-bold'>{this.props.departureFlights[0].departureAirport.iata} - {this.props.departureFlights[0].arrivalAirport.iata}</div>
+                                        <div className='mt-1'>{moment(this.props.departureFlights[0].departureDate).format('llll').slice(0, -15)}</div>
                                     </div>
-                                    <div className='price-return-flight'>Rp {this.props.flights[0].price}</div>
+                                    <div className='price-return-flight'>Rp {this.props.departureFlights[0].price}</div>
                                 </div>
 
-                                <div className='select-flight-detail-btn'><ArrowSwapHorizontal size={30} className="mt-2" /></div>
+                                <div className='select-flight-detail-btn'><ArrowSwapHorizontal size={30} className="mt-4" /></div>
 
                                 {this.props.returnFlight ?
                                     <div className='select-flight-detail-return text-end'>
                                         <div className='d-flex flex-column'>
-                                            <div className='fw-bold'>{this.props.flights[0].arrivalAirport.iata} - {this.props.flights[0].departureAirport.iata}</div>
-                                            <div className='mt-1'>Sat, 24 Dec</div>
+                                            <div className='fw-bold'>{this.props.returnFlights[0].departureAirport.iata} - {this.props.returnFlights[0].arrivalAirport.iata}</div>
+                                            <div className='mt-1'>{moment(this.props.returnFlights[0].departureDate).format('llll').slice(0, -15)}</div>
                                         </div>
-                                        <div className='price-return-flight'>Rp {this.props.flights[0].price}</div>
+                                        <div className='price-return-flight'>Rp {this.props.returnFlights[0].price}</div>
                                     </div> :
                                     <div className='text-end select-flight-detail-return'>
                                         <h6 className='fw-bold'>Select Return Flight</h6>
                                         <div className='mt-2'>
-                                            <div>{this.props.flights[0].arrivalAirport.iata} - {this.props.flights[0].departureAirport.iata}</div>
-                                            <div>Fri, 23 Dec</div>
+                                            <div>{this.props.flights[0].departureAirport.iata} - {this.props.flights[0].arrivalAirport.iata}</div>
+                                            <div>{moment(this.props.flight.returnDate).format('llll').slice(0, -15)}</div>
                                         </div>
                                     </div>
                                 }
@@ -75,16 +86,22 @@ class Searched extends Component {
                         </div> :
                         <div>
                             <h6 className='fw-bold'>Select Departure Flight</h6>
-                            <p>{this.props.flights[0].departureAirport.iata} - {this.props.flights[0].arrivalAirport.iata} | Fri, 23 Dec</p>
+                            <p>{this.props.flights[0].departureAirport.iata} - {this.props.flights[0].arrivalAirport.iata} | {moment(this.props.flight.departureDate).format('llll').slice(0, -15)}</p>
                         </div>}
                 </div>
                 {this.props.returnFlight === false &&
                     <>
                         <div className="search_result-header card p-3 pb-md-0 mt-3">
                             {this.props.departureFlight ?
-                                <h1>Return Flight to {this.props.flights[0].departureAirport.city}</h1> :
-                                <h1>Departure Flight to {this.props.flights[0].arrivalAirport.city}</h1>}
-                            <p className="col-12 col-md-10 col-lg-8 text-select">Sat, 24 Dec 2022 | 1 Traveler</p>
+                                <>
+                                    <h1>Return Flight to {this.props.flights[0].arrivalAirport.city}</h1>
+                                    <p className="col-12 col-md-10 col-lg-8 text-select">{moment(this.props.flight.returnDate).format('LLLL').slice(0, -8)}</p>
+                                </>
+                                :
+                                <>
+                                    <h1>Departure Flight to {this.props.flights[0].arrivalAirport.city}</h1>
+                                    <p className="col-12 col-md-10 col-lg-8 text-select">{moment(this.props.flight.departureDate).format('LLLL').slice(0, -8)}</p>
+                                </>}
                         </div>
 
                         {this.props.flights.map((flight) => (
@@ -96,18 +113,18 @@ class Searched extends Component {
                                 <div class="flight-duration-ring bg">
                                     <div class="cgk-time">
                                         {/* 20010704T120854 */}
-                                        <div class="time">{moment(`20010704T${'120854'}`).format("LT")}</div>
+                                        <div class="time">{flight.departureTime.slice(0, -3)}</div>
                                         <div class="cgk">{flight.departureAirport.iata}</div>
                                     </div>
                                     <div class="ring-time">
                                         {/* <div>Duration: {flight.duration}</div> */}
-                                        <div>Duration: 1h, 45m</div>
+                                        <div>Duration: {this.props.flights[0].duration.slice(1, 2)}h, {this.props.flights[0].duration.slice(3, 5)}m</div>
                                         <div class="ring"></div>
                                         <div>Direct</div>
                                     </div>
                                     <div class="sn-time">
                                         {/* <div class="time">{flight.arrivalTime}</div> */}
-                                        <div class="time">{moment(`20010704T${'120854'}`).format("LT")}</div>
+                                        <div class="time">{flight.arrivalTime.slice(0, -3)}</div>
                                         <div class="sn">{flight.arrivalAirport.iata}</div>
                                     </div>
                                 </div>
@@ -120,20 +137,11 @@ class Searched extends Component {
 
                                     {this.props.flight.trip === 'International' && this.props.departureFlight === false &&
                                         <Link to={`/`}>
-                                            <div className="pilih-btn shadow" onClick={() => this.props.onSelectDepartureFlight(flight.id)}>Pilih</div>
+                                            <div className="pilih-btn shadow" onClick={() => this.selectDepartureFlightHandler(flight.id, this.state.flights)}>Pilih</div>
                                         </Link>}
 
                                     {this.props.flight.trip === 'International' && this.props.departureFlight &&
                                         <div className="pilih-btn shadow" onClick={() => this.selectReturnFlightHandler(flight.id)}>
-
-                                            {/* {this.props.returnFlight ?
-                                        <Link to={`/search/flight/${this.props.departureFlightId}&${this.props.returnFlightId}`} className="text-decoration-none text-white">
-                                            Pilih
-                                        </Link> :
-                                        <Link to={`/`} className="text-decoration-none text-white">
-                                            Pilih
-                                        </Link>} */}
-
                                             Pilih
                                         </div>
                                     }
@@ -256,6 +264,8 @@ const mapStateToProps = (state) => {
         flight: state.flight,
         departureFlight: state.departureFlight,
         returnFlight: state.returnFlight,
+        departureFlights: state.departureFlights,
+        returnFlights: state.returnFlights,
         departureFlightId: state.departureFlightId,
         returnFlightId: state.returnFlightId,
     }
@@ -263,9 +273,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSelectDepartureFlight: (id) => dispatch({
+        onSelectDepartureFlight: (id, flights) => dispatch({
             type: actionType.DEPARTURE_FLIGHT,
             id: id,
+            flights: flights,
         }),
         onSelectReturnFlight: (id) => dispatch({
             type: actionType.RETURN_FLIGHT,

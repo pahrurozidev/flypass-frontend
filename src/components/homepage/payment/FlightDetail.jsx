@@ -16,8 +16,9 @@ import { API } from '../../../services';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { SaveAdd } from 'iconsax-react';
+import moment from 'moment';
 
-function FlightDetail({ priceTotal }) {
+function FlightDetail({ bookings }) {
     const navigate = useNavigate();
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
@@ -57,7 +58,7 @@ function FlightDetail({ priceTotal }) {
             },
         ],
         flight1Id: '',
-        flight2Id: ''
+        flight2Id: '',
     })
 
     useEffect(() => {
@@ -76,6 +77,7 @@ function FlightDetail({ priceTotal }) {
             setReturnFlight(flights);
             setRoundTrip(true)
         })
+
     }, [])
 
     const bookingValueHandler = (event) => {
@@ -98,30 +100,38 @@ function FlightDetail({ priceTotal }) {
         const departureBag = parseInt(books.departureBaggage);
         const returnBag = parseInt(books.returnBaggage);
 
+        let departurBagg = 0;
+        let returnBagg = 0;
+
         if (departureBag === 25) {
             setDepartureBaggage(flight.price * 0.1)
+            departurBagg = flight.price * 0.1;
         } else if (departureBag === 30) {
             setDepartureBaggage(flight.price * 0.15)
+            departurBagg = flight.price * 0.15;
         } else {
             setDepartureBaggage(0);
+            departurBagg = 0;
         }
 
         if (roundTrip) {
             if (returnBag === 25) {
                 setReturnBaggage(returnFlight.price * 0.1)
+                returnBagg = returnFlight.price * 0.1;
             } else if (returnBag === 30) {
                 setReturnBaggage(returnFlight.price * 0.15)
+                returnBagg = returnFlight.price * 0.15;
             } else {
                 setReturnBaggage(0);
+                returnBagg = 0;
             }
 
-            setPriceFlight(flight.price + departureBaggage + returnFlight.price + returnBaggage);
-            priceTotal(priceFlight);
+            // priceTotal(flight.price + departurBagg + returnFlight.price + returnBagg);
         } else {
-            priceTotal(flight.price + departureBaggage);
+            // priceTotal(flight.price + departurBagg);
         }
 
-        setBook({
+        !returnFlight.id && setBook({
             contactTitle: bookValue.contactTitle,
             contactFirstName: bookValue.contactFirstName,
             contactLastName: bookValue.contactLastName,
@@ -133,14 +143,30 @@ function FlightDetail({ priceTotal }) {
                     lastName: bookValue.contactLastName,
                     identityType: bookValue.identityType,
                     identityNumber: bookValue.identityNumber,
-                    baggage: [`${books.departureBaggage}`, '25']
+                    baggage: [`${books.departureBaggage}`]
                 },
             ],
             flight1Id: `${flight.id}`,
-            flight2Id: `${returnFlight.id ? returnFlight.id : '1'}`,
         })
 
-        // console.log(book);
+        returnFlight.id && setBook({
+            contactTitle: bookValue.contactTitle,
+            contactFirstName: bookValue.contactFirstName,
+            contactLastName: bookValue.contactLastName,
+            contactPhone: bookValue.contactPhone,
+            contactEmail: bookValue.contactEmail,
+            passenger: [
+                {
+                    firstName: bookValue.contactFirstName,
+                    lastName: bookValue.contactLastName,
+                    identityType: bookValue.identityType,
+                    identityNumber: bookValue.identityNumber,
+                    baggage: [`${books.departureBaggage}`, `${books.returnBaggage}`]
+                },
+            ],
+            flight1Id: flight.id,
+            flight2Id: returnFlight.id
+        })
     }
 
     const bookingHandler = () => {
@@ -153,15 +179,18 @@ function FlightDetail({ priceTotal }) {
             book.passenger[0].identityNumber !== "" &&
             book.passenger[0].identityType !== "" &&
             book.passenger[0].baggage !== [""]) {
-            console.log(book);
-            API.book(book).then((f) => {
-                if (f.data) {
-                    const id = f.data.booking.id;
+
+            API.book(book).then((booking) => {
+                console.log(booking);
+
+                bookings(booking);
+                if (booking.data) {
+                    const id = booking.data.booking.id;
                     return navigate(`/search/flight/payment/${id}`);
                 }
             });
         } else {
-            alert('Fill form required!');
+            alert('Contact Form is Required!');
             return;
 
         }
@@ -178,10 +207,10 @@ function FlightDetail({ priceTotal }) {
     setTimeout(() => {
         setShow(true);
 
-        API.wishlists().then((flights) => {
-            const wishFlight = flights.filter((f) => f.id === flight.id);
-            setWishlist(wishFlight);
-        })
+        // API.wishlists().then((flights) => {
+        //     const wishFlight = flights.filter((f) => f.id === flight.id);
+        //     setWishlist(wishFlight);
+        // })
     }, 3000);
 
     return (
@@ -201,12 +230,12 @@ function FlightDetail({ priceTotal }) {
                                         <div><img src={LongAAR} alt="" /></div>
                                         <div>{flight.arrivalAirport.city}</div>
                                     </div>
-                                    {roundTrip === false &&
+                                    {/* {roundTrip === false &&
                                         <div
                                             className={`border p-2 rounded shadow wishlist-button ${wishlist.length !== 0 && 'bg-primary text-white'}`}
                                             onClick={() => addWishListHandler()} >
                                             <SaveAdd width={40} className="" />
-                                        </div>}
+                                        </div>} */}
                                 </div>
 
                                 <div class="order_flight__body">
@@ -219,16 +248,16 @@ function FlightDetail({ priceTotal }) {
                                                     <div>{flight.FlightClass.name}</div>
                                                 </div>
                                                 <div class="mobile-timeline">
-                                                    <div>Thu, 01 Dec</div>
-                                                    <div>Direct - 1h 45m</div>
+                                                    <div>{moment(flight.departureDate).format('llll').slice(0, -15)}</div>
+                                                    <div>Direct - {flight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="desktop-timeline">
                                             <div><img src={LineVertical} alt="" /></div>
-                                            <div>Thu, 01 Dec</div>
+                                            <div>{moment(flight.arrivalDate).format('llll').slice(0, -15)}</div>
                                             <div><img src={LineVertical} alt="" /></div>
-                                            <div>Direct - 1h 45m</div>
+                                            <div>Direct - {flight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m</div>
                                         </div>
                                     </div>
 
@@ -239,14 +268,14 @@ function FlightDetail({ priceTotal }) {
                             </div>
 
                             {/* <!-- flight detail --> */}
-                            <div class="flight-detail search-detail card rounded-0 rounded-bottom border-top-0">
+                            <div className={`flight-detail search-detail ${roundTrip && 'search-detail-roundtrip'} card rounded-0 rounded-bottom border-top-0`}>
                                 <div class="search-detail__time s-detail">
-                                    <div class="search-detail__time_departure">08:05 - 01 Dec</div>
+                                    <div class="search-detail__time_departure">{flight.departureTime.slice(0, -3)} - {moment(flight.departureDate).format('llll').slice(0, -15)}</div>
                                     <div class="search-detail__time_estimation">
                                         <div><img src={Clock} alt="" /></div>
-                                        <div>1h 45m</div>
+                                        <div>{flight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m</div>
                                     </div>
-                                    <div class="search-detail__time_arrival">10:50 - 01 Dec</div>
+                                    <div class="search-detail__time_arrival">{flight.arrivalTime.slice(0, -3)} - {moment(flight.arrivalDate).format('llll').slice(0, -15)}</div>
                                 </div>
                                 <div class="s-detail search-detail__ring">
                                     <img src={FlightRing} alt="" />
@@ -328,7 +357,7 @@ function FlightDetail({ priceTotal }) {
                                                 </div>
                                                 <div class="d-flex justify-content-between border-top mx-3 py-3 px-0">
                                                     <div>Total Price</div>
-                                                    <div class="text-primary">Rp {priceFlight}</div>
+                                                    <div class="text-primary">Rp {flight.price + departureBaggage + returnFlight.price + returnBaggage}</div>
                                                 </div>
                                             </> :
                                             <>
@@ -386,16 +415,17 @@ function FlightDetail({ priceTotal }) {
                                                         <div>{returnFlight.FlightClass.name}</div>
                                                     </div>
                                                     <div class="mobile-timeline">
-                                                        <div>Thu, 01 Dec</div>
-                                                        <div>Direct - 1h 45m</div>
+                                                        <div>{moment(returnFlight.departureDate).format('llll').slice(0, -15)}</div>
+                                                        <div>Direct - {returnFlight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="desktop-timeline">
                                                 <div><img src={LineVertical} alt="" /></div>
-                                                <div>Thu, 01 Dec</div>
+                                                <div>{moment(returnFlight.arrivalDate).format('llll').slice(0, -15)}</div>
                                                 <div><img src={LineVertical} alt="" /></div>
-                                                <div>Direct - 1h 45m</div>
+                                                <div>Direct - {returnFlight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m</div>
                                             </div>
                                         </div>
 
@@ -408,12 +438,12 @@ function FlightDetail({ priceTotal }) {
                                 {/* <!-- flight detail --> */}
                                 <div class="flight-detail search-detail return-flight card rounded-0 rounded-bottom border-top-0">
                                     <div class="search-detail__time s-detail">
-                                        <div class="search-detail__time_departure">08:05 - 01 Dec</div>
+                                        <div class="search-detail__time_departure">{returnFlight.departureTime.slice(0, -3)} - {moment(returnFlight.departureDate).format('llll').slice(0, -15)}</div>
                                         <div class="search-detail__time_estimation">
                                             <div><img src={Clock} alt="" /></div>
-                                            <div>1h 45m</div>
+                                            <div>{returnFlight.duration.slice(1, 2)}h, {flight.duration.slice(3, 5)}m</div>
                                         </div>
-                                        <div class="search-detail__time_arrival">10:50 - 01 Dec</div>
+                                        <div class="search-detail__time_arrival">{returnFlight.arrivalTime.slice(0, -3)} - {moment(returnFlight.arrivalDate).format('llll').slice(0, -15)}</div>
                                     </div>
                                     <div class="s-detail search-detail__ring">
                                         <img src={FlightRing} alt="" />
@@ -536,8 +566,8 @@ function FlightDetail({ priceTotal }) {
                         {roundTrip &&
                             <div class="card p-3 rounded-0 gap-3 rounded-0 border-top-0">
                                 <div class="d-flex justify-content-between">
-                                    <div>{flight.arrivalAirport.city} ({flight.arrivalAirport.iata} - {flight.departureAirport.city} ({flight.departureAirport.iata}))</div>
-                                    <div>{flight.flightCode}</div>
+                                    <div>{returnFlight.departureAirport.city} ({returnFlight.departureAirport.iata}) - {returnFlight.arrivalAirport.city} ({returnFlight.arrivalAirport.iata})</div>
+                                    <div>{returnFlight.flightCode}</div>
                                 </div>
 
                                 <div class="d-flex flex-column gap-1 add-ons__input">

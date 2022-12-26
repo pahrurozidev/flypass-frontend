@@ -48,14 +48,13 @@ export default function Routes() {
                 <Route path="/flight/update" element={<Flight />} />
 
                 {/* user */}
-                
                 <Route exact path="/user/dashboard/dashboarduser" element={<Protected><Dashboard /></Protected>} />
-                <Route path="/user/dashboard/dashboarduser/:id" element={<Protected><Dashboard /></Protected>} />   
+                <Route path="/user/dashboard/dashboarduser/:id" element={<Protected><Dashboard /></Protected>} />
                 <Route exact path="/user/dashboard/profile" element={<Protected><Profil /></Protected>} />
                 <Route exact path="/user/dashboard/editprofile" element={<Protected><EditProfil /></Protected>} />
-                <Route exact path="/user/dashboard/wishlist" element={<Protected><Wishlist /></Protected>} />
-                <Route path="/user/dashboard/wishlist/:id" element={<Protected><Wishlist /></Protected>} />
-                <Route exact path="/user/dashboard/notifuser" element={<Protected><Notification /></Protected>} />
+                <Route exact path="/user/dashboard/wishlist" element={<Protected><Wishlists /></Protected>} />
+                <Route path="/user/dashboard/wishlist/:id" element={<Protected><Wishlists /></Protected>} />
+                <Route exact path="/user/dashboard/notification" element={<Protected><Notification /></Protected>} />
                 <Route path="/user/dashboard/ticket" element={<Protected><MyTicket /></Protected>} />
                 <Route path="/user/dashboard/ticket/:id" element={<Protected><MyTicket /></Protected>} />
                 <Route path="/user/dashboard/transaction" element={<Protected><Transaction /></Protected>} />

@@ -27,8 +27,7 @@ nav {
 /* button */
 
 .bell {
-    margin-left: -410px;
-    margin-bottom: -28px;
+    margin-left: 25px;
 }
 
 .bell::after {
@@ -166,7 +165,7 @@ input {
 
 /* service */
 .service {
-    margin-top: 280px;
+    margin-top: 200px;
     background: #FAFAFA;
     height: 328px;
     display: grid;
@@ -540,7 +539,8 @@ footer a {
 
 @media screen and (max-width: 768px) {
     .form-search {
-        top: 700px;
+        top: 600px;
+        height: 700px;
     }
 }
 
@@ -549,7 +549,7 @@ footer a {
         height: 680px;
         bottom: 30px;
 
-        top: 610px;
+        top: 540px;
     }
 }
 
@@ -559,7 +559,7 @@ footer a {
 @media screen and (max-width: 999px) {
     .service {
         height: 500px;
-        margin-top: 630px;
+        margin-top: 800px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(2, 1fr);
@@ -590,7 +590,7 @@ footer a {
     .service {
 
         height: 600px;
-        margin-top: 750px;
+        margin-top: 800px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(1, 1fr);
@@ -611,7 +611,7 @@ footer a {
     .service {
 
         height: 600px;
-        margin-top: 700px;
+        margin-top: 600px;
         padding: 20px 30px;
 
         grid-template-columns: repeat(1, 1fr);
@@ -814,57 +814,119 @@ footer a {
     }
 }
 
-.select-flight {
-    font-size: 14px !important;
+.btn-booking {
+    height: 40px;
+    margin-top: 18px !important;
 }
 
-/* .price-return-flight {
-    margin-top: -8px;
-} */
-
-.flight-result {
-    top: 180px;
-    font-size: 14px !important;
+.search_result-header h1 {
+    font-size: 15px !important;
 }
 
-@media screen and (min-width: 769px) {
-    .flight-result {
-        top: 50px;
-    }
-}
-@media screen and (min-width: 900px) {
-    .flight-result {
-        top: -20px;
-    }
+.search_result-header p {
+    font-size: 12px !important;
 }
 
 .select-flight h6 {
-    font-size: 16px;
+    font-size: 14px !important;
 }
 
-.select-flight-detail {
-    display: grid !important;
-    grid-template-columns: repeat(8, 1fr) !important;
+.select-flight p {
+    font-size: 12px !important;
 }
 
-.select-flight-detail-departure {
-    grid-column-start: 1 !important;
-    grid-column-end: 4 !important;
+.flight-result {
+    top: 50px;
 }
 
-.select-flight-detail-btn {
-    grid-column-start: 4 !important;
-    grid-column-end: 6 !important;
-    margin: auto;
+@media screen and (min-width: 900px) {
+    .flight-result {
+        top: 20px;
+    }
 }
 
-.select-flight-detail-return {
-    grid-column-start: 6 !important;
-    grid-column-end: 9 !important;
+.not-found {
+    position: relative;
+    top: 70px !important;
 }
 
-.btn-booking {
+@media screen and (min-width: 900px) {
+    .not-found {
+        position: relative;
+        top: 0px !important;
+    }
+}
+
+.log-reg-link {
+    margin-top: 2px;
+}
+
+.dropdown-header {
+    background: white !important;
+}
+
+.dropdown-header .dropdown-item:hover {
+    background: white !important;
+}
+
+.bell-auth {
+    position: relative;
+    top: 8px;
+}
+
+.user-profile-auth {
+    margin-top: 4.5px;
+}
+
+.border-user-auth {
+    border-radius: 20px;
+}
+
+.arrow-left {
+    margin-top: 3px;
+}
+
+
+/* notification */
+.notification .card:hover {
+    cursor: pointer;
+    background: #f0f7ff;
+}
+
+.notification .card-title {
     font-size: 14px;
-    height: 35px;
-    margin-top: 17px !important;
 }
+
+.notification .card-text {
+    font-size: 14px;
+}
+
+.notif-date {
+    font-size: 12px;
+}
+
+.unread {
+    color: #007AFF;
+}
+
+.bell-auth {
+    position: relative;
+}
+
+.notif-count {
+    background: #007AFF;
+    position: absolute;
+    color: white;
+    border-radius: 100%;
+    font-size: 10px;
+    height: 18px;
+    width: 18px;
+    line-height: 20px;
+    margin: auto;
+    text-align: center;
+
+    top: -8px;
+    right: -8px;
+}
+
+/* notification */

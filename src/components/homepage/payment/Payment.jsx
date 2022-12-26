@@ -17,7 +17,7 @@ export default function Payment() {
     const location = useLocation().pathname;
     const { id } = useParams();
 
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [book, setBook] = useState({});
 
     return (
         <React.Fragment>
@@ -25,8 +25,8 @@ export default function Payment() {
 
             <main className='container'>
                 <BookingBar />
-                {(location === `/search/flight/${id}`) && <FlightDetail priceTotal={(price) => setTotalPrice(price)} />}
-                {(location === `/search/flight/payment/${id}`) && <PaymentList price={totalPrice} />}
+                {(location === `/search/flight/${id}`) && <FlightDetail bookings={(booking) => setBook(booking)} />}
+                {(location === `/search/flight/payment/${id}`) && <PaymentList book={book} />}
                 {(location === '/search/flight/payment/completed') && <PaymentCompleted />}
             </main>
 

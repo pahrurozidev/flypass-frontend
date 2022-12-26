@@ -25,7 +25,7 @@ const UserSidebarLink = [
         display: 'Transaction',
     },
     {
-        path: '/user/dashboard/notifuser',
+        path: '/user/dashboard/notification',
         icon: 'bi bi-bell',
         display: 'Notification',
     },

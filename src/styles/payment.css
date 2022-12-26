@@ -270,9 +270,9 @@ body,
     cursor: pointer;
 }
 
-.price-detail-header {
+/* .price-detail-header {
     margin-top: 20px;
-}
+} */
 
 @media screen and (min-width: 992px) {
     .selected-flight {
@@ -288,6 +288,7 @@ body,
     }
 
     .flight-detail.search-detail {
+        /* margin-top: -235px; */
         margin-top: -107px;
     }
 
@@ -488,15 +489,14 @@ body,
     font-size: 12px;
 }
 
-@media screen and (min-width: 992px) { 
+@media screen and (min-width: 992px) {
     .payment-contact-detail {
         /*  */
         grid-row-start: 8;
         /*  */
         grid-column-start: 15;
         grid-column-end: 21;
-
-        margin-top: 20px;
+        margin-top: 0px;
     }
 }
 
@@ -522,4 +522,13 @@ body,
 
 .payment-item-name {
     cursor: pointer;
+}
+
+.return-flight {
+    grid-column-start: 1;
+    grid-column-end: 14;
+}
+
+.search-detail-roundtrip {
+    margin-top: -237px !important;
 }

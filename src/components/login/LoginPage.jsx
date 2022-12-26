@@ -14,7 +14,7 @@ export default function LoginPage() {
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            const data = await axios.post('https://flypass-api.up.railway.app/v1/login',{
+            const data = await axios.post('http://localhost:8080/v1/login',{
                 email: email,
                 password: password,
             });

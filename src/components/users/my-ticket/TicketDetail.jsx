@@ -2,7 +2,7 @@ import React, { Component, Fragment, useState, useEffect } from "react";
 import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
-import Putih from '../../../assets/dasboard-admin/putih.png';
+// import Putih from '../../../assets/dasboard-admin/putih.png';
 import axios from "axios";
 
 
@@ -12,7 +12,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
+        axios.get('http://localhost:8080/v1/bookings', {
             headers: {
                 Authorization: `Bearer ${token}`
             }

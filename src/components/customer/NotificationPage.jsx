@@ -5,17 +5,15 @@ import NotifCard from './dashboard/card/NotifCard'
 
 function NotificationPage() {
     return (
-        <div className='d-flex'>
+        <div>
             <Sidebar />
-            <div className='main-container'>
-                <div id='content-wrapper' className='d-flex flex-column'>
-                    <div id="content">
-                        <Navbar />
-                        <NotifCard />
-                    </div>
+            <div>
+                <Navbar />
+                <div className='main-container'>
+                    <NotifCard />
                 </div>
             </div>
         </div>
     )
 }
-export default NotificationPage
+export default NotificationPage;

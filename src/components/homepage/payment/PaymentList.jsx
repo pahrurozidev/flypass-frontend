@@ -11,8 +11,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { API } from '../../../services'
 import { useEffect } from 'react';
+import moment from 'moment';
 
-export default function PaymentList({ price }) {
+export default function PaymentList({ book }) {
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -25,6 +26,8 @@ export default function PaymentList({ price }) {
   const [image, setImage] = useState({
     image: ''
   })
+
+  const [oneWay, setOneWay] = useState({});
 
   const [payment, setPayment] = useState(true);
 
@@ -49,13 +52,26 @@ export default function PaymentList({ price }) {
     const inputForm = { ...image };
     inputForm[event.target.name] = event.target.files[0];
     setImage(inputForm.image);
-
   }
 
+  // useEffect(() => {
+  //   API.flightDetail(book.data.booking.flight1Id).then((flight) => {
+  //     setOneWay(flight);
+  //   })
+  // }, [])
+
   const submitPaymentHandler = () => {
-    API.transactions(id, image).then((res) => {
-      console.log(res);
-      if (res.data.message === 'created successfully') {
+    API.transactions(id, image).then((book) => {
+      console.log(book);
+
+
+      // setBooking({
+      //   totalPrice: book.totalPrice
+      // })
+
+      // console.log(booking);
+
+      if (book.data.message === 'created successfully') {
         return navigate('/search/flight/payment/completed');
       }
     });
@@ -115,19 +131,19 @@ export default function PaymentList({ price }) {
                 <div className='payment-status'>
                   <h5 className='fw-bold'>Payment Status</h5>
                   <div className='d-flex mt-3'>
-                    <div className='col-3 mb-2'>Payment Code (Ref.1)</div>
-                    <div className='col-3 mb-2'>: 891230041399346</div>
+                    <div className='col-6 col-md-4 mb-2'>Payment Code (Ref.1)</div>
+                    <div className='col-6 col-md-4 mb-2'>: 89123004139</div>
                   </div>
                   <div className='d-flex'>
-                    <div className='col-3 mb-2'>Amount ( IDR )</div>
-                    <div className='col-3 mb-2'>: Rp {price}</div>
+                    <div className='col-6 col-md-4 mb-2'>Amount ( IDR )</div>
+                    <div className='col-6 col-md-4 mb-2'>: Rp {book.data.booking.totalPrice}</div>
                   </div>
                   <p>*Please pay before
                     21/12/2022 17:38:00</p>
                 </div>
 
-                <div className='mt-2'>
-                  <h5 className=''>Upload your payment substantiation</h5>
+                <div className='mt-4 mt-md-2'>
+                  <div className=''>Upload your payment substantiation</div>
                   <div>
                     <input type="file" name="image" className="form-control payment-image" onChange={(event) => paymentHandler(event)} required />
                   </div>
@@ -173,67 +189,67 @@ export default function PaymentList({ price }) {
 
           {/* <!-- flight detail --> */}
           <div className="price-detail-header payment-flight-detail">
-            <div className="card overflow-hidden">
+            {/* <div className="card overflow-hidden">
               <div className="price-detail pb-3 pb-lg-0">
 
                 <div className="card p-3 border-0 border-bottom rounded-0">Flight Details</div>
 
                 <div className="p-3 d-flex flex-column gap-1">
                   <div>Departure Flight</div>
-                  <div className="fw-lighter">Thu, 01 December 2022</div>
+                  <div className="fw-lighter">{moment(oneWay.departureDate).format('LLLL').slice(0, -8)}</div>
                 </div>
 
                 <div className="p-3 pb-0 pt-0 d-flex justify-content-between">
                   <div className="d-flex flex-column gap-2">
-                    <div>Garuda Indonesia</div>
-                    <div className="fw-lighter">GA828</div>
+                    <div>{oneWay.Airline.name}</div>
+                    <div className="fw-lighter">{oneWay.flightCode}</div>
                   </div>
                   <div className="d-flex flex-column gap-3">
                     <div>
-                      <img src={Garuda} alt="" />
+                      <img src={oneWay.Airline.image} alt="" width={20} />
                     </div>
                   </div>
                 </div>
 
                 <div className="border-top m-3 mb-0 pt-3 d-flex flex-column gap-4">
                   <div className="d-flex flex-column gap-1">
-                    <div>Jakarta (CGK)</div>
-                    <div className="fw-lighter">Soekarno Hatta International Airport</div>
-                    <div>08:05 - 01 Dec</div>
+                    <div>{oneWay.departureAirport.city} ({oneWay.departureAirport.iata})</div>
+                    <div className="fw-lighter">{oneWay.departureAirport.name}</div>
+                    <div>{moment(oneWay.departureDate).format('llll').slice(0, -15)} - {moment(oneWay.departureDate).format('llll').slice(0, -15)}</div>
                   </div>
 
                   <div className="fw-lighter d-flex gap-1">
                     <div><img src={Clock} alt="" /></div>
-                    <div>1h 45m</div>
+                    <div>{oneWay.duration.slice(1, 2)}h, {oneWay.duration.slice(3, 5)}m</div>
                   </div>
 
                   <div className="d-flex flex-column gap-1">
                     <div>Singapore (SIN)</div>
                     <div className="fw-lighter">Changi Intl Airport</div>
-                    <div>08:05 - 01 Dec</div>
+                    <div>{moment(oneWay.arrivalDate).format('llll').slice(0, -15)} - {moment(oneWay.arrivalDate).format('llll').slice(0, -15)}</div>
                   </div>
                 </div>
 
                 <div className="d-flex gap-2 items-center m-3 mb-0 pt-3 border-top fw-lighter">
                   <div><img src={Bagasi} alt="" /></div>
-                  <p>Bagasi 30 kg</p>
+                  <p>Bagasi {book.data.passsenger.baggage[0]} kg</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
 
-          {/* <!-- short contact detail --> */}
-          <div className="payment-contact-detail">
-            <div className="card overflow-hidden">
-              <div className="price-detail">
+            {/* <!-- short contact detail --> */}
+            <div className="payment-contact-detail">
+              <div className="card overflow-hidden">
+                <div className="price-detail">
 
-                <div className="card p-3 border-0 border-bottom rounded-0">Contact Details</div>
+                  <div className="card p-3 border-0 border-bottom rounded-0">Contact Details</div>
 
-                <div className="p-3 d-flex flex-column gap-2">
-                  <div>Departure Flight</div>
-                  <div className="fw-lighter d-flex flex-column gap-1">
-                    <div>johndoe@gmail.com</div>
-                    <div>+62 821 1234 5678</div>
+                  <div className="p-3 d-flex flex-column gap-2">
+                    {/* <div>Departure Flight</div> */}
+                    <div className="fw-lighter d-flex flex-column gap-1">
+                      <div>{book.data.passengerContact.email}</div>
+                      <div>{book.data.passengerContact.phone}</div>
+                    </div>
                   </div>
                 </div>
               </div>

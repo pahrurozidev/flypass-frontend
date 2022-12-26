@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const Register = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://flypass-api.up.railway.app/v1/register',{
+            await axios.post('http://localhost:8080/v1/register',{
                 email: email,
                 password: password,
                 confirmationPassword: confirmationPassword,

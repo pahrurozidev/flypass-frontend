@@ -7,18 +7,20 @@ import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
     const history = useHistory();
 
-    const Logout = async() =>{
+    const Logout = async () => {
         try {
-            await axios.delete('https://flypass-api.up.railway.app/v1/logout')
+            await axios.delete('http://localhost:8080/v1/logout')
             history.push("/login")
         } catch (error) {
             console.log(error)
         }
-    } 
+    }
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">

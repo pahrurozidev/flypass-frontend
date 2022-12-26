@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-use-history';
 import { Link } from 'react-router-dom';
 import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../assets/dasboard-admin/line.svg';
-import Putih from '../../../assets/dasboard-admin/putih.png';
+// import Putih from '../../../assets/dasboard-admin/putih.png';
 
 export default function Card() {
     const [name, setUsername] = useState('');
@@ -14,7 +14,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
+        fetch(`http://localhost:8080/v1/whoami`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
+        axios.get('http://localhost:8080/v1/bookings', {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -22,7 +22,9 @@ class Home extends Component {
                 <Jumbotron />
                 <Search />
                 {(this.props.onSubmit && this.props.flights.length !== 0) ? <Searched /> :
-                    this.props.onSubmit && this.props.flights.length === 0 && <NotFound />}
+                    this.props.onSubmit && this.props.flights.length === 0 && <NotFound
+                        departureAlert={this.props.departureAlert}
+                        returnAlert={this.props.returnAlert} />}
                 <Service />
                 <Offer />
                 <Contact />
@@ -36,6 +38,8 @@ const mapStateToProps = (state) => {
     return {
         flights: state.flights,
         onSubmit: state.onSubmit,
+        departureAlert: state.departureAlert,
+        returnAlert: state.returnAlert,
     }
 }
 

@@ -20,7 +20,7 @@ export default function EditProfilPage() {
         e.preventDefault();
         console.log(data.image)
         const token = localStorage.getItem("token");
-        axios.put('https://flypass-api.up.railway.app/v1/user', data,{
+        axios.put('http://localhost:8080/v1/user', data,{
             headers: {
                 Authorization: `Bearer ${token}`,
             },
