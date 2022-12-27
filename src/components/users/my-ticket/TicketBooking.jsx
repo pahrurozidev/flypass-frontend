@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Sidebar from '../../admin/layouts/sidebar/sidebaruser';
+import Sidebar from '../../users/layouts/sidebar/Sidebar';
 import Navbar from '../../users/layouts/navbar/Navbar';
 import TicketList from './TicketListBooking';
 import TicketDetail from './TicketDetailBooking';
@@ -9,13 +9,23 @@ export default function Customers() {
     const { id } = useParams();
 
     return (
-        <div className="d-flex">
+        // <div className="d-flex">
+        //     <Sidebar />
+        //     <div id="content-wrapper" className="d-flex flex-column">
+        //         <div id="content">
+        //             <Navbar />
+        //             {id && <TicketDetail />}
+        //             {!id && <TicketList />}
+        //         </div>
+        //     </div>
+        // </div>
+        <div>
             <Sidebar />
-            <div id="content-wrapper" className="d-flex flex-column">
-                <div id="content">
-                    <Navbar />
-                    {id && <TicketDetail />}
-                    {!id && <TicketList />}
+            <div>
+                <Navbar />
+                <div className="main-container">
+                {id && <TicketDetail />}
+                {!id && <TicketList />}
                 </div>
             </div>
         </div>

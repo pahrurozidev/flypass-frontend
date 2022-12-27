@@ -21,7 +21,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`http://localhost:8080/v1/whoami`, {
+        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

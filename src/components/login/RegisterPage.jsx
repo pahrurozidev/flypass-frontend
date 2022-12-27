@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const Register = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8080/v1/register',{
+            await axios.post('https://flypass-api.up.railway.app/v1/register',{
                 email: email,
                 password: password,
                 confirmationPassword: confirmationPassword,
@@ -71,7 +71,11 @@ export default function RegisterPage() {
                             </li>
                             <li>
                                 <label htmlFor="gender">Gender</label>
-                                <input type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} />
+                                <select type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{width:"460px", height:"45px"}}>
+                                    <option value="">Male / Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
                             </li>
                             <li>
                                 <label htmlFor="phone">Phone</label>
