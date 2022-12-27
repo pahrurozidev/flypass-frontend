@@ -277,6 +277,19 @@ label {
     margin: 20px 0 -8px;
 }
 
+select.form-select,
+input {
+    height: 45px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #8A8A8A;
+}
+
+.swal-button {
+    background-color: #0076CB;
+    width: 80px;
+}
+
 .button {
     display: flex;
     justify-content: flex-end;
@@ -387,6 +400,8 @@ section h5 {
 }
 
 .crud-flight-btn {
+    width: 50%;
+    padding: 10px 0;
     font-size: 14px;
 }
 

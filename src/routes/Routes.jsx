@@ -42,7 +42,7 @@ export default function Routes() {
                 <Route path="/flight" element={<Flight />} />
                 <Route path="/flight/:id" element={<Flight />} />
                 <Route path="/flight/create" element={<Flight />} />
-                <Route path="/flight/update" element={<Flight />} />
+                <Route path="/flight/update/:id" element={<Flight />} />
 
                 {/* user */}
                 <Route path="/user/dashboard/ticket" element={<MyTicket />} />
