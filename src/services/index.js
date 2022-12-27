@@ -3,7 +3,9 @@ import { airport } from './airport';
 import { booking } from './booking';
 import { wishlist, addWishlist, DeleteWishlist } from './wishlist';
 import { transaction } from './transaction';
-import { userNotification } from './notification';
+import { adminNotification, userNotification } from './notification';
+import { whoami } from './whoami';
+import { login } from './auth';
 
 const flights = () => flight('v1/flights');
 const flightDetail = (id) => flightById(`v1/flights/${id}`);
@@ -16,9 +18,14 @@ const wishlists = () => wishlist('v1/wishlist');
 const addWishlists = (id) => addWishlist(`v1/wishlist`, id);
 const deleteWishlists = (id) => DeleteWishlist(`v1/wishlist/${id}`);
 
-const transactions = (id, data) => transaction('v1/pay/create', id, data)
+const transactions = (id, data) => transaction('v1/pay/create', id, data);
 
-const userNotifications = () => userNotification('v1/notification')
+const userNotifications = () => userNotification('v1/notification');
+const adminNotifications = () => adminNotification('v1/notification/admin');
+
+const whoAmI = (token) => whoami('v1/whoami', token);
+
+const signin = (user) => login('v1/login', user);
 
 export const API = {
     flights,
@@ -30,4 +37,7 @@ export const API = {
     deleteWishlists,
     transactions,
     userNotifications,
+    adminNotifications,
+    whoAmI,
+    signin,
 }

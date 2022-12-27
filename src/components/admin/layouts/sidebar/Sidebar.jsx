@@ -6,7 +6,13 @@ import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import AdminSidebarLink from '../../../../assets/adminSidebarLink';
 
+
 class Sidebar extends Component {
+    
+    onLogoutHandler = () => {
+        localStorage.removeItem('token');
+    }
+
     render() {
         return (
             <ul className={`nav flex-column border-end sidebar 
@@ -32,7 +38,7 @@ class Sidebar extends Component {
                         </NavLink>
                     </li>
                 ))}
-                <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
+                <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight" onClick={() => this.onLogoutHandler()}>
                     <a className="nav-link link-sidebar" href="#">
                         <LogoutCurve size={20} />
                         <span>Logout</span>

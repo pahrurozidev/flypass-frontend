@@ -136,7 +136,7 @@ export default function PaymentList({ book }) {
                   </div>
                   <div className='d-flex'>
                     <div className='col-6 col-md-4 mb-2'>Amount ( IDR )</div>
-                    <div className='col-6 col-md-4 mb-2'>: Rp {book.data.booking.totalPrice}</div>
+                    {/* <div className='col-6 col-md-4 mb-2'>: Rp {book.data.booking.totalPrice}</div> */}
                   </div>
                   <p>*Please pay before
                     21/12/2022 17:38:00</p>
@@ -247,8 +247,8 @@ export default function PaymentList({ book }) {
                   <div className="p-3 d-flex flex-column gap-2">
                     {/* <div>Departure Flight</div> */}
                     <div className="fw-lighter d-flex flex-column gap-1">
-                      <div>{book.data.passengerContact.email}</div>
-                      <div>{book.data.passengerContact.phone}</div>
+                      {/* <div>{book.data.passengerContact.email}</div>
+                      <div>{book.data.passengerContact.phone}</div> */}
                     </div>
                   </div>
                 </div>
