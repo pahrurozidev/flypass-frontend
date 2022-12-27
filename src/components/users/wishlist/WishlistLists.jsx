@@ -9,7 +9,15 @@ import { API } from '../../../services';
 export default function WishlistList() {
     const [show, setShow] = useState(false);
     const [flights, setFlight] = useState([]);
+
     useEffect(() => {
+
+        const token = localStorage.getItem("token");
+
+        // API.signin({}).then((res) => console.log(res));
+
+        API.whoAmI(token).then((res) => console.log(res));
+
         API.wishlists().then((flight) => setFlight(flight));
     }, [])
 

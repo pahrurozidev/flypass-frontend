@@ -14,6 +14,11 @@ const sidebarLink = [
         icon: 'bi bi-airplane',
         display: 'Flight',
     },
+    {
+        path: '/notification',
+        icon: 'bi bi-bell',
+        display: 'Notification',
+    },
 ];
 
 export default sidebarLink;

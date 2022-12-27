@@ -890,7 +890,6 @@ footer a {
 /* notification */
 .notification .card:hover {
     cursor: pointer;
-    background: #f0f7ff;
 }
 
 .notification .card-title {
@@ -906,7 +905,12 @@ footer a {
 }
 
 .unread {
-    color: #007AFF;
+    background: #458ad3;
+    color: white;
+}
+
+.read {
+    background: white;
 }
 
 .bell-auth {
