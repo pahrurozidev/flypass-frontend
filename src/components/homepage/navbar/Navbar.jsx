@@ -101,7 +101,10 @@ export default function Navbar() {
     const onLogoutHandler = () => {
         localStorage.removeItem('token');
         navigate('/login')
-        // window.location.reload();
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
     }
 
     return (

@@ -15,6 +15,11 @@ class Sidebaruser extends Component {
             localStorage.removeItem("id");
             localStorage.removeItem("token");
             Navigate('/#/login')
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 300);
+
         }
 
         return (

@@ -5,10 +5,11 @@ import { useHistory } from 'react-router-use-history';
 import { Link, Navigate } from 'react-router-dom';
 import Profile from '../../assets/dasboard-admin/profile.svg';
 import ArrowLeft from '../../assets/homepage/arrow-left.png';
-import { ArrowCircleLeft2 } from 'iconsax-react';
+import { ArrowCircleLeft2, Edit } from 'iconsax-react';
 
 export default function ProfilPage() {
   const [name, setUsername] = useState('');
+  const [userId, setUserId] = useState('');
   const [image, setImage] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [email, setEmail] = useState('');
@@ -27,6 +28,7 @@ export default function ProfilPage() {
       .then((res) => res.json())
       .then((data) => {
         setUsername(data.name);
+        setUserId(data.id);
         setImage(data.image);
         setBirthDate(data.birthDate);
         setEmail(data.email);
@@ -72,74 +74,74 @@ export default function ProfilPage() {
             </div>
           </section> */}
           <div className="card mt-3 p-2">
-                        <div className="admin-customer-detail d-flex flex-column gap-2">
-                            <section className='card p-3'>
-                                <h5 className='border-bottom pb-2'>Personal</h5>
-                                <img src={Profile} alt="" className='mt-3 mb-4' width={70} />
-                                <div className='data-list'>
-                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>First Name</p>
-                                            <p className='data-item__value'>: {name}</p>
-                                        </div>
-                                        <div className='data-item d-md-none'>
-                                            <p className='data-item__name'>Last Name</p>
-                                            <p className='data-item__value'>: {name}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Date of Birth</p>
-                                            <p className='data-item__value'>: {birthDate}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Date of Birth</p>
-                                            <p className='data-item__value'>: {birthDate}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Phone</p>
-                                            <p className='data-item__value'>: +6285xxxxxx</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Pos Code</p>
-                                            <p className='data-item__value'>: {phone}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Address</p>
-                                            <p className='data-item__value'>: Jln xxx perigi city space</p>
-                                        </div>
-                                    </div>
-                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Last Name</p>
-                                            <p className='data-item__value'>: {name}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Gender</p>
-                                            <p className='data-item__value'>: {gender}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Email</p>
-                                            <p className='data-item__value'>: {email}</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>City</p>
-                                            <p className='data-item__value'>: Mataram</p>
-                                        </div>
-                                        <div className='data-item'>
-                                            <p className='data-item__name'>Nationality</p>
-                                            <p className='data-item__value'>: Indonesia</p>
-                                        </div>
-                                        <div className='data-item'>
-                                          <a href="/#/user/dashboard/editprofile">
-                                            <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{width:"100px", marginLeft:"-2px"}}>
-                                              <span>Edit Data</span>
-                                            </div>
-                                          </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+            <div className="admin-customer-detail d-flex flex-column gap-2">
+              <section className='card p-3'>
+                <h5 className='border-bottom pb-2'>Personal</h5>
+                <img src={image} alt="" className='mt-3 mb-4' width={70} />
+                <div className='data-list'>
+                  <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                    <div className='data-item'>
+                      <p className='data-item__name'>First Name</p>
+                      <p className='data-item__value'>: {name}</p>
                     </div>
+                    <div className='data-item d-md-none'>
+                      <p className='data-item__name'>Last Name</p>
+                      <p className='data-item__value'>: {name}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Date of Birth</p>
+                      <p className='data-item__value'>: {birthDate}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Date of Birth</p>
+                      <p className='data-item__value'>: {birthDate}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Phone</p>
+                      <p className='data-item__value'>: +6285xxxxxx</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Pos Code</p>
+                      <p className='data-item__value'>: {phone}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Address</p>
+                      <p className='data-item__value'>: Jln xxx perigi city space</p>
+                    </div>
+                  </div>
+                  <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Last Name</p>
+                      <p className='data-item__value'>: {name}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Gender</p>
+                      <p className='data-item__value'>: {gender}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Email</p>
+                      <p className='data-item__value'>: {email}</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>City</p>
+                      <p className='data-item__value'>: Mataram</p>
+                    </div>
+                    <div className='data-item'>
+                      <p className='data-item__name'>Nationality</p>
+                      <p className='data-item__value'>: Indonesia</p>
+                    </div>
+                    <div className='data-item float-right d-flex'>
+                      <Link to={`/user/dashboard/editprofile`}>
+                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "100px", marginLeft: "-2px" }}>
+                          <span><Edit /></span>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </div>
     </div>
