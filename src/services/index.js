@@ -33,7 +33,7 @@ const transactions = (id, data) => transaction('v1/pay/create', id, data);
 
 const userNotifications = () => userNotification('v1/notification');
 const adminNotifications = () => adminNotification('v1/notification/admin');
-const updateNotifications = (id) => updateNotification(`v1/notification/${id}`);
+const updateNotifications = (id) => updateNotification(`v1/notification/${id}`, id);
 
 const whoAmI = () => whoami('v1/whoami');
 

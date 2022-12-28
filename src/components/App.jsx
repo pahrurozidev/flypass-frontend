@@ -1,58 +1,92 @@
-import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { io } from 'socket.io-client';
+import { useEffect, useState } from 'react';
+import React from 'react'
+import axios from 'axios';
+// import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+// import Badge from '@mui/material/Badge';
+import { Link, useParams } from 'react-router-dom';
+import { Badge3d, BadgeAd } from 'react-bootstrap-icons';
+import { NotificationCircle, SmsNotification } from 'iconsax-react';
 
-const socket = io.connect('http://localhost:8080');
+function Notif() {
+    const [notification, setNotification] = useState([]);
+    const [count, setcount] = useState('');
+    const params = useParams()
 
-function App() {
-    const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState([]);
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsIm5hbWUiOiJBZGFtIiwiaW1hZ2UiOm51bGwsImVtYWlsIjoicGFocnVyb3ppMTdAbWFpbC5jb20iLCJiaXJ0aERhdGUiOiIyMDAwLTExLTAzIiwiZ2VuZGVyIjpudWxsLCJwaG9uZSI6bnVsbCwicm9sZUlkIjoyLCJjcmVhdGVkQXQiOiIyMDIyLTEyLTI4VDEyOjExOjA0LjQ5OFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTEyLTI4VDEzOjIzOjA1LjE4MFoiLCJpYXQiOjE2NzIyMzMyNjMsImV4cCI6MTY3MjI1NDg2M30.TEzYB9LgJfXhklhZeeZkXe6lsuE7qBoCG6H15fzuh_E';
 
-    function handleTextChange(e) {
-        setMessage(e.target.value);
-        // console.log(message);
-    }
+    useEffect(() => {
+        axios
+            .get(
+                `http://localhost:8080/v1/notification`,
+                { headers: { Authorization: `Bearer ${token}` } }
+            ).then(function (response) {
+                setNotification(response.data.notification);
+                setcount(response.data.newNotification);
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
+    }, []);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (!message || message === "") return;
-        console.log("Submitted!");
+    console.log(notification);
+    console.log(count);
 
-        socket.on("incoming message", (message) => {
-            console.log(message);
-            setMessages([...messages, message]);
+    const socket = io('http://localhost:8080');
+    // const room = params.id; // ambil user id (string!!)
+    const id = 15;
+    const room = id.toString(); // ambil user id (string!!)
+    useEffect(() => {
+        socket.on('connect', () => {
+            console.log('connected');
         });
+        socket.emit('connected', room);
+    }, [count, notification]);
 
-        socket.emit("chat message", message);
-    }
+    // user
+    socket.on('notif-to-user', (newNotif) => {
+        setcount(count + 1);
+        setNotification([newNotif, ...notification]);
+    });
 
-    // useEffect(() => {
-    //     socket.on("incoming message", (message) => {
-    //         console.log(message);
-    //         setMessages([...messages, message]);
-    //     });
-    // }, [socket, messages]);
+    const updateRead = (id, booking) => {
+        axios.put(`http://localhost:8080/v1/notification/${id}`,
+            { id: id },
+            { headers: { Authorization: `Bearer ${token}` } })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        // then navigate to booking page using ${booking}
+    };
 
     return (
-        <div className="App">
-            <div className="App-messages">
-                {messages.map((message, index) => (
-                    <div className="App-message" key={index}>
-                        {message}
-                    </div>
-                ))}
-            </div>
-            <form className="App-control col-3 card p-3 m-auto mt-5" onSubmit={handleSubmit}>
-                <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Message..."
-                    onChange={handleTextChange}
-                />
-                <input className="App-button btn btn-danger col-12" type="submit" value="Send" />
-            </form>
+        <div className="container mt-5">
+            <h1>user</h1> <br />
+            {/* <Badge badgeContent={count} color="primary">
+        <NotificationsRoundedIcon color="action" />
+      </Badge> */}
+
+            <SmsNotification size={50} badgeContent={count} />
+            {notification.map((data, index) => {
+                if (data.isRead === false) {
+                    return (
+                        <p key={index}>
+                            <a onClick={() => updateRead(data.id, data.bookingId)} className="btn btn-success">
+                                {data.bookingCode} {data.message} {data.isRead}
+                            </a>
+                        </p>
+                    );
+                } else {
+                    return (
+                        <p key={index}>
+                            <Link to={'/'} className="text-success">
+                                {data.bookingCode} {data.message} {data.isRead}
+                            </Link>
+                        </p>
+                    );
+                }
+            })}
         </div>
     );
 }
 
-export default App;
-
+export default Notif;

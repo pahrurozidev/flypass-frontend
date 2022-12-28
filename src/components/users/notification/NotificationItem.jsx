@@ -18,11 +18,11 @@ export default function NotifCard() {
         })
     }, [])
 
-    const onShowNotificationHandler = (notifId, message, bookingId) => {
-        if (message == 'Waiting for payment') {
+    const onShowNotificationHandler = (notifId, message, bookingId, isRead) => {
+        if (message == 'Waiting for payment' && isRead === false) {
             API.updateNotifications(notifId).then((res) => console.log(res))
-            navigate(`/search/flight/payment/${bookingId}`);
         }
+        navigate(`/search/flight/payment/${bookingId}`);
     }
 
     return (
@@ -46,7 +46,8 @@ export default function NotifCard() {
                 {notification.length === 0 ? <NotFound alert={'Notification'} /> :
                     <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
                         {notification.map((notif) => (
-                            <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`} onClick={() => onShowNotificationHandler(notif.id, notif.message, notif.bookingId)}>
+                            <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}
+                                onClick={() => onShowNotificationHandler(notif.id, notif.message, notif.bookingId, notif.isRead)}>
                                 <div className="card-body">
                                     <h4 className={`card-title`}>{notif.message}</h4>
                                     <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
