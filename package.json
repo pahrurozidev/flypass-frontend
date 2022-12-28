@@ -26,9 +26,10 @@
     "react-feather": "^2.0.10",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
+    "redux": "^4.2.0",
+    "sweetalert": "^2.1.2",
     "react-router-use-history": "^1.0.0",
     "recoil": "^0.7.6",
-    "redux": "^4.2.0",
     "socket.io": "^4.5.4",
     "socket.io-client": "^4.5.4"
   },

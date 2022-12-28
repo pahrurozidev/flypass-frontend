@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'react-feather';
+import axios from 'axios';
 
 export default function CustomerList() {
+    const [customers, setCustomers] = useState([]);
+    const [transactions, setTransactions] = useState([]);
+
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yNlQwMTo1NzoyOC4yNzhaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yNlQxMjo1NToyNy41NDhaIiwiaWF0IjoxNjcyMTE5MTE4LCJleHAiOjE2NzIxNDA3MTh9.fFYHEVSY62ZNcL2Ffb54TAz9_tRxNlP3zngATeAr_xE";
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/v1/bookings/all', {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            setCustomers(res.data.booking);
+        })
+        axios.get('http://localhost:8080/v1/pay/find/all', {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            setTransactions(res.data.transaction);
+        })
+    }, [])
+
+    console.log(transactions);
+
     return (
         <div className='container-fluid admin-flight pb-5'>
             <div className='admin-content px-lg-2'>
@@ -24,102 +45,24 @@ export default function CustomerList() {
 
                     {/* customer list */}
                     <section className='mt-3 admin-customer-header'>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
+                        {transactions.map((customer) => (
+                            <div className="card customers overflow-hidden shadow">
+                                <div className='customer-header border-bottom py-3 fw-bold'>
+                                    <div>Booking ID</div>
+                                    <div>Status</div>
+                                    <div>Created Date</div>
+                                </div>
+                                <div className='customer-body py-3'>
+                                    <div>{customer.bookingId}</div>
+                                    <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
+                                    <div>{customer.createdAt}</div>
+                                </div>
+                                <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                    <Eye size={20} />
+                                    <div>Detail</div>
+                                </Link>
                             </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
+                        ))}
                     </section>
                 </div>
             </div>

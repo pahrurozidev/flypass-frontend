@@ -30,8 +30,8 @@ export default function Routes() {
         <HashRouter>
             <Switch>
                 {/* homepage */}
-                <Route path="/" element={<App />} />
-                {/* <Route exact path="/" element={<Home />} /> */}
+                {/* <Route path="/" element={<App />} /> */}
+                <Route exact path="/" element={<Home />} />
                 {/* <Route path="/search" element={<Search />} /> */}
                 <Route path="/search/flight/:id" element={<Payments />} />
                 <Route path="/search/flight/payment/:id" element={<Payments />} />
@@ -49,7 +49,7 @@ export default function Routes() {
                 <Route path="/flight" element={<IsAdmin><Flight /></IsAdmin>} />
                 <Route path="/flight/:id" element={<IsAdmin><Flight /></IsAdmin>} />
                 <Route path="/flight/create" element={<IsAdmin><Flight /></IsAdmin>} />
-                <Route path="/flight/update" element={<IsAdmin><Flight /></IsAdmin>} />
+                <Route path="/flight/update/:id" element={<IsAdmin><Flight /></IsAdmin>} />
                 <Route path="/notification" element={<IsAdmin><AdminNotification /></IsAdmin>} />
 
                 {/* user */}
