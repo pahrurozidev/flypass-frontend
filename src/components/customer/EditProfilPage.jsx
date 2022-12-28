@@ -13,10 +13,10 @@ export default function EditProfilPage() {
     // const [email, setEmail] = useState('');
     // const [gender, setGender] = useState('');
     // const [phone, setPhone] = useState('');
-  
+
     // useEffect(() => {
     //   const token = localStorage.getItem("token");
-    //   fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
+    //   fetch(`http://localhost:8080/v1/whoami`, {
     //     method: "GET",
     //     headers: {
     //       "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function EditProfilPage() {
     function submit(e){
         e.preventDefault();
         const token = localStorage.getItem("token");
-        axios.put('https://flypass-api.up.railway.app/v1/user', data,{
+      axios.put('http://localhost:8080/v1/user', data,{
             headers: {
                 Authorization: `Bearer ${token}`,
             },

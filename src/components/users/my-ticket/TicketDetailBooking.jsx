@@ -15,7 +15,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
+        fetch(`http://localhost:8080/v1/whoami`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
+        axios.get('http://localhost:8080/v1/bookings', {
             headers: {
                 Authorization: `Bearer ${token}`
             }

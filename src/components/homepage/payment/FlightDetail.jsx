@@ -198,7 +198,11 @@ function FlightDetail({ bookings }) {
     }
 
     const addWishListHandler = () => {
+        const token = localStorage.getItem("token");
+        !token && navigate('/login');
+
         API.wishlists().then((flights) => {
+            console.log(flights);
             if (JSON.stringify(flights) != 'null') {
                 API.deleteWishlists(flight.id).then((res) => {
                     console.log(res)

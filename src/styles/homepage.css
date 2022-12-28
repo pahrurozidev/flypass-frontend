@@ -745,6 +745,7 @@ footer a {
     left: 0px;
     top: 100px;
     width: 100%;
+    height: 300px;
     /* height: 100% !important; */
     overflow: auto !important;
     background: white;
@@ -911,6 +912,7 @@ footer a {
 
 .read {
     background: white;
+    /* color: black; */
 }
 
 .bell-auth {

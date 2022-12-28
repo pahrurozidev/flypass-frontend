@@ -3,6 +3,7 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { API } from '../../../services';
+import NotFound from '../../notfound/NotFound';
 
 export default function NotificationList() {
 
@@ -32,18 +33,18 @@ export default function NotificationList() {
                     </Link>
                 </div>
 
-                {/* notification list */}
-                <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
-                    {notification.map((notif) => (
-                        <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}>
-                            <div className="card-body">
-                                <h4 className={`card-title`}>{notif.message}</h4>
-                                <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
+                {notification.length === 0 ? <NotFound alert={'Notification'} /> :
+                    <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
+                        {notification.map((notif) => (
+                            <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}>
+                                <div className="card-body">
+                                    <h4 className={`card-title`}>{notif.message}</h4>
+                                    <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>}
             </div>
-        </div>
+        </div >
     )
 }

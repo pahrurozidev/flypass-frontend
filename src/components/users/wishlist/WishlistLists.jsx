@@ -5,20 +5,16 @@ import { Link } from 'react-router-dom';
 import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../assets/dasboard-admin/line.svg';
 import { API } from '../../../services';
+import NotFound from '../../notfound/NotFound';
 
 export default function WishlistList() {
     const [show, setShow] = useState(false);
     const [flights, setFlight] = useState([]);
 
     useEffect(() => {
-
-        const token = localStorage.getItem("token");
-
-        // API.signin({}).then((res) => console.log(res));
-
-        API.whoAmI(token).then((res) => console.log(res));
-
-        API.wishlists().then((flight) => setFlight(flight));
+        API.wishlists().then((flight) => {
+            flight && setFlight(flight);
+        });
     }, [])
 
     setTimeout(() => {
@@ -40,7 +36,7 @@ export default function WishlistList() {
                         {/* broadcrumb */}
                         <div className="border rounded py-2 px-2 px-md-3 d-flex justify-content-between mt-3 admin-flight-broadcrumb">
                             <Link to={'/user/dashboard/wishlist'} className="text-decoration-none text-dark d-flex btn gap-1 gap-md-2 ps-0 flex-wrap">
-                                <ArrowCircleLeft2 size={20} />
+                                <ArrowCircleLeft2 size={20} className="arrow-left" />
                                 <div className='label'>Wishlist</div>
                             </Link>
                         </div>
@@ -52,52 +48,54 @@ export default function WishlistList() {
                     <a className="btn btn-date"><span>Date Range</span></a>
                 </div> */}
 
-                        <div className="list-ticket card mt-3 p-3">
-                            <table className="table table-ticket m-0">
-                                <thead>
-                                    <tr>
-                                        <th>Airlines</th>
-                                        <th>From</th>
-                                        <th> </th>
-                                        <th>To</th>
-                                        <th>Duration</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {flights.map((flight) => (
+                        {flights.length === 0 ?
+                            <NotFound alert={'Wishlist'} /> :
+                            <div className="list-ticket card mt-3 p-3">
+                                <table className="table table-ticket m-0">
+                                    <thead>
                                         <tr>
-                                            <td data-label="Airlines" className="airlines">
-                                                <img src={flight.Airline.image} alt="Airplanes" /><br className="d-none" />
-                                                <span>{flight.Airline.name}</span>
-                                            </td>
-                                            <td data-label="From" className="departure-from">
-                                                <p className="departure-time">08:05</p>
-                                                <span className="from-flight">{flight.departureAirport.city}</span>
-                                            </td>
-                                            <td className="line-flight">
-                                                <img src={Line} alt="" />
-                                            </td>
-                                            <td data-label="To" className="arrival-to">
-                                                <p className="arrival-time">09:50</p>
-                                                <span className="to-flight">{flight.arrivalAirport.city}</span>
-                                            </td>
-                                            <td data-label="Duration" className="duration">
-                                                <p className="duration-flight">1h 45m</p>
-                                                <span className="type-direct">Direct</span>
-                                            </td>
-                                            <td data-label="Date" className="departure-date">01 Dec 2022</td>
-                                            <td data-label="Action" className="action">
-                                                <Link to={`/search/flight/${flight.id}`} className="detail">
-                                                    <p className='text-decoration-none text-white bg-primary p-2 rounded-3'>Detail</p>
-                                                </Link>
-                                            </td>
+                                            <th>Airlines</th>
+                                            <th>From</th>
+                                            <th> </th>
+                                            <th>To</th>
+                                            <th>Duration</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        {flights.map((flight) => (
+                                            <tr>
+                                                <td data-label="Airlines" className="airlines">
+                                                    <img src={flight.Airline.image} alt="Airplanes" /><br className="d-none" />
+                                                    <span>{flight.Airline.name}</span>
+                                                </td>
+                                                <td data-label="From" className="departure-from">
+                                                    <p className="departure-time">08:05</p>
+                                                    <span className="from-flight">{flight.departureAirport.city}</span>
+                                                </td>
+                                                <td className="line-flight">
+                                                    <img src={Line} alt="" />
+                                                </td>
+                                                <td data-label="To" className="arrival-to">
+                                                    <p className="arrival-time">09:50</p>
+                                                    <span className="to-flight">{flight.arrivalAirport.city}</span>
+                                                </td>
+                                                <td data-label="Duration" className="duration">
+                                                    <p className="duration-flight">1h 45m</p>
+                                                    <span className="type-direct">Direct</span>
+                                                </td>
+                                                <td data-label="Date" className="departure-date">01 Dec 2022</td>
+                                                <td data-label="Action" className="action">
+                                                    <Link to={`/search/flight/${flight.id}`} className="detail">
+                                                        <p className='text-decoration-none text-white bg-primary p-2 rounded-3'>Detail</p>
+                                                    </Link>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>}
                     </div>
                 </div>
             )}

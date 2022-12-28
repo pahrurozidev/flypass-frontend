@@ -1,18 +1,19 @@
 import React from 'react'
-import Sidebar from '../layouts/sidebar/Sidebar'
-import Navbar from '../layouts/navbar/navbar'
+import Sidebar from '../../admin/layouts/sidebar/sidebaruser'
+import Navbar from '../layouts/navbar/Navbar'
 import NotificationItem from './NotificationItem'
 
-export default function Notification() {
+function Notification() {
     return (
         <div>
             <Sidebar />
             <div>
                 <Navbar />
-                <div className="main-container">
+                <div className='main-container'>
                     <NotificationItem />
                 </div>
             </div>
         </div>
     )
 }
+export default Notification;

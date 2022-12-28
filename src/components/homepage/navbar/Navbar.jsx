@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { redirect, useLocation } from 'react-router-dom';
+import { redirect, useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NavList from './NavList';
 import UserCircle from '../../../assets/homepage/user-circle.png';
@@ -10,6 +10,7 @@ import { API } from '../../../services';
 import moment from 'moment';
 
 export default function Navbar() {
+    const navigate = useNavigate();
     const location = useLocation().pathname;
 
     const [name, setUsername] = useState('');
@@ -22,7 +23,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch(`https://flypass-api.up.railway.app/v1/whoami`, {
+        fetch(`http://localhost:8080/v1/whoami`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -51,9 +52,11 @@ export default function Navbar() {
         })
     }, []);
 
+
     const onLogoutHandler = () => {
         localStorage.removeItem('token');
-        redirect('/');
+        navigate('/login')
+        // window.location.reload();
     }
 
     return (
@@ -70,21 +73,14 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    {(location === "/login" ||
-                        location === "/register" ||
-                        location === "/register2" ||
-                        location === "/register/personal" ||
-                        location === "/search/flight/detail" ||
-                        location === "/search/flight/payment" ||
-                        location === "/search") ?
-                        <div className='navbar-nav ms-auto'></div> :
+                    {location === "/" &&
                         <div className="navbar-nav ms-auto">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
                             <a className="nav-link" href="#booking">My Bookings</a>
                             <a className="nav-link" href="#service">services</a>
                             <a className="nav-link" href="#contact">Contact us</a>
-                        </div>
-                    }
+                        </div>}
+                    {location !== '/' && <div className="navbar-nav ms-auto"></div>}
                     {!login ? (
                         <div>
                             <div></div>
@@ -118,9 +114,9 @@ export default function Navbar() {
                                                     <hr className="dropdown-divider m-0" />
                                                 </li>
                                                 <li>
-                                                    <a className={`dropdown-item d-flex align-items-center py-3 ${notif.isRead && 'text-muted'}`} href="#">
+                                                    <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
                                                         <div className='d-flex flex-column gap-2'>
-                                                            <span className="font-weight-bold unread">{notif.message}</span>
+                                                            <span className="font-weight-bold">{notif.message}</span>
                                                             <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
                                                         </div>
                                                     </a>
@@ -174,8 +170,8 @@ export default function Navbar() {
                                         <li>
                                             <hr className="dropdown-divider" />
                                         </li>
-                                        <li onClick={() => onLogoutHandler()}>
-                                            <div className="dropdown-item d-flex align-items-center">
+                                        <li>
+                                            <div className="dropdown-item d-flex align-items-center" onClick={() => onLogoutHandler()}>
                                                 <div>
                                                     <div className="small text-gray-500">Logout</div>
                                                 </div>

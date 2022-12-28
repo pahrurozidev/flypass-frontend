@@ -1,9 +1,9 @@
 import { flight, flightById } from './flight';
 import { airport } from './airport';
-import { booking } from './booking';
+import { booking, getBookByUserLog } from './booking';
 import { wishlist, addWishlist, DeleteWishlist } from './wishlist';
 import { transaction } from './transaction';
-import { adminNotification, userNotification } from './notification';
+import { adminNotification, userNotification, updateNotification } from './notification';
 import { whoami } from './whoami';
 import { login } from './auth';
 
@@ -11,6 +11,7 @@ const flights = () => flight('v1/flights');
 const flightDetail = (id) => flightById(`v1/flights/${id}`);
 
 const book = (book) => booking('v1/flights/books', book);
+const getBookByUserLogin = () => getBookByUserLog('v1/bookings');
 
 const airports = () => airport('v1/airport');
 
@@ -22,8 +23,9 @@ const transactions = (id, data) => transaction('v1/pay/create', id, data);
 
 const userNotifications = () => userNotification('v1/notification');
 const adminNotifications = () => adminNotification('v1/notification/admin');
+const updateNotifications = (id) => updateNotification(`v1/notification/${id}`);
 
-const whoAmI = (token) => whoami('v1/whoami', token);
+const whoAmI = () => whoami('v1/whoami');
 
 const signin = (user) => login('v1/login', user);
 
@@ -39,5 +41,7 @@ export const API = {
     userNotifications,
     adminNotifications,
     whoAmI,
+    getBookByUserLogin,
     signin,
+    updateNotifications,
 }

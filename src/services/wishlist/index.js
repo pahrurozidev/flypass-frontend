@@ -1,7 +1,7 @@
 import axios from "axios"
 import { RootPath } from "../config"
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJBZGFtIiwiaW1hZ2UiOm51bGwsImVtYWlsIjoicGFocnVyb3ppMTdAZ21haWwuY29tIiwiYmlydGhEYXRlIjoiMjAwMC0xMS0wMyIsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MiwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yNlQwMTo1ODozMi42MjdaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yNlQwNDo1MjozNC40NzJaIiwiaWF0IjoxNjcyMDYyMTI1LCJleHAiOjE2NzIwODM3MjV9.cTZM0rY0HCVzO9r3rMCy9yYcD1R-RHZIMfaqkfEVWTk';
+const token = localStorage.getItem("token");
 
 const wishlist = (path) => {
 

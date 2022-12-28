@@ -8,9 +8,10 @@ import AdminSidebarLink from '../../../../assets/adminSidebarLink';
 
 
 class Sidebar extends Component {
-    
+
     onLogoutHandler = () => {
         localStorage.removeItem('token');
+        navigate('/login')
     }
 
     render() {
@@ -38,11 +39,11 @@ class Sidebar extends Component {
                         </NavLink>
                     </li>
                 ))}
-                <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight" onClick={() => this.onLogoutHandler()}>
-                    <a className="nav-link link-sidebar" href="#">
+                <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
+                    <Link to={'/login'} className="nav-link link-sidebar" onClick={() => this.onLogoutHandler()}>
                         <LogoutCurve size={20} />
                         <span>Logout</span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         )
