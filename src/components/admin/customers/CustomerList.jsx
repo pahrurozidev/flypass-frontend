@@ -3,12 +3,13 @@ import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'react-feather';
 import axios from 'axios';
+import moment from 'moment';
 
 export default function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [transactions, setTransactions] = useState([]);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yNlQwMTo1NzoyOC4yNzhaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yNlQxMjo1NToyNy41NDhaIiwiaWF0IjoxNjcyMTE5MTE4LCJleHAiOjE2NzIxNDA3MTh9.fFYHEVSY62ZNcL2Ffb54TAz9_tRxNlP3zngATeAr_xE";
+    const token = "";
 
     useEffect(() => {
         axios.get('https://flypass-api.up.railway.app/v1/bookings/all', {
@@ -43,27 +44,36 @@ export default function CustomerList() {
                         </Link>
                     </div>
 
+                    {
+                        transactions == 0 &&
+                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                            <div className="text-dark">Transaction Not Found</div>
+                        </div>
+                    }
+
                     {/* customer list */}
-                    <section className='mt-3 admin-customer-header'>
-                        {transactions.map((customer) => (
-                            <div className="card customers overflow-hidden shadow">
-                                <div className='customer-header border-bottom py-3 fw-bold'>
-                                    <div>Booking ID</div>
-                                    <div>Status</div>
-                                    <div>Created Date</div>
+                    {transactions.length !== 0 &&
+                        <section className='mt-3 admin-customer-header'>
+                            {transactions.map((customer) => (
+                                <div className="card customers overflow-hidden shadow">
+                                    <div className='customer-header border-bottom py-3 fw-bold'>
+                                        <div>Booking ID</div>
+                                        <div>Status</div>
+                                        <div>Created Date</div>
+                                    </div>
+                                    <div className='customer-body py-3'>
+                                        <div>{customer.bookingId}</div>
+                                        <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
+                                        <div>{moment(customer.createdAt).format('llll').slice(0, -15)}</div>
+                                    </div>
+                                    <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                        <Eye size={20} />
+                                        <div>Detail</div>
+                                    </Link>
                                 </div>
-                                <div className='customer-body py-3'>
-                                    <div>{customer.bookingId}</div>
-                                    <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
-                                    <div>{customer.createdAt}</div>
-                                </div>
-                                <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                    <Eye size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        ))}
-                    </section>
+                            ))}
+                        </section>
+                    }
                 </div>
             </div>
         </div>

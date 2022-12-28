@@ -280,6 +280,7 @@ hr {
     color: rgba(0, 0, 0, 0.59);
     border: 1px solid #B9B9B9;
     border-radius: 59px;
+    margin-top: 18px;
 }
 
 .opsi-filter .btn-departure:hover,

@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Transaction from '../components/users/transaction/Transaction';
+import Transaction from '../components/admin/transaction/Transaction';
 import { actionType } from '../redux/reducer/globalActionType';
 
 // style dashboard
 import '../styles/dashboard.css';
 import '../styles/transaction.css';
 
-class TransactionUser extends Component {
+class TransactionAdmin extends Component {
     render() {
         return (
             <Fragment>
@@ -31,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionUser);
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionAdmin);

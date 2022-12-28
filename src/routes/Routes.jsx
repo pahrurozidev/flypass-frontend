@@ -19,7 +19,7 @@ import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
 import MyTicket from "../pages/MyTicketUser";
-import Transaction from "../pages/TransactionUser";
+import Transaction from "../pages/TransactionAdmin";
 import Wishlists from "../pages/Wishlists";
 
 export default function Routes() {
@@ -46,6 +46,8 @@ export default function Routes() {
                 <Route path="/flight/:id" element={<Flight />} />
                 <Route path="/flight/create" element={<Flight />} />
                 <Route path="/flight/update/:id" element={<Flight />} />
+                <Route path="/transaction" element={<Transaction />} />
+                <Route path="/transaction/:id" element={<Transaction />} />
 
                 {/* user */}
                 <Route exact path="/user/dashboard/dashboarduser" element={<Protected><Dashboard /></Protected>} />
@@ -57,8 +59,6 @@ export default function Routes() {
                 <Route exact path="/user/dashboard/notification" element={<Protected><Notification /></Protected>} />
                 <Route path="/user/dashboard/ticket" element={<Protected><MyTicket /></Protected>} />
                 <Route path="/user/dashboard/ticket/:id" element={<Protected><MyTicket /></Protected>} />
-                <Route path="/user/dashboard/transaction" element={<Protected><Transaction /></Protected>} />
-                <Route path="/user/dashboard/transaction/:id" element={<Protected><Transaction /></Protected>} />
             </Switch>
         </HashRouter>
     )

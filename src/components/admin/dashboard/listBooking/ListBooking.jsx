@@ -26,7 +26,12 @@ export default function ListBooking() {
                     <a className="btn btn-date"><span>Date Range</span></a>
                 </div>
             </div>
-            {allBookings == 0 && <h1>Not Found</h1>}
+            {
+                allBookings == 0 &&
+                <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                    <div className="text-dark">Bookings Not Found</div>
+                </div>
+            }
             {allBookings.length !== 0 &&
                 <div className="card booking-table mt-3">
                     <table className="table">
@@ -49,18 +54,18 @@ export default function ListBooking() {
                                         <span>{booking.flight1.Airline.name}</span>
                                     </td>
                                     <td data-title="From" className="departure-from">
-                                        <p className="departure-time">{booking.flight1.departureTime}</p>
+                                        <p className="departure-time">{booking.flight1.departureTime.slice(0, -3)}</p>
                                         <span className="from-flight">{booking.flight1.departureAirport.city}</span>
                                     </td>
                                     <td className="line-flight">
                                         <img src={Line} alt="" />
                                     </td>
                                     <td data-title="To" className="arrival-to">
-                                        <p className="arrival-time">{booking.flight1.arrivalTime}</p>
+                                        <p className="arrival-time">{booking.flight1.arrivalTime.slice(0, -3)}</p>
                                         <span className="to-flight">{booking.flight1.arrivalAirport.city}</span>
                                     </td>
                                     <td data-title="Duration" className="duration">
-                                        <p className="duration-flight">{booking.flight1.duration}</p>
+                                        <p className="duration-flight">{booking.flight1.duration.slice(0, -3)}</p>
                                         <span className="type-direct">{booking.flight1.FlightClass.name}</span>
                                     </td>
                                     <td data-title="Date" className="departure-date">{booking.flight1.departureDate}</td>

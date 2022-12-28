@@ -20,11 +20,6 @@ const UserSidebarLink = [
         display: 'Wishlist',
     },
     {
-        path: '/user/dashboard/transaction',
-        icon: 'bi bi-receipt',
-        display: 'Transaction',
-    },
-    {
         path: '/user/dashboard/notification',
         icon: 'bi bi-bell',
         display: 'Notification',
