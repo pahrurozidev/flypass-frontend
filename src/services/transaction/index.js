@@ -8,6 +8,11 @@ const transaction = (path, id, data) => {
         axios.post(`${RootPath}/${path}/${id}`,
             { image: data },
             { headers: { Authorization: `Bearer ${token}` } },
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
         ).then((response) => {
             resolve(response)
         }, (error) => {

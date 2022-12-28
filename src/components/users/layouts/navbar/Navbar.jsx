@@ -28,7 +28,6 @@ export default function navbar({ showSidebarDispatch }) {
         })
             .then((res) => res.json())
             .then((data) => {
-                // setUser(data.data.user);
                 setUsername(data.name);
             });
         // setIsLoggedIn(!!token);
@@ -45,7 +44,7 @@ export default function navbar({ showSidebarDispatch }) {
                 <li className='nav-item sidebar-toggle'>
                     <Menu
                         size={38}
-                        onClick={() => showSidebarDispatch}
+                        onClick={() => showSidebarDispatch()}
                         className="bg-light px-2 rounded-circle shadow border text-secondary" />
                 </li>
                 <li className="nav-item dropdown user-profile">

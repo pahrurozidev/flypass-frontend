@@ -14,9 +14,9 @@ class Sidebaruser extends Component {
         function handleLogout() {
             localStorage.removeItem("id");
             localStorage.removeItem("token");
-            alert("Kamu Berhasil Logout");
             Navigate('/#/login')
-        }
+        }
+
         return (
             <ul className={`nav flex-column border-end sidebar 
             ${(this.props.showSidebarProps && `show-sidebar`)}`}>

@@ -26,7 +26,6 @@ export default function ProfilPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUsername(data.name);
         setImage(data.image);
         setBirthDate(data.birthDate);
