@@ -15,7 +15,7 @@ class FlightList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/v1/flights').then(
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights`).then(
             response => {
                 this.setState({ data: response.data.flights });
                 console.log(response.data.flights);

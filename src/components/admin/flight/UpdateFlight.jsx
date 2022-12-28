@@ -56,7 +56,7 @@ export default function CreateFlight() {
 
         const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QwNzoxNDo1OS4zOTBaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QwNzoxNDo1OS4zOTBaIiwiaWF0IjoxNjcyMTI2NjEwLCJleHAiOjE2NzIxNDgyMTB9.mik-BsmCrXuplGZJJLBm_KUppvx7TfocDWUEXK2aLZs"
 
-        axios.put(`http://localhost:8080/v1/flights/${id}`, data, {
+        axios.put(`${import.meta.env.VITE_BASE_URL}/v1/flights/${id}`, data, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -77,7 +77,7 @@ export default function CreateFlight() {
     }
 
     const getFlightById = async () => {
-        const response = await axios.get(`http://localhost:8080/v1/flights/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights/${id}`);
         setData({
             departureAirportId: response.data.departureAirport.id,
             departureDate: response.data.departureDate,

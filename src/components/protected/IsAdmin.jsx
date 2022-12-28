@@ -9,7 +9,7 @@ function IsAdmin({ children }) {
     !token && history.push('/login');
 
     API.whoAmI().then((user) => {
-        user.roleId !== 2 && history.push('/');
+        user.roleId !== 1 && history.push('/');
     });
 
     return children;

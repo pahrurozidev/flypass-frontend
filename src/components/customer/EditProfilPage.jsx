@@ -16,7 +16,7 @@ export default function EditProfilPage() {
 
     // useEffect(() => {
     //   const token = localStorage.getItem("token");
-    //   fetch(`http://localhost:8080/v1/whoami`, {
+    //   fetch(`${import.meta.env.VITE_BASE_URL}/v1/whoami`, {
     //     method: "GET",
     //     headers: {
     //       "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function EditProfilPage() {
     function submit(e){
         e.preventDefault();
         const token = localStorage.getItem("token");
-      axios.put('http://localhost:8080/v1/user', data,{
+        axios.put(`${import.meta.env.VITE_BASE_URL}/v1/user`, data,{
             headers: {
                 Authorization: `Bearer ${token}`,
             },

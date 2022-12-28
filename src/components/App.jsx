@@ -18,7 +18,7 @@ function Notif() {
     useEffect(() => {
         axios
             .get(
-                `http://localhost:8080/v1/notification`,
+                `${import.meta.env.VITE_BASE_URL}/v1/notification`,
                 { headers: { Authorization: `Bearer ${token}` } }
             ).then(function (response) {
                 setNotification(response.data.notification);
@@ -32,7 +32,7 @@ function Notif() {
     console.log(notification);
     console.log(count);
 
-    const socket = io('http://localhost:8080');
+    const socket = io('${import.meta.env.VITE_BASE_URL}');
     // const room = params.id; // ambil user id (string!!)
     const id = 15;
     const room = id.toString(); // ambil user id (string!!)
@@ -50,7 +50,7 @@ function Notif() {
     });
 
     const updateRead = (id, booking) => {
-        axios.put(`http://localhost:8080/v1/notification/${id}`,
+        axios.put(`${import.meta.env.VITE_BASE_URL}/v1/notification/${id}`,
             { id: id },
             { headers: { Authorization: `Bearer ${token}` } })
             .then(res => console.log(res))

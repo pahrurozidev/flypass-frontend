@@ -29,7 +29,7 @@ export default function Navbar() {
 
     if (token) {
         useEffect(() => {
-            fetch(`http://localhost:8080/v1/whoami`, {
+            fetch(`${import.meta.env.VITE_BASE_URL}/v1/whoami`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function Navbar() {
 
     if (location == '/' && token) {
         // notificaiton | socket.io
-        // const socket = io('http://localhost:8080');
+        // const socket = io('${import.meta.env.VITE_BASE_URL}');
 
         // useEffect(() => {
         //     if (admin) {

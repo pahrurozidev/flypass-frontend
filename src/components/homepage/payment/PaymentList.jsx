@@ -85,7 +85,7 @@ export default function PaymentList() {
       if (bookByUser[0].message === 'created successfully') {
         return navigate('/search/flight/payment/completed');
       }
-    });
+    }).catch(err => console.log(err))
   }
 
   setTimeout(() => {

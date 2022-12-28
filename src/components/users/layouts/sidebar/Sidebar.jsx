@@ -15,7 +15,7 @@ export default function Sidebar() {
 
     const Logout = async () => {
         try {
-            await axios.delete('http://localhost:8080/v1/logout')
+            await axios.delete(`${import.meta.env.VITE_BASE_URL}/v1/logout`)
             history.push("/login")
         } catch (error) {
             console.log(error)

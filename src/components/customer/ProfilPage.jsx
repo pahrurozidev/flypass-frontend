@@ -17,7 +17,7 @@ export default function ProfilPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:8080/v1/whoami`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/v1/whoami`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
