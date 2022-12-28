@@ -1,42 +1,54 @@
-import React from 'react'
+import { ArrowCircleLeft2, Eye } from 'iconsax-react'
+import moment from 'moment';
+import React, { useState } from 'react'
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom'
+import { API } from '../../../../services';
 
 export default function NotifCard() {
+
+    const [notification, setNotification] = useState([]);
+
+    useEffect(() => {
+        API.userNotifications().then((notif) => {
+            setNotification(notif);
+        })
+    }, [])
+
     return (
-        <div className='container-fluid'>
-            <h1 className='title-dashboard'>All Notification</h1>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Jhon</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
+        <div className='container-fluid pb-5'>
+            <div className='admin-content px-lg-2'>
+
+                {/* header label */}
+                <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
+                    <h2 className='fs-4'>All Notification</h2>
+                    <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
                 </div>
-            </div>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Jhon</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+                {/* broadcrumb */}
+                <div className="border rounded py-2 px-2 px-md-3 d-flex justify-content-between mt-3 admin-flight-broadcrumb">
+                    <Link to={'/user/dashboard/notification'} className="text-decoration-none text-dark d-flex btn gap-1 gap-md-2 ps-0 flex-wrap">
+                        <ArrowCircleLeft2 size={20} className="arrow-left" />
+                        <div className='label'>Notification</div>
+                    </Link>
                 </div>
-            </div>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Jhon</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
-                </div>
-            </div>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Jhon</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
-                </div>
-            </div>
-            <div className="card welcome-card">
-                <div className="card-body">
-                    <h4 className='card-title'>Selamat Datang, Jhon</h4>
-                    <p className='card-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et doloremagna
-                        aliqua. ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+
+                {/* Notification lists */}
+                <div className='mt-3 notification d-flex flex-column gap-3'>
+
+                    {notification.map((notif) => (
+                        <div className={`card d-flex flex-row items-center ${notif.isRead && 'text-mutedd'}`}>
+                            <div className="card-body">
+                                <h4 className={`card-title unread`}>{notif.message}</h4>
+                                <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
+                            </div>
+
+                            {/* <div className='card-body m-auto'>
+                                <Eye size={25} className="text-primary" />
+                            </div> */}
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

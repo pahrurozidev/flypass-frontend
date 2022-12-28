@@ -55,6 +55,10 @@ body,
 }
 
 
+.wishlist-button {
+    cursor: pointer;
+}
+
 .order_flight {
     margin-top: 50px;
     font-size: 14px;
@@ -266,9 +270,9 @@ body,
     cursor: pointer;
 }
 
-.price-detail-header {
+/* .price-detail-header {
     margin-top: 20px;
-}
+} */
 
 @media screen and (min-width: 992px) {
     .selected-flight {
@@ -284,7 +288,12 @@ body,
     }
 
     .flight-detail.search-detail {
+        /* margin-top: -235px; */
         margin-top: -107px;
+    }
+
+    .flight-detail.return-flight {
+        margin-top: 0px;
     }
 
     .search-detail {
@@ -295,7 +304,7 @@ body,
 
     .price-detail-header {
         margin-top: 0px;
-        grid-row-start: 1;
+        grid-row-start: 1 !important;
         grid-column-start: 15;
         grid-column-end: 21;
     }
@@ -487,7 +496,39 @@ body,
         /*  */
         grid-column-start: 15;
         grid-column-end: 21;
+        margin-top: 0px;
     }
 }
 
 /* short contact detail */
+
+
+.contact-title {
+    height: 45px;
+    margin-top: 10px;
+}
+
+.payment-header h6 {
+    font-size: 14px !important;
+}
+
+.payment-header h5 {
+    font-size: 16px !important;
+}
+
+.btn-send {
+    font-size: 14px;
+}
+
+.payment-item-name {
+    cursor: pointer;
+}
+
+.return-flight {
+    grid-column-start: 1;
+    grid-column-end: 14;
+}
+
+.search-detail-roundtrip {
+    margin-top: -237px !important;
+}

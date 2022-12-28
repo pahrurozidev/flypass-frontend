@@ -105,6 +105,10 @@ function FlightDetail() {
                                             <p className='col fw-bold'>Flight Class</p>
                                             <p className='col'>: {flight.FlightClass.name}</p>
                                         </div>
+                                        <div className='d-flex col-lg-10'>
+                                            <p className='col fw-bold'>Baggage</p>
+                                            <p className='col'>: {flight.baggage} kg</p>
+                                        </div>
                                     </div>
                                     <div className='d-flex flex-column mt-4 gap-4 gap-md-2 mt-md-0 col '>
                                         <div className='d-flex col-lg-10'>

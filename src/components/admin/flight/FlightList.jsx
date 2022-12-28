@@ -27,7 +27,7 @@ class FlightList extends Component {
     }
 
     render() {
-        // this.state.data.reverse();
+        this.state.data.reverse();
         return (
             <div className='container-fluid' >
 

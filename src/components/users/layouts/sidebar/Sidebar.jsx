@@ -1,12 +1,26 @@
-import React from 'react';
-import { LogoutCurve } from 'iconsax-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
+import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
+import axios from 'axios';
+import { useHistory } from 'react-router-use-history';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
+    const history = useHistory();
+
+    const Logout = async () => {
+        try {
+            await axios.delete('http://localhost:8080/v1/logout')
+            history.push("/login")
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
@@ -25,9 +39,10 @@ export default function Sidebar() {
             <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
                 <a className="nav-link link-sidebar" href="#">
                     <LogoutCurve size={20} />
-                    <span>Logout</span>
+                    <span onClick={Logout}>Logout</span>
                 </a>
             </li>
         </ul>
     );
 }
+

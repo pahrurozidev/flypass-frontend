@@ -12,6 +12,7 @@ import { actionType } from '../redux/reducer/globalActionType';
 // style homepage
 import '../styles/homepage.css'
 import Searched from "../components/homepage/searched/Searched";
+import NotFound from "../components/homepage/notfound/NotFound";
 
 class Home extends Component {
     render() {
@@ -20,11 +21,13 @@ class Home extends Component {
                 <Navbar />
                 <Jumbotron />
                 <Search />
-                {(this.props.flights.length !== 0) && <Searched />}
+                {(this.props.onSubmit && this.props.flights.length !== 0) ? <Searched /> :
+                    this.props.onSubmit && this.props.flights.length === 0 && <NotFound
+                        departureAlert={this.props.departureAlert}
+                        returnAlert={this.props.returnAlert} />}
                 <Service />
                 <Offer />
                 <Contact />
-
                 <Footer />
             </Fragment>
         )
@@ -33,7 +36,10 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        flights: state.flights
+        flights: state.flights,
+        onSubmit: state.onSubmit,
+        departureAlert: state.departureAlert,
+        returnAlert: state.returnAlert,
     }
 }
 

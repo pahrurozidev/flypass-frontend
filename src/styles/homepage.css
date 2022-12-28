@@ -7,7 +7,7 @@ body {
     overflow-x: hidden !important;
 }
 
-.d-notif{
+.d-notif {
     margin-right: "rem";
 }
 
@@ -44,11 +44,11 @@ nav {
     margin: 0 5px;
 }
 
-.bell .nav-item .dropdown-menu{
+.bell .nav-item .dropdown-menu {
     margin-left: -345px;
 }
 
-.bell .nav-item .dropdown-menu .dropdown-header{
+.bell .nav-item .dropdown-menu .dropdown-header {
     background-color: #007AFF;
 }
 
@@ -70,7 +70,7 @@ nav {
 
 /* form search */
 .form-search {
-    height: 183px;
+    height: 180px;
     border-radius: 20px;
     background: white;
 
@@ -121,19 +121,21 @@ input {
 }
 
 .booking-form .trip {
-    border-right: 0;
+    /* border-right: 0;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0; */
 }
 
 .booking-form .date {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    /* border-top-left-radius: 0;
+    border-bottom-left-radius: 0; */
 }
 
 .booking-form .button {
     margin: 0;
     padding: 0 35px;
+    position: relative;
+    z-index: 888 !important;
 }
 
 .booking-form button {
@@ -486,7 +488,7 @@ footer a {
     }
 
     .form-search {
-        height: 520px;
+        height: 700px;
         /* width: 400px; */
         bottom: 30px;
 
@@ -537,13 +539,14 @@ footer a {
 
 @media screen and (max-width: 768px) {
     .form-search {
-        top: 580px;
+        top: 600px;
+        height: 700px;
     }
 }
 
 @media screen and (max-width: 425px) {
     .form-search {
-        height: 550px;
+        height: 680px;
         bottom: 30px;
 
         top: 540px;
@@ -556,7 +559,7 @@ footer a {
 @media screen and (max-width: 999px) {
     .service {
         height: 500px;
-        margin-top: 500px;
+        margin-top: 800px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(2, 1fr);
@@ -564,20 +567,20 @@ footer a {
         gap: 5px;
 
     }
-    
+
     .main-service {
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 1;
         grid-column-end: 3;
-        
+
         align-items: flex-start;
     }
-    
+
     .main-service h1 {
         font-size: 25px;
     }
-    
+
     .service-item h3 {
         font-size: 18px;
     }
@@ -587,7 +590,7 @@ footer a {
     .service {
 
         height: 600px;
-        margin-top: 600px;
+        margin-top: 800px;
         padding: 40px 30px;
 
         grid-template-columns: repeat(1, 1fr);
@@ -735,3 +738,195 @@ footer a {
         align-items: flex-start;
     }
 }
+
+.departure-search,
+.arrival-search {
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    width: 100%;
+    /* height: 100% !important; */
+    overflow: auto !important;
+    background: white;
+    z-index: 99999 !important;
+    padding-top: 20px;
+
+    font-size: 14px;
+}
+
+.arrival-search {
+    position: absolute;
+    top: 230px;
+    z-index: 99999 !important;
+}
+
+@media screen and (min-width: 768px) {
+
+    .departure-search,
+    .arrival-search {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 922px) {
+
+    .departure-search,
+    .arrival-search {
+        width: 50%;
+        /* height: 400px !important; */
+        top: 260px;
+    }
+}
+
+@media screen and (min-width: 922px) {
+    .arrival-search {
+        left: 0px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .arrival-search {
+        top: 130px;
+        left: 230px;
+    }
+
+    .departure-search {
+        top: 130px;
+    }
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background: #007AFF;
+    color: white;
+}
+
+
+@media screen and (min-width: 1000px) {
+    .booking-form input {
+        width: 135px !important;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .booking-form input {
+        width: 180px !important;
+    }
+}
+
+.btn-booking {
+    height: 40px;
+    margin-top: 18px !important;
+}
+
+.search_result-header h1 {
+    font-size: 15px !important;
+}
+
+.search_result-header p {
+    font-size: 12px !important;
+}
+
+.select-flight h6 {
+    font-size: 14px !important;
+}
+
+.select-flight p {
+    font-size: 12px !important;
+}
+
+.flight-result {
+    top: 50px;
+}
+
+@media screen and (min-width: 900px) {
+    .flight-result {
+        top: 20px;
+    }
+}
+
+.not-found {
+    position: relative;
+    top: 70px !important;
+}
+
+@media screen and (min-width: 900px) {
+    .not-found {
+        position: relative;
+        top: 0px !important;
+    }
+}
+
+.log-reg-link {
+    margin-top: 2px;
+}
+
+.dropdown-header {
+    background: white !important;
+}
+
+.dropdown-header .dropdown-item:hover {
+    background: white !important;
+}
+
+.bell-auth {
+    position: relative;
+    top: 8px;
+}
+
+.user-profile-auth {
+    margin-top: 4.5px;
+}
+
+.border-user-auth {
+    border-radius: 20px;
+}
+
+.arrow-left {
+    margin-top: 3px;
+}
+
+
+/* notification */
+.notification .card:hover {
+    cursor: pointer;
+    background: #f0f7ff;
+}
+
+.notification .card-title {
+    font-size: 14px;
+}
+
+.notification .card-text {
+    font-size: 14px;
+}
+
+.notif-date {
+    font-size: 12px;
+}
+
+.unread {
+    color: #007AFF;
+}
+
+.bell-auth {
+    position: relative;
+}
+
+.notif-count {
+    background: #007AFF;
+    position: absolute;
+    color: white;
+    border-radius: 100%;
+    font-size: 10px;
+    height: 18px;
+    width: 18px;
+    line-height: 20px;
+    margin: auto;
+    text-align: center;
+
+    top: -8px;
+    right: -8px;
+}
+
+/* notification */
