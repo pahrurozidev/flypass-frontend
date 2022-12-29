@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import DashboardPage from '../components/customer/DashboardPage';
 import { actionType } from '../redux/reducer/globalActionType';
 import Ticket from '../components/users/my-ticket/TicketBooking';
 

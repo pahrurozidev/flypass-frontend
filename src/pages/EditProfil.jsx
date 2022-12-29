@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/users/layouts/navbar/Navbar';
 import Sidebar from '../components/users/layouts/sidebar/Sidebar';
-import EditProfilPage from '../components/customer/EditProfilPage';
+import EditProfilPage from '../components/users/profil/EditProfilPage';
 import { actionType } from '../redux/reducer/globalActionType';
 
 // style homepage

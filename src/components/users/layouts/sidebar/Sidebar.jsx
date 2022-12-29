@@ -6,21 +6,18 @@ import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 import { useHistory } from 'react-router-use-history';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
-    const history = useHistory();
-
-    const Logout = async () => {
-        try {
-            await axios.delete('https://flypass-api.up.railway.app/v1/logout')
-            history.push("/login")
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    function handleLogout() {
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        alert("Kamu Berhasil Logout");
+        Navigate('/#/login')
+    }
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
@@ -37,9 +34,9 @@ export default function Sidebar() {
                 </li>
             ))}
             <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                <a className="nav-link link-sidebar" href="#">
+                <a className="nav-link link-sidebar" href='/#/login' onClick={handleLogout}>
                     <LogoutCurve size={20} />
-                    <span onClick={Logout}>Logout</span>
+                    <span>Logout</span>
                 </a>
             </li>
         </ul>

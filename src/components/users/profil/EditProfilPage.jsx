@@ -1,5 +1,4 @@
 import React, { Component, Fragment, useState, useEffect } from "react";
-import ArrowLeft from '../../assets/homepage/arrow-left.png';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history'
 import { Link } from 'react-router-dom';
@@ -87,30 +86,6 @@ export default function EditProfilPage() {
               <div className='label'>Profile / Edit Profile</div>
             </Link>
           </div>
-
-          {/* <section className="container login">
-            <div className="login-detail">
-                <form onSubmit={(e)=> submit(e)} action="">
-                <h5>Name</h5>
-                <input onChange={(e)=>handle(e)} id="name" value={data.name} type="text" />
-                <h5>Date Of Birth</h5>
-                <input onChange={(e)=>handle(e)} id="birthDate" value={data.birthDate} type="date" />
-                <h5>Email</h5>
-                <input onChange={(e)=>handle(e)} id="email" value={data.email} type="text" />
-                <h5>No Hp</h5>
-                <input onChange={(e)=>handle(e)} id="phone" value={data.phone} type="text" />
-                <h5>Gender</h5>
-                <select onChange={(e)=>handle(e)} id="gender" value={data.gender} style={{width:"350px", height:"45px", marginLeft:"40px"}}>
-                    <option value="">Male / Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <h5>Photo Profil</h5>
-                <input onChange={(e)=>handle(e)} id="image" value={data.image} type="file" />
-                <input type="submit" name='submit' value='Simpan' className='shadow mt-5' style={{backgroundColor:"blue"}}/>   
-                </form>
-            </div>
-        </section> */}
         <div className='card mt-3 p-3 pt-0 pb-3 admin-add-flight'>
                     <form onSubmit={(e)=> submit(e)} className="d-md-flex gap-md-5">
                         <div className='col'>

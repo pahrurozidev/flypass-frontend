@@ -3,8 +3,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-use-history';
 import { Link, Navigate } from 'react-router-dom';
-import Profile from '../../assets/dasboard-admin/profile.svg';
-import ArrowLeft from '../../assets/homepage/arrow-left.png';
+import Profile from '../../../assets/dasboard-admin/profile.svg';
 import { ArrowCircleLeft2 } from 'iconsax-react';
 
 export default function ProfilPage() {
@@ -97,11 +96,11 @@ export default function ProfilPage() {
                                         </div>
                                         <div className='data-item'>
                                             <p className='data-item__name'>Phone</p>
-                                            <p className='data-item__value'>: +6285xxxxxx</p>
+                                            <p className='data-item__value'>: {phone}</p>
                                         </div>
                                         <div className='data-item'>
                                             <p className='data-item__name'>Pos Code</p>
-                                            <p className='data-item__value'>: {phone}</p>
+                                            <p className='data-item__value'>: 25522</p>
                                         </div>
                                         <div className='data-item'>
                                             <p className='data-item__name'>Address</p>

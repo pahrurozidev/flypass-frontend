@@ -71,7 +71,7 @@ export default function RegisterPage() {
                             </li>
                             <li>
                                 <label htmlFor="gender">Gender</label>
-                                <select type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{width:"460px", height:"45px"}}>
+                                <select className='form-control' type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{width:"460px", height:"45px"}}>
                                     <option value="">Male / Female</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
