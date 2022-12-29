@@ -125,7 +125,7 @@ function FlightDetail() {
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Flight Type</p>
-                                            <p className='col'>: {flight.FlightType.name}</p>
+                                            <p className='col'>: {flight.FlightType && flight.FlightType.name}</p>
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Airplane</p>

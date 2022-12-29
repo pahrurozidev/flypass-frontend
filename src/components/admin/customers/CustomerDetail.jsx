@@ -23,7 +23,7 @@ export default function CustomerDetail() {
     console.log(detailCustomer);
 
     const getTransaction = async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yNlQwMTo1NzoyOC4yNzhaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yNlQxMjo1NToyNy41NDhaIiwiaWF0IjoxNjcyMTE5MTE4LCJleHAiOjE2NzIxNDA3MTh9.fFYHEVSY62ZNcL2Ffb54TAz9_tRxNlP3zngATeAr_xE";
+        const token = localStorage.getItem("token");
 
         axios.get(`${import.meta.env.VITE_BASE_URL}/v1/pay/${id}`, {
             headers: {

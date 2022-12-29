@@ -53,8 +53,7 @@ export default function CreateFlight() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QwNzoxNDo1OS4zOTBaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QwNzoxNDo1OS4zOTBaIiwiaWF0IjoxNjcyMTI2NjEwLCJleHAiOjE2NzIxNDgyMTB9.mik-BsmCrXuplGZJJLBm_KUppvx7TfocDWUEXK2aLZs"
+        const token = localStorage.getItem("token");
 
         axios.put(`${import.meta.env.VITE_BASE_URL}/v1/flights/${id}`, data, {
             headers: {
@@ -167,7 +166,7 @@ export default function CreateFlight() {
                                         </select>
                                     </div>
                                     <div className="mb-0">
-                                        <label htmlFor="flightType" className="form-label">Flight Class</label>
+                                        <label htmlFor="flightType" className="form-label">Flight Type</label>
                                         <select name='flightTypeId' className="form-select form-select-lg" aria-label=".form-select-lg example" value={data.flightTypeId} onChange={handleInput} id="flightType">
                                             <option selected hidden value="">Select Flight Type</option>
                                             <option value="1">Domestic</option>

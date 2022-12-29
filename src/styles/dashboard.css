@@ -1120,3 +1120,9 @@ td {
 
     flex-wrap: wrap !important;
 }
+
+.show-all-booking-btn {
+    font-size: 14px;
+    bottom: 10px !important;
+    /* right: 5px !important; */
+}

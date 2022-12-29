@@ -37,13 +37,11 @@ const rootReducer = (state = globalState, action) => {
             counter: state.counter - 1
         }
     } else if (action.type === actionType.SHOW_SIDEBAR) {
-        console.log('show & true');
         return {
             ...state,
             showSidebar: true
         }
     } else if (action.type === actionType.HIDE_SIDEBAR) {
-        console.log('hide & false');
         return {
             ...state,
             showSidebar: false

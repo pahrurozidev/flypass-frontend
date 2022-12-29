@@ -18,7 +18,6 @@ class FlightList extends Component {
         axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights`).then(
             response => {
                 this.setState({ data: response.data.flights });
-                console.log(response.data.flights);
             }
         ).catch(
             error =>
