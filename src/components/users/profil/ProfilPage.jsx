@@ -93,8 +93,8 @@ export default function ProfilPage() {
                       <p className='data-item__value'>: {birthDate}</p>
                     </div>
                     <div className='data-item'>
-                      <p className='data-item__name'>Date of Birth</p>
-                      <p className='data-item__value'>: {birthDate}</p>
+                      <p className='data-item__name'>Status</p>
+                      <p className='data-item__value'>: Mahasiswa</p>
                     </div>
                     <div className='data-item'>
                       <p className='data-item__name'>Phone</p>

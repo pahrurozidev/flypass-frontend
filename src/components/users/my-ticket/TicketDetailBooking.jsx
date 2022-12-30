@@ -62,7 +62,7 @@ export default function Card() {
                             <div className='label'>All Bookings / Ticket Detail</div>
                         </Link>
                     </div>
-                    <div className="container e-ticket p-0">
+                    <div className="container e-ticket p-0 mt-3">
                         <div className="card-e-ticket">
                             {allBookings.map((booking) => (
                                 <div className="card" key={booking.id}>
@@ -75,8 +75,8 @@ export default function Card() {
                                         <div className="row e-ticket-detail flex-row justify-content-between m-0">
                                             <div className="col-lg-8 ticket-left p-0">
                                                 <div className="frame-top d-flex flex-row align-items-center">
-                                                    <img src={booking.flight1.Airlane.image} alt="Airplanes" />
-                                                    <h6 className="name-plane">{booking.flight1.Airlane.name}</h6>
+                                                    <img src={booking.flight1.Airline.image} alt="Airplanes" />
+                                                    <h6 className="name-plane">{booking.flight1.Airline.name}</h6>
                                                     <div className="divider-plane"></div>
                                                     <span className="classes">{booking.flight1.FlightClass.name}</span>
                                                 </div>
@@ -87,7 +87,7 @@ export default function Card() {
                                                             <span>{booking.flight1.departureAirport.city}</span>
                                                         </div>
                                                         <div className="time-depart">
-                                                            <span>{booking.flight1.departureAirport.Airlane.iata}</span>
+                                                            <span>{booking.flight1.departureAirport.iata}</span>
                                                             <p>{booking.flight1.departureDate} - {booking.flight1.departureTime}</p>
                                                         </div>
                                                     </div>
@@ -98,7 +98,7 @@ export default function Card() {
                                                             <span>{booking.flight1.arrivalAirport.city}</span>
                                                         </div>
                                                         <div className="time-arrive">
-                                                            <span>{booking.flight1.arrivalAirport.Airlane.iata}</span>
+                                                            <span>{booking.flight1.arrivalAirport.iata}</span>
                                                             <p>{booking.flight1.arrivalDate} - {booking.flight1.arrivalTime}</p>
                                                         </div>
                                                     </div>
@@ -107,18 +107,18 @@ export default function Card() {
                                             <div className="col-lg-3 ticket-right p-0">
                                                 <div className="ticket-right-top d-flex flex-column">
                                                     <span>Booking Code</span>
-                                                    <span>{bookingCode}</span>
+                                                    <span>{booking.bookingCode}</span>
                                                 </div>
                                                 <div className="ticket-right-bottom d-flex flex-column">
                                                     <span>Passenger Info :</span>
                                                     <div className="title-passenger-info d-flex flex-row justify-content-between">
                                                         <div className="name-passenger col-6 d-flex flex-column">
                                                             <span className="title">Name</span>
-                                                            <span>{booking.Passenger.firstName}</span>
+                                                            <span>{booking.PassengerContact.firstName}</span>
                                                         </div>
                                                         <div className="type-passenger col-6 d-flex flex-column text-end">
-                                                            <span className="title">Type</span>
-                                                            <span>{booking.Passenger.identityType}</span>
+                                                            <span className="title">Title</span>
+                                                            <span>{booking.PassengerContact.title}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -156,8 +156,8 @@ export default function Card() {
         //                             <div className="row e-ticket-detail flex-row justify-content-between m-0">
         //                                 <div className="col-lg-8 ticket-left p-0">
         //                                     <div className="frame-top d-flex flex-row align-items-center">
-        //                                         <img src={booking.flight1.Airlane.image} alt="Airplanes" />
-        //                                         <h6 className="name-plane">{booking.flight1.Airlane.name}</h6>
+        //                                         <img src={booking.flight1.Airline.image} alt="Airplanes" />
+        //                                         <h6 className="name-plane">{booking.flight1.Airline.name}</h6>
         //                                         <div className="divider-plane"></div>
         //                                         <span className="classes">{booking.flight1.FlightClass.name}</span>
         //                                     </div>
@@ -168,7 +168,7 @@ export default function Card() {
         //                                                 <span>{booking.flight1.departureAirport.city}</span>
         //                                             </div>
         //                                             <div className="time-depart">
-        //                                                 <span>{booking.flight1.departureAirport.Airlane.iata}</span>
+        //                                                 <span>{booking.flight1.departureAirport.Airline.iata}</span>
         //                                                 <p>{booking.flight1.departureDate} - {booking.flight1.departureTime}</p>
         //                                             </div>
         //                                         </div>
@@ -179,7 +179,7 @@ export default function Card() {
         //                                                 <span>{booking.flight1.arrivalAirport.city}</span>
         //                                             </div>
         //                                             <div className="time-arrive">
-        //                                                 <span>{booking.flight1.arrivalAirport.Airlane.iata}</span>
+        //                                                 <span>{booking.flight1.arrivalAirport.Airline.iata}</span>
         //                                                 <p>{booking.flight1.arrivalDate} - {booking.flight1.arrivalTime}</p>
         //                                             </div>
         //                                         </div>
