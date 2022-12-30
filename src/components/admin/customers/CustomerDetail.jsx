@@ -37,7 +37,7 @@ export default function CustomerDetail() {
                             <div className="border rounded py-2 px-3 d-flex justify-content-between mt-3 admin-flight-broadcrumb">
                                 <Link to={'/customer'} className="text-decoration-none text-dark d-flex btn gap-2 ps-0">
                                     <ArrowCircleLeft2 size={20} />
-                                    <div className='label'>Customer lists / detail</div>
+                                    <div className='label'>Customer Lists / Detail</div>
                                 </Link>
                             </div>
 
@@ -57,20 +57,6 @@ export default function CustomerDetail() {
                                                     <p className='data-item__name'>First Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.firstName}</p>
                                                 </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Date of Birth</p>
-                                                    <p className='data-item__value'>: 01 Feb 1995</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Gender</p>
-                                                    <p className='data-item__value'>: Male</p>
-                                                </div>
-                                            </div>
-                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Phone</p>
-                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
-                                                </div>
                                                 <div className='data-item d-md-none'>
                                                     <p className='data-item__name'>Last Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
@@ -78,6 +64,20 @@ export default function CustomerDetail() {
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Last Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
+                                                </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Identity Type</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].Passengers[0].identityType}</p>
+                                                </div>
+                                            </div>
+                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Identity Number</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].Passengers[0].identityNumber}</p>
+                                                </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Phone</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Email</p>

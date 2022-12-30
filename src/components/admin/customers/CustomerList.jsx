@@ -2,15 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'react-feather';
-import axios from 'axios';
 import { API } from '../../../services';
-import moment from 'moment';
 
 export default function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [transactions, setTransactions] = useState([]);
-
-    // const token = localStorage.getItem("token");
 
     useEffect(() => {
         API.listBookings().then((booking) => {
@@ -19,19 +15,7 @@ export default function CustomerList() {
         API.transactionsGet().then((transaction) => {
             setTransactions(transaction);
         })
-        // axios.get('https://flypass-api.up.railway.app/v1/bookings/all', {
-        //     headers: { Authorization: `Bearer ${token}` }
-        // }).then((res) => {
-        //     setCustomers(res.data.booking);
-        // })
-        // axios.get('https://flypass-api.up.railway.app/v1/pay/find/all', {
-        //     headers: { Authorization: `Bearer ${token}` }
-        // }).then((res) => {
-        //     setTransactions(res.data.transaction);
-        // })
     }, [])
-
-    // console.log(customers);
 
     return (
         <div className='container-fluid admin-flight pb-5'>
