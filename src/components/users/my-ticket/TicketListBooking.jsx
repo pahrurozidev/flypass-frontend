@@ -61,11 +61,11 @@ export default function Card() {
                             <div className='label'>All Bookings</div>
                         </Link>
                     </div>
-                    <div className="opsi-filter">
+                    {/* <div className="opsi-filter">
                         <a className="btn btn-booking"><span>Departure Date</span></a>
                         <a className="btn btn-booking"><span>Booking Type</span></a>
                         <a className="btn btn-booking"><span>Date Range</span></a>
-                    </div>
+                    </div> */}
                     {/* <div className="container list-ticket p-0">
                         <table className="table table-ticket">
                             <thead>

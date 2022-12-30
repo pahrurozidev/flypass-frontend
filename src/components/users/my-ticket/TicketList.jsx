@@ -21,8 +21,7 @@ export default function Card() {
             setAllBookings(res.data.booking);
         })            
     }, []);
-
-    console.log(allBookings);
+    
     return (
         <div>
                 <div className='container-fluid pb-5'>

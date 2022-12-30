@@ -1074,7 +1074,7 @@ hr {
     }
 
     .sidebar .arrow-left-circle {
-        display: none;
+        display: none !important;
     }
 
     .sidebar .nav-item {
