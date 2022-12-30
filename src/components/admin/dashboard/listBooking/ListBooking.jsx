@@ -35,7 +35,7 @@ export default function ListBooking() {
                             </tr>
                         </thead>
                         <tbody>
-                            {allBookings.slice(0, 1).map((booking) => (
+                            {allBookings.slice(0, 3).map((booking) => (
                                 <tr key={booking.id}>
                                     <td data-title="Airlines" className="airlines">
                                         <img src={Garuda} alt="Airplanes" /><br className="d-none" />

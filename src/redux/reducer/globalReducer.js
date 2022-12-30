@@ -23,6 +23,8 @@ const globalState = {
     returnAlert: false,
     departureFlights: [],
     returnFlights: [],
+
+    user: '',
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -120,8 +122,6 @@ const rootReducer = (state = globalState, action) => {
                 data.FlightClass.name === flight.passenger
         })
 
-        console.log(flights);
-
         return {
             ...state,
             returnAlert: flights.length === 0 && true,
@@ -135,6 +135,11 @@ const rootReducer = (state = globalState, action) => {
             ...state,
             returnFlight: true,
             returnFlightId: action.id,
+        }
+    } else if (action.type === actionType.USER) {
+        return {
+            ...state,
+            user: action.user,
         }
     } else {
         return state;

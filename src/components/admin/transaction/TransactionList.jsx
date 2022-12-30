@@ -24,8 +24,6 @@ export default function Card() {
         });
     }, [])
 
-    console.log(customers);
-
     return (
         <div>
             <div className='container-fluid pb-5'>

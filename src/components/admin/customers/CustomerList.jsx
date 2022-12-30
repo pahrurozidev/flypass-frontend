@@ -53,7 +53,7 @@ export default function CustomerList() {
 
                     {
                         customers == 0 &&
-                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3 mt-3'>
                             <div className="text-dark">Customers Not Found</div>
                         </div>
                     }

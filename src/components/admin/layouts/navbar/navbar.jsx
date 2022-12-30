@@ -8,6 +8,11 @@ import { API } from '../../../../services';
 
 class navbar extends Component {
 
+    componentDidMount() {
+        API.whoAmI().then((user) => {
+            this.props.setUserDispatch(user)
+        })
+    }
 
     onLogoutHandler = () => {
         localStorage.removeItem('token');
@@ -16,7 +21,6 @@ class navbar extends Component {
             window.location.reload();
         }, 300);
     }
-
 
     render() {
         return (
@@ -31,7 +35,7 @@ class navbar extends Component {
                     <li className="nav-item dropdown user-profile">
                         <a href="#" className='nav-link dropdown-toggle link-profile' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className='img-profile rounded-circle' src={Profile} alt="" />
-                            <span className='d-none d-lg-inline text-name'>Hi, Pahrurozi</span>
+                            <span className='d-none d-lg-inline text-name'>Hi, {this.props.user.name}</span>
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                             <Link to={'/'} className="dropdown-item">Beranda</Link>
@@ -51,7 +55,8 @@ class navbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        showSidebar: state.showSidebar
+        showSidebar: state.showSidebar,
+        user: state.user,
     }
 }
 
@@ -60,6 +65,10 @@ const mapDispatchToProps = (dispatch) => {
         showSidebarDispatch: () => dispatch({
             type: actionType.SHOW_SIDEBAR
         }),
+        setUserDispatch: (user) => dispatch({
+            type: actionType.USER,
+            user: user,
+        })
     }
 }
 

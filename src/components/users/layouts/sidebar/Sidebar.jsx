@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import UserSidebarLink from '../../../../assets/UserSidebarLink';
 import axios from 'axios';
@@ -13,6 +13,7 @@ import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
     const history = useHistory();
+    const navigate = useNavigate();
 
     const Logout = async () => {
         try {
@@ -26,6 +27,10 @@ export default function Sidebar() {
     const onLogoutHandler = () => {
         localStorage.removeItem('token');
         navigate('/login')
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
     }
 
     return (

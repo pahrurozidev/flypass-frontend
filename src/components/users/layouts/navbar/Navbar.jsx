@@ -36,6 +36,10 @@ export default function navbar({ showSidebarDispatch }) {
     const onLogoutHandler = () => {
         localStorage.removeItem('token');
         navigate('/login')
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
     }
 
     return (

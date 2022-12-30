@@ -53,7 +53,7 @@ class FlightList extends Component {
 
                     {
                         this.state.data.length === 0 &&
-                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3 mt-3'>
                             <div className="text-dark">Flights Not Found</div>
                         </div>
                     }
