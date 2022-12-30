@@ -24,6 +24,11 @@ const UserSidebarLink = [
         icon: 'bi bi-bell',
         display: 'Notification',
     },
+    {
+        path: '/user/dashboard/history',
+        icon: 'bi bi-receipt',
+        display: 'Transaction',
+    },
 ];
 
 export default UserSidebarLink;
