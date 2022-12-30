@@ -1,11 +1,13 @@
 import { ArrowCircleLeft2 } from 'iconsax-react'
 import moment from 'moment';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { API } from '../../../services';
 import NotFound from '../../notfound/NotFound';
 
 export default function NotificationList() {
+
+    const navigate = useNavigate();
 
     const [notification, setNotification] = useState([]);
 
@@ -16,10 +18,13 @@ export default function NotificationList() {
     }, [])
 
     const onShowNotificationHandler = (notifId, message, bookingId, isRead) => {
-        if (message == 'Waiting for payment') {
-            API.updateNotifications(notifId).then((res) => console.log(res))
-            navigate(`/transaction/${bookingId}`);
-        }
+        API.updateNotifications(notifId).then((res) => console.log(res))
+
+        API.transactionsGet().then((transactions) => {
+            const transaction = transactions.filter((t) => t.bookingId == bookingId);
+            navigate(`/transaction/${transaction[0].id}`);
+        })
+
     }
 
     return (

@@ -23,7 +23,7 @@ import Wishlists from "../pages/Wishlists";
 import AdminNotification from "../components/admin/notification/Notification";
 import IsAdmin from "../components/protected/IsAdmin";
 import IsUser from "../components/protected/IsUser";
-import History from "../components/users/transaction/Transaction";
+import History from "../pages/History";
 
 export default function Routes() {
     return (
@@ -65,6 +65,7 @@ export default function Routes() {
                 <Route path="/user/dashboard/ticket" element={<IsUser><MyTicket /></IsUser>} />
                 <Route path="/user/dashboard/ticket/:id" element={<IsUser><MyTicket /></IsUser>} />
                 <Route path="/user/dashboard/history" element={<IsUser><History /></IsUser>} />
+                <Route path="/user/dashboard/history/:id" element={<IsUser><History /></IsUser>} />
             </Switch>
         </HashRouter>
     )

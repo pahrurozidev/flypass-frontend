@@ -27,7 +27,7 @@ const UserSidebarLink = [
     {
         path: '/user/dashboard/history',
         icon: 'bi bi-receipt',
-        display: 'Transaction',
+        display: 'History',
     },
 ];
 

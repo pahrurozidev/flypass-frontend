@@ -43,7 +43,7 @@ export default function NotifCard() {
                     </Link>
                 </div>
 
-                {notification.length !== 0 ? <NotFound alert={'Notification'} /> :
+                {notification.length === 0 ? <NotFound alert={'Notification'} /> :
                     <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
                         {notification.map((notif) => (
                             <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}

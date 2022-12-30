@@ -10,6 +10,7 @@ export default function CustomerDetail() {
     const [detailTransaction, setDetailTransaction] = useState([]);
     const [customer, setCustomer] = useState([]);
     const [show, setShow] = useState(false);
+    const [btnShow, setBtnShow] = useState(false);
 
     useEffect(() => {
         API.transactionsGet().then((transaction) => {
@@ -18,6 +19,7 @@ export default function CustomerDetail() {
             API.listBookings().then((bookings) => {
                 const bookingID = bookings.filter(flight => flight.id == IdFilter[0].bookingId)
                 setCustomer(bookingID);
+                setShow(true);
             });
         });
     }, [])
@@ -43,12 +45,6 @@ export default function CustomerDetail() {
             });
         })
     }
-
-    console.log(customer)
-
-    setTimeout(() => {
-        setShow(true);
-    }, 4000);
 
     return (
         <div>
@@ -191,12 +187,16 @@ export default function CustomerDetail() {
                                         <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
                                             <div className='data-item'>
                                                 <p className='data-item__name'>Status</p>
-                                                <p className='data-item__value'>: <span className={`${(customer[0].BookingStatus.name === "Completed") ? "paid" : "text-danger"}`}>{customer[0].BookingStatus.name}</span></p>
+                                                <p className='data-item__value'>: <span className={`
+                                                ${(customer[0].BookingStatus.name === "Cancelled") ? "text-danger" :
+                                                        (customer[0].BookingStatus.name === "Completed") ? 'text-success' :
+                                                            (customer[0].BookingStatus.name === "Paid") && 'paid'}`}>{customer[0].BookingStatus.name}</span></p>
                                             </div>
-                                            <div className='d-flex justify-content-end'>
-                                                <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
-                                                <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
-                                            </div>
+                                            {(customer[0].BookingStatus.name === "Paid") &&
+                                                <div className='d-flex justify-content-end'>
+                                                    <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
+                                                    <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
+                                                </div>}
                                         </div>
                                     </div>
                                 </section>

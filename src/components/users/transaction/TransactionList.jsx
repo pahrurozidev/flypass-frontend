@@ -77,9 +77,8 @@ export default function TransactionList() {
                         </td>
                         <td data-label="Date" className="departure-date">01 Dec 2022</td>
                         <td data-label="Action" className="action">
-                          {console.log(flight)}
                           <Link
-                            to={`/search/flight/${JSON.stringify(flight.flight2) !== 'null' ? `${flight.flight1.id}``&${flight.flight2.id}` : `${flight.flight1.id}`}`} className="detail">
+                            to={`/user/dashboard/history/${flight.id}`} className="detail">
                             <p className='text-decoration-none text-white bg-primary p-2 rounded-3'>Detail</p>
                           </Link>
                         </td>
