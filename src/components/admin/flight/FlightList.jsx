@@ -1,15 +1,34 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 import { ArrowCircleLeft2, AddSquare } from 'iconsax-react';
 import { Link } from 'react-router-dom';
-import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import { AlertCircle, PlusSquare } from 'react-feather';
-import { connect } from 'react-redux';
 import { API } from '../../../services';
 
 class FlightList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [],
+        };
+    }
+
+    componentDidMount() {
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights`).then(
+            response => {
+                this.setState({ data: response.data.flights });
+            }
+        ).catch(
+            error =>
+                console.log(error)
+        )
+    }
+
     render() {
+        this.state.data.reverse();
         return (
-            <div className='container-fluid'>
+            <div className='container-fluid' >
 
                 <div className='admin-content px-lg-2 pb-5'>
 
@@ -23,7 +42,7 @@ class FlightList extends Component {
                     <div className="border rounded py-2 px-3 d-flex justify-content-between mt-3 admin-flight-broadcrumb">
                         <Link to={'/flight'} className="text-decoration-none text-dark d-flex btn gap-2 ps-0">
                             <ArrowCircleLeft2 size={20} />
-                            <div className='label'>Flight lists</div>
+                            <div className='label'>Flight Lists</div>
                         </Link>
 
                         <Link to={'/flight/create'}>
@@ -33,175 +52,46 @@ class FlightList extends Component {
                         </Link>
                     </div>
 
-                    {/* flight list */}
                     <div className="mt-3 border p-2 p-lg-3 rounded d-flex flex-column gap-2 gap-lg-3">
-                        {/* flight item */}
-                        <div className='flgiht flight-list card rounded'>
-                            {/* duration */}
-                            <div className='flight-item'>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time'>17:30</p>
-                                    <span className='tag'>YIA</span>
+                        {this.state.data.map((flight) => (
+                            <div className='flgiht flight-list card rounded' key={flight.id}>
+                                <div className='flight-item'>
+                                    <div className='d-flex flex-column gap-1'>
+                                        <p className='time'>{flight.departureTime}</p>
+                                        <span className='tag'>{flight.departureAirport.iata}</span>
+                                    </div>
+                                    <div className='d-flex flex-column departure gap-1'>
+                                        <span>{flight.duration}</span>
+                                        <span className='ring'></span>
+                                        <span>Direct</span>
+                                    </div>
+                                    <div className='d-flex flex-column gap-1'>
+                                        <p className='time text-end'>{flight.arrivalTime}</p>
+                                        <span className='tag'>{flight.arrivalAirport.iata}</span>
+                                    </div>
                                 </div>
-                                <div className='d-flex flex-column departure gap-1'>
-                                    <span>1h 0m</span>
-                                    <span className='ring'></span>
-                                    <span>Direct</span>
+                                <div className='flight-item mt-2'>
+                                    <div><img src={flight.Airline.image} alt="" width={45} height={25} /></div>
+                                    <p>{flight.Airline.name}</p>
                                 </div>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time text-end'>18:30</p>
-                                    <span className='tag'>CGK</span>
+                                <div className='flight-item d-flex flex-column gap-3 mt-4'>
+                                    <h5>{flight.FlightClass.name}</h5>
+                                    <p>Rp. {flight.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}<span className='fs-6'>/pax</span></p>
                                 </div>
-                            </div>
-                            {/* airplane */}
-                            <div className='flight-item mt-2'>
-                                <div><img src={Garuda} alt="" /></div>
-                                <p>Garuda Indonesia</p>
-                            </div>
-                            {/* price */}
-                            <div className='flight-item d-flex flex-column gap-3 mt-4'>
-                                <h5>Economy</h5>
-                                <p>Rp. 475.00<span className='fs-6'>/pax</span></p>
-                            </div>
-                            {/* detail */}
-                            <div className='flight-item mt-2'>
-                                <Link to={'/flight/1'} className="d-flex gap-1 items-center btn shadow">
-                                    <AlertCircle size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        </div>
-                        {/* flight item */}
-                        <div className='flgiht flight-list card rounded'>
-                            {/* duration */}
-                            <div className='flight-item'>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time'>17:30</p>
-                                    <span className='tag'>YIA</span>
-                                </div>
-                                <div className='d-flex flex-column departure gap-1'>
-                                    <span>1h 0m</span>
-                                    <span className='ring'></span>
-                                    <span>Direct</span>
-                                </div>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time text-end'>18:30</p>
-                                    <span className='tag'>CGK</span>
+                                <div className='flight-item mt-2'>
+                                    <Link to={`/flight/${flight.id}`} className="d-flex gap-1 items-center btn shadow">
+                                        <AlertCircle size={20} />
+                                        <div>Detail</div>
+                                    </Link>
                                 </div>
                             </div>
-                            {/* airplane */}
-                            <div className='flight-item mt-2'>
-                                <div><img src={Garuda} alt="" /></div>
-                                <p>Garuda Indonesia</p>
-                            </div>
-                            {/* price */}
-                            <div className='flight-item d-flex flex-column gap-3 mt-4'>
-                                <h5>Economy</h5>
-                                <p>Rp. 475.00<span className='fs-6'>/pax</span></p>
-                            </div>
-                            {/* detail */}
-                            <div className='flight-item mt-2'>
-                                <Link to={'/flight/1'} className="d-flex gap-1 items-center btn shadow">
-                                    <AlertCircle size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        </div>
-                        {/* flight item */}
-                        <div className='flgiht flight-list card rounded'>
-                            {/* duration */}
-                            <div className='flight-item'>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time'>17:30</p>
-                                    <span className='tag'>YIA</span>
-                                </div>
-                                <div className='d-flex flex-column departure gap-1'>
-                                    <span>1h 0m</span>
-                                    <span className='ring'></span>
-                                    <span>Direct</span>
-                                </div>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time text-end'>18:30</p>
-                                    <span className='tag'>CGK</span>
-                                </div>
-                            </div>
-                            {/* airplane */}
-                            <div className='flight-item mt-2'>
-                                <div><img src={Garuda} alt="" /></div>
-                                <p>Garuda Indonesia</p>
-                            </div>
-                            {/* price */}
-                            <div className='flight-item d-flex flex-column gap-3 mt-4'>
-                                <h5>Economy</h5>
-                                <p>Rp. 475.00<span className='fs-6'>/pax</span></p>
-                            </div>
-                            {/* detail */}
-                            <div className='flight-item mt-2'>
-                                <Link to={'/flight/1'} className="d-flex gap-1 items-center btn shadow">
-                                    <AlertCircle size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        </div>
-                        {/* flight item */}
-                        <div className='flgiht flight-list card rounded'>
-                            {/* duration */}
-                            <div className='flight-item'>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time'>17:30</p>
-                                    <span className='tag'>YIA</span>
-                                </div>
-                                <div className='d-flex flex-column departure gap-1'>
-                                    <span>1h 0m</span>
-                                    <span className='ring'></span>
-                                    <span>Direct</span>
-                                </div>
-                                <div className='d-flex flex-column gap-1'>
-                                    <p className='time text-end'>18:30</p>
-                                    <span className='tag'>CGK</span>
-                                </div>
-                            </div>
-                            {/* airplane */}
-                            <div className='flight-item mt-2'>
-                                <div><img src={Garuda} alt="" /></div>
-                                <p>Garuda Indonesia</p>
-                            </div>
-                            {/* price */}
-                            <div className='flight-item d-flex flex-column gap-3 mt-4'>
-                                <h5>Economy</h5>
-                                <p>Rp. 475.00<span className='fs-6'>/pax</span></p>
-                            </div>
-                            {/* detail */}
-                            <div className='flight-item mt-2'>
-                                <Link to={'/flight/1'} className="d-flex gap-1 items-center btn shadow">
-                                    <AlertCircle size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
         )
     }
+
 }
 
-
-
-
-const mapStateToProps = (state) => {
-    return {
-        flights: state.flights,
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        inputSearchFlightDispatch: (flights) => dispatch({
-            type: actionType.GET_FLIGHT,
-            flights: flights,
-        }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FlightList);
+export default FlightList;

@@ -19,10 +19,10 @@ export default function NotifCard() {
     }, [])
 
     const onShowNotificationHandler = (notifId, message, bookingId, isRead) => {
-        if (message == 'Waiting for payment' && isRead === false) {
+        if (message == 'Waiting for payment') {
             API.updateNotifications(notifId).then((res) => console.log(res))
+            navigate(`/search/flight/payment/${bookingId}`);
         }
-        navigate(`/search/flight/payment/${bookingId}`);
     }
 
     return (

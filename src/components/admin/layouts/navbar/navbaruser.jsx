@@ -10,6 +10,17 @@ import { actionType } from '../../../../redux/reducer/globalActionType';
 
 
 class navbaruser extends Component {
+
+    onLogoutHandler = () => {
+        localStorage.removeItem('token');
+
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
+    }
+
+
     render() {
         return (
             <nav className='navbar navbar-expand topbar static-top card fixed-top border-end-0'>
@@ -31,7 +42,7 @@ class navbaruser extends Component {
                                 <hr className="dropdown-divider" />
                             </li>
                             <li>
-                                <a className="dropdown-item" href="#">Logout</a>
+                                <Link to={'/login'} className="dropdown-item" onClick={() => this.onLogoutHandler()}>Logout</Link>
                             </li>
                         </ul>
                     </li>

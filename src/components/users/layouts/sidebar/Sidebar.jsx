@@ -12,12 +12,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar() {
-    function handleLogout() {
-        localStorage.removeItem("id");
-        localStorage.removeItem("token");
-        alert("Kamu Berhasil Logout");
-        Navigate('/#/login')
-    }
+    const history = useHistory();
+
+    const Logout = async () => {
+        try {
+            await axios.delete(`${import.meta.env.VITE_BASE_URL}/v1/logout`)
+            history.push("/login")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const onLogoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/login')
+    }
+
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
@@ -34,10 +44,10 @@ export default function Sidebar() {
                 </li>
             ))}
             <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                <a className="nav-link link-sidebar" href='/#/login' onClick={handleLogout}>
+                <Link to={'/login'} className="nav-link link-sidebar" onClick={() => onLogoutHandler()}>
                     <LogoutCurve size={20} />
-                    <span>Logout</span>
-                </a>
+                    <span onClick={Logout}>Logout</span>
+                </Link>
             </li>
         </ul>
     );

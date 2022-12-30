@@ -13,10 +13,12 @@ import { API } from '../../../services'
 import { useEffect } from 'react';
 import moment from 'moment';
 
-export default function PaymentList({ book }) {
+export default function PaymentList() {
 
   const { id } = useParams();
   const navigate = useNavigate();
+  const [bookByUser, setBookByUser] = useState('')
+  const [show, setShow] = useState(false);
   const [showCheck, setShowCheck] = useState({
     shopeePay: false,
     flightPay: false,
@@ -30,6 +32,14 @@ export default function PaymentList({ book }) {
   const [oneWay, setOneWay] = useState({});
 
   const [payment, setPayment] = useState(true);
+
+
+  useEffect(() => {
+    API.getBookByUserLogin().then((bookings) => {
+      const book = bookings.filter((book) => book.id == id);
+      setBookByUser(book);
+    })
+  }, [])
 
   const checkPaymentShopeePayHandler = () => {
     setShowCheck({ shopeePay: true });
@@ -55,109 +65,107 @@ export default function PaymentList({ book }) {
   }
 
   // useEffect(() => {
-  //   API.flightDetail(book.data.booking.flight1Id).then((flight) => {
+  //   API.flightDetail(bookByUser[0].booking.flight1Id).then((flight) => {
   //     setOneWay(flight);
   //   })
   // }, [])
 
   const submitPaymentHandler = () => {
+    console.log('create transaction');
     API.transactions(id, image).then((book) => {
       console.log(book);
-
-
-      // setBooking({
-      //   totalPrice: book.totalPrice
-      // })
-
-      // console.log(booking);
 
       if (book.data.message === 'created successfully') {
         return navigate('/search/flight/payment/completed');
       }
-    });
+    }).catch(err => console.log(err))
   }
+
+  setTimeout(() => {
+    setShow(true)
+  }, 3000);
 
   return (
     <>
-      <div className="mb-5 payment-header">
-        <h1>Payment Method</h1>
-        <div className="payment">
-          <div className="payment-item card p-3 gap-4">
-            <div>
-              <h2 className='fw-bold'>FlightPay & E-Wallet</h2>
-              <div className="d-flex gap-3">
+      {show &&
+        <div className="mb-5 payment-header">
+          <h1>Payment Method</h1>
+          <div className="payment">
+            <div className="payment-item card p-3 gap-4">
+              <div>
+                <h2 className='fw-bold'>FlightPay & E-Wallet</h2>
+                <div className="d-flex gap-3">
 
-                <div className={`border ${showCheck.flightPay && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`}
-                  onClick={() => checkPaymentFlightPayHandler()}>
-                  <img src={FlightPay} alt="" />
-                  {showCheck.flightPay &&
-                    <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
-                    </div>}
-                </div>
+                  <div className={`border ${showCheck.flightPay && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`}
+                    onClick={() => checkPaymentFlightPayHandler()}>
+                    <img src={FlightPay} alt="" />
+                    {showCheck.flightPay &&
+                      <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
+                      </div>}
+                  </div>
 
-                <div
-                  className={`border ${showCheck.shopeePay && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`}
-                  onClick={() => checkPaymentShopeePayHandler()}>
-                  <img src={ShopeePay} className="shadow1 rounded" alt="" />
-                  {/* <!-- checklist --> */}
-                  {showCheck.shopeePay &&
-                    <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
-                    </div>}
-                </div>
+                  <div
+                    className={`border ${showCheck.shopeePay && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`}
+                    onClick={() => checkPaymentShopeePayHandler()}>
+                    <img src={ShopeePay} className="shadow1 rounded" alt="" />
+                    {/* <!-- checklist --> */}
+                    {showCheck.shopeePay &&
+                      <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
+                      </div>}
+                  </div>
 
-              </div>
-            </div>
-            <div>
-              <h2 className='fw-bold'>Credit / Debit Card</h2>
-              <div className="d-flex gap-3">
-                <div className={`border ${showCheck.bca && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`} onClick={() => checkPaymentBcaHandler()}>
-                  <img src={BCA} alt="" />
-                  {showCheck.bca &&
-                    <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
-                    </div>}
-                </div>
-                <div className={`border ${showCheck.bni && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`} onClick={() => checkPaymentBniHandler()}>
-                  <img src={BNI} alt="" />
-                  {showCheck.bni &&
-                    <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
-                    </div>}
                 </div>
               </div>
-            </div>
-            <div>
-
-              {/* payment subtantiation */}
-              <div className={`card p-3 ${payment && 'd-none'}`}>
-                <div className='payment-status'>
-                  <h5 className='fw-bold'>Payment Status</h5>
-                  <div className='d-flex mt-3'>
-                    <div className='col-6 col-md-4 mb-2'>Payment Code (Ref.1)</div>
-                    <div className='col-6 col-md-4 mb-2'>: 89123004139</div>
+              <div>
+                <h2 className='fw-bold'>Credit / Debit Card</h2>
+                <div className="d-flex gap-3">
+                  <div className={`border ${showCheck.bca && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`} onClick={() => checkPaymentBcaHandler()}>
+                    <img src={BCA} alt="" />
+                    {showCheck.bca &&
+                      <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
+                      </div>}
                   </div>
-                  <div className='d-flex'>
-                    <div className='col-6 col-md-4 mb-2'>Amount ( IDR )</div>
-                    <div className='col-6 col-md-4 mb-2'>: Rp {book.data.booking.totalPrice}</div>
-                  </div>
-                  <p>*Please pay before
-                    21/12/2022 17:38:00</p>
-                </div>
-
-                <div className='mt-4 mt-md-2'>
-                  <div className=''>Upload your payment substantiation</div>
-                  <div>
-                    <input type="file" name="image" className="form-control payment-image" onChange={(event) => paymentHandler(event)} required />
-                  </div>
-                  <div className='d-flex justify-content-end mt-3'>
-                    <div className='btn btn-primary shadow btn-send'
-                      onClick={() => submitPaymentHandler()}>Send</div>
+                  <div className={`border ${showCheck.bni && 'border-primary border-2'} p-2 rounded position-relative payment-item-light payment-item-name`} onClick={() => checkPaymentBniHandler()}>
+                    <img src={BNI} alt="" />
+                    {showCheck.bni &&
+                      <div className="position-absolute checklist-icon"><img src={CheckCircle} alt="" className="shadow rounded-circle" />
+                      </div>}
                   </div>
                 </div>
               </div>
+              <div>
 
+                {/* payment subtantiation */}
+                <div className={`card p-3 ${payment && 'd-none'}`}>
+                  <div className='payment-status'>
+                    <h5 className='fw-bold'>Payment Status</h5>
+                    <div className='d-flex mt-3'>
+                      <div className='col-6 col-md-4 mb-2'>Payment Code (Ref.1)</div>
+                      <div className='col-6 col-md-4 mb-2'>: 8912300413912</div>
+                    </div>
+                    <div className='d-flex'>
+                      <div className='col-6 col-md-4 mb-2'>Amount ( IDR )</div>
+                      <div className='col-6 col-md-4 mb-2'>: Rp {bookByUser[0].totalPrice}</div>
+                    </div>
+                    <p>*Please pay before
+                      21/12/2022 17:38:00</p>
+                  </div>
+
+                  <div className='mt-4 mt-md-2'>
+                    <div className=''>Upload your payment substantiation</div>
+                    <div>
+                      <input type="file" name="image" className="form-control payment-image" onChange={(event) => paymentHandler(event)} required />
+                    </div>
+                    <div className='d-flex justify-content-end mt-3'>
+                      <div className='btn btn-primary shadow btn-send'
+                        onClick={() => submitPaymentHandler()}>Send</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          {/* <!-- flight price detail --> */}
-          {/* <div className="price-detail-header payment-price">
+            {/* <!-- flight price detail --> */}
+            {/* <div className="price-detail-header payment-price">
             <div className="card overflow-hidden">
               <div className="price-detail">
                 <div className="card p-3 border-0 border-bottom rounded-0">Price Details</div>
@@ -187,76 +195,122 @@ export default function PaymentList({ book }) {
             </div>
           </div> */}
 
-          {/* <!-- flight detail --> */}
-          <div className="price-detail-header payment-flight-detail">
-            {/* <div className="card overflow-hidden">
-              <div className="price-detail pb-3 pb-lg-0">
+            {/* <!-- flight detail --> */}
+            <div className="price-detail-header payment-flight-detail mt-3 mt-md-0">
 
-                <div className="card p-3 border-0 border-bottom rounded-0">Flight Details</div>
+              {/* flight 1 */}
+              <div className={`card overflow-hidden ${bookByUser[0].flight2 && 'rounded-0 rounded-top'}`}>
+                <div className="price-detail pb-3 pb-lg-0">
 
-                <div className="p-3 d-flex flex-column gap-1">
-                  <div>Departure Flight</div>
-                  <div className="fw-lighter">{moment(oneWay.departureDate).format('LLLL').slice(0, -8)}</div>
-                </div>
+                  <div className="card p-3 border-0 border-bottom rounded-0">Flight Details</div>
 
-                <div className="p-3 pb-0 pt-0 d-flex justify-content-between">
-                  <div className="d-flex flex-column gap-2">
-                    <div>{oneWay.Airline.name}</div>
-                    <div className="fw-lighter">{oneWay.flightCode}</div>
+                  <div className="p-3 d-flex flex-column gap-1">
+                    <div>Departure Flight</div>
+                    <div className="fw-lighter">{moment(bookByUser[0].flight1.departureDate).format('LLLL').slice(0, -8)}</div>
                   </div>
-                  <div className="d-flex flex-column gap-3">
-                    <div>
-                      <img src={oneWay.Airline.image} alt="" width={20} />
+
+                  <div className="p-3 pb-0 pt-0 d-flex justify-content-between">
+                    <div className="d-flex flex-column gap-2">
+                      <div>{bookByUser[0].flight1.Airline.name}</div>
+                      <div className="fw-lighter">{bookByUser[0].flight1.flightCode}</div>
+                    </div>
+                    <div className="d-flex flex-column gap-3">
+                      <div>
+                        <img src={bookByUser[0].flight1.Airline.image} alt="" width={30} />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="border-top m-3 mb-0 pt-3 d-flex flex-column gap-4">
-                  <div className="d-flex flex-column gap-1">
-                    <div>{oneWay.departureAirport.city} ({oneWay.departureAirport.iata})</div>
-                    <div className="fw-lighter">{oneWay.departureAirport.name}</div>
-                    <div>{moment(oneWay.departureDate).format('llll').slice(0, -15)} - {moment(oneWay.departureDate).format('llll').slice(0, -15)}</div>
+                  <div className="border-top m-3 mb-0 pt-3 d-flex flex-column gap-4">
+                    <div className="d-flex flex-column gap-1">
+                      <div>{bookByUser[0].flight1.departureAirport.city} ({bookByUser[0].flight1.departureAirport.iata})</div>
+                      <div className="fw-lighter">{bookByUser[0].flight1.departureAirport.name}</div>
+                      <div>{moment(bookByUser[0].flight1.departureDate).format('llll').slice(0, -15)} - {moment(bookByUser[0].flight1.departureDate).format('llll').slice(0, -15)}</div>
+                    </div>
+
+                    <div className="fw-lighter d-flex gap-1">
+                      <div><img src={Clock} alt="" /></div>
+                      <div>{bookByUser[0].flight1.duration.slice(1, 2)}h, {bookByUser[0].flight1.duration.slice(3, 5)}m</div>
+                    </div>
+
+                    <div className="d-flex flex-column gap-1">
+                      <div>Singapore (SIN)</div>
+                      <div className="fw-lighter">{bookByUser[0].flight1.arrivalAirport.name}</div>
+                      <div>{moment(bookByUser[0].flight1.arrivalDate).format('llll').slice(0, -15)} - {moment(bookByUser[0].flight1.arrivalDate).format('llll').slice(0, -15)}</div>
+                    </div>
                   </div>
-
-                  <div className="fw-lighter d-flex gap-1">
-                    <div><img src={Clock} alt="" /></div>
-                    <div>{oneWay.duration.slice(1, 2)}h, {oneWay.duration.slice(3, 5)}m</div>
+                  <div className="d-flex gap-2 items-center m-3 mb-0 pt-3 border-top fw-lighter">
+                    <div><img src={Bagasi} alt="" /></div>
+                    <p>Bagasi {bookByUser[0].Passengers[0].baggage[0]} kg</p>
                   </div>
-
-                  <div className="d-flex flex-column gap-1">
-                    <div>Singapore (SIN)</div>
-                    <div className="fw-lighter">Changi Intl Airport</div>
-                    <div>{moment(oneWay.arrivalDate).format('llll').slice(0, -15)} - {moment(oneWay.arrivalDate).format('llll').slice(0, -15)}</div>
-                  </div>
-                </div>
-
-                <div className="d-flex gap-2 items-center m-3 mb-0 pt-3 border-top fw-lighter">
-                  <div><img src={Bagasi} alt="" /></div>
-                  <p>Bagasi {book.data.passsenger.baggage[0]} kg</p>
                 </div>
               </div>
-            </div> */}
+              {/* flight 2 */}
+              {JSON.stringify(bookByUser[0].flight2) !== 'null' &&
+                <div className="card overflow-hidden border-top-0 rounded-0 rounded-bottom">
+                  <div className="price-detail pb-3 pb-lg-0">
+                    <div className="p-3 d-flex flex-column gap-1">
+                      <div>Return Flight</div>
+                      <div className="fw-lighter">{moment(bookByUser[0].flight2.departureDate).format('LLLL').slice(0, -8)}</div>
+                    </div>
 
-            {/* <!-- short contact detail --> */}
-            <div className="payment-contact-detail">
-              <div className="card overflow-hidden">
-                <div className="price-detail">
+                    <div className="p-3 pb-0 pt-0 d-flex justify-content-between">
+                      <div className="d-flex flex-column gap-2">
+                        <div>{bookByUser[0].flight2.Airline.name}</div>
+                        <div className="fw-lighter">{bookByUser[0].flight2.flightCode}</div>
+                      </div>
+                      <div className="d-flex flex-column gap-3">
+                        <div>
+                          <img src={bookByUser[0].flight2.Airline.image} alt="" width={30} />
+                        </div>
+                      </div>
+                    </div>
 
-                  <div className="card p-3 border-0 border-bottom rounded-0">Contact Details</div>
+                    <div className="border-top m-3 mb-0 pt-3 d-flex flex-column gap-4">
+                      <div className="d-flex flex-column gap-1">
+                        <div>{bookByUser[0].flight2.departureAirport.city} ({bookByUser[0].flight2.departureAirport.iata})</div>
+                        <div className="fw-lighter">{bookByUser[0].flight2.departureAirport.name}</div>
+                        <div>{moment(bookByUser[0].flight2.departureDate).format('llll').slice(0, -15)} - {moment(bookByUser[0].flight2.departureDate).format('llll').slice(0, -15)}</div>
+                      </div>
 
-                  <div className="p-3 d-flex flex-column gap-2">
-                    {/* <div>Departure Flight</div> */}
-                    <div className="fw-lighter d-flex flex-column gap-1">
-                      <div>{book.data.passengerContact.email}</div>
-                      <div>{book.data.passengerContact.phone}</div>
+                      <div className="fw-lighter d-flex gap-1">
+                        <div><img src={Clock} alt="" /></div>
+                        <div>{bookByUser[0].flight2.duration.slice(1, 2)}h, {bookByUser[0].flight2.duration.slice(3, 5)}m</div>
+                      </div>
+
+                      <div className="d-flex flex-column gap-1">
+                        <div>Singapore (SIN)</div>
+                        <div className="fw-lighter">{bookByUser[0].flight2.arrivalAirport.name}</div>
+                        <div>{moment(bookByUser[0].flight2.arrivalDate).format('llll').slice(0, -15)} - {moment(bookByUser[0].flight2.arrivalDate).format('llll').slice(0, -15)}</div>
+                      </div>
+                    </div>
+                    <div className="d-flex gap-2 items-center m-3 mb-0 pt-3 border-top fw-lighter">
+                      <div><img src={Bagasi} alt="" /></div>
+                      <p>Bagasi {bookByUser[0].Passengers[0].baggage[0]} kg</p>
+                    </div>
+                  </div>
+                </div>}
+
+              {/* <!-- short contact detail --> */}
+              <div className="payment-contact-detail mt-3">
+                <div className="card overflow-hidden">
+                  <div className="price-detail">
+
+                    <div className="card p-3 border-0 border-bottom rounded-0">Contact Details</div>
+
+                    <div className="p-3 d-flex flex-column gap-2">
+                      {/* <div>Departure Flight</div> */}
+                      <div className="fw-lighter d-flex flex-column gap-1">
+                        <div>{bookByUser[0].PassengerContact.email}</div>
+                        <div>{bookByUser[0].PassengerContact.phone}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div>}
     </>
   )
 }

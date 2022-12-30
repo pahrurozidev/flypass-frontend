@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const Register = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://flypass-api.up.railway.app/v1/register',{
+            await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/register`,{
                 email: email,
                 password: password,
                 confirmationPassword: confirmationPassword,
@@ -82,7 +82,7 @@ export default function RegisterPage() {
                                 <input type="phone" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </li>
                             <li>
-                                <input type="submit" name='submit' value='Register' className='shadow' style={{backgroundColor:"blue"}}/>                                   
+                                <input type="submit" name='submit' value='Register' className='shadow text-white mt-4' style={{backgroundColor:"blue"}}/>                                   
                                 <div className="pt-3 text-center">
                                     Already have account?
                                     <Link to={'/login'}>

@@ -13,7 +13,7 @@ export default function Card() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get('https://flypass-api.up.railway.app/v1/bookings', {
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/bookings`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

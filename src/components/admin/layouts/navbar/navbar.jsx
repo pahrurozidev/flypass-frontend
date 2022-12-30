@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 import { Menu } from "react-feather";
 import Profile from '../../../../assets/dasboard-admin/profile.svg';
 import { actionType } from '../../../../redux/reducer/globalActionType';
-
+import { API } from '../../../../services';
 
 class navbar extends Component {
+
+
+    onLogoutHandler = () => {
+        localStorage.removeItem('token');
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
+    }
+
+
     render() {
         return (
             <nav className='navbar navbar-expand topbar static-top card fixed-top border-end-0'>
@@ -28,7 +39,7 @@ class navbar extends Component {
                                 <hr className="dropdown-divider" />
                             </li>
                             <li>
-                                <a className="dropdown-item" href="#">Logout</a>
+                                <Link to={'/login'} className="dropdown-item" onClick={() => this.onLogoutHandler()}>Logout</Link>
                             </li>
                         </ul>
                     </li>

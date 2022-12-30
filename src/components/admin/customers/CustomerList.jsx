@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'react-feather';
+import axios from 'axios';
 
 export default function CustomerList() {
+    const [customers, setCustomers] = useState([]);
+    const [transactions, setTransactions] = useState([]);
+
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/bookings/all`, {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            setCustomers(res.data.booking);
+        })
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/pay/find/all`, {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            setTransactions(res.data.transaction);
+        })
+    }, [])
+
+    console.log(transactions);
+
     return (
         <div className='container-fluid admin-flight pb-5'>
             <div className='admin-content px-lg-2'>
@@ -24,102 +45,24 @@ export default function CustomerList() {
 
                     {/* customer list */}
                     <section className='mt-3 admin-customer-header'>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
+                        {transactions.map((customer) => (
+                            <div className="card customers overflow-hidden shadow">
+                                <div className='customer-header border-bottom py-3 fw-bold'>
+                                    <div>Booking ID</div>
+                                    <div>Status</div>
+                                    <div>Created Date</div>
+                                </div>
+                                <div className='customer-body py-3'>
+                                    <div>{customer.bookingId}</div>
+                                    <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
+                                    <div>{customer.createdAt}</div>
+                                </div>
+                                <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                    <Eye size={20} />
+                                    <div>Detail</div>
+                                </Link>
                             </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
-                        <div className="card customers overflow-hidden shadow">
-                            <div className='customer-header border-bottom py-3 fw-bold'>
-                                <div>Name</div>
-                                <div>Departure</div>
-                                <div>Arrival</div>
-                            </div>
-                            <div className='customer-body py-3'>
-                                <div>Pahrurozi</div>
-                                <div>Jakarta</div>
-                                <div>Lombok</div>
-                            </div>
-                            <Link to={'/customer/1'} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                <Eye size={20} />
-                                <div>Detail</div>
-                            </Link>
-                        </div>
+                        ))}
                     </section>
                 </div>
             </div>
