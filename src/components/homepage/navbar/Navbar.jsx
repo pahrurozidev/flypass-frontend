@@ -188,7 +188,7 @@ export default function Navbar() {
 
                                 <div className="nav-item dropdown no-arrow">
                                     <a href="/user/dashboard/dashboarduser" className='nav-link px-0 text-secondary' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi, {name}</a>
-                                    <ul className="dropdown-menu " style={{ marginTop: "-5px", marginLeft: "-100px" }} aria-labelledby="navbarDropdown">
+                                    <ul className="dropdown-menu home-page" style={{ marginTop: "-5px", marginLeft: "-100px" }} aria-labelledby="navbarDropdown">
                                         {admin ? <li>
                                             <Link className="dropdown-item d-flex align-items-center" to={'/dashboard'}>
                                                 <div>

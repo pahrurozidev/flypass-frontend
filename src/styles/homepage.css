@@ -52,6 +52,11 @@ nav {
     background-color: #007AFF;
 }
 
+.dropdown-menu.home-page {
+    top: 130%;
+    left: 50%;
+}
+
 .flypass-logo {
     width: 120px;
     padding: 10px;
@@ -436,6 +441,29 @@ footer a {
 @media screen and (max-width: 768px) {
     .jumbotron img {
         height: 300px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .border-user-auth {
+        width: 50%;
+        justify-content: flex-start;
+    }
+    .border-user-auth .dropdown {
+        left: 22%;
+        right: 130px !important;
+    }
+    .bell {
+        right: 20px !important;
+        top: 260px !important;
+    }
+    .dropdown-menu.home-page {
+        top: 110%;
+        left: 25%;
+    }
+    .bell .nav-item .dropdown-menu {
+        top: 140%;
+        left: 825%;
     }
 }
 
