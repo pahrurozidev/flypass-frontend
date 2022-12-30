@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { redirect, useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import NavList from './NavList';
 import UserCircle from '../../../assets/homepage/user-circle.png';
@@ -10,11 +10,13 @@ import { API } from '../../../services';
 import moment from 'moment';
 
 export default function Navbar() {
+    const navigate = useNavigate();
     const location = useLocation().pathname;
 
     const [name, setUsername] = useState('');
     const [image, setImage] = useState('');
     const [token, setToken] = useState('');
+    const [admin, setAdmin] = useState(false);
     const [login, setLogin] = useState(false)
     const [notification, setNotification] = useState([]);
     // const [user, setUser] = useState('');
@@ -30,7 +32,7 @@ export default function Navbar() {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
+                data.roleId === 1 && setAdmin(true);
                 // setUser(data.data.user);
                 setUsername(data.name);
                 setImage(data.image);
@@ -50,11 +52,11 @@ export default function Navbar() {
         })
     }, []);
 
-    function handleLogout() {
-        localStorage.removeItem("id");
-        localStorage.removeItem("token");
-        alert("Kamu Berhasil Logout");
-        Navigate('/#/login')
+
+    const onLogoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/login')
+        // window.location.reload();
     }
 
     return (
@@ -71,21 +73,14 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    {(location === "/login" ||
-                        location === "/register" ||
-                        location === "/register2" ||
-                        location === "/register/personal" ||
-                        location === "/search/flight/detail" ||
-                        location === "/search/flight/payment" ||
-                        location === "/search") ?
-                        <div className='navbar-nav ms-auto'></div> :
+                    {location === "/" &&
                         <div className="navbar-nav ms-auto">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
                             <a className="nav-link" href="#booking">My Bookings</a>
                             <a className="nav-link" href="#service">services</a>
                             <a className="nav-link" href="#contact">Contact us</a>
-                        </div>
-                    }
+                        </div>}
+                    {location !== '/' && <div className="navbar-nav ms-auto"></div>}
                     {!login ? (
                         <div>
                             <div></div>
@@ -119,9 +114,9 @@ export default function Navbar() {
                                                     <hr className="dropdown-divider m-0" />
                                                 </li>
                                                 <li>
-                                                    <a className={`dropdown-item d-flex align-items-center py-3 ${notif.isRead && 'text-muted'}`} href="#">
+                                                    <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
                                                         <div className='d-flex flex-column gap-2'>
-                                                            <span className="font-weight-bold unread">{notif.message}</span>
+                                                            <span className="font-weight-bold">{notif.message}</span>
                                                             <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
                                                         </div>
                                                     </a>
@@ -146,32 +141,41 @@ export default function Navbar() {
                                 <div className="nav-item dropdown no-arrow">
                                     <a href="/user/dashboard/dashboarduser" className='nav-link px-0 text-secondary' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi, {name}</a>
                                     <ul className="dropdown-menu " style={{ marginTop: "-5px", marginLeft: "-100px" }} aria-labelledby="navbarDropdown">
-                                        <li>
-                                            <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/dashboarduser">
+                                        {admin ? <li>
+                                            <Link className="dropdown-item d-flex align-items-center" to={'/dashboard'}>
                                                 <div>
                                                     <div className="small text-gray-500">Dashboard</div>
                                                 </div>
-                                            </a>
-                                        </li>
+                                            </Link>
+                                        </li> :
+                                            <>
+                                                <li>
+                                                    <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/dashboarduser">
+                                                        <div>
+                                                            <div className="small text-gray-500">Dashboard</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <hr className="dropdown-divider" />
+                                                </li>
+                                                <li>
+                                                    <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/profile">
+                                                        <div>
+                                                            <div className="small text-gray-500">Profil</div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </>}
                                         <li>
                                             <hr className="dropdown-divider" />
                                         </li>
                                         <li>
-                                            <a className="dropdown-item d-flex align-items-center" href="#/user/dashboard/profile">
+                                            <div className="dropdown-item d-flex align-items-center" onClick={() => onLogoutHandler()}>
                                                 <div>
-                                                    <div className="small text-gray-500">Profil</div>
+                                                    <div className="small text-gray-500">Logout</div>
                                                 </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr className="dropdown-divider" />
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item d-flex align-items-center" href="/#/login">
-                                                <div>
-                                                    <div onClick={handleLogout} className="small text-gray-500">Logout</div>
-                                                </div>
-                                            </a>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>

@@ -19,13 +19,6 @@ export default function ListBooking() {
                 <h5>All Bookings</h5>
             </div>
 
-            <div className="card p-3 border-top-0">
-                <div className="opsi-filter">
-                    <a className="btn btn-departure"><span>Departure Date</span></a>
-                    <a className="btn btn-booking"><span>Booking Type</span></a>
-                    <a className="btn btn-date"><span>Date Range</span></a>
-                </div>
-            </div>
             {
                 allBookings == 0 &&
                 <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>

@@ -9,7 +9,7 @@ export default function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [transactions, setTransactions] = useState([]);
 
-    const token = "";
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         axios.get('https://flypass-api.up.railway.app/v1/bookings/all', {
@@ -24,7 +24,7 @@ export default function CustomerList() {
         })
     }, [])
 
-    console.log(transactions);
+    console.log(customers);
 
     return (
         <div className='container-fluid admin-flight pb-5'>
@@ -45,28 +45,28 @@ export default function CustomerList() {
                     </div>
 
                     {
-                        transactions == 0 &&
+                        customers == 0 &&
                         <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
                             <div className="text-dark">Transaction Not Found</div>
                         </div>
                     }
 
                     {/* customer list */}
-                    {transactions.length !== 0 &&
+                    {customers.length !== 0 &&
                         <section className='mt-3 admin-customer-header'>
-                            {transactions.map((customer) => (
+                            {customers.map((customer) => (
                                 <div className="card customers overflow-hidden shadow">
                                     <div className='customer-header border-bottom py-3 fw-bold'>
-                                        <div>Booking ID</div>
+                                        <div>Name</div>
+                                        <div>Booking Code</div>
                                         <div>Status</div>
-                                        <div>Created Date</div>
                                     </div>
                                     <div className='customer-body py-3'>
-                                        <div>{customer.bookingId}</div>
-                                        <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
-                                        <div>{moment(customer.createdAt).format('llll').slice(0, -15)}</div>
+                                        <div>{customer.PassengerContact.firstName} {customer.PassengerContact.lastName}</div>
+                                        <div><b>{customer.bookingCode.toUpperCase()}</b></div>
+                                        <div className={`${(customer.BookingStatus.id === 3) ? 'text-success' : 'text-warning'}`}>{customer.BookingStatus.name}</div>
                                     </div>
-                                    <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                    <Link to={`/customer/${customer.id}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
                                         <Eye size={20} />
                                         <div>Detail</div>
                                     </Link>

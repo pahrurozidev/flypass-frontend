@@ -54,9 +54,9 @@ export default function CreateFlight() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwiaWF0IjoxNjcyMjA0OTM1LCJleHAiOjE2NzIyMjY1MzV9.zUtUXXEOwJ-T12DV-qto1wZ6HICJadoirxCDafkKIEE"
+        const token = localStorage.getItem("token");
 
-        axios.put(`http://localhost:8080/v1/flights/${id}`, data, {
+        axios.put(`https://flypass-api.up.railway.app/v1/flights/${id}`, data, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -77,7 +77,7 @@ export default function CreateFlight() {
     }
 
     const getFlightById = async () => {
-        const response = await axios.get(`http://localhost:8080/v1/flights/${id}`);
+        const response = await axios.get(`https://flypass-api.up.railway.app/v1/flights/${id}`);
         setData({
             departureAirportId: response.data.departureAirport.id,
             departureDate: response.data.departureDate,
@@ -167,7 +167,7 @@ export default function CreateFlight() {
                                         </select>
                                     </div>
                                     <div className="mb-0">
-                                        <label htmlFor="flightType" className="form-label">Flight Class</label>
+                                        <label htmlFor="flightType" className="form-label">Flight Type</label>
                                         <select name='flightTypeId' className="form-select form-select-lg" aria-label=".form-select-lg example" value={data.flightTypeId} onChange={handleInput} id="flightType">
                                             <option selected hidden value="">Select Flight Type</option>
                                             <option value="1">Domestic</option>

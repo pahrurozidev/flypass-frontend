@@ -2,10 +2,13 @@ import { ArrowCircleLeft2, Eye } from 'iconsax-react'
 import moment from 'moment';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { API } from '../../../../services';
+import { Link, useNavigate } from 'react-router-dom'
+import { API } from '../../../services';
+import NotFound from '../../notfound/NotFound';
 
 export default function NotifCard() {
+
+    const navigate = useNavigate();
 
     const [notification, setNotification] = useState([]);
 
@@ -14,6 +17,13 @@ export default function NotifCard() {
             setNotification(notif);
         })
     }, [])
+
+    const onShowNotificationHandler = (notifId, message, bookingId) => {
+        if (message == 'Waiting for payment') {
+            API.updateNotifications(notifId).then((res) => console.log(res))
+            navigate(`/search/flight/payment/${bookingId}`);
+        }
+    }
 
     return (
         <div className='container-fluid pb-5'>
@@ -33,23 +43,21 @@ export default function NotifCard() {
                     </Link>
                 </div>
 
+                {notification.length === 0 ? <NotFound alert={'Notification'} /> :
+                    <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
+                        {notification.map((notif) => (
+                            <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`} onClick={() => onShowNotificationHandler(notif.id, notif.message, notif.bookingId)}>
+                                <div className="card-body">
+                                    <h4 className={`card-title`}>{notif.message}</h4>
+                                    <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
+                                </div>
 
-                {/* Notification lists */}
-                <div className='mt-3 notification d-flex flex-column gap-3'>
-
-                    {notification.map((notif) => (
-                        <div className={`card d-flex flex-row items-center ${notif.isRead && 'text-mutedd'}`}>
-                            <div className="card-body">
-                                <h4 className={`card-title unread`}>{notif.message}</h4>
-                                <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
-                            </div>
-
-                            {/* <div className='card-body m-auto'>
+                                {/* <div className='card-body m-auto'>
                                 <Eye size={25} className="text-primary" />
                             </div> */}
-                        </div>
-                    ))}
-                </div>
+                            </div>
+                        ))}
+                    </div>}
             </div>
         </div>
     )

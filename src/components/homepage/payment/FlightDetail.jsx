@@ -25,6 +25,7 @@ function FlightDetail({ bookings }) {
     const [show, setShow] = useState(false);
     const [price, setPrice] = useState();
     const [wishlist, setWishlist] = useState([]);
+    const [wishStatus, setWishStatus] = useState(false);
     const [roundTrip, setRoundTrip] = useState(false);
     const [priceFlight, setPriceFlight] = useState(0);
     const [oneWayPrice, setOneWayPrice] = useState(0);
@@ -197,21 +198,36 @@ function FlightDetail({ bookings }) {
     }
 
     const addWishListHandler = () => {
-        if (wishlist.length !== 0) {
-            API.deleteWishlists(flight.id).then((res) => console.log(res));
-        } else {
-            API.addWishlists(flight.id).then((res) => console.log(res));
-        }
+        const token = localStorage.getItem("token");
+        !token && navigate('/login');
+
+        API.wishlists().then((flights) => {
+            console.log(flights);
+            if (JSON.stringify(flights) != 'null') {
+                API.deleteWishlists(flight.id).then((res) => {
+                    console.log(res)
+                    res.data && setWishStatus(false);
+                });
+            } else {
+                API.addWishlists(flight.id).then((res) => {
+                    console.log(res)
+                    res.data && setWishStatus(true);
+                });
+            }
+        })
     }
 
     setTimeout(() => {
         setShow(true);
 
-        // API.wishlists().then((flights) => {
-        //     const wishFlight = flights.filter((f) => f.id === flight.id);
-        //     setWishlist(wishFlight);
-        // })
     }, 3000);
+
+    API.wishlists().then((flights) => {
+        if (JSON.stringify(flights) != 'null') {
+            const wishFlight = flights.filter((f) => f.id === flight.id);
+            wishFlight.length !== 0 && setWishStatus(true);
+        }
+    })
 
     return (
         <div>
@@ -230,12 +246,12 @@ function FlightDetail({ bookings }) {
                                         <div><img src={LongAAR} alt="" /></div>
                                         <div>{flight.arrivalAirport.city}</div>
                                     </div>
-                                    {/* {roundTrip === false &&
+                                    {roundTrip === false &&
                                         <div
-                                            className={`border p-2 rounded shadow wishlist-button ${wishlist.length !== 0 && 'bg-primary text-white'}`}
+                                            className={`border p-2 rounded shadow wishlist-button ${wishStatus && 'bg-primary text-white'}`}
                                             onClick={() => addWishListHandler()} >
                                             <SaveAdd width={40} className="" />
-                                        </div>} */}
+                                        </div>}
                                 </div>
 
                                 <div class="order_flight__body">

@@ -290,10 +290,6 @@ hr {
     color: rgba(0, 0, 0, 0.7);
 }
 
-.opsi-filter .btn-booking,
-.opsi-filter .btn-date {
-    /* margin-left: 1.125rem; */
-}
 
 .container.list-booking {
     display: flex;

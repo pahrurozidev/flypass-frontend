@@ -127,7 +127,7 @@ export default function CreateFlight() {
                                 </select>
                             </div>
                             <div className="mb-0">
-                                <label htmlFor="flightType" className="form-label">Flight Class</label>
+                                <label htmlFor="flightType" className="form-label">Flight Type</label>
                                 <select name='flightTypeId' className="form-select form-select-lg" aria-label=".form-select-lg example" value={data.flightTypeId} onChange={handleInput} id="flightType" required>
                                     <option selected hidden value="">Select Flight Type</option>
                                     <option value="1">Domestic</option>

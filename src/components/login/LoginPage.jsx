@@ -1,5 +1,5 @@
-import React,{useEffect,useState} from 'react';
-import { Link,Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history'
@@ -14,7 +14,7 @@ export default function LoginPage() {
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            const data = await axios.post('http://localhost:8080/v1/login',{
+            const data = await axios.post('https://flypass-api.up.railway.app/v1/login', {
                 email: email,
                 password: password,
             });
@@ -38,7 +38,7 @@ export default function LoginPage() {
                         <h1>Login</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
-                    <form onSubmit={ Auth }>
+                    <form onSubmit={Auth}>
                         <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
@@ -49,7 +49,7 @@ export default function LoginPage() {
                                 <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             </li>
                             <li>
-                            <input type="submit" name='submit' value='Login' className='shadow' style={{backgroundColor:"blue"}} /> 
+                                <input type="submit" name='submit' value='Login' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
                                 <div className="pt-3 text-center">
                                     Not already have account?
                                     <Link to={'/register'}>

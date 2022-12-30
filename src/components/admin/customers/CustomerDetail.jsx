@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Profile from '../../../assets/dasboard-admin/profile.svg';
 import { ArrowCircleLeft2 } from 'iconsax-react';
-import axios from 'axios';
-import swal from 'sweetalert';
 import { API } from '../../../services';
 
 export default function CustomerDetail() {
     const { id } = useParams();
     const [detailCustomer, setDetailCustomer] = useState([]);
-    const [transacton, setTransacton] = useState([]);
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -18,66 +15,7 @@ export default function CustomerDetail() {
             setDetailCustomer(filterID);
             console.log(filterID);
         });
-        getTransaction();
     }, [])
-
-    console.log(detailCustomer);
-
-    const getTransaction = async () => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwiaWF0IjoxNjcyMjA0OTM1LCJleHAiOjE2NzIyMjY1MzV9.zUtUXXEOwJ-T12DV-qto1wZ6HICJadoirxCDafkKIEE";
-
-        axios.get(`https://flypass-api.up.railway.app/v1/pay/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then((res) => {
-            console.log(res.data)
-        })
-    }
-
-    const handleConfirm = (e) => {
-        // e.preventDefault();
-
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwiaWF0IjoxNjcyMjA0OTM1LCJleHAiOjE2NzIyMjY1MzV9.zUtUXXEOwJ-T12DV-qto1wZ6HICJadoirxCDafkKIEE";
-
-        axios.put(`https://flypass-api.up.railway.app/v1/pay/confirm/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(res => {
-            swal({
-                title: "Confirm Payment Succeessfully!",
-                text: "",
-                icon: "success",
-                button: "Ok!",
-            });
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err.message);
-        })
-    }
-
-    const handleReject = (e) => {
-        // e.preventDefault();
-
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkhhaWthbCBBcmlmIiwiaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZ25keWl2aTkvaW1hZ2UvdXBsb2FkL3YxNjcxNjI2ODMzL1VzZXJzLUFkbWluaXN0cmF0b3ItaWNvbl9veHRnNTQucG5nIiwiZW1haWwiOiJoYWlrYWxAZmx5cGFzcy5jb20iLCJiaXJ0aERhdGUiOm51bGwsImdlbmRlciI6bnVsbCwicGhvbmUiOm51bGwsInJvbGVJZCI6MSwiY3JlYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwidXBkYXRlZEF0IjoiMjAyMi0xMi0yN1QxNjowNzoyNi4wNDlaIiwiaWF0IjoxNjcyMjA0OTM1LCJleHAiOjE2NzIyMjY1MzV9.zUtUXXEOwJ-T12DV-qto1wZ6HICJadoirxCDafkKIEE";
-
-        axios.put(`https://flypass-api.up.railway.app/v1/pay/reject/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(res => {
-            swal({
-                title: "Reject Payment Succeessfully!",
-                text: "",
-                icon: "success",
-                button: "Ok!",
-            });
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err.message);
-        })
-    }
 
     setTimeout(() => {
         setShow(true);
@@ -119,6 +57,20 @@ export default function CustomerDetail() {
                                                     <p className='data-item__name'>First Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.firstName}</p>
                                                 </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Date of Birth</p>
+                                                    <p className='data-item__value'>: 01 Feb 1995</p>
+                                                </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Gender</p>
+                                                    <p className='data-item__value'>: Male</p>
+                                                </div>
+                                            </div>
+                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Phone</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
+                                                </div>
                                                 <div className='data-item d-md-none'>
                                                     <p className='data-item__name'>Last Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
@@ -128,38 +80,8 @@ export default function CustomerDetail() {
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
                                                 </div>
                                                 <div className='data-item'>
-                                                    <p className='data-item__name'>Date of Birth</p>
-                                                    <p className='data-item__value'>: 01 Feb 1995</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Gender</p>
-                                                    <p className='data-item__value'>: Male</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Pos Code</p>
-                                                    <p className='data-item__value'>: xxxx</p>
-                                                </div>
-                                            </div>
-                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Phone</p>
-                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
-                                                </div>
-                                                <div className='data-item'>
                                                     <p className='data-item__name'>Email</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.email}</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Address</p>
-                                                    <p className='data-item__value'>: Jln xxx perigi city space</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>City</p>
-                                                    <p className='data-item__value'>: Mataram</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Nationality</p>
-                                                    <p className='data-item__value'>: Indonesia</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -229,10 +151,10 @@ export default function CustomerDetail() {
                                         <h5 className='border-bottom pb-2'>Payment</h5>
                                         <div className='data-list'>
                                             <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                <div className='data-item'>
+                                                {/* <div className='data-item'>
                                                     <p className='data-item__name'>Payment Code</p>
                                                     <p className='data-item__value'>: xxxx</p>
-                                                </div>
+                                                </div> */}
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Price :</p>
                                                     <p className='data-item__value'>: Rp. {detailCustomer[0].totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
@@ -242,10 +164,6 @@ export default function CustomerDetail() {
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Status</p>
                                                     <p className='data-item__value'>: <span className={`${(detailCustomer[0].BookingStatus.name === "Completed") ? "paid" : "text-danger"}`}>{detailCustomer[0].BookingStatus.name}</span></p>
-                                                </div>
-                                                <div className='d-flex justify-content-end'>
-                                                    <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
-                                                    <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
                                                 </div>
                                             </div>
                                         </div>

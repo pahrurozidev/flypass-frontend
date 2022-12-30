@@ -21,6 +21,12 @@ export default function Sidebar() {
             console.log(error)
         }
     }
+
+    const onLogoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/login')
+    }
+
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
@@ -37,10 +43,10 @@ export default function Sidebar() {
                 </li>
             ))}
             <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                <a className="nav-link link-sidebar" href="#">
+                <Link to={'/login'} className="nav-link link-sidebar" onClick={() => onLogoutHandler()}>
                     <LogoutCurve size={20} />
                     <span onClick={Logout}>Logout</span>
-                </a>
+                </Link>
             </li>
         </ul>
     );

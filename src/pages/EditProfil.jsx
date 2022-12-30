@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/users/layouts/navbar/Navbar';
-import Sidebar from '../components/admin/layouts/sidebar/sidebaruser';
+import Sidebar from '../components/users/layouts/sidebar/Sidebar';
 import EditProfilPage from '../components/customer/EditProfilPage';
 import { actionType } from '../redux/reducer/globalActionType';
 
@@ -14,7 +14,7 @@ class EditProfil extends Component {
     render() {
         return (
             <Fragment>
-                <div className='d-flex'>
+                {/* <div className='d-flex'>
                     <Sidebar />
                         <div id='content-wrapper' className='d-flex flex-column'>
                             <div id="content">
@@ -22,6 +22,15 @@ class EditProfil extends Component {
                                 <EditProfilPage />
                             </div>
                         </div>
+                </div> */}
+                <div>
+                    <Sidebar />
+                    <div>
+                        <Navbar />
+                        <div className="main-container">
+                            <EditProfilPage />
+                        </div>
+                    </div>
                 </div>
             </Fragment>
         )

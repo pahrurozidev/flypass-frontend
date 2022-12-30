@@ -71,14 +71,18 @@ export default function RegisterPage() {
                             </li>
                             <li>
                                 <label htmlFor="gender">Gender</label>
-                                <input type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} />
+                                <select type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{width:"460px", height:"45px"}}>
+                                    <option value="">Male / Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
                             </li>
                             <li>
                                 <label htmlFor="phone">Phone</label>
                                 <input type="phone" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </li>
                             <li>
-                                <input type="submit" name='submit' value='Register' className='shadow' style={{backgroundColor:"blue"}}/>                                   
+                                <input type="submit" name='submit' value='Register' className='shadow text-white mt-4' style={{backgroundColor:"blue"}}/>                                   
                                 <div className="pt-3 text-center">
                                     Already have account?
                                     <Link to={'/login'}>

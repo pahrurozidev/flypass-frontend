@@ -745,6 +745,7 @@ footer a {
     left: 0px;
     top: 100px;
     width: 100%;
+    height: 300px;
     /* height: 100% !important; */
     overflow: auto !important;
     background: white;
@@ -890,7 +891,6 @@ footer a {
 /* notification */
 .notification .card:hover {
     cursor: pointer;
-    background: #f0f7ff;
 }
 
 .notification .card-title {
@@ -906,7 +906,13 @@ footer a {
 }
 
 .unread {
-    color: #007AFF;
+    background: #458ad3;
+    color: white;
+}
+
+.read {
+    background: white;
+    /* color: black; */
 }
 
 .bell-auth {
