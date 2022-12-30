@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ArrowCircleLeft2, AddSquare } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, PlusSquare } from 'react-feather';
-import { API } from '../../../services';
 
 class FlightList extends Component {
     constructor(props) {
@@ -18,7 +17,6 @@ class FlightList extends Component {
         axios.get('https://flypass-api.up.railway.app/v1/flights').then(
             response => {
                 this.setState({ data: response.data.flights });
-                console.log(response.data.flights);
             }
         ).catch(
             error =>

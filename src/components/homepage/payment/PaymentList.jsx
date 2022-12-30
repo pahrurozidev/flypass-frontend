@@ -75,17 +75,10 @@ export default function PaymentList() {
     API.transactions(id, image).then((book) => {
       console.log(book);
 
-
-      // setBooking({
-      //   totalPrice: book.totalPrice
-      // })
-
-      // console.log(booking);
-
-      if (bookByUser[0].message === 'created successfully') {
+      if (book.data.message === 'created successfully') {
         return navigate('/search/flight/payment/completed');
       }
-    });
+    }).catch(err => console.log(err))
   }
 
   setTimeout(() => {
@@ -169,7 +162,6 @@ export default function PaymentList() {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
             {/* <!-- flight price detail --> */}

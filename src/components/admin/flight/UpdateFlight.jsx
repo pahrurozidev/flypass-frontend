@@ -45,15 +45,12 @@ export default function CreateFlight() {
         });
     }, [])
 
-    // console.log(flight);
-
     setTimeout(() => {
         setShow(true);
     }, 3000);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const token = localStorage.getItem("token");
 
         axios.put(`https://flypass-api.up.railway.app/v1/flights/${id}`, data, {

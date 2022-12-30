@@ -19,11 +19,12 @@ const userNotification = (path) => {
     return promise;
 }
 
-const updateNotification = (path) => {
+const updateNotification = (path, id) => {
 
     const promise = new Promise((resolve, reject) => {
         axios.put(
             `${RootPath}/${path}`,
+            {id: id},
             { headers: { Authorization: `Bearer ${token}` } }
         ).then((response) => {
             resolve(response)

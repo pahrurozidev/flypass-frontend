@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../../assets/dasboard-admin/line.svg';
 import { API } from '../../../../services';
+import NotFound from '../../../notfound/NotFound'
 
 export default function ListBooking() {
     const [allBookings, setAllBookings] = useState([]);
@@ -15,19 +16,13 @@ export default function ListBooking() {
     return (
         <>
             {/* header */}
-            <div className="card p-3 pb-2 border-bottom-0 rounded-0">
+            <div className="card p-3 pb-2">
                 <h5>All Bookings</h5>
             </div>
 
-            {
-                allBookings == 0 &&
-                <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
-                    <div className="text-dark">Bookings Not Found</div>
-                </div>
-            }
             {allBookings.length !== 0 &&
-                <div className="card booking-table mt-3">
-                    <table className="table">
+                <div className="card booking-table mt-3 pb-5">
+                    <table className="table mb-3">
                         <thead className='border-bottom'>
                             <tr>
                                 <th>Airlines</th>
@@ -40,7 +35,7 @@ export default function ListBooking() {
                             </tr>
                         </thead>
                         <tbody>
-                            {allBookings.map((booking) => (
+                            {allBookings.slice(0, 1).map((booking) => (
                                 <tr key={booking.id}>
                                     <td data-title="Airlines" className="airlines">
                                         <img src={Garuda} alt="Airplanes" /><br className="d-none" />
@@ -67,8 +62,10 @@ export default function ListBooking() {
                             ))}
                         </tbody>
                     </table>
-                </div>
-            }
+
+                    <div className='btn btn-primary col-12 col-md-2 show-all-booking-btn position-absolute end-0 bottom-0'>Show All Booking</div>
+                </div>}
+            {allBookings == 0 && <NotFound alert={'Booking'} />}
         </>
     );
 }

@@ -16,7 +16,7 @@ export const whoAmI = () => (dispatch) => {
   
     axios({
       method: 'get',
-      url: "http://localhost:8080/v1/whoami",
+      url: "${import.meta.env.VITE_BASE_URL}/v1/whoami",
       timeout: 120000,
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export const editListUsers = (id, formData) => (dispatch) => {
     const token = localStorage.getItem("token");
     axios({
       method: "put",
-      url: `http://localhost:8080/v1/user`,
+      url: `${import.meta.env.VITE_BASE_URL}/v1/user`,
       data: formData,
       timeout: 120000,
       headers: {

@@ -11,6 +11,10 @@ class navbar extends Component {
 
     onLogoutHandler = () => {
         localStorage.removeItem('token');
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
     }
 
 

@@ -8,7 +8,7 @@ function IsAdmin({ children }) {
     const token = localStorage.getItem("token");
     !token && history.push('/login');
 
-    API.whoAmI(token).then((user) => {
+    API.whoAmI().then((user) => {
         user.roleId !== 1 && history.push('/');
     });
 

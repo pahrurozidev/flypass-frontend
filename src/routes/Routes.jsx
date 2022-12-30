@@ -23,7 +23,6 @@ import Wishlists from "../pages/Wishlists";
 import AdminNotification from "../components/admin/notification/Notification";
 import IsAdmin from "../components/protected/IsAdmin";
 import IsUser from "../components/protected/IsUser";
-import App from "../components/App";
 
 export default function Routes() {
     return (

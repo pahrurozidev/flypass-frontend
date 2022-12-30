@@ -11,7 +11,7 @@ class TransactionAdmin extends Component {
     render() {
         return (
             <Fragment>
-                <Transaction showSidebarDispatch={this.props.showSidebarDispatch()} />
+                <Transaction showSidebarDispatch={() => this.props.showSidebarDispatch()} />
             </Fragment>
         )
     }

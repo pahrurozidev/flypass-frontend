@@ -10,13 +10,16 @@ import { useHistory } from 'react-router-use-history';
 import { Navigate } from 'react-router-dom';
 
 class Sidebaruser extends Component {
+    onLogoutHandler = () => {
+        localStorage.removeItem('token');
+
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
+    }
+
     render() {
-        function handleLogout() {
-            localStorage.removeItem("id");
-            localStorage.removeItem("token");
-            alert("Kamu Berhasil Logout");
-            Navigate('/#/login')
-        }
         return (
             <ul className={`nav flex-column border-end sidebar 
             ${(this.props.showSidebarProps && `show-sidebar`)}`}>
@@ -42,10 +45,10 @@ class Sidebaruser extends Component {
                     </li>
                 ))}
                 <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                    <a className="nav-link link-sidebar" href='/#/login' onClick={handleLogout}>
+                    <Link to={'/login'} className="nav-link link-sidebar" onClick={() => this.onLogoutHandler()}>
                         <LogoutCurve size={20} />
                         <span>Logout</span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         )

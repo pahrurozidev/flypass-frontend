@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/users/layouts/navbar/Navbar';
-import Sidebar from '../components/users/layouts/sidebar/Sidebar';
+import Sidebar from '../components/admin/layouts/sidebar/sidebaruser'
 import ProfilPage from '../components/customer/ProfilPage';
 import { actionType } from '../redux/reducer/globalActionType';
 
@@ -14,19 +14,10 @@ class Profil extends Component {
     render() {
         return (
             <Fragment>
-                {/* <div className='d-flex'>
-                    <Sidebar />
-                    <div id='content-wrapper' className='d-flex flex-column'>
-                        <div id="content">
-                            <Navbar />
-                            <ProfilPage />
-                        </div>
-                    </div>
-                </div> */}
                 <div>
                     <Sidebar />
                     <div>
-                        <Navbar />
+                        <Navbar showSidebarDispatch={this.props.showSidebarDispatch} />
                         <div className="main-container">
                             <ProfilPage />
                         </div>
@@ -37,19 +28,17 @@ class Profil extends Component {
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        showSidebar: state.showSidebar
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        plusCounter: () => dispatch({
-            type: actionType.PLUS_COUNTER,
-        }),
-        minCounter: () => dispatch({
-            type: actionType.MIN_COUNTER,
+        showSidebarDispatch: () => dispatch({
+            type: actionType.SHOW_SIDEBAR
         }),
     }
 }

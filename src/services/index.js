@@ -36,7 +36,7 @@ const rejectPayment = (id) => reject(`v1/pay/reject/${id}`, id);
 
 const userNotifications = () => userNotification('v1/notification');
 const adminNotifications = () => adminNotification('v1/notification/admin');
-const updateNotifications = (id) => updateNotification(`v1/notification/${id}`);
+const updateNotifications = (id) => updateNotification(`v1/notification/${id}`, id);
 
 const whoAmI = () => whoami('v1/whoami');
 
