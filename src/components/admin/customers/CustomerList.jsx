@@ -3,27 +3,35 @@ import { ArrowCircleLeft2 } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { Eye } from 'react-feather';
 import axios from 'axios';
+import { API } from '../../../services';
+import moment from 'moment';
 
 export default function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [transactions, setTransactions] = useState([]);
 
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/bookings/all`, {
-            headers: { Authorization: `Bearer ${token}` }
-        }).then((res) => {
-            setCustomers(res.data.booking);
+        API.listBookings().then((booking) => {
+            setCustomers(booking);
         })
-        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/pay/find/all`, {
-            headers: { Authorization: `Bearer ${token}` }
-        }).then((res) => {
-            setTransactions(res.data.transaction);
+        API.transactionsGet().then((transaction) => {
+            setTransactions(transaction);
         })
+        // axios.get('https://flypass-api.up.railway.app/v1/bookings/all', {
+        //     headers: { Authorization: `Bearer ${token}` }
+        // }).then((res) => {
+        //     setCustomers(res.data.booking);
+        // })
+        // axios.get('https://flypass-api.up.railway.app/v1/pay/find/all', {
+        //     headers: { Authorization: `Bearer ${token}` }
+        // }).then((res) => {
+        //     setTransactions(res.data.transaction);
+        // })
     }, [])
 
-    console.log(transactions);
+    // console.log(customers);
 
     return (
         <div className='container-fluid admin-flight pb-5'>
@@ -43,27 +51,36 @@ export default function CustomerList() {
                         </Link>
                     </div>
 
+                    {
+                        customers == 0 &&
+                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                            <div className="text-dark">Customers Not Found</div>
+                        </div>
+                    }
+
                     {/* customer list */}
-                    <section className='mt-3 admin-customer-header'>
-                        {transactions.map((customer) => (
-                            <div className="card customers overflow-hidden shadow">
-                                <div className='customer-header border-bottom py-3 fw-bold'>
-                                    <div>Booking ID</div>
-                                    <div>Status</div>
-                                    <div>Created Date</div>
+                    {customers.length !== 0 &&
+                        <section className='mt-3 admin-customer-header'>
+                            {customers.map((customer) => (
+                                <div className="card customers overflow-hidden shadow">
+                                    <div className='customer-header border-bottom py-3 fw-bold'>
+                                        <div>Name</div>
+                                        <div>Booking Code</div>
+                                        <div>Status</div>
+                                    </div>
+                                    <div className='customer-body py-3'>
+                                        <div>{customer.PassengerContact.firstName} {customer.PassengerContact.lastName}</div>
+                                        <div><b>{customer.bookingCode.toUpperCase()}</b></div>
+                                        <div className={`${(customer.BookingStatus.id === 3) ? 'text-success' : 'text-warning'}`}>{customer.BookingStatus.name}</div>
+                                    </div>
+                                    <Link to={`/customer/${customer.id}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
+                                        <Eye size={20} />
+                                        <div>Detail</div>
+                                    </Link>
                                 </div>
-                                <div className='customer-body py-3'>
-                                    <div>{customer.bookingId}</div>
-                                    <div>{customer.isPayed ? "Paid" : "Unpaid"}</div>
-                                    <div>{customer.createdAt}</div>
-                                </div>
-                                <Link to={`/customer/${customer.bookingId}`} className='customer-detail-button d-flex py-2 gap-1 bg-primary text-white justify-content-center text-decoration-none'>
-                                    <Eye size={20} />
-                                    <div>Detail</div>
-                                </Link>
-                            </div>
-                        ))}
-                    </section>
+                            ))}
+                        </section>
+                    }
                 </div>
             </div>
         </div>

@@ -91,11 +91,11 @@ function FlightDetail() {
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Departure Time</p>
-                                            <p className='col'>: {flight.departureTime}</p>
+                                            <p className='col'>: {flight.departureTime.slice(0, -3)}</p>
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Duration</p>
-                                            <p className='col'>: {flight.duration}</p>
+                                            <p className='col'>: {flight.duration.slice(0, -3)}</p>
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Airline</p>
@@ -121,7 +121,7 @@ function FlightDetail() {
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Arrival Time</p>
-                                            <p className='col'>: {flight.arrivalTime}</p>
+                                            <p className='col'>: {flight.arrivalTime.slice(0, -3)}</p>
                                         </div>
                                         <div className='d-flex col-lg-10'>
                                             <p className='col fw-bold'>Flight Type</p>

@@ -5,7 +5,7 @@ import { booking, getBookByUserLog } from './booking';
 import { airline } from './airline';
 import { airplane } from './airplane';
 import { wishlist, addWishlist, DeleteWishlist } from './wishlist';
-import { transaction } from './transaction';
+import { getTransaction, transaction, confirm, reject } from './transaction';
 import { adminNotification, userNotification, updateNotification } from './notification';
 import { whoami } from './whoami';
 import { login } from './auth';
@@ -29,7 +29,10 @@ const wishlists = () => wishlist('v1/wishlist');
 const addWishlists = (id) => addWishlist(`v1/wishlist`, id);
 const deleteWishlists = (id) => DeleteWishlist(`v1/wishlist/${id}`);
 
+const transactionsGet = () => getTransaction('v1/pay/find/all');
 const transactions = (id, data) => transaction('v1/pay/create', id, data);
+const confirmPayment = (id) => confirm(`v1/pay/confirm/${id}`, id);
+const rejectPayment = (id) => reject(`v1/pay/reject/${id}`, id);
 
 const userNotifications = () => userNotification('v1/notification');
 const adminNotifications = () => adminNotification('v1/notification/admin');
@@ -52,7 +55,10 @@ export const API = {
     wishlists,
     addWishlists,
     deleteWishlists,
+    transactionsGet,
     transactions,
+    confirmPayment,
+    rejectPayment,
     userNotifications,
     adminNotifications,
     whoAmI,

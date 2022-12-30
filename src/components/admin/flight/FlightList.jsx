@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ArrowCircleLeft2, AddSquare } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, PlusSquare } from 'react-feather';
-import { API } from '../../../services';
 
 class FlightList extends Component {
     constructor(props) {
@@ -15,7 +14,7 @@ class FlightList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights`).then(
+        axios.get('https://flypass-api.up.railway.app/v1/flights').then(
             response => {
                 this.setState({ data: response.data.flights });
             }
@@ -52,41 +51,50 @@ class FlightList extends Component {
                         </Link>
                     </div>
 
-                    <div className="mt-3 border p-2 p-lg-3 rounded d-flex flex-column gap-2 gap-lg-3">
-                        {this.state.data.map((flight) => (
-                            <div className='flgiht flight-list card rounded' key={flight.id}>
-                                <div className='flight-item'>
-                                    <div className='d-flex flex-column gap-1'>
-                                        <p className='time'>{flight.departureTime}</p>
-                                        <span className='tag'>{flight.departureAirport.iata}</span>
+                    {
+                        this.state.data.length === 0 &&
+                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3'>
+                            <div className="text-dark">Flights Not Found</div>
+                        </div>
+                    }
+
+                    {this.state.data.length > 0 &&
+                        <div className="mt-3 border p-2 p-lg-3 rounded d-flex flex-column gap-2 gap-lg-3">
+                            {this.state.data.map((flight) => (
+                                <div className='flgiht flight-list card rounded' key={flight.id}>
+                                    <div className='flight-item'>
+                                        <div className='d-flex flex-column gap-1'>
+                                            <p className='time'>{flight.departureTime.slice(0, -3)}</p>
+                                            <span className='tag'>{flight.departureAirport.iata}</span>
+                                        </div>
+                                        <div className='d-flex flex-column departure gap-1'>
+                                            <span>{flight.duration.slice(0, -3)}</span>
+                                            <span className='ring'></span>
+                                            <span>Direct</span>
+                                        </div>
+                                        <div className='d-flex flex-column gap-1'>
+                                            <p className='time text-end'>{flight.arrivalTime.slice(0, -3)}</p>
+                                            <span className='tag'>{flight.arrivalAirport.iata}</span>
+                                        </div>
                                     </div>
-                                    <div className='d-flex flex-column departure gap-1'>
-                                        <span>{flight.duration}</span>
-                                        <span className='ring'></span>
-                                        <span>Direct</span>
+                                    <div className='flight-item mt-2'>
+                                        <div><img src={flight.Airline.image} alt="" width={45} height={25} /></div>
+                                        <p>{flight.Airline.name}</p>
                                     </div>
-                                    <div className='d-flex flex-column gap-1'>
-                                        <p className='time text-end'>{flight.arrivalTime}</p>
-                                        <span className='tag'>{flight.arrivalAirport.iata}</span>
+                                    <div className='flight-item d-flex flex-column gap-3 mt-4'>
+                                        <h5>{flight.FlightClass.name}</h5>
+                                        <p>Rp. {flight.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}<span className='fs-6'>/pax</span></p>
+                                    </div>
+                                    <div className='flight-item mt-2'>
+                                        <Link to={`/flight/${flight.id}`} className="d-flex gap-1 items-center btn shadow">
+                                            <AlertCircle size={20} />
+                                            <div>Detail</div>
+                                        </Link>
                                     </div>
                                 </div>
-                                <div className='flight-item mt-2'>
-                                    <div><img src={flight.Airline.image} alt="" width={45} height={25} /></div>
-                                    <p>{flight.Airline.name}</p>
-                                </div>
-                                <div className='flight-item d-flex flex-column gap-3 mt-4'>
-                                    <h5>{flight.FlightClass.name}</h5>
-                                    <p>Rp. {flight.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}<span className='fs-6'>/pax</span></p>
-                                </div>
-                                <div className='flight-item mt-2'>
-                                    <Link to={`/flight/${flight.id}`} className="d-flex gap-1 items-center btn shadow">
-                                        <AlertCircle size={20} />
-                                        <div>Detail</div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    }
                 </div>
             </div>
         )

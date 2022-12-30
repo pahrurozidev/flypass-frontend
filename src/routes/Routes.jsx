@@ -18,7 +18,7 @@ import Search from "../pages/Search";
 import Payments from "../pages/Payments";
 
 import MyTicket from "../pages/MyTicketUser";
-import Transaction from "../pages/TransactionUser";
+import Transaction from "../pages/TransactionAdmin";
 import Wishlists from "../pages/Wishlists";
 import AdminNotification from "../components/admin/notification/Notification";
 import IsAdmin from "../components/protected/IsAdmin";
@@ -50,6 +50,8 @@ export default function Routes() {
                 <Route path="/flight/create" element={<IsAdmin><Flight /></IsAdmin>} />
                 <Route path="/flight/update/:id" element={<IsAdmin><Flight /></IsAdmin>} />
                 <Route path="/notification" element={<IsAdmin><AdminNotification /></IsAdmin>} />
+                <Route path="/transaction" element={<IsAdmin><Transaction /></IsAdmin>} />
+                <Route path="/transaction/:id" element={<IsAdmin><Transaction /></IsAdmin>} />
 
                 {/* user */}
                 <Route exact path="/user/dashboard/dashboarduser" element={<IsUser><Dashboard /></IsUser>} />
@@ -61,8 +63,6 @@ export default function Routes() {
                 <Route exact path="/user/dashboard/notification" element={<IsUser><UserNotification /></IsUser>} />
                 <Route path="/user/dashboard/ticket" element={<IsUser><MyTicket /></IsUser>} />
                 <Route path="/user/dashboard/ticket/:id" element={<IsUser><MyTicket /></IsUser>} />
-                <Route path="/user/dashboard/transaction" element={<IsUser><Transaction /></IsUser>} />
-                <Route path="/user/dashboard/transaction/:id" element={<IsUser><Transaction /></IsUser>} />
             </Switch>
         </HashRouter>
     )

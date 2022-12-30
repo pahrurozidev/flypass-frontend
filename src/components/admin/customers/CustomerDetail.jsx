@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Profile from '../../../assets/dasboard-admin/profile.svg';
 import { ArrowCircleLeft2 } from 'iconsax-react';
-import axios from 'axios';
 import { API } from '../../../services';
 
 export default function CustomerDetail() {
     const { id } = useParams();
     const [detailCustomer, setDetailCustomer] = useState([]);
-    const [transacton, setTransacton] = useState([]);
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -17,22 +15,7 @@ export default function CustomerDetail() {
             setDetailCustomer(filterID);
             console.log(filterID);
         });
-        getTransaction();
     }, [])
-
-    console.log(detailCustomer);
-
-    const getTransaction = async () => {
-        const token = localStorage.getItem("token");
-
-        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/pay/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then((res) => {
-            console.log(res.data)
-        })
-    }
 
     setTimeout(() => {
         setShow(true);
@@ -74,6 +57,20 @@ export default function CustomerDetail() {
                                                     <p className='data-item__name'>First Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.firstName}</p>
                                                 </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Date of Birth</p>
+                                                    <p className='data-item__value'>: 01 Feb 1995</p>
+                                                </div>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Gender</p>
+                                                    <p className='data-item__value'>: Male</p>
+                                                </div>
+                                            </div>
+                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                <div className='data-item'>
+                                                    <p className='data-item__name'>Phone</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
+                                                </div>
                                                 <div className='data-item d-md-none'>
                                                     <p className='data-item__name'>Last Name</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
@@ -83,38 +80,8 @@ export default function CustomerDetail() {
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.lastName}</p>
                                                 </div>
                                                 <div className='data-item'>
-                                                    <p className='data-item__name'>Date of Birth</p>
-                                                    <p className='data-item__value'>: 01 Feb 1995</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Gender</p>
-                                                    <p className='data-item__value'>: Male</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Pos Code</p>
-                                                    <p className='data-item__value'>: xxxx</p>
-                                                </div>
-                                            </div>
-                                            <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Phone</p>
-                                                    <p className='data-item__value'>: {detailCustomer[0].PassengerContact.phone}</p>
-                                                </div>
-                                                <div className='data-item'>
                                                     <p className='data-item__name'>Email</p>
                                                     <p className='data-item__value'>: {detailCustomer[0].PassengerContact.email}</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Address</p>
-                                                    <p className='data-item__value'>: Jln xxx perigi city space</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>City</p>
-                                                    <p className='data-item__value'>: Mataram</p>
-                                                </div>
-                                                <div className='data-item'>
-                                                    <p className='data-item__name'>Nationality</p>
-                                                    <p className='data-item__value'>: Indonesia</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,11 +100,11 @@ export default function CustomerDetail() {
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Departure Time</p>
-                                                    <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime}</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Duration</p>
-                                                    <p className='data-item__value'>: {detailCustomer[0].flight1.duration}</p>
+                                                    <p className='data-item__value'>: {detailCustomer[0].flight1.duration.slice(0, -3)}</p>
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Airport</p>
@@ -163,7 +130,7 @@ export default function CustomerDetail() {
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Arrival Time</p>
-                                                    <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime}</p>
+                                                    <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
                                                 </div>
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Flight Type</p>
@@ -184,10 +151,10 @@ export default function CustomerDetail() {
                                         <h5 className='border-bottom pb-2'>Payment</h5>
                                         <div className='data-list'>
                                             <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                <div className='data-item'>
+                                                {/* <div className='data-item'>
                                                     <p className='data-item__name'>Payment Code</p>
                                                     <p className='data-item__value'>: xxxx</p>
-                                                </div>
+                                                </div> */}
                                                 <div className='data-item'>
                                                     <p className='data-item__name'>Price :</p>
                                                     <p className='data-item__value'>: Rp. {detailCustomer[0].totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
@@ -195,16 +162,8 @@ export default function CustomerDetail() {
                                             </div>
                                             <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
                                                 <div className='data-item'>
-                                                    <p className='data-item__name'>User Balance</p>
-                                                    <p className='data-item__value'>: IDR xxxx</p>
-                                                </div>
-                                                <div className='data-item'>
                                                     <p className='data-item__name'>Status</p>
-                                                    <p className='data-item__value paid'>: {detailCustomer[0].BookingStatus.name}</p>
-                                                </div>
-                                                <div className='d-flex justify-content-end'>
-                                                    <div className='btn btn-success' style={{ fontSize: 14 }}>Confirm</div>
-                                                    <div className='btn btn-danger ms-2' style={{ fontSize: 14 }}>Reject</div>
+                                                    <p className='data-item__value'>: <span className={`${(detailCustomer[0].BookingStatus.name === "Completed") ? "paid" : "text-danger"}`}>{detailCustomer[0].BookingStatus.name}</span></p>
                                                 </div>
                                             </div>
                                         </div>
