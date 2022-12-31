@@ -36,7 +36,6 @@ export default function CustomerDetail() {
         })
 
         navigate('/transaction');
-        window.location.reload();
     }
 
     const handleReject = () => {
@@ -49,7 +48,6 @@ export default function CustomerDetail() {
             });
         })
         navigate('/transaction');
-        window.location.reload();
     }
 
     return (
