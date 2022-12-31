@@ -53,7 +53,7 @@ export default function CreateFlight() {
         e.preventDefault();
         const token = localStorage.getItem("token");
 
-        axios.put(`https://flypass-api.up.railway.app/v1/flights/${id}`, data, {
+        axios.put(`${import.meta.env.VITE_BASE_URL}/v1/flights/${id}`, data, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -74,7 +74,7 @@ export default function CreateFlight() {
     }
 
     const getFlightById = async () => {
-        const response = await axios.get(`https://flypass-api.up.railway.app/v1/flights/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights/${id}`);
         setData({
             departureAirportId: response.data.departureAirport.id,
             departureDate: response.data.departureDate,

@@ -5,7 +5,7 @@ import { API } from '../../../services';
 import Profile from '../../../assets/dasboard-admin/profile.svg';
 import swal from 'sweetalert';
 
-export default function CustomerDetail() {
+export default function NotificationDetail() {
     const navigate = useNavigate();
     const { id } = useParams();
     const [detailTransaction, setDetailTransaction] = useState([]);
@@ -14,43 +14,12 @@ export default function CustomerDetail() {
     const [btnShow, setBtnShow] = useState(false);
 
     useEffect(() => {
-        API.transactionsGet().then((transaction) => {
-            const IdFilter = transaction.filter(payment => payment.id == id)
-            setDetailTransaction(IdFilter);
-            API.listBookings().then((bookings) => {
-                const bookingID = bookings.filter(flight => flight.id == IdFilter[0].bookingId)
-                setCustomer(bookingID);
-                setShow(true);
-            });
+        API.getBookByUserLogin().then((book) => {
+            const booking = book.filter(b => b.id == id)
+            setCustomer(booking);
+            setShow(true);
         });
     }, [])
-
-    const handleConfirm = () => {
-        API.confirmPayment(id).then(res => {
-            swal({
-                title: "Confirm Payment Succeessfully!",
-                text: "",
-                icon: "success",
-                button: "Ok!",
-            });
-        })
-
-        navigate('/transaction');
-        window.location.reload();
-    }
-
-    const handleReject = () => {
-        API.rejectPayment(id).then(res => {
-            swal({
-                title: "Reject Payment Succeessfully!",
-                text: "",
-                icon: "success",
-                button: "Ok!",
-            });
-        })
-        navigate('/transaction');
-        window.location.reload();
-    }
 
     return (
         <div>
@@ -198,11 +167,6 @@ export default function CustomerDetail() {
                                                         (customer[0].BookingStatus.name === "Completed") ? 'text-success' :
                                                             (customer[0].BookingStatus.name === "Paid") && 'paid'}`}>{customer[0].BookingStatus.name}</span></p>
                                             </div>
-                                            {(customer[0].BookingStatus.name === "Paid") &&
-                                                <div className='d-flex justify-content-end'>
-                                                    <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
-                                                    <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
-                                                </div>}
                                         </div>
                                     </div>
                                 </section>

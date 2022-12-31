@@ -6,19 +6,13 @@ import axios from 'axios';
 import moment from 'moment';
 
 export default function Card() {
-    const [customers, setCustomers] = useState([]);
     const [transactions, setTransactions] = useState([]);
 
     useEffect(() => {
         API.transactionsGet().then((transaction) => {
             setTransactions(transaction);
-            // transaction.forEach(booking => {
-            //     API.listBookings().then((bookings) => {
-            //         const bookingID = bookings.filter(flight => flight.id == booking.bookingId)
-            //         setCustomers(bookingID);
-            //     });
-            // })
         });
+
     }, [])
 
     return (

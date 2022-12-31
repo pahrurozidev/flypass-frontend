@@ -62,6 +62,7 @@ export default function Routes() {
                 <Route exact path="/user/dashboard/wishlist" element={<IsUser><Wishlists /></IsUser>} />
                 <Route path="/user/dashboard/wishlist/:id" element={<IsUser><Wishlists /></IsUser>} />
                 <Route exact path="/user/dashboard/notification" element={<IsUser><UserNotification /></IsUser>} />
+                <Route exact path="/user/dashboard/notification/:id" element={<IsUser><UserNotification /></IsUser>} />
                 <Route path="/user/dashboard/ticket" element={<IsUser><MyTicket /></IsUser>} />
                 <Route path="/user/dashboard/ticket/:id" element={<IsUser><MyTicket /></IsUser>} />
                 <Route path="/user/dashboard/history" element={<IsUser><History /></IsUser>} />

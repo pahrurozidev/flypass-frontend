@@ -14,7 +14,7 @@ class FlightList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://flypass-api.up.railway.app/v1/flights').then(
+        axios.get(`${import.meta.env.VITE_BASE_URL}/v1/flights`).then(
             response => {
                 this.setState({ data: response.data.flights });
             }
