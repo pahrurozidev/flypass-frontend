@@ -63,23 +63,23 @@ export default function Card() {
                                                 <div className="frame-bottom d-flex flex-row">
                                                     <div className="depart-frame col-lg-5 d-flex flex-column justify-content-between">
                                                         <div className="country-depart">
-                                                            <h1>Depart</h1>
+                                                            <h1>{booking.flight1.departureAirport.iata}</h1>
                                                             <span>{booking.flight1.departureAirport.city}</span>
                                                         </div>
                                                         <div className="time-depart">
-                                                            <span>{booking.flight1.departureAirport.iata}</span>
-                                                            <p>{booking.flight1.departureDate} - {booking.flight1.departureTime}</p>
+                                                            <span>Depart</span>
+                                                            <p>{booking.flight1.departureDate} - {booking.flight1.departureTime.slice(0, -3)}</p>
                                                         </div>
                                                     </div>
                                                     <FontAwesomeIcon icon={faPlane} className="col-lg-2" />
                                                     <div className="arrive-frame col-lg-5 d-flex flex-column justify-content-between">
                                                         <div className="country-arrive">
-                                                            <h1>Arrive</h1>
+                                                            <h1>{booking.flight1.arrivalAirport.iata}</h1>
                                                             <span>{booking.flight1.arrivalAirport.city}</span>
                                                         </div>
                                                         <div className="time-arrive">
-                                                            <span>{booking.flight1.arrivalAirport.iata}</span>
-                                                            <p>{booking.flight1.arrivalDate} - {booking.flight1.arrivalTime}</p>
+                                                            <span>Arrive</span>
+                                                            <p>{booking.flight1.arrivalDate} - {booking.flight1.arrivalTime.slice(0, -3)}</p>
                                                         </div>
                                                     </div>
                                                 </div>

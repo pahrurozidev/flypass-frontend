@@ -869,7 +869,7 @@ hr {
     width: 9.375rem;
 }
 
-.table.all-bookings tbody {
+.booking-table tbody {
     vertical-align: middle;
 }
 
@@ -977,6 +977,10 @@ hr {
         display: block;
         width: 50%;
         float: left;
+    }
+
+    .table tbody tr td.action_detail {
+        width: 100%;
     }
 
     .table tbody tr th {
