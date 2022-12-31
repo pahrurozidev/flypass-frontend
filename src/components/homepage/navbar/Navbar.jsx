@@ -219,7 +219,7 @@ export default function Navbar() {
                                             <hr className="dropdown-divider" />
                                         </li>
                                         <li>
-                                            <div className="dropdown-item d-flex align-items-center" onClick={() => onLogoutHandler()}>
+                                            <div className="logout dropdown-item d-flex align-items-center" onClick={() => onLogoutHandler()}>
                                                 <div>
                                                     <div className="small text-gray-500">Logout</div>
                                                 </div>

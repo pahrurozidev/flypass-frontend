@@ -43,6 +43,7 @@ export default function Routes() {
 
                 {/* admin */}
                 <Route path="/dashboard" element={<IsAdmin><DashboardAdmin /></IsAdmin>} />
+                <Route path="/dashboard/:id" element={<IsAdmin><DashboardAdmin /></IsAdmin>} />
                 <Route path="/customer" element={<IsAdmin><Customer /></IsAdmin>} />
                 <Route path="/customer/:id" element={<IsAdmin><Customer /></IsAdmin>} />
                 <Route path="/flight" element={<IsAdmin><Flight /></IsAdmin>} />

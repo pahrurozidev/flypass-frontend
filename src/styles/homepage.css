@@ -46,6 +46,8 @@ nav {
 
 .bell .nav-item .dropdown-menu {
     margin-left: -345px;
+    top: 180%;
+    left: 200px;
 }
 
 .bell .nav-item .dropdown-menu .dropdown-header {
@@ -55,6 +57,10 @@ nav {
 .dropdown-menu.home-page {
     top: 130%;
     left: 50%;
+}
+
+.dropdown-menu.home-page .logout {
+    cursor: pointer;
 }
 
 .flypass-logo {
