@@ -9,6 +9,7 @@ import { getTransaction, transaction, confirm, reject, getHistoryTransaction } f
 import { adminNotification, userNotification, updateNotification } from './notification';
 import { whoami } from './whoami';
 import { login } from './auth';
+import { getProfile } from './user';
 
 const flights = () => flight('v1/flights');
 const createFlight = (data) => addFlight('v1/flights', data);
@@ -42,8 +43,10 @@ const updateNotifications = (id) => updateNotification(`v1/notification/${id}`, 
 const whoAmI = () => whoami('v1/whoami');
 
 const signin = (user) => login('v1/login', user);
+const getProfiles = () => getProfile('v1/user');
 
 export const API = {
+    getProfiles,
     flights,
     createFlight,
     listBookings,
@@ -67,4 +70,5 @@ export const API = {
     signin,
     updateNotifications,
     getHistoryTransactions,
+
 }

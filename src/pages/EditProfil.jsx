@@ -14,15 +14,6 @@ class EditProfil extends Component {
     render() {
         return (
             <Fragment>
-                {/* <div className='d-flex'>
-                    <Sidebar />
-                        <div id='content-wrapper' className='d-flex flex-column'>
-                            <div id="content">
-                                <Navbar />
-                                <EditProfilPage />
-                            </div>
-                        </div>
-                </div> */}
                 <div>
                     <Sidebar />
                     <div>
