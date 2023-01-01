@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { redirect, useLocation, useNavigate } from 'react-router-dom';
+import { redirect, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-use-history'
 import { Link } from 'react-router-dom';
 import NavList from './NavList';
@@ -11,6 +11,7 @@ import moment from 'moment';
 import { io } from 'socket.io-client';
 
 export default function Navbar() {
+    const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation().pathname;
     const history = useHistory();
@@ -52,51 +53,59 @@ export default function Navbar() {
         }, []);
     }
 
-    if (location == '/' && token) {
-        // notificaiton | socket.io
-        // const socket = io('${import.meta.env.VITE_BASE_URL}');
+    // // notificaiton | socket.io
+    // if (location == '/' || location == `/search/flight/${id}` || location == `/search/flight/payment/${id}` && token) {
+    //     const socket = io(`${import.meta.env.VITE_BASE_URL}`);
 
-        // useEffect(() => {
-        //     if (admin) {
-        //         API.adminNotifications().then((notif) => {
-        //             setNotifications(notif);
-        //         })
-        //     } else {
-        //         API.userNotifications().then((notif) => {
-        //             setNotifications(notif);
-        //         })
-        //     }
+    //     useEffect(() => {
+    //         if (admin) {
+    //             API.adminNotifications().then((notif) => {
+    //                 setNotifications(notif);
+    //             })
+    //         } else {
+    //             API.userNotifications().then((notif) => {
+    //                 setNotifications(notif);
+    //             })
+    //         }
 
-        //     const notifs = notifications.filter((notifs) => notifs.isRead == false)
-        //     setParseNotif(notifs.reverse())
-        // })
+    //         const notifs = notifications.filter((notifs) => notifs.isRead == false)
+    //         setParseNotif(notifs.reverse())
+    //     })
 
-        // useEffect(() => {
-        //     API.whoAmI().then((user) => {
-        //         setUserId(user.id.toString());
-        //     })
+    //     useEffect(() => {
+    //         API.whoAmI().then((user) => {
+    //             setUserId(user.id.toString());
+    //         })
 
-        //     socket.on('connect', () => {
-        //         // console.log('connected');
-        //     });
-        //     socket.emit('connected', admin ? 'admin' : userId);
-        // }, [count, notifications]);
+    //         socket.on('connect', () => {
+    //             console.log('connected');
+    //         });
+    //         socket.emit('connected', admin ? 'admin' : userId);
+    //     }, [count, notifications]);
 
-        // // user
-        // socket.on('notif-to-user', (newNotif) => {
-        //     setcount(count + 1);
-        //     setNotifications([newNotif, ...notifications]);
-        // });
-    }
+    //     socket.on(admin ? 'notif-to-admin' : 'notif-to-user', (newNotif) => {
+    //         setcount(count + 1);
+    //         setNotifications([newNotif, ...notifications]);
+    //     });
+    // }
 
-    const updateReadHandler = (id, message, bookingId) => {
-        API.updateNotifications(id).then((notif) => console.log(notif));
+    // const updateReadHandler = (id, message, bookingId) => {
+    //     API.updateNotifications(id).then((notif) => console.log(notif));
 
-        if (message == 'Waiting for payment') {
-            history.push(`/search/flight/payment/${bookingId}`);
-        }
-    };
-    // notificaiton | socket.io
+    //     if (admin) {
+    //         API.transactionsGet().then((transactions) => {
+    //             const transaction = transactions.filter((t) => t.bookingId == bookingId);
+    //             navigate(`/transaction/${transaction[0].id}`);
+    //         })
+    //     } else {
+    //         if (message == 'Waiting for payment') {
+    //             navigate(`/search/flight/payment/${bookingId}`);
+    //         } else {
+    //             navigate(`/user/dashboard/notification/${bookingId}`);
+    //         }
+    //     }
+    // };
+    // // notificaiton | socket.io
 
     const onLogoutHandler = () => {
         localStorage.removeItem('token');
@@ -174,9 +183,13 @@ export default function Navbar() {
                                         <li>
                                             <hr className="dropdown-divider m-0" />
                                         </li>
-                                        <li>
-                                            <Link to={'/user/dashboard/notification'} className="dropdown-item small text-center py-3">Show All Notification</Link>
-                                        </li>
+                                        {admin ?
+                                            <li>
+                                                <Link to={'/dashboard/notification'} className="dropdown-item small text-center py-3">Show All Notification</Link>
+                                            </li> :
+                                            <li>
+                                                <Link to={'/user/dashboard/notification'} className="dropdown-item small text-center py-3">Show All Notification</Link>
+                                            </li>}
                                     </ul>
 
                                 </div>

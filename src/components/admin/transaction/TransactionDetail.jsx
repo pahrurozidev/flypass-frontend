@@ -14,40 +14,41 @@ export default function CustomerDetail() {
     const [btnShow, setBtnShow] = useState(false);
 
     useEffect(() => {
+        API.listBookings().then((bookings) => {
+            const bookingID = bookings.filter(flight => flight.id == id)
+            setCustomer(bookingID);
+            setShow(true);
+        });
+
         API.transactionsGet().then((transaction) => {
-            const IdFilter = transaction.filter(payment => payment.id == id)
+            const IdFilter = transaction.filter(payment => payment.bookingId == id)
             setDetailTransaction(IdFilter);
-            API.listBookings().then((bookings) => {
-                const bookingID = bookings.filter(flight => flight.id == IdFilter[0].bookingId)
-                setCustomer(bookingID);
-                setShow(true);
-            });
         });
     }, [])
 
     const handleConfirm = () => {
-        API.confirmPayment(id).then(res => {
+        API.confirmPayment(detailTransaction[0].id).then(res => {
             swal({
                 title: "Confirm Payment Succeessfully!",
                 text: "",
                 icon: "success",
                 button: "Ok!",
             });
+            navigate('/transaction');
         })
 
-        navigate('/transaction');
     }
 
     const handleReject = () => {
-        API.rejectPayment(id).then(res => {
+        API.rejectPayment(detailTransaction[0].id).then(res => {
             swal({
                 title: "Reject Payment Succeessfully!",
                 text: "",
                 icon: "success",
                 button: "Ok!",
             });
+            navigate('/transaction');
         })
-        navigate('/transaction');
     }
 
     return (

@@ -13,9 +13,7 @@ export default function ListBooking() {
             setAllBookings(res);
         });
     }, [])
-
-    console.log(allBookings)
-
+    
     return (
         <>
             {/* header label */}

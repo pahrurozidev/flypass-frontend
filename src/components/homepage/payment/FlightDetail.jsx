@@ -183,7 +183,7 @@ function FlightDetail({ bookings }) {
             book.passenger[0].baggage !== [""]) {
 
             API.book(book).then((booking) => {
-                console.log(booking);
+                console.log(booking.data);
 
                 bookings(booking);
                 if (booking.data) {

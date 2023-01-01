@@ -1131,3 +1131,11 @@ td {
     bottom: 10px !important;
     /* right: 5px !important; */
 }
+
+.alert-paid {
+    background: rgb(124, 249, 124);
+}
+
+.status_col .alert {
+    width: 90px !important;
+}
