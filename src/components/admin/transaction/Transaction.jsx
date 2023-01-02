@@ -12,7 +12,7 @@ export default function Transaction({ showSidebarDispatch }) {
         <div>
             <Sidebar />
             <div>
-                <Navbar showSidebarDispatch={showSidebarDispatch} />
+                <Navbar />
                 <div className="main-container">
                     {id && <TransactionDetail />}
                     {!id && <TransactionList />}
