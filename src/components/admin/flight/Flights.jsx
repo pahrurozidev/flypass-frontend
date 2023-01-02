@@ -18,10 +18,10 @@ function Flights() {
             <div>
                 <Navbar />
                 <div className="main-container">
-                    {id && <FlightDetail />}
+                    {(location === `/flight/${id}`) && <FlightDetail />}
                     {(location === '/flight') ? <FlightList /> :
                         (location === '/flight/create') ? <CreateFlight /> :
-                            (location === '/flight/update') ? <UpdateFlight /> : ''}
+                            (location === `/flight/update/${id}`) ? <UpdateFlight /> : ''}
                 </div>
             </div>
         </div>

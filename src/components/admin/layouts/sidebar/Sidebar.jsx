@@ -4,9 +4,21 @@ import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
 import Logo from '../../../../assets/dasboard-admin/Logo.svg';
 import { NavLink, Link } from 'react-router-dom';
 import { actionType } from '../../../../redux/reducer/globalActionType';
-import sidebarLink from '../../../../assets/sidebarLink';
+import AdminSidebarLink from '../../../../assets/adminSidebarLink';
+
 
 class Sidebar extends Component {
+
+    onLogoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/login')
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
+
+    }
+
     render() {
         return (
             <ul className={`nav flex-column border-end sidebar 
@@ -24,7 +36,7 @@ class Sidebar extends Component {
                         onClick={this.props.hideSidebarDispatch} />
 
                 </div>
-                {sidebarLink.map((item, index) => (
+                {AdminSidebarLink.map((item, index) => (
                     <li className={`nav-item list-sidebar ${(this.props.showSidebarProps && `show-nav-item`)}`} key={index}>
                         <NavLink to={item.path} className={(navClass) => navClass.isActive ? "active nav-link" : "nav-link"}>
                             <i className={item.icon}></i>
@@ -33,10 +45,10 @@ class Sidebar extends Component {
                     </li>
                 ))}
                 <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                    <a className="nav-link link-sidebar" href="#">
+                    <Link to={'/login'} className="nav-link link-sidebar" onClick={() => this.onLogoutHandler()}>
                         <LogoutCurve size={20} />
                         <span>Logout</span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         )

@@ -223,7 +223,7 @@
     }
 
     .container.table-transaction .table tbody tr td.td_action {
-        border-bottom: 0;
+        border-bottom: 0 !important;
     }
 }
 

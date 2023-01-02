@@ -14,6 +14,16 @@ const sidebarLink = [
         icon: 'bi bi-airplane',
         display: 'Flight',
     },
+    {
+        path: '/transaction',
+        icon: 'bi bi-receipt',
+        display: 'Transaction',
+    },
+    {
+        path: '/notification',
+        icon: 'bi bi-bell',
+        display: 'Notification',
+    }
 ];
 
 export default sidebarLink;

@@ -1,23 +1,26 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Sidebar from '../layouts/sidebar/Sidebar';
-import Navbar from '../layouts/navbar/Navbar';
+import React from "react";
+import { useParams } from "react-router-dom";
+import Sidebar from '../../admin/layouts/sidebar/sidebaruser'
+import Navbar from '../layouts/navbar/Navbar'
 import TransactionList from './TransactionList';
 import TransactionDetail from './TransactionDetail';
 
-export default function Customers() {
+function Transaction({ showSidebarDispatch }) {
     const { id } = useParams();
 
     return (
-        <div className="d-flex">
+        <div>
             <Sidebar />
-            <div id="content-wrapper" className="d-flex flex-column">
-                <div id="content">
-                    <Navbar />
-                    {id && <TransactionDetail />}
+            <div>
+                <Navbar showSidebarDispatch={showSidebarDispatch} />
+                <div className='main-container'>
                     {!id && <TransactionList />}
+                    {id && <TransactionDetail />}
                 </div>
             </div>
         </div>
-    );
+    )
 }
+
+
+export default Transaction;

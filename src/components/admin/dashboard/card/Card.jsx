@@ -1,10 +1,14 @@
-import React from 'react'
-import ListBooking from '../listBooking/ListBooking'
+import React from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+import ListBooking from '../listBooking/ListBooking';
+import BookingDetail from '../../customers/CustomerDetail';
 
 export default function Card() {
+    const location = useLocation().pathname;
+    const { id } = useParams();
+
     return (
         <>
- 
             {/* header label */}
             <div className='border rounded p-3 pb-md-1'>
                 <h2 className='fs-4'>Selamat Datang, Admin</h2>
@@ -12,7 +16,8 @@ export default function Card() {
             </div>
 
             <div className="card p-3 mt-3">
-                <ListBooking />
+                {(location === `/dashboard/detail/${id}`) && <BookingDetail />}
+                {(location === '/dashboard') && <ListBooking />}
             </div>
         </>
     )

@@ -11,6 +11,8 @@ import { actionType } from '../redux/reducer/globalActionType';
 
 // style homepage
 import '../styles/homepage.css'
+import Searched from "../components/homepage/searched/Searched";
+import NotFound from "../components/homepage/notfound/NotFound";
 
 class Home extends Component {
     render() {
@@ -19,18 +21,14 @@ class Home extends Component {
                 <Navbar />
                 <Jumbotron />
                 <Search />
+                {(this.props.onSubmit && this.props.flights.length !== 0) ? <Searched /> :
+                    this.props.onSubmit && this.props.flights.length === 0 && <NotFound
+                        departureAlert={this.props.departureAlert}
+                        returnAlert={this.props.returnAlert} />}
                 <Service />
                 <Offer />
                 <Contact />
                 <Footer />
-
-                {/* example using redux */}
-                {/* <h4 className="text-primary fs-5">Tes Counter</h4>
-                <div className="counter">
-                    <button onClick={this.props.plusCounter}>+</button>
-                    <h3>{this.props.counter}</h3>
-                    <button onClick={this.props.minCounter}>-</button>
-                </div> */}
             </Fragment>
         )
     }
@@ -38,7 +36,10 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        flights: state.flights,
+        onSubmit: state.onSubmit,
+        departureAlert: state.departureAlert,
+        returnAlert: state.returnAlert,
     }
 }
 

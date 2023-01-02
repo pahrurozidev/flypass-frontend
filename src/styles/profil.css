@@ -1,0 +1,404 @@
+/* login */
+.login {
+    width: 520px;
+    height: 970px;
+    margin-top: 100px;
+    padding: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #DADCE3;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+.profil {
+    margin-top: -20px;
+    margin-left: 19.625rem;
+    margin-bottom: 100px;
+}
+
+.profil1 {
+    margin-left: 310px;
+    margin-top: 80px;
+    margin-bottom: -100px;
+}
+
+.arrowleft {
+    margin-top: 63px;
+    margin-left: 15.5rem;
+    margin-bottom: -160px;
+}
+
+.login .login-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 50px;
+}
+
+.login-detail p {
+    margin-left: 5px;
+    width: 300px;
+    font-size: 14px;
+}
+
+.login-detail hr {
+    border: 3px;
+    margin-top: -10px;
+    width: 400px;
+    margin-left: -0px;
+    margin-bottom: 2px;
+}
+
+.login-detail img {
+    width: 140px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 144px;
+}
+
+.login-detail button {
+    margin-left: -52px;
+    font-size: 20px;
+    height: 50px;
+    margin-top: 20px;
+    width: 450px;
+}
+
+
+.login-detail a {
+    text-decoration: none;
+    margin-left: 42px;
+}
+
+
+.login-detail h6 {
+    font-size: 16px;
+    width: 300px;
+
+}
+
+.login-detail h3 {
+    font-size: 20px;
+    margin-left: 160px;
+    margin-bottom: 40px;
+    width: 300px;
+
+}
+
+.login-detail h2 {
+    font-size: 20px;
+    margin-left: 148px;
+    margin-bottom: 30px;
+    width: 300px;
+
+}
+
+.login-detail h5 {
+    font-size: 21px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 300px;
+
+}
+
+.login-detail input {
+    margin-left: 40px;
+    width: 100px;
+
+}
+
+/* login */
+
+/* login */
+@media screen and (max-width: 1399px) {
+    .login {
+        width: 520px;
+        height: 670px;
+        margin-top: 40px;
+        padding: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid #DADCE3;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    
+    }
+
+    .profil {
+        margin-top: -20px;
+        margin-left: 19.625rem;
+        margin-bottom: -100px;
+    }
+
+    .login-detail input {
+        width: 350px;
+        margin-top: -100px;
+    }
+    
+
+    .login-detail2 input {
+        width: 350px;
+        margin-top: -100px;
+    }
+
+    .login-detail2 .name input {
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 1075px) {
+    .login {
+        width: 520px;
+        height: 670px;
+        margin-top: 40px;;
+        padding: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid #DADCE3;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    
+    }
+
+    .profil {
+        margin-top: -20px;
+        margin-left: 19.625rem;
+        margin-bottom: -100px;
+    }
+
+    .profil {
+        margin-top: 100px;
+        margin-left: 280px;
+        margin-bottom: -100px;
+    }
+    
+    .profil1 {
+        margin-left: 165px;
+        margin-top: 80px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 63px;
+        margin-left: 7.5rem;
+        margin-bottom: -160px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .login {
+        width: 520px;
+        height: 670px;
+        margin-top: 40px;;
+        padding: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid #DADCE3;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    
+    }
+
+    .login-detail button {
+        margin-left: -52px;
+        font-size: 20px;
+        height: 50px;
+        margin-top: 20px;
+        width: 450px;
+    }
+
+    .profil {
+        margin-top: -50px;
+        margin-left: 19.625rem;
+        margin-bottom: -100px;
+    }
+
+    .profil1 {
+        margin-left: 130px;
+        margin-top: 80px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 60px;
+        margin-left: 5.0rem;
+        margin-bottom: -160px;
+    }
+
+    .login {
+        height: 620px;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .login-detail a {
+        text-decoration: none;
+        margin-left: 15px;
+    }
+
+    .login-detail hr {
+        margin-top: -10px;
+        width: 400px;
+        margin-bottom: 2px;
+    }
+
+    .login-detail img {
+        width: 140px;
+        margin-top: -30px;
+        margin-bottom: 20px;
+        margin-left: 134px;
+    }
+
+    .login-detail2 .name input {
+        width: 400px;
+    }
+
+    .login-detail button {
+        margin-top: 20px;
+        width: 400px;
+    }
+
+    .login .login-detail2 {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    .login-detail2 input {
+        width: 400px;
+        margin-top: -100px;
+    }
+
+    .login-detail2 button {
+        margin-top: 20px;
+        width: 400px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .login {
+        width: 520px;
+        height: 670px;
+        margin-top: 40px;;
+        padding: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid #DADCE3;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    
+    }
+
+    .profil {
+        margin-top: -20px;
+        margin-left: 19.625rem;
+        margin-bottom: -100px;
+    }
+
+    .login-detail button {
+        margin-left: -25px;
+        font-size: 20px;
+        height: 50px;
+        margin-top: 20px;
+        width: 450px;
+    }
+
+    .profil {
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-bottom: -100px;
+    }
+
+}
+
+@media screen and (max-width: 666px) {
+    .profil1 {
+        margin-left: 50px;
+        margin-top: 80px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 49px;
+        margin-left: 0.8rem;
+        margin-bottom: -160px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .login {
+        width: 520px;
+        height: 670px;
+        margin-top: 40px;;
+        padding: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid #DADCE3;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    
+    }
+
+    .profil {
+        margin-top: -20px;
+        margin-left: 19.625rem;
+        margin-bottom: -100px;
+    }
+
+    .profil {
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-bottom: -100px;
+    }
+    
+    .profil1 {
+        margin-left: 60px;
+        margin-top: 80px;
+        margin-bottom: -100px;
+    }
+    
+    .arrowleft {
+        margin-top: 49px;
+        margin-left: 0.8rem;
+        margin-bottom: -160px;
+    }
+
+    .login .login-detail {
+        padding: 30px;
+    }
+
+    .login .login-detail2 {
+        padding: 30px;
+    }
+
+    .login-detail2 .name input {
+        width: 160px;
+    }
+}
+
+/* login us */

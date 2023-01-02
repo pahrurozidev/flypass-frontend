@@ -280,6 +280,7 @@ hr {
     color: rgba(0, 0, 0, 0.59);
     border: 1px solid #B9B9B9;
     border-radius: 59px;
+    margin-top: 18px;
 }
 
 .opsi-filter .btn-departure:hover,
@@ -289,10 +290,6 @@ hr {
     color: rgba(0, 0, 0, 0.7);
 }
 
-.opsi-filter .btn-booking,
-.opsi-filter .btn-date {
-    /* margin-left: 1.125rem; */
-}
 
 .container.list-booking {
     display: flex;
@@ -856,7 +853,7 @@ hr {
     }
 }
 
-.container.list-booking .booking-table .table thead th {
+.table.all-bookings thead th {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 21px;
@@ -864,52 +861,52 @@ hr {
     color: rgba(0, 0, 0, 0.59);
 }
 
-.booking-table .table>:not(caption)>*>* {
+.table.all-bookings>:not(caption)>*>* {
     padding: 1rem;
 }
 
-.booking-table .table tbody tr .line-flight {
+.table.all-bookings tbody tr .line-flight {
     width: 9.375rem;
 }
 
-.booking-table .table tbody {
+.booking-table tbody {
     vertical-align: middle;
 }
 
-.booking-table .table tbody tr .airlines {
+.table.all-bookings tbody tr .airlines {
     text-align: start;
 }
 
-.booking-table .table tbody tr .airlines img {
+.table.all-bookings tbody tr .airlines img {
     width: 2.688rem;
     height: 2.188rem;
 }
 
-.booking-table .table tbody tr .airlines span {
+.table.all-bookings tbody tr .airlines span {
     font-size: 0.875rem;
     line-height: 21px;
     color: #000;
     margin-left: 0.875rem;
 }
 
-.booking-table .table tbody tr .departure-from .departure-time,
-.booking-table .table tbody tr .arrival-to .arrival-time {
+.table.all-bookings tbody tr .departure-from .departure-time,
+.table.all-bookings tbody tr .arrival-to .arrival-time {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 20px;
     margin-bottom: 0;
 }
 
-.booking-table .table tbody tr .departure-from .from-flight,
-.booking-table .table tbody tr .arrival-to .to-flight,
-.booking-table .table tbody tr .duration .type-direct {
+.table.all-bookings tbody tr .departure-from .from-flight,
+.table.all-bookings tbody tr .arrival-to .to-flight,
+.table.all-bookings tbody tr .duration .type-direct {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 18px;
     color: #687176;
 }
 
-.booking-table .table tbody tr .duration .duration-flight {
+.table.all-bookings tbody tr .duration .duration-flight {
     font-size: 1rem;
     font-weight: 400;
     line-height: 24px;
@@ -917,8 +914,8 @@ hr {
     margin-bottom: 0.438rem;
 }
 
-.booking-table .table tbody tr .departure-date,
-.booking-table .table tbody tr .people {
+.table.all-bookings tbody tr .departure-date,
+.table.all-bookings tbody tr .people {
     margin-right: 3rem;
     font-size: 0.875rem;
     font-weight: 400;
@@ -930,11 +927,13 @@ hr {
     border: 0 !important;
 }
 
-@media screen and (max-width: 767px) {
-    .opsi-filter {
-        /* display: none; */
+@media screen and (max-width: 425px) {
+    .table.all-bookings tbody tr td {
+        border: 0 !important;
     }
+}
 
+@media screen and (max-width: 767px) {
     br.d-none {
         display: block !important;
     }
@@ -966,7 +965,7 @@ hr {
         color: #000;
     }
 
-    .booking-table .table tbody tr .airlines {
+    .table.all-bookings tbody tr .airlines {
         text-align: center;
     }
 
@@ -978,6 +977,10 @@ hr {
         display: block;
         width: 50%;
         float: left;
+    }
+
+    .table tbody tr td.action_detail {
+        width: 100%;
     }
 
     .table tbody tr th {
@@ -998,18 +1001,18 @@ hr {
         margin-bottom: 0;
     }
 
-    .booking-table .table tbody tr .departure-from .departure-time,
-    .booking-table .table tbody tr .arrival-to .arrival-time {
+    .table.all-bookings tbody tr .departure-from .departure-time,
+    .table.all-bookings tbody tr .arrival-to .arrival-time {
         line-height: 50px;
     }
 
-    .booking-table .table tbody tr .duration .duration-flight {
+    .table.all-bookings tbody tr .duration .duration-flight {
         line-height: 50px;
         margin-bottom: 0;
     }
 
-    .booking-table .table tbody tr .departure-date,
-    .booking-table .table tbody tr .people {
+    .table.all-bookings tbody tr .departure-date,
+    .table.all-bookings tbody tr .people {
         margin-right: 0;
     }
 }
@@ -1076,7 +1079,7 @@ hr {
     }
 
     .sidebar .arrow-left-circle {
-        display: none;
+        display: none !important;
     }
 
     .sidebar .nav-item {
@@ -1121,4 +1124,18 @@ td {
     gap: 10px;
 
     flex-wrap: wrap !important;
+}
+
+.show-all-booking-btn {
+    font-size: 14px;
+    bottom: 10px !important;
+    /* right: 5px !important; */
+}
+
+.alert-paid {
+    background: rgb(124, 249, 124);
+}
+
+.status_col .alert {
+    width: 90px !important;
 }

@@ -1,12 +1,38 @@
-import React from 'react';
-import { LogoutCurve } from 'iconsax-react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { LogoutCurve, ArrowCircleLeft } from 'iconsax-react';
+import Logo from '../../../../assets/dasboard-admin/Logo.svg';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { actionType } from '../../../../redux/reducer/globalActionType';
+import UserSidebarLink from '../../../../assets/UserSidebarLink';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+import { useHistory } from 'react-router-use-history';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../../../assets/dasboard-admin/Logo.svg';
-import { NavLink, Link } from 'react-router-dom';
-import UserSidebarLink from '../../../../assets/UserSidebarLink';
 
 export default function Sidebar() {
+    const history = useHistory();
+    const navigate = useNavigate();
+
+    const Logout = async () => {
+        try {
+            await axios.delete(`${import.meta.env.VITE_BASE_URL}/v1/logout`)
+            history.push("/login")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const onLogoutHandler = () => {
+        localStorage.removeItem('token');
+        navigate('/login')
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
+    }
+
     return (
         <ul className="nav flex-column border-end sidebar">
             <Link to={"/"} className="d-flex align-items-center mx-auto mt-3 text-decoration-none">
@@ -23,11 +49,12 @@ export default function Sidebar() {
                 </li>
             ))}
             <li className="nav-item list-sidebar mt-auto pb-3 bd-highlight">
-                <a className="nav-link link-sidebar" href="#">
+                <Link to={'/login'} className="nav-link link-sidebar" onClick={() => onLogoutHandler()}>
                     <LogoutCurve size={20} />
-                    <span>Logout</span>
-                </a>
+                    <span onClick={Logout}>Logout</span>
+                </Link>
             </li>
         </ul>
     );
 }
+

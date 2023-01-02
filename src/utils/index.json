@@ -1,0 +1,3176 @@
+{
+    "flights": [
+        {
+            "id": 1,
+            "flightCode": "GA-540",
+            "departureDate": "2022-12-19",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-19",
+            "arrivalTime": "12:50:00",
+            "duration": "01:30:00",
+            "price": 1000000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 2,
+            "flightCode": "GA-959",
+            "departureDate": "2022-12-28",
+            "departureTime": "10:20:00",
+            "arrivalDate": "2022-12-28",
+            "arrivalTime": "12:05:00",
+            "duration": "01:45:00",
+            "price": 600000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 3,
+            "flightCode": "GA-282",
+            "departureDate": "2022-12-30",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-30",
+            "arrivalTime": "02:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 4,
+            "flightCode": "GA-144",
+            "departureDate": "2022-12-23",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-23",
+            "arrivalTime": "12:35:00",
+            "duration": "01:15:00",
+            "price": 1000000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 5,
+            "flightCode": "GA-419",
+            "departureDate": "2022-12-17",
+            "departureTime": "08:20:00",
+            "arrivalDate": "2022-12-17",
+            "arrivalTime": "09:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 6,
+            "flightCode": "GA-200",
+            "departureDate": "2022-12-18",
+            "departureTime": "03:20:00",
+            "arrivalDate": "2022-12-18",
+            "arrivalTime": "04:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 19,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 7,
+            "flightCode": "GA-128",
+            "departureDate": "2022-12-12",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-12",
+            "arrivalTime": "12:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 8,
+            "flightCode": "GA-121",
+            "departureDate": "2022-12-28",
+            "departureTime": "10:20:00",
+            "arrivalDate": "2022-12-28",
+            "arrivalTime": "12:05:00",
+            "duration": "01:45:00",
+            "price": 1000000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 9,
+            "flightCode": "GA-547",
+            "departureDate": "2022-12-11",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-11",
+            "arrivalTime": "03:35:00",
+            "duration": "01:15:00",
+            "price": 900000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 10,
+            "flightCode": "GA-929",
+            "departureDate": "2022-12-27",
+            "departureTime": "10:20:00",
+            "arrivalDate": "2022-12-27",
+            "arrivalTime": "11:35:00",
+            "duration": "01:15:00",
+            "price": 600000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 11,
+            "flightCode": "GA-366",
+            "departureDate": "2022-12-22",
+            "departureTime": "06:20:00",
+            "arrivalDate": "2022-12-22",
+            "arrivalTime": "07:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 12,
+            "flightCode": "GA-220",
+            "departureDate": "2022-12-20",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-20",
+            "arrivalTime": "10:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 13,
+            "flightCode": "GA-435",
+            "departureDate": "2022-12-21",
+            "departureTime": "06:20:00",
+            "arrivalDate": "2022-12-21",
+            "arrivalTime": "07:50:00",
+            "duration": "01:30:00",
+            "price": 800000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 14,
+            "flightCode": "GA-457",
+            "departureDate": "2022-12-09",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-09",
+            "arrivalTime": "01:05:00",
+            "duration": "01:45:00",
+            "price": 700000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 15,
+            "flightCode": "GA-166",
+            "departureDate": "2023-01-02",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2023-01-02",
+            "arrivalTime": "05:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 16,
+            "flightCode": "GA-437",
+            "departureDate": "2022-12-14",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-14",
+            "arrivalTime": "10:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 17,
+            "flightCode": "GA-007",
+            "departureDate": "2022-12-22",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-22",
+            "arrivalTime": "05:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 18,
+            "flightCode": "GA-102",
+            "departureDate": "2023-01-01",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2023-01-01",
+            "arrivalTime": "10:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 19,
+            "flightCode": "GA-471",
+            "departureDate": "2022-12-14",
+            "departureTime": "07:20:00",
+            "arrivalDate": "2022-12-14",
+            "arrivalTime": "08:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 24,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 20,
+            "flightCode": "GA-858",
+            "departureDate": "2022-12-09",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-09",
+            "arrivalTime": "03:05:00",
+            "duration": "01:45:00",
+            "price": 1300000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 21,
+            "flightCode": "GA-523",
+            "departureDate": "2022-12-24",
+            "departureTime": "07:20:00",
+            "arrivalDate": "2022-12-24",
+            "arrivalTime": "08:35:00",
+            "duration": "01:15:00",
+            "price": 1400000,
+            "baggage": 24,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 22,
+            "flightCode": "GA-024",
+            "departureDate": "2022-12-25",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-25",
+            "arrivalTime": "05:35:00",
+            "duration": "01:15:00",
+            "price": 1000000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 23,
+            "flightCode": "GA-912",
+            "departureDate": "2022-12-09",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-09",
+            "arrivalTime": "02:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 24,
+            "flightCode": "GA-880",
+            "departureDate": "2022-12-23",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-23",
+            "arrivalTime": "03:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 25,
+            "flightCode": "GA-436",
+            "departureDate": "2022-12-30",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-30",
+            "arrivalTime": "05:50:00",
+            "duration": "01:30:00",
+            "price": 800000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 26,
+            "flightCode": "GA-123",
+            "departureDate": "2022-12-29",
+            "departureTime": "07:20:00",
+            "arrivalDate": "2022-12-29",
+            "arrivalTime": "09:05:00",
+            "duration": "01:45:00",
+            "price": 500000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 27,
+            "flightCode": "GA-955",
+            "departureDate": "2022-12-14",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-14",
+            "arrivalTime": "10:35:00",
+            "duration": "01:15:00",
+            "price": 1100000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 28,
+            "flightCode": "GA-783",
+            "departureDate": "2022-12-29",
+            "departureTime": "08:20:00",
+            "arrivalDate": "2022-12-29",
+            "arrivalTime": "09:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 19,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 29,
+            "flightCode": "GA-609",
+            "departureDate": "2022-12-18",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-18",
+            "arrivalTime": "02:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 30,
+            "flightCode": "GA-929",
+            "departureDate": "2023-01-01",
+            "departureTime": "06:20:00",
+            "arrivalDate": "2023-01-01",
+            "arrivalTime": "07:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 31,
+            "flightCode": "GA-276",
+            "departureDate": "2022-12-31",
+            "departureTime": "03:20:00",
+            "arrivalDate": "2022-12-31",
+            "arrivalTime": "04:50:00",
+            "duration": "01:30:00",
+            "price": 900000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 32,
+            "flightCode": "GA-057",
+            "departureDate": "2022-12-27",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-27",
+            "arrivalTime": "04:05:00",
+            "duration": "01:45:00",
+            "price": 1100000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 33,
+            "flightCode": "GA-850",
+            "departureDate": "2022-12-23",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-23",
+            "arrivalTime": "02:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 34,
+            "flightCode": "GA-985",
+            "departureDate": "2022-12-09",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-09",
+            "arrivalTime": "02:35:00",
+            "duration": "01:15:00",
+            "price": 800000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 35,
+            "flightCode": "GA-549",
+            "departureDate": "2022-12-16",
+            "departureTime": "05:20:00",
+            "arrivalDate": "2022-12-16",
+            "arrivalTime": "06:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 36,
+            "flightCode": "GA-873",
+            "departureDate": "2022-12-16",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-16",
+            "arrivalTime": "12:50:00",
+            "duration": "01:30:00",
+            "price": 800000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 37,
+            "flightCode": "GA-479",
+            "departureDate": "2022-12-17",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-17",
+            "arrivalTime": "02:50:00",
+            "duration": "01:30:00",
+            "price": 1100000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 38,
+            "flightCode": "GA-420",
+            "departureDate": "2022-12-30",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-30",
+            "arrivalTime": "04:05:00",
+            "duration": "01:45:00",
+            "price": 1000000,
+            "baggage": 19,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 39,
+            "flightCode": "GA-255",
+            "departureDate": "2022-12-28",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-28",
+            "arrivalTime": "05:35:00",
+            "duration": "01:15:00",
+            "price": 600000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 40,
+            "flightCode": "GA-385",
+            "departureDate": "2023-01-03",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2023-01-03",
+            "arrivalTime": "02:35:00",
+            "duration": "01:15:00",
+            "price": 1300000,
+            "baggage": 17,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 41,
+            "flightCode": "GA-053",
+            "departureDate": "2022-12-27",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-27",
+            "arrivalTime": "10:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 42,
+            "flightCode": "GA-715",
+            "departureDate": "2022-12-17",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-17",
+            "arrivalTime": "03:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 43,
+            "flightCode": "GA-402",
+            "departureDate": "2022-12-08",
+            "departureTime": "03:20:00",
+            "arrivalDate": "2022-12-08",
+            "arrivalTime": "04:50:00",
+            "duration": "01:30:00",
+            "price": 1200000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 44,
+            "flightCode": "GA-269",
+            "departureDate": "2022-12-22",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-22",
+            "arrivalTime": "03:05:00",
+            "duration": "01:45:00",
+            "price": 1400000,
+            "baggage": 24,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 45,
+            "flightCode": "GA-086",
+            "departureDate": "2022-12-20",
+            "departureTime": "08:20:00",
+            "arrivalDate": "2022-12-20",
+            "arrivalTime": "09:35:00",
+            "duration": "01:15:00",
+            "price": 700000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 46,
+            "flightCode": "GA-346",
+            "departureDate": "2022-12-10",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-10",
+            "arrivalTime": "10:35:00",
+            "duration": "01:15:00",
+            "price": 800000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 47,
+            "flightCode": "GA-495",
+            "departureDate": "2022-12-17",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-17",
+            "arrivalTime": "12:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 48,
+            "flightCode": "GA-596",
+            "departureDate": "2022-12-13",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-13",
+            "arrivalTime": "03:50:00",
+            "duration": "01:30:00",
+            "price": 1200000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 49,
+            "flightCode": "GA-642",
+            "departureDate": "2022-12-10",
+            "departureTime": "08:20:00",
+            "arrivalDate": "2022-12-10",
+            "arrivalTime": "09:50:00",
+            "duration": "01:30:00",
+            "price": 500000,
+            "baggage": 22,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 50,
+            "flightCode": "GA-215",
+            "departureDate": "2023-01-05",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2023-01-05",
+            "arrivalTime": "01:05:00",
+            "duration": "01:45:00",
+            "price": 1100000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 51,
+            "flightCode": "GA-616",
+            "departureDate": "2022-12-18",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-18",
+            "arrivalTime": "05:35:00",
+            "duration": "01:15:00",
+            "price": 800000,
+            "baggage": 21,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 52,
+            "flightCode": "GA-854",
+            "departureDate": "2022-12-24",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-24",
+            "arrivalTime": "03:35:00",
+            "duration": "01:15:00",
+            "price": 500000,
+            "baggage": 24,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 53,
+            "flightCode": "GA-323",
+            "departureDate": "2022-12-07",
+            "departureTime": "04:20:00",
+            "arrivalDate": "2022-12-07",
+            "arrivalTime": "05:50:00",
+            "duration": "01:30:00",
+            "price": 1400000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 54,
+            "flightCode": "GA-671",
+            "departureDate": "2022-12-26",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-26",
+            "arrivalTime": "10:50:00",
+            "duration": "01:30:00",
+            "price": 500000,
+            "baggage": 19,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 55,
+            "flightCode": "GA-147",
+            "departureDate": "2022-12-18",
+            "departureTime": "02:20:00",
+            "arrivalDate": "2022-12-18",
+            "arrivalTime": "03:50:00",
+            "duration": "01:30:00",
+            "price": 1200000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 56,
+            "flightCode": "GA-162",
+            "departureDate": "2022-12-25",
+            "departureTime": "11:20:00",
+            "arrivalDate": "2022-12-25",
+            "arrivalTime": "01:05:00",
+            "duration": "01:45:00",
+            "price": 1100000,
+            "baggage": 17,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5793,
+                "iata": "DPS",
+                "name": "Ngurah Rai (Bali) International Airport",
+                "city": "Denpasar-Bali Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 57,
+            "flightCode": "GA-095",
+            "departureDate": "2022-12-10",
+            "departureTime": "09:20:00",
+            "arrivalDate": "2022-12-10",
+            "arrivalTime": "10:35:00",
+            "duration": "01:15:00",
+            "price": 1300000,
+            "baggage": 23,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 58,
+            "flightCode": "GA-091",
+            "departureDate": "2022-12-09",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2022-12-09",
+            "arrivalTime": "02:35:00",
+            "duration": "01:15:00",
+            "price": 900000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5798,
+                "iata": "YIA",
+                "name": "Yogyakarta International Airport",
+                "city": "Yogyakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 59,
+            "flightCode": "GA-279",
+            "departureDate": "2022-12-29",
+            "departureTime": "03:20:00",
+            "arrivalDate": "2022-12-29",
+            "arrivalTime": "04:50:00",
+            "duration": "01:30:00",
+            "price": 1300000,
+            "baggage": 20,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 60,
+            "flightCode": "GA-576",
+            "departureDate": "2023-01-02",
+            "departureTime": "01:20:00",
+            "arrivalDate": "2023-01-02",
+            "arrivalTime": "02:50:00",
+            "duration": "01:30:00",
+            "price": 1000000,
+            "baggage": 16,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 5780,
+                "iata": "UPG",
+                "name": "Hasanuddin International Airport",
+                "city": "Ujung Pandang-Celebes Island",
+                "country": "ID"
+            },
+            "arrivalAirport": {
+                "id": 5945,
+                "iata": "CGK",
+                "name": "Soekarno-Hatta International Airport",
+                "city": "Jakarta",
+                "country": "ID"
+            }
+        },
+        {
+            "id": 61,
+            "flightCode": "GA-300",
+            "departureDate": "2022-12-27",
+            "departureTime": "12:05:00",
+            "arrivalDate": "2022-12-27",
+            "arrivalTime": "16:00:00",
+            "duration": "03:55:00",
+            "price": 3500000,
+            "baggage": 15,
+            "isAvailable": true,
+            "Airline": {
+                "id": 1,
+                "iata": "GA",
+                "name": "Garuda Indonesia",
+                "image": "https://res.cloudinary.com/dixlrulen/image/upload/v1669693848/airlines/u0he6bwcqwyplhmbvr6a.png",
+                "imageId": null,
+                "createdAt": "2022-12-22T06:20:04.561Z",
+                "updatedAt": "2022-12-22T06:20:04.561Z"
+            },
+            "Airplane": {
+                "id": 1,
+                "icao": "A35K",
+                "model": "Airbus A350-1000",
+                "createdAt": "2022-12-22T06:20:04.521Z",
+                "updatedAt": "2022-12-22T06:20:04.521Z"
+            },
+            "FlightClass": {
+                "id": 1,
+                "name": "Economy",
+                "createdAt": "2022-12-22T06:20:04.222Z",
+                "updatedAt": "2022-12-22T06:20:04.222Z"
+            },
+            "FlightType": {
+                "id": 1,
+                "name": "Domestic"
+            },
+            "departureAirport": {
+                "id": 1,
+                "iata": "ICY",
+                "name": "Icy Bay Airport",
+                "city": "Icy Bay",
+                "country": "US"
+            },
+            "arrivalAirport": {
+                "id": 2,
+                "iata": "HGZ",
+                "name": "Hog River Airport",
+                "city": "Hogatza",
+                "country": "US"
+            }
+        }
+    ]
+}

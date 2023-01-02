@@ -43,7 +43,9 @@ export default function Offer() {
                     <br />
                     with the best experience.
                 </p>
+                <a href="/#/register">
                 <button type="submit" className='shadow'>Register Account</button>
+                </a>
             </div>
         </section>
     );

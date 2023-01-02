@@ -179,6 +179,10 @@ section h5 {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.customer-body {
+    height: 106px;
+}
+
 .customer-detail-button {
     margin: auto !important;
     width: 100%;
