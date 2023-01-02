@@ -70,7 +70,7 @@ export default function Navbar() {
 
             const notifs = notifications.filter((notifs) => notifs.isRead == false)
             setParseNotif(notifs.reverse())
-        })
+        }, [])
 
         useEffect(() => {
             API.whoAmI().then((user) => {
