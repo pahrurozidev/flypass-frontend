@@ -13,9 +13,10 @@ export default function CustomerDetail() {
         API.listBookings().then((bookings) => {
             const filterID = bookings.filter(flight => flight.id == id)
             setDetailCustomer(filterID);
-            console.log(filterID);
         });
     }, [])
+
+    console.log(detailCustomer);
 
     setTimeout(() => {
         setShow(true);
@@ -86,186 +87,185 @@ export default function CustomerDetail() {
                                             </div>
                                         </div>
                                     </section>
-                                    {
-                                        detailCustomer[0].roundtrip ?
-                                            <section className='card p-3'>
-                                                <h5 className='border-bottom pb-2'>Flight Schedule</h5>
-                                                <div className='data-list'>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Time</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Duration</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.duration.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airport</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airplane</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.Airplane.model}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Booking Code</p>
-                                                            <p className='data-item__value'>: <b>{detailCustomer[0].bookingCode.toUpperCase()}</b></p>
-                                                        </div>
+                                    {detailCustomer[0].roundtrip ?
+                                        <section className='card p-3'>
+                                            <h5 className='border-bottom pb-2'>Departure Flight</h5>
+                                            <div className='data-list'>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.city}</p>
                                                     </div>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Time</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Flight Type</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.FlightType.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airline</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight1.Airline.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Passenger / Class</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight1.FlightClass.name}</p>
-                                                        </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Time</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Duration</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.duration.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airport</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airplane</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.Airplane.model}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Booking Code</p>
+                                                        <p className='data-item__value'>: <b>{detailCustomer[0].bookingCode.toUpperCase()}</b></p>
                                                     </div>
                                                 </div>
-                                                <h5 className='border-bottom border-top py-2'>Return Flight Schedule</h5>
-                                                <div className='data-list'>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.departureAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.departureDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Time</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Duration</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.duration.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airport</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.departureAirport.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airplane</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.Airplane.model}</p>
-                                                        </div>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalAirport.city}</p>
                                                     </div>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.arrivalAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.arrivalDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Time</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight2.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Flight Type</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight2.FlightType.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airline</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight2.Airline.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Passenger / Class</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight2.FlightClass.name}</p>
-                                                        </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Time</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Flight Type</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.FlightType.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airline</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight1.Airline.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Passenger / Class</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight1.FlightClass.name}</p>
                                                     </div>
                                                 </div>
-                                            </section>
-                                            :
-                                            <section className='card p-3'>
-                                                <h5 className='border-bottom pb-2'>Flight Schedule</h5>
-                                                <div className='data-list'>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Departure Time</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Duration</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.duration.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airport</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airplane</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.Airplane.model}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Booking Code</p>
-                                                            <p className='data-item__value'>: <b>{detailCustomer[0].bookingCode.toUpperCase()}</b></p>
-                                                        </div>
+                                            </div>
+                                            <h5 className='border-bottom pb-2 pt-3'>Return Flight</h5>
+                                            <div className='data-list'>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.departureAirport.city}</p>
                                                     </div>
-                                                    <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalAirport.city}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Date</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalDate}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Arrival Time</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Flight Type</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].flight1.FlightType.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Airline</p>
-                                                            <p className='data-item__value'> : {detailCustomer[0].flight1.Airline.name}</p>
-                                                        </div>
-                                                        <div className='data-item'>
-                                                            <p className='data-item__name'>Passenger / Class</p>
-                                                            <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight1.FlightClass.name}</p>
-                                                        </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.departureDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Time</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Duration</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.duration.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airport</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.departureAirport.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airplane</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.Airplane.model}</p>
                                                     </div>
                                                 </div>
-                                            </section>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.arrivalAirport.city}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.arrivalDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Time</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight2.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Flight Type</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight2.FlightType.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airline</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight2.Airline.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Passenger / Class</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight2.FlightClass.name}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        :
+                                        <section className='card p-3'>
+                                            <h5 className='border-bottom pb-2'>Flight Schedule</h5>
+                                            <div className='data-list'>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.city}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Departure Time</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Duration</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.duration.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airport</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.departureAirport.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airplane</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.Airplane.model}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Booking Code</p>
+                                                        <p className='data-item__value'>: <b>{detailCustomer[0].bookingCode.toUpperCase()}</b></p>
+                                                    </div>
+                                                </div>
+                                                <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalAirport.city}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Date</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.arrivalDate}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Arrival Time</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight1.departureTime.slice(0, -3)}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Flight Type</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].flight1.FlightType.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Airline</p>
+                                                        <p className='data-item__value'> : {detailCustomer[0].flight1.Airline.name}</p>
+                                                    </div>
+                                                    <div className='data-item'>
+                                                        <p className='data-item__name'>Passenger / Class</p>
+                                                        <p className='data-item__value'>: {detailCustomer[0].passengerQty} Passenger, {detailCustomer[0].flight1.FlightClass.name}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
                                     }
                                     <section className='card p-3'>
                                         <h5 className='border-bottom pb-2'>Payment</h5>

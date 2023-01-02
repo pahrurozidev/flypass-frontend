@@ -18,7 +18,8 @@ export default function Card() {
                 Authorization: `Bearer ${token}`
             }
         }).then((res) => {
-            setAllBookings(res.data.booking);
+            const booking = res.data.booking.filter((booking) => booking.BookingStatus.name == 'Completed');
+            setAllBookings(booking);
         })
     }, []);
 
