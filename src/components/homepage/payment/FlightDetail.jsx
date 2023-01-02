@@ -72,6 +72,7 @@ function FlightDetail({ bookings }) {
         API.flightDetail(flights.length === 2 ? departureFlightId : id).then((flights) => {
             setFlight(flights);
             setPrice(flights.price);
+            setShow(true);
         })
 
         flights.length === 2 && API.flightDetail(returnFlightId).then((flights) => {
@@ -182,7 +183,7 @@ function FlightDetail({ bookings }) {
             book.passenger[0].baggage !== [""]) {
 
             API.book(book).then((booking) => {
-                console.log(booking);
+                console.log(booking.data);
 
                 bookings(booking);
                 if (booking.data) {
@@ -217,17 +218,12 @@ function FlightDetail({ bookings }) {
         })
     }
 
-    setTimeout(() => {
-        setShow(true);
-
-    }, 3000);
-
-    API.wishlists().then((flights) => {
-        if (JSON.stringify(flights) != 'null') {
-            const wishFlight = flights.filter((f) => f.id === flight.id);
-            wishFlight.length !== 0 && setWishStatus(true);
-        }
-    })
+    // API.wishlists().then((flights) => {
+    //     if (JSON.stringify(flights) != 'null') {
+    //         const wishFlight = flights.filter((f) => f.id === flight.id);
+    //         wishFlight.length !== 0 && setWishStatus(true);
+    //     }
+    // })
 
     return (
         <div>

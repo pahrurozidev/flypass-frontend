@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const Register = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/register`,{
+            await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/register`, {
                 email: email,
                 password: password,
                 confirmationPassword: confirmationPassword,
@@ -47,7 +47,7 @@ export default function RegisterPage() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                     <p className='text-center'>{msg}</p>
-                    <form onSubmit={ Register } className='px-5 pb-4'>
+                    <form onSubmit={Register} className='px-5 pb-4'>
                         <ul className='p-0'>
                             <li>
                                 <label htmlFor="email">Email</label>
@@ -71,8 +71,8 @@ export default function RegisterPage() {
                             </li>
                             <li>
                                 <label htmlFor="gender">Gender</label>
-                                <select className='form-control' type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{width:"460px", height:"45px"}}>
-                                    <option value="">Male / Female</option>
+                                <select className='form-control' type="gender" name='gender' value={gender} onChange={(e) => setGender(e.target.value)} style={{ height: "45px" }}>
+                                    <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -82,7 +82,7 @@ export default function RegisterPage() {
                                 <input type="phone" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
                             </li>
                             <li>
-                                <input type="submit" name='submit' value='Register' className='shadow text-white mt-4' style={{backgroundColor:"blue"}}/>                                   
+                                <input type="submit" name='submit' value='Register' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
                                 <div className="pt-3 text-center">
                                     Already have account?
                                     <Link to={'/login'}>

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { API } from '../../../services';
-import NotFound from '../../homepage/notfound/NotFound';
+import NotFound from '../../../components/notfound/NotFound';
 
 export default function NotifCard() {
 
@@ -19,9 +19,12 @@ export default function NotifCard() {
     }, [])
 
     const onShowNotificationHandler = (notifId, message, bookingId, isRead) => {
+        API.updateNotifications(notifId).then((res) => console.log(res))
+        
         if (message == 'Waiting for payment') {
-            API.updateNotifications(notifId).then((res) => console.log(res))
             navigate(`/search/flight/payment/${bookingId}`);
+        } else {
+            navigate(`/user/dashboard/notification/${bookingId}`);
         }
     }
 

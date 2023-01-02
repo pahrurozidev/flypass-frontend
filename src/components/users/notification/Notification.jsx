@@ -1,39 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import Sidebar from '../../admin/layouts/sidebar/sidebaruser'
 import Navbar from '../layouts/navbar/Navbar'
-import { connect } from "react-redux";
 import NotificationItem from './NotificationItem'
-import { actionType } from '../../../redux/reducer/globalActionType';
+import NotificationDetail from './NotificationDetail'
 
-class Notification extends Component {
-    render() {
-        return (
+export default function Notification({ showSidebarDispatch }) {
+    const { id } = useParams();
+
+    return (
+        <div>
+            <Sidebar />
             <div>
-                <Sidebar />
-                <div>
-                    <Navbar showSidebarDispatch={this.props.showSidebarDispatch} />
-                    <div className='main-container'>
-                        <NotificationItem />
-                    </div>
+                <Navbar showSidebarDispatch={showSidebarDispatch} />
+                <div className='main-container'>
+                    {id && <NotificationDetail />}
+                    {!id && <NotificationItem />}
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-
-const mapStateToProps = (state) => {
-    return {
-        showSidebar: state.showSidebar
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        showSidebarDispatch: () => dispatch({
-            type: actionType.SHOW_SIDEBAR
-        }),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Notification);

@@ -12,7 +12,7 @@ class Dashboard extends Component {
     render() {
         return (
             <Fragment>
-                <Ticket />
+                <Ticket showSidebarDispatch={this.props.showSidebarDispatch}/>
             </Fragment>
         )
     }
@@ -20,17 +20,15 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        showSidebar: state.showSidebar
     }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        plusCounter: () => dispatch({
-            type: actionType.PLUS_COUNTER,
-        }),
-        minCounter: () => dispatch({
-            type: actionType.MIN_COUNTER,
+        showSidebarDispatch: () => dispatch({
+            type: actionType.SHOW_SIDEBAR
         }),
     }
 }

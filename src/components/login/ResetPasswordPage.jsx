@@ -4,25 +4,21 @@ import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history'
 
-export default function LoginPage() {
+export default function ResetPasswordPage() {
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
     const history = useHistory();
 
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/login`, {
+            const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/resetpassword`, {
                 email: email,
-                password: password,
             });
-            alert("Kamu Berhasil Login");
+            alert("Email kamu sudah terdaftar, silahkan check inbox!!");
             console.log(data);
-            localStorage.setItem("token", data.data.user.accesstToken)
-            localStorage.setItem("id", data.data.user.id)
-            history.push('/');
+            history.push('/resetpasswordconfirm');
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data);
@@ -35,7 +31,7 @@ export default function LoginPage() {
             <section>
                 <div className='login-form'>
                     <div className='login-header'>
-                        <h1>Login</h1>
+                        <h1>Reset Password</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                     <form onSubmit={Auth}>
@@ -45,14 +41,7 @@ export default function LoginPage() {
                                 <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                             </li>
                             <li>
-                                <label htmlFor="password">Password</label>
-                                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <Link to={'/resetpassword'}>
-                                        <span style={{textDecoration:"none"}}>Forgot Password?</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <input type="submit" name='submit' value='Login' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
+                                <input type="submit" name='submit' value='Next' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
                                 <div className="pt-3 text-center">
                                     Not already have account?
                                     <Link to={'/register'}>

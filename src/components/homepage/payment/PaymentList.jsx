@@ -38,6 +38,7 @@ export default function PaymentList() {
     API.getBookByUserLogin().then((bookings) => {
       const book = bookings.filter((book) => book.id == id);
       setBookByUser(book);
+      book && setShow(true)
     })
   }, [])
 
@@ -80,10 +81,6 @@ export default function PaymentList() {
       }
     }).catch(err => console.log(err))
   }
-
-  setTimeout(() => {
-    setShow(true)
-  }, 3000);
 
   return (
     <>

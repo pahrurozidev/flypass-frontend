@@ -1,11 +1,11 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 import Sidebar from '../../admin/layouts/sidebar/sidebaruser'
-import Navbar from '../layouts/navbar/Navbar';
+import Navbar from '../layouts/navbar/Navbar'
 import TransactionList from './TransactionList';
 import TransactionDetail from './TransactionDetail';
 
-export default function Transaction({ showSidebarDispatch }) {
+function Transaction({ showSidebarDispatch }) {
     const { id } = useParams();
 
     return (
@@ -13,11 +13,14 @@ export default function Transaction({ showSidebarDispatch }) {
             <Sidebar />
             <div>
                 <Navbar showSidebarDispatch={showSidebarDispatch} />
-                <div className="main-container">
-                    {id && <TransactionDetail />}
+                <div className='main-container'>
                     {!id && <TransactionList />}
+                    {id && <TransactionDetail />}
                 </div>
             </div>
         </div>
-    );
+    )
 }
+
+
+export default Transaction;

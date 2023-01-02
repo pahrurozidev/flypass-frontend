@@ -14,5 +14,4 @@ const login = (path, user) => {
     return promise;
 }
 
-
 export { login };

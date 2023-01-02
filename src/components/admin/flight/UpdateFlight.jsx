@@ -28,7 +28,6 @@ export default function CreateFlight() {
         airlineId: "",
         price: "",
         flightCode: "",
-        flightTypeId: "",
         isAvailable: true,
     });
 
@@ -44,8 +43,6 @@ export default function CreateFlight() {
             setAirplanes(airplanes);
         });
     }, [])
-
-    // console.log(flight);
 
     setTimeout(() => {
         setShow(true);
@@ -90,7 +87,6 @@ export default function CreateFlight() {
             airlineId: response.data.Airline.id,
             price: response.data.price,
             flightCode: response.data.flightCode,
-            flightTypeId: response.data.FlightType.id,
             isAvailable: response.data.isAvailable,
         })
     }
@@ -163,14 +159,6 @@ export default function CreateFlight() {
                                         <select name='flightClassId' className="form-select form-select-lg" aria-label=".form-select-lg example" value={data.flightClassId} onChange={handleInput} id="flightClassId">
                                             <option value="1">Economy</option>
                                             <option value="2">Business</option>
-                                        </select>
-                                    </div>
-                                    <div className="mb-0">
-                                        <label htmlFor="flightType" className="form-label">Flight Type</label>
-                                        <select name='flightTypeId' className="form-select form-select-lg" aria-label=".form-select-lg example" value={data.flightTypeId} onChange={handleInput} id="flightType">
-                                            <option selected hidden value="">Select Flight Type</option>
-                                            <option value="1">Domestic</option>
-                                            <option value="2">International</option>
                                         </select>
                                     </div>
                                 </div>

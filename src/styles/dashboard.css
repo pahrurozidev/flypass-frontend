@@ -280,6 +280,7 @@ hr {
     color: rgba(0, 0, 0, 0.59);
     border: 1px solid #B9B9B9;
     border-radius: 59px;
+    margin-top: 18px;
 }
 
 .opsi-filter .btn-departure:hover,
@@ -868,7 +869,7 @@ hr {
     width: 9.375rem;
 }
 
-.table.all-bookings tbody {
+.booking-table tbody {
     vertical-align: middle;
 }
 
@@ -978,6 +979,10 @@ hr {
         float: left;
     }
 
+    .table tbody tr td.action_detail {
+        width: 100%;
+    }
+
     .table tbody tr th {
         display: block;
         width: 50%;
@@ -1074,7 +1079,7 @@ hr {
     }
 
     .sidebar .arrow-left-circle {
-        display: none;
+        display: none !important;
     }
 
     .sidebar .nav-item {
@@ -1125,4 +1130,12 @@ td {
     font-size: 14px;
     bottom: 10px !important;
     /* right: 5px !important; */
+}
+
+.alert-paid {
+    background: rgb(124, 249, 124);
+}
+
+.status_col .alert {
+    width: 90px !important;
 }

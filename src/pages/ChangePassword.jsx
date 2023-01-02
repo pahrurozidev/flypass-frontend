@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/users/layouts/navbar/Navbar';
 import Sidebar from '../components/users/layouts/sidebar/Sidebar';
-import EditProfilPage from '../components/users/profil/EditProfilPage';
+import ChangePasswordPage from '../components/users/profil/ChangePasswordPage';
 import { actionType } from '../redux/reducer/globalActionType';
 
 // style homepage
@@ -10,7 +10,7 @@ import '../styles/homepage.css'
 import '../styles/profil.css'
 import '../styles/dashboard.css'
 
-class EditProfil extends Component {
+class ChangePassword extends Component {
     render() {
         return (
             <Fragment>
@@ -19,7 +19,7 @@ class EditProfil extends Component {
                     <div>
                         <Navbar />
                         <div className="main-container">
-                            <EditProfilPage />
+                            <ChangePasswordPage />
                         </div>
                     </div>
                 </div>
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfil);
+export default connect(mapStateToProps, mapDispatchToProps)(ChangePassword);
