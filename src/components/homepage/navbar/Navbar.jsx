@@ -81,19 +81,23 @@ export default function Navbar() {
                 console.log('connected');
             });
 
-            if (admin) {
-                socket.emit('connected', 'admin');
-            } else {
-                socket.emit('connected', userId);
-            }
+            // if (admin) {
+
+            // } else {
+
+            // }
         }, [count, notifications]);
 
         if (admin) {
+            socket.emit('connected', 'admin');
+
             socket.on('notif-to-admin', (newNotif) => {
                 setcount(count + 1);
                 setNotifications([newNotif, ...notifications]);
             });
         } else {
+            socket.emit('connected', userId);
+
             socket.on('notif-to-user', (newNotif) => {
                 setcount(count + 1);
                 setNotifications([newNotif, ...notifications]);
@@ -180,7 +184,7 @@ export default function Navbar() {
                                         <li className='dropdown-header mb-2'>
                                             <a className="dropdown-item large text-center fs-6" href="#">Notification</a>
                                         </li>
-                                        {parseNotif.slice(0, 5).map((notif) => (
+                                        {parseNotif.slice(0, 4).map((notif) => (
                                             <>
                                                 <li>
                                                     <hr className="dropdown-divider m-0" />
