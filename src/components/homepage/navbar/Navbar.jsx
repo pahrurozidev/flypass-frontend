@@ -60,16 +60,16 @@ export default function Navbar() {
         useEffect(() => {
             if (admin) {
                 API.adminNotifications().then((notif) => {
-                    setNotifications(notif);
+                    const notifs = notif.filter((notifs) => notifs.isRead == false)
+                    setParseNotif(notifs.reverse())
                 })
             } else {
                 API.userNotifications().then((notif) => {
-                    setNotifications(notif);
+                    const notifs = notif.filter((notifs) => notifs.isRead == false)
+                    setParseNotif(notifs.reverse())
                 })
             }
 
-            const notifs = notifications.filter((notifs) => notifs.isRead == false)
-            setParseNotif(notifs.reverse())
         }, [])
 
         useEffect(() => {
@@ -80,14 +80,29 @@ export default function Navbar() {
             socket.on('connect', () => {
                 console.log('connected');
             });
-            socket.emit('connected', admin ? 'admin' : userId);
+
+            if (admin) {
+                socket.emit('connected', 'admin');
+            } else {
+                socket.emit('connected', userId);
+            }
         }, [count, notifications]);
 
-        socket.on(admin ? 'notif-to-admin' : 'notif-to-user', (newNotif) => {
-            setcount(count + 1);
-            setNotifications([newNotif, ...notifications]);
-        });
+        if (admin) {
+            socket.on('notif-to-admin', (newNotif) => {
+                setcount(count + 1);
+                setNotifications([newNotif, ...notifications]);
+            });
+        } else {
+            socket.on('notif-to-user', (newNotif) => {
+                setcount(count + 1);
+                setNotifications([newNotif, ...notifications]);
+            });
+        }
     }
+
+    console.log(count);
+    console.log(parseNotif);
 
     const updateReadHandler = (id, message, bookingId) => {
         API.updateNotifications(id).then((notif) => console.log(notif));
