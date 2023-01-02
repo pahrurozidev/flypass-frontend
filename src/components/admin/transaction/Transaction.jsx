@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Sidebar from '../layouts/sidebar/Sidebar';
 import Navbar from '../layouts/navbar/Navbar';
 import TransactionList from './TransactionList';
