@@ -6,7 +6,7 @@ import Profile from '../../../../assets/dasboard-admin/profile.svg';
 import { actionType } from '../../../../redux/reducer/globalActionType';
 import { API } from '../../../../services';
 
-class navbar extends Component {
+class Navbar extends Component {
 
     componentDidMount() {
         API.whoAmI().then((user) => {
@@ -72,4 +72,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
