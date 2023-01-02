@@ -6,7 +6,6 @@ import TransactionList from './TransactionList';
 import TransactionDetail from './TransactionDetail';
 
 export default function Transaction({ showSidebarDispatch }) {
-    const location = useLocation().pathname;
     const { id } = useParams();
 
     return (
@@ -15,8 +14,8 @@ export default function Transaction({ showSidebarDispatch }) {
             <div>
                 <Navbar showSidebarDispatch={showSidebarDispatch} />
                 <div className="main-container">
-                    {(location === `/transaction/${id}`) && <TransactionDetail />}
-                    {(location === '/transaction') && <TransactionList />}
+                    {id && <TransactionDetail />}
+                    {!id && <TransactionList />}
                 </div>
             </div>
         </div>
