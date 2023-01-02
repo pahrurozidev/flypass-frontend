@@ -5,7 +5,7 @@ import Navbar from '../../users/layouts/navbar/Navbar';
 import TicketList from './TicketListBooking';
 import TicketDetail from './TicketDetailBooking';
 
-export default function Customers({showSidebarDispatch}) {
+export default function Customers({ showSidebarDispatch }) {
     const { id } = useParams();
 
     return (
@@ -14,8 +14,8 @@ export default function Customers({showSidebarDispatch}) {
             <div>
                 <Navbar showSidebarDispatch={showSidebarDispatch} />
                 <div className="main-container">
-                {id && <TicketDetail />}
-                {!id && <TicketList />}
+                    {id && <TicketDetail />}
+                    {!id && <TicketList />}
                 </div>
             </div>
         </div>

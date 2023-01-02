@@ -26,6 +26,8 @@ export default function CustomerDetail() {
         });
     }, [])
 
+    console.log(customer);
+
     const handleConfirm = () => {
         API.confirmPayment(detailTransaction[0].id).then(res => {
             swal({
@@ -117,7 +119,7 @@ export default function CustomerDetail() {
                                 </section>
                                 {customer[0].roundtrip ?
                                     <section className='card p-3'>
-                                        <h5 className='border-bottom pb-2'>Flight Schedule</h5>
+                                        <h5 className='border-bottom pb-2'>Departure Flight</h5>
                                         <div className='data-list'>
                                             <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
                                                 <div className='data-item'>
@@ -176,7 +178,7 @@ export default function CustomerDetail() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <h5 className='border-bottom border-top py-2'>Return Flight Schedule</h5>
+                                        <h5 className='border-bottom pt-3 pb-2'>Return Flight</h5>
                                         <div className='data-list'>
                                             <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
                                                 <div className='data-item'>

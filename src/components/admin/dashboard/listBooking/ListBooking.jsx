@@ -80,7 +80,7 @@ export default function ListBooking() {
                             </tbody>
                         </table>
 
-                        <div className='btn btn-primary col-12 col-md-2 show-all-booking-btn position-absolute end-0 bottom-0'>Show All Booking</div>
+                        <Link to={'/customer'} className='btn btn-primary col-12 col-md-2 show-all-booking-btn position-absolute end-0 bottom-0'>Show All Booking</Link>
                     </div>}
             </div>
             {allBookings == 0 && <NotFound alert={'Booking'} />}
