@@ -21,7 +21,7 @@ export default function Payment() {
 
     return (
         <React.Fragment>
-            <Navbar counts={count} />
+            <Navbar />
 
             <main className='container'>
                 <BookingBar />

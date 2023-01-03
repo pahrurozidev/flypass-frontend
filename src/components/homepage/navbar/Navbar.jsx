@@ -10,7 +10,7 @@ import { API } from '../../../services';
 import moment from 'moment';
 import { io } from 'socket.io-client';
 
-export default function Navbar({ counts }) {
+export default function Navbar() {
     const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation().pathname;
@@ -189,8 +189,9 @@ export default function Navbar({ counts }) {
                                 <div className="nav-item dropdown no-arrow">
                                     <a href="#" className='bell-auth' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src={Bell} alt="bell icon" />
-                                        {counts != 0 &&
-                                            <div className='notif-count'>{counts}</div>}
+                                        {count && parseNotif.length != 0 ?
+                                            <div className='notif-count'>{parseNotif.length + count}</div> :
+                                            <div className='notif-count'>{parseNotif.length + count}</div>}
                                     </a>
 
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
