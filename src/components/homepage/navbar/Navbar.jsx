@@ -10,7 +10,7 @@ import { API } from '../../../services';
 import moment from 'moment';
 import { io } from 'socket.io-client';
 
-export default function Navbar() {
+export default function Navbar({ counts }) {
     const { id } = useParams();
     const navigate = useNavigate();
     const location = useLocation().pathname;
@@ -69,7 +69,6 @@ export default function Navbar() {
                     setParseNotif(notifs.reverse())
                 })
             }
-
         }, [])
 
         useEffect(() => {
@@ -81,11 +80,6 @@ export default function Navbar() {
                 console.log('connected');
             });
 
-            // if (admin) {
-
-            // } else {
-
-            // }
         }, [count, notifications]);
 
         if (admin) {
@@ -93,6 +87,19 @@ export default function Navbar() {
 
             socket.on('notif-to-admin', (newNotif) => {
                 setcount(count + 1);
+
+                if (admin) {
+                    API.adminNotifications().then((notif) => {
+                        const notifs = notif.filter((notifs) => notifs.isRead == false)
+                        setParseNotif(notifs.reverse())
+                    })
+                } else {
+                    API.userNotifications().then((notif) => {
+                        const notifs = notif.filter((notifs) => notifs.isRead == false)
+                        setParseNotif(notifs.reverse())
+                    })
+                }
+
                 setNotifications([newNotif, ...notifications]);
             });
         } else {
@@ -100,29 +107,35 @@ export default function Navbar() {
 
             socket.on('notif-to-user', (newNotif) => {
                 setcount(count + 1);
+
+                if (admin) {
+                    API.adminNotifications().then((notif) => {
+                        const notifs = notif.filter((notifs) => notifs.isRead == false)
+                        setParseNotif(notifs)
+                    })
+                } else {
+                    API.userNotifications().then((notif) => {
+                        const notifs = notif.filter((notifs) => notifs.isRead == false)
+                        setParseNotif(notifs)
+                    })
+                }
+
                 setNotifications([newNotif, ...notifications]);
             });
         }
     }
 
-    console.log(count);
-    console.log(parseNotif);
+    // console.log(count);
+    // console.log(parseNotif);
 
     const updateReadHandler = (id, message, bookingId) => {
-        API.updateNotifications(id).then((notif) => console.log(notif));
 
-        if (admin) {
-            API.transactionsGet().then((transactions) => {
-                const transaction = transactions.filter((t) => t.bookingId == bookingId);
-                navigate(`/transaction/${transaction[0].id}`);
-            })
-        } else {
-            if (message == 'Waiting for payment') {
-                navigate(`/search/flight/payment/${bookingId}`);
-            } else {
-                navigate(`/user/dashboard/notification/${bookingId}`);
-            }
-        }
+        admin && API.transactionsGet().then((transactions) => {
+            const transaction = transactions.filter((t) => t.bookingId == bookingId);
+            navigate(`/transaction/${transaction[0].id}`);
+        })
+
+        API.updateNotifications(id).then((notif) => console.log(notif));
     };
     // notificaiton | socket.io
 
@@ -176,27 +189,39 @@ export default function Navbar() {
                                 <div className="nav-item dropdown no-arrow">
                                     <a href="#" className='bell-auth' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src={Bell} alt="bell icon" />
-                                        {count != 0 &&
-                                            <div className='notif-count'>{count}</div>}
+                                        {counts != 0 &&
+                                            <div className='notif-count'>{counts}</div>}
                                     </a>
 
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li className='dropdown-header mb-2'>
                                             <a className="dropdown-item large text-center fs-6" href="#">Notification</a>
                                         </li>
-                                        {parseNotif.slice(0, 4).map((notif) => (
+                                        {[...parseNotif].reverse().slice(0, 4).map((notif) => (
                                             <>
                                                 <li>
                                                     <hr className="dropdown-divider m-0" />
                                                 </li>
-                                                <li onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}>
-                                                    <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
-                                                        <div className='d-flex flex-column gap-2'>
-                                                            <span className="font-weight-bold">{notif.message}</span>
-                                                            <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
+                                                {admin ?
+                                                    <li onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}>
+                                                        <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
+                                                            <div className='d-flex flex-column gap-2'>
+                                                                <span className="font-weight-bold">{notif.message}</span>
+                                                                <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
+                                                            </div>
+                                                        </a>
+                                                    </li> :
+                                                    <Link onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}
+                                                        to={`${notif.message == 'Waiting for payment' ?
+                                                            `/search/flight/payment/${notif.bookingId}` :
+                                                            `/user/dashboard/notification/${notif.bookingId}`}`} className="text-decoration-none">
+                                                        <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
+                                                            <div className='d-flex flex-column gap-2'>
+                                                                <span className="font-weight-bold">{notif.message}</span>
+                                                                <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
+                                                            </div>
+                                                        </a>
+                                                    </Link>}
                                             </>
                                         ))}
                                         <li>

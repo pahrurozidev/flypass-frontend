@@ -8,11 +8,11 @@ import Offer from '../components/homepage/offer/Offer';
 import Contact from '../components/homepage/contact/Contact';
 import Footer from '../components/homepage/footer/Footer';
 import { actionType } from '../redux/reducer/globalActionType';
+import Searched from "../components/homepage/searched/Searched";
+import NotFound from "../components/homepage/notfound/NotFound";
 
 // style homepage
 import '../styles/homepage.css'
-import Searched from "../components/homepage/searched/Searched";
-import NotFound from "../components/homepage/notfound/NotFound";
 
 class Home extends Component {
     render() {
@@ -40,6 +40,7 @@ const mapStateToProps = (state) => {
         onSubmit: state.onSubmit,
         departureAlert: state.departureAlert,
         returnAlert: state.returnAlert,
+        notifCount: state.notifCount,
     }
 }
 
@@ -50,6 +51,10 @@ const mapDispatchToProps = (dispatch) => {
         }),
         minCounter: () => dispatch({
             type: actionType.MIN_COUNTER,
+        }),
+        notifCountDispatch: (count) => dispatch({
+            type: actionType.NOTIF_COUNT,
+            notifCount: count,
         }),
     }
 }

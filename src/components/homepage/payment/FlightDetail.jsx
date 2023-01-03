@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 import { SaveAdd } from 'iconsax-react';
 import moment from 'moment';
 
-function FlightDetail({ bookings }) {
+function FlightDetail({ bookings, addCounts }) {
     const navigate = useNavigate();
     const { id } = useParams();
     const [flight, setFlight] = useState([]);
@@ -202,10 +202,15 @@ function FlightDetail({ bookings }) {
         const token = localStorage.getItem("token");
         !token && navigate('/login');
 
+        console.log('Run wishlist');
+
         API.wishlists().then((flights) => {
-            console.log(flights);
+
             if (JSON.stringify(flights) != 'null') {
-                API.deleteWishlists(flight.id).then((res) => {
+                const wishFlight = flights.filter((f) => f.id == flight.id);
+                console.log(wishFlight);
+
+                wishFlight && API.deleteWishlists(flight.id).then((res) => {
                     console.log(res)
                     res.data && setWishStatus(false);
                 });
@@ -218,12 +223,14 @@ function FlightDetail({ bookings }) {
         })
     }
 
-    // API.wishlists().then((flights) => {
-    //     if (JSON.stringify(flights) != 'null') {
-    //         const wishFlight = flights.filter((f) => f.id === flight.id);
-    //         wishFlight.length !== 0 && setWishStatus(true);
-    //     }
-    // })
+    useEffect(() => {
+        API.wishlists().then((flights) => {
+            if (JSON.stringify(flights) != 'null') {
+                const wishFlight = flights.filter((f) => f.id === flight.id);
+                wishFlight.length !== 0 && setWishStatus(true);
+            }
+        })
+    }, [])
 
     return (
         <div>
@@ -395,7 +402,9 @@ function FlightDetail({ bookings }) {
                             </div>
                             <div class="text-center button-price__continue mt-4 mb-5">
                                 {/* <Link to={'/search/flight/payment'}> */}
-                                <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow" onClick={() => bookingHandler()}>Booking</div>
+                                <div class="d-flex border-1 rounded text-white justify-content-center border-0 price-button py-2 shadow" onClick={() => bookingHandler()}>
+                                    Booking
+                                </div>
                                 {/* </Link> */}
                             </div>
                         </div>

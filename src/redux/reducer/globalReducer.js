@@ -25,6 +25,7 @@ const globalState = {
     returnFlights: [],
 
     user: '',
+    notifCount: 0,
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -140,6 +141,12 @@ const rootReducer = (state = globalState, action) => {
         return {
             ...state,
             user: action.user,
+        }
+    } else if (action.type === actionType.NOTIF_COUNT) {
+        console.log('add count');
+        return {
+            ...state,
+            notifCount: state.notifCount + 1,
         }
     } else {
         return state;

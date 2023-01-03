@@ -77,7 +77,9 @@ export default function PaymentList() {
       console.log(book);
 
       if (book.data.message === 'created successfully') {
-        return navigate('/search/flight/payment/completed');
+        navigate('/search/flight/payment/completed');
+
+        window.location.reload();
       }
     }).catch(err => console.log(err))
   }

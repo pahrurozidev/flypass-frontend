@@ -21,11 +21,12 @@ export default function Payment() {
 
     return (
         <React.Fragment>
-            <Navbar />
+            <Navbar counts={count} />
 
             <main className='container'>
                 <BookingBar />
-                {(location === `/search/flight/${id}`) && <FlightDetail bookings={(booking) => setBook(booking)} />}
+                {(location === `/search/flight/${id}`) && <FlightDetail
+                    bookings={(booking) => setBook(booking)} />}
                 {(location === `/search/flight/payment/${id}`) && <PaymentList book={book} />}
                 {(location === '/search/flight/payment/completed') && <PaymentCompleted />}
             </main>

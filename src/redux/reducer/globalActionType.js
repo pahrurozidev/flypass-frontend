@@ -14,4 +14,5 @@ export const actionType = {
     DEPARTURE_FLIGHT: 'DEPARTURE_FLIGHT',
     RETURN_FLIGHT: 'RETURN_FLIGHT',
     USER: 'USER',
+    NOTIF_COUNT: 'NOTIF_COUNT',
 }
