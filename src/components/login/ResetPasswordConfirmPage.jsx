@@ -4,25 +4,23 @@ import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history'
 
-export default function LoginPage() {
+export default function ResetPasswordConfirmPage() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [token, setToken] = useState('');
+    const [newPassword, setNewPassword] = useState('');
     const [msg, setMsg] = useState('');
     const history = useHistory();
 
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/login`, {
-                email: email,
-                password: password,
+            const data = await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/resetpassword/confirm`, {
+                token: token,
+                newPassword: newPassword,
             });
-            alert("Kamu Berhasil Login");
+            alert("Password kamu berhasil di reset silahkan login!!");
             console.log(data);
-            localStorage.setItem("token", data.data.user.accesstToken)
-            localStorage.setItem("id", data.data.user.id)
-            history.push('/');
+            history.push('/login');
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data);
@@ -35,24 +33,21 @@ export default function LoginPage() {
             <section>
                 <div className='login-form'>
                     <div className='login-header'>
-                        <h1>Login</h1>
+                        <h1>Reset Password Confirm</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     </div>
                     <form onSubmit={Auth}>
                         <ul className='p-0'>
                             <li>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <label htmlFor="token">Token</label>
+                                <input type="text" name='token' value={token} onChange={(e) => setToken(e.target.value)} />
                             </li>
                             <li>
-                                <label htmlFor="password">Password</label>
-                                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <Link to={'/resetpassword'}>
-                                        <span style={{textDecoration:"none"}}>Forgot Password?</span>
-                                </Link>
+                                <label htmlFor="newPassword">New Password</label>
+                                <input type="password" name='newPassword' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
                             </li>
                             <li>
-                                <input type="submit" name='submit' value='Login' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
+                                <input type="submit" name='submit' value='Reset Password' className='shadow text-white mt-4' style={{ backgroundColor: "blue" }} />
                                 <div className="pt-3 text-center">
                                     Not already have account?
                                     <Link to={'/register'}>

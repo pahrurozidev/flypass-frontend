@@ -3,6 +3,8 @@ import { HashRouter, Routes as Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import ResetPassword from "../pages/ResetPassword";
+import ResetPasswordConfirm from "../pages/ResetPasswordConfirm";
 import ProtectedLogin from "../components/protected/ProtectedLogin";
 import Register2 from "../pages/Register2";
 
@@ -13,6 +15,7 @@ import Flight from "../pages/Flight";
 import Dashboard from "../pages/Dashboard";
 import Profil from "../pages/Profil";
 import EditProfil from "../pages/EditProfil";
+import ChangePassword from "../pages/ChangePassword";
 import UserNotification from "../pages/Notification";
 import Search from "../pages/Search";
 import Payments from "../pages/Payments";
@@ -40,6 +43,8 @@ export default function Routes() {
                 {/* auth */}
                 <Route exact path="/login" element={<ProtectedLogin><Login /></ProtectedLogin>} />
                 <Route exact path="/register" element={<ProtectedLogin><Register /></ProtectedLogin>} />
+                <Route exact path="/resetpassword" element={<ProtectedLogin><ResetPassword /></ProtectedLogin>} />
+                <Route exact path="/resetpasswordconfirm" element={<ProtectedLogin><ResetPasswordConfirm /></ProtectedLogin>} />
                 <Route exact path="/register/personal" element={<ProtectedLogin><Register2 /></ProtectedLogin>} />
 
                 {/* admin */}
@@ -60,6 +65,7 @@ export default function Routes() {
                 <Route path="/user/dashboard/dashboarduser/:id" element={<IsUser><Dashboard /></IsUser>} />
                 <Route exact path="/user/dashboard/profile" element={<IsUser><Profil /></IsUser>} />
                 <Route exact path="/user/dashboard/editprofile" element={<IsUser><EditProfil /></IsUser>} />
+                <Route exact path="/user/dashboard/changepassword" element={<IsUser><ChangePassword /></IsUser>} />
                 <Route exact path="/user/dashboard/wishlist" element={<IsUser><Wishlists /></IsUser>} />
                 <Route path="/user/dashboard/wishlist/:id" element={<IsUser><Wishlists /></IsUser>} />
                 <Route exact path="/user/dashboard/notification" element={<IsUser><UserNotification /></IsUser>} />

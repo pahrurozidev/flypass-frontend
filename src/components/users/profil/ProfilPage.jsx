@@ -66,8 +66,13 @@ export default function ProfilPage() {
                       <p className='data-item__value'>: {user.email}</p>
                     </div>
                     <div className='data-item float-right d-flex justify-content-end'>
+                      <Link to={`/user/dashboard/changepassword`}>
+                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "150px", height: "43px" }}>
+                          <span>Change Password</span>
+                        </div>
+                      </Link>
                       <Link to={`/user/dashboard/editprofile`}>
-                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "50px", height: "43px" }}>
+                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "50px", height: "43px", marginLeft:"20px" }}>
                           <span><Edit size={20} /></span>
                         </div>
                       </Link>
