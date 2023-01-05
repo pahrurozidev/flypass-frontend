@@ -27,6 +27,8 @@ export default function CustomerDetail() {
         });
     }, [])
 
+    // console.log(detailTransaction);
+
     const handleConfirm = () => {
         API.confirmPayment(detailTransaction[0].id).then(res => {
             swal({

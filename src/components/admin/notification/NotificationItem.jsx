@@ -24,9 +24,8 @@ export default function NotificationList() {
 
         API.transactionsGet().then((transactions) => {
             const transaction = transactions.filter((t) => t.bookingId == bookingId);
-            navigate(`/transaction/${transaction[0].id}`);
+            navigate(`/transaction/${transaction[0].bookingId}`);
         })
-
     }
 
     return (
