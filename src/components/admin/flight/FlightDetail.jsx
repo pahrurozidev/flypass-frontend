@@ -51,7 +51,7 @@ function FlightDetail() {
                         {/* header label */}
                         <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                             <h2 className='fs-4'>Flight Detail</h2>
-                            <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                            <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan detail penerbangan dari salah satu penerbangan, diantaranya menampilkan tanggal dan waktu penerbangan, harga penerbangan, nama pesawat dll.</p>
                         </div>
 
                         {/* broadcrumb */}

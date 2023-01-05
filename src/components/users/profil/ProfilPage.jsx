@@ -25,7 +25,7 @@ export default function ProfilPage() {
           {/* header label */}
           <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
             <h2 className='fs-4'>Your Profile, {user.name}</h2>
-            <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+            <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan data diri anda, jika belum lengkap silahkan perbaharui dan lengkapi.</p>
           </div>
 
           {/* broadcrumb */}
@@ -72,7 +72,7 @@ export default function ProfilPage() {
                         </div>
                       </Link>
                       <Link to={`/user/dashboard/editprofile`}>
-                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "50px", height: "43px", marginLeft:"20px" }}>
+                        <div className='btn btn-primary crud-flight-btn d-flex gap-1 justify-content-center shadow' style={{ width: "50px", height: "43px", marginLeft: "20px" }}>
                           <span><Edit size={20} /></span>
                         </div>
                       </Link>

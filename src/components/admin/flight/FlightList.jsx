@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import ReactLoading from 'react-loading';
 import axios from 'axios';
 import { ArrowCircleLeft2, AddSquare } from 'iconsax-react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, PlusSquare } from 'react-feather';
+import NotFound from '../../notfound/NotFound';
 
 class FlightList extends Component {
     constructor(props) {
@@ -25,7 +27,7 @@ class FlightList extends Component {
     }
 
     render() {
-        // this.state.data.reverse();
+        this.state.data.reverse();
         console.log(this.state.data);
         return (
             <div className='container-fluid' >
@@ -35,7 +37,7 @@ class FlightList extends Component {
                     {/* header label */}
                     <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
                         <h2 className='fs-4'>Flight</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                        <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan semua list penerbangan yang tersedia.</p>
                     </div>
 
                     {/* broadcrumb */}
@@ -52,12 +54,7 @@ class FlightList extends Component {
                         </Link>
                     </div>
 
-                    {
-                        this.state.data.length === 0 &&
-                        <div className='container alert-danger border rounded d-flex items-center justify-content-center py-3 mt-3'>
-                            <div className="text-dark">Flights Not Found</div>
-                        </div>
-                    }
+                    {this.state.data.length === 0 && <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" />}
 
                     {this.state.data.length > 0 &&
                         <div className="mt-3 border p-2 p-lg-3 rounded d-flex flex-column gap-2 gap-lg-3">

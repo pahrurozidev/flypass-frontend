@@ -25,6 +25,7 @@
     "react-bootstrap-icons": "^1.10.2",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
+    "react-loading": "^2.0.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-router-use-history": "^1.0.0",

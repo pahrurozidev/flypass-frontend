@@ -1,4 +1,5 @@
 import { ArrowCircleLeft2 } from 'iconsax-react';
+import ReactLoading from 'react-loading';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -27,7 +28,7 @@ export default function TransactionList() {
             {/* header label */}
             <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
               <h2 className='fs-4'>All History</h2>
-              <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+              <p className='header-text fw-light col-12 col-lg-9'>Pada halaman ini anda dapat melihat riwayat transaksi yang telah dilakukan.</p>
             </div>
 
             {/* broadcrumb */}
@@ -39,7 +40,7 @@ export default function TransactionList() {
             </div>
 
             {history.length === 0 ?
-              <NotFound alert={'History'} /> :
+              <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" /> :
               <div className="list-ticket card mt-3 p-3">
                 <table className="table table-ticket m-0">
                   <thead>

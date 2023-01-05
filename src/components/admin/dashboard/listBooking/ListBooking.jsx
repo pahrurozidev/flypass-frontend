@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../../assets/dasboard-admin/line.svg';
@@ -13,13 +14,13 @@ export default function ListBooking() {
             setAllBookings(res);
         });
     }, [])
-    
+
     return (
         <>
             {/* header label */}
             <div className='border rounded p-3 pb-md-1'>
                 <h2 className='fs-4'>Selamat Datang, Admin</h2>
-                <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                <p className='header-text fw-light col-12 col-lg-9'>Hallo Admin, selamat datang di dashboard. Anda dapat mengontrol, membuat, merubah dan menghapus penerbangan. Anda juga dapat melihat beberapa menu lainnya seperti data customer dan data transaksi.</p>
             </div>
 
             <div className="card p-3 mt-3">
@@ -83,7 +84,7 @@ export default function ListBooking() {
                         <Link to={'/customer'} className='btn btn-primary col-12 col-md-2 show-all-booking-btn position-absolute end-0 bottom-0'>Show All Booking</Link>
                     </div>}
             </div>
-            {allBookings == 0 && <NotFound alert={'Booking'} />}
+            {allBookings == 0 && <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" />}
         </>
     );
 }

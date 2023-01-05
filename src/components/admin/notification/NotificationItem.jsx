@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from 'react'
+import ReactLoading from 'react-loading';
 import { ArrowCircleLeft2 } from 'iconsax-react'
 import moment from 'moment';
-import React, { useEffect, useState } from 'react'
+import { Trash2 } from 'react-feather';
 import { Link, useNavigate } from 'react-router-dom'
 import { API } from '../../../services';
 import NotFound from '../../notfound/NotFound';
@@ -34,7 +36,7 @@ export default function NotificationList() {
                 {/* header label */}
                 <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                     <h2 className='fs-4'>All Notification</h2>
-                    <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                    <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan semua notifikasi yang di terima.</p>
                 </div>
 
                 {/* broadcrumb */}
@@ -45,7 +47,8 @@ export default function NotificationList() {
                     </Link>
                 </div>
 
-                {notification.length === 0 ? <NotFound alert={'Notification'} /> :
+                {/* {notification.length === 0 ? <NotFound alert={'Notification'} /> : */}
+                {notification.length === 0 ? <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" /> :
                     <div className='mt-3 notification d-flex flex-column gap-3 card p-3'>
                         {notification.map((notif) => (
                             <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}
@@ -54,6 +57,7 @@ export default function NotificationList() {
                                     <h4 className={`card-title`}>{notif.message}</h4>
                                     <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
                                 </div>
+                                {/* <Trash2 size={35} className='ms-1 text-danger delete-transaction-btn bg-light p-2 rounded' /> */}
                             </div>
                         ))}
                     </div>}

@@ -40,10 +40,10 @@ export default function CreateFlight() {
         })
     }, [])
 
-    const handleInput = (e) => {
-        const { name, value } = e.target;
-        setData({ ...data, [name]: value });
-        console.log(data);
+    const handleInput = (event) => {
+        const inputForm = { ...data };
+        inputForm[event.target.name] = event.target.value;
+        setData(inputForm);
     }
 
     const handleSubmit = (e) => {
@@ -69,7 +69,7 @@ export default function CreateFlight() {
                 {/* header label */}
                 <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
                     <h2 className='fs-4'>Add Flight</h2>
-                    <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                    <p className='header-text fw-light col-12 col-lg-9'>Halaman ini yaitu untuk menambahkan data penerbangan baru. Pada halaman ini hanya dapat di akses oleh admin.</p>
                 </div>
 
                 {/* broadcrumb */}

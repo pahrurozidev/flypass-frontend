@@ -48,7 +48,7 @@ export default function Card() {
                             {/* header label */}
                             <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                                 <h2 className='fs-4'>Selamat Datang, {name}</h2>
-                                <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                                <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan detail tiket sesuai dengan pesananmu.</p>
                             </div>
 
                             {/* broadcrumb */}
@@ -171,7 +171,7 @@ export default function Card() {
                                                             </div>
                                                         </div>
                                                         <div className="col-lg-3 ticket-right p-0">
-                                                        <div className="text-white ticket-lable rounded text-center py-1">Return</div>
+                                                            <div className="text-white ticket-lable rounded text-center py-1">Return</div>
                                                             <div className="ticket-right-top d-flex flex-column mt-2">
                                                                 <span>Booking Code</span>
                                                                 <span>{booking[0].bookingCode}</span>
