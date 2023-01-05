@@ -50,7 +50,7 @@ export default function ChangePasswordPage() {
                     {/* header label */}
                     <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                         <h2 className='fs-4'>Change Password</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                        <p className='header-text fw-light col-12 col-lg-9'>Pada halaman ini, anda dapat melakukan perubahan pada password anda.</p>
                     </div>
 
                     {/* broadcrumb */}

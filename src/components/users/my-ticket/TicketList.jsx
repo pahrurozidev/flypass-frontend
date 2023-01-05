@@ -34,7 +34,7 @@ export default function Card() {
                     {/* header label */}
                     <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                         <h2 className='fs-4'>My Ticket</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                        <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan list tiket yang telah di pesan.</p>
                     </div>
 
                     {/* broadcrumb */}

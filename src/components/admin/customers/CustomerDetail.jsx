@@ -31,7 +31,7 @@ export default function CustomerDetail() {
                             {/* header label */}
                             <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
                                 <h2 className='fs-4'>Customer</h2>
-                                <p className='header-text fw-light col-12 col-lg-9'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias est vel explicabo. Nostrum alias explicabo aliquam veritatis sunt quasi hic repellendus ut error, non temporibus iste est quod facilis. Unde.</p>
+                                <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan detail dari salah satu customer yang di pilih, diantaranya menampilkan data personal, jadwal penerbangan dan total pembayaran berdasarkan customer tertentu.</p>
                             </div>
 
                             {/* broadcrumb */}
