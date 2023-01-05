@@ -59,7 +59,6 @@ export default function Routes() {
                 <Route path="/notification" element={<IsAdmin><AdminNotification /></IsAdmin>} />
                 <Route path="/transaction" element={<IsAdmin><Transaction /></IsAdmin>} />
                 <Route path="/transaction/:id" element={<IsAdmin><Transaction /></IsAdmin>} />
-
                 {/* user */}
                 <Route exact path="/user/dashboard/dashboarduser" element={<IsUser><Dashboard /></IsUser>} />
                 <Route path="/user/dashboard/dashboarduser/:id" element={<IsUser><Dashboard /></IsUser>} />

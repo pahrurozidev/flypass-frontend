@@ -38,7 +38,7 @@ class Navbar extends Component {
                             <span className='d-none d-lg-inline text-name'>Hi, {this.props.user.name}</span>
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <Link to={'/'} className="dropdown-item">Beranda</Link>
+                            <a href='/' className="dropdown-item">Beranda</a>
                             <li>
                                 <hr className="dropdown-divider" />
                             </li>

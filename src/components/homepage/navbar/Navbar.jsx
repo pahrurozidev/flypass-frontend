@@ -60,6 +60,7 @@ export default function Navbar() {
         useEffect(() => {
             if (admin) {
                 API.adminNotifications().then((notif) => {
+                    // console.log('effect');
                     const notifs = notif.filter((notifs) => notifs.isRead == false)
                     setParseNotif(notifs.reverse())
                 })
@@ -69,7 +70,7 @@ export default function Navbar() {
                     setParseNotif(notifs.reverse())
                 })
             }
-        }, [])
+        }, [parseNotif])
 
         useEffect(() => {
             API.whoAmI().then((user) => {
@@ -165,8 +166,8 @@ export default function Navbar() {
                     {location === "/" &&
                         <div className="navbar-nav ms-auto">
                             <a className="nav-link active" aria-current="page" href="#">Home</a>
-                            <a className="nav-link" href="#booking">My Bookings</a>
-                            <a className="nav-link" href="#service">services</a>
+                            <a className="nav-link" href="/user/dashboard/history">My Bookings</a>
+                            <a className="nav-link" href="/#/#service">services</a>
                             <a className="nav-link" href="#contact">Contact us</a>
                         </div>}
                     {location !== '/' && <div className="navbar-nav ms-auto"></div>}
@@ -189,9 +190,9 @@ export default function Navbar() {
                                 <div className="nav-item dropdown no-arrow">
                                     <a href="#" className='bell-auth' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src={Bell} alt="bell icon" />
-                                        {count && parseNotif.length != 0 ?
+                                        {count + parseNotif.length != 0 ?
                                             <div className='notif-count'>{parseNotif.length + count}</div> :
-                                            <div className='notif-count'>{parseNotif.length + count}</div>}
+                                            <div></div>}
                                     </a>
 
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -240,12 +241,14 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="d-flex border items-center gap-2 justify-content-between p-0 px-2 border-user-auth">
-                                <div>
-                                    <img src={UserCircle} alt="" className='user-profile-auth' />
-                                </div>
-
                                 <div className="nav-item dropdown no-arrow">
-                                    <a href="/user/dashboard/dashboarduser" className='nav-link px-0 text-secondary' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi, {name}</a>
+
+                                    <div className='d-flex gap-2' id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div><img src={UserCircle} alt="" className='user-profile-auth' /></div>
+
+                                        <a href="/user/dashboard/dashboarduser" className='nav-link px-0 text-secondary' >Hi, {name}</a>
+                                    </div>
+
                                     <ul className="dropdown-menu home-page" style={{ marginTop: "-5px", marginLeft: "-100px" }} aria-labelledby="navbarDropdown">
                                         {admin ? <li>
                                             <Link className="dropdown-item d-flex align-items-center" to={'/dashboard'}>
@@ -285,7 +288,6 @@ export default function Navbar() {
                                         </li>
                                     </ul>
                                 </div>
-
                             </div>
                         </div>
                     )}

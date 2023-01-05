@@ -188,7 +188,8 @@ function FlightDetail({ bookings, addCounts }) {
                 bookings(booking);
                 if (booking.data) {
                     const id = booking.data.booking.id;
-                    return navigate(`/search/flight/payment/${id}`);
+                    navigate(`/search/flight/payment/${id}`);
+                    window.location.reload();
                 }
             });
         } else {

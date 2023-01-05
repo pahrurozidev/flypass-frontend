@@ -11,7 +11,7 @@ export default function CustomerDetail() {
     const [detailTransaction, setDetailTransaction] = useState([]);
     const [customer, setCustomer] = useState([]);
     const [show, setShow] = useState(false);
-    const [btnShow, setBtnShow] = useState(false);
+    const [ShowTransaction, setShowTransaction] = useState(false);
 
     useEffect(() => {
         API.listBookings().then((bookings) => {
@@ -23,10 +23,9 @@ export default function CustomerDetail() {
         API.transactionsGet().then((transaction) => {
             const IdFilter = transaction.filter(payment => payment.bookingId == id)
             setDetailTransaction(IdFilter);
+            setShowTransaction(true);
         });
     }, [])
-
-    console.log(customer);
 
     const handleConfirm = () => {
         API.confirmPayment(detailTransaction[0].id).then(res => {
@@ -297,15 +296,16 @@ export default function CustomerDetail() {
                                         </div>
                                     </section>}
                                 <section className='card p-3'>
+                                    <h5 className='border-bottom pb-2'>Payment Substantiation</h5>
+                                    {ShowTransaction &&
+                                        <div className="card"><img src={detailTransaction[0].Image} alt="" className='col-12' /></div>}
+                                </section>
+                                <section className='card p-3'>
                                     <h5 className='border-bottom pb-2'>Payment</h5>
-                                    <div className='data-list'>
+                                    <div className='data-list mt-2'>
                                         <div className='col-12 d-flex flex-column gap-3 gap-md-0'>
-                                            {/* <div className='data-item'>
-                                                <p className='data-item__name'>Payment Code</p>
-                                                <p className='data-item__value'>: xxxx</p>
-                                            </div> */}
                                             <div className='data-item'>
-                                                <p className='data-item__name'>Price :</p>
+                                                <p className='data-item__name'>Price</p>
                                                 <p className='data-item__value'>: Rp. {customer[0].totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                                             </div>
                                         </div>
@@ -317,13 +317,14 @@ export default function CustomerDetail() {
                                                         (customer[0].BookingStatus.name === "Completed") ? 'text-success' :
                                                             (customer[0].BookingStatus.name === "Paid") && 'paid'}`}>{customer[0].BookingStatus.name}</span></p>
                                             </div>
-                                            {(customer[0].BookingStatus.name === "Paid") &&
-                                                <div className='d-flex justify-content-end'>
-                                                    <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
-                                                    <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
-                                                </div>}
                                         </div>
                                     </div>
+
+                                    {(customer[0].BookingStatus.name === "Paid") &&
+                                        <div className='d-flex justify-content-end'>
+                                            <div className='btn btn-success' style={{ fontSize: 14 }} onClick={() => handleConfirm()}>Confirm</div>
+                                            <div className='btn btn-danger ms-2' style={{ fontSize: 14 }} onClick={() => handleReject()}>Reject</div>
+                                        </div>}
                                 </section>
                             </div>
                         </div>
