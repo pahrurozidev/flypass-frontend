@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { Component, Fragment, useState, useEffect } from "react";
+import axios from "axios";
+import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 import Garuda from '../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../assets/dasboard-admin/line.svg';
@@ -94,7 +95,7 @@ export default function Card() {
                                 </tbody>
                             </table>
                         </div>}
-                    {allBookings == 0 && <NotFound alert={'Ticket'} />}
+                    {allBookings == 0 && <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" />}
                 </div>
             </div>
 

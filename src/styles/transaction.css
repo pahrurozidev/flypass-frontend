@@ -391,3 +391,7 @@
         font-size: 12px !important;
     }
 }
+
+.delete-transaction-btn {
+    cursor: pointer;
+}

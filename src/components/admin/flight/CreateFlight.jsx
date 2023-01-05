@@ -40,10 +40,10 @@ export default function CreateFlight() {
         })
     }, [])
 
-    const handleInput = (e) => {
-        const { name, value } = e.target;
-        setData({ ...data, [name]: value });
-        console.log(data);
+    const handleInput = (event) => {
+        const inputForm = { ...data };
+        inputForm[event.target.name] = event.target.value;
+        setData(inputForm);
     }
 
     const handleSubmit = (e) => {

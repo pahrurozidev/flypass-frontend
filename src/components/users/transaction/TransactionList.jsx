@@ -1,4 +1,5 @@
 import { ArrowCircleLeft2 } from 'iconsax-react';
+import ReactLoading from 'react-loading';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -39,7 +40,7 @@ export default function TransactionList() {
             </div>
 
             {history.length === 0 ?
-              <NotFound alert={'History'} /> :
+              <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" /> :
               <div className="list-ticket card mt-3 p-3">
                 <table className="table table-ticket m-0">
                   <thead>

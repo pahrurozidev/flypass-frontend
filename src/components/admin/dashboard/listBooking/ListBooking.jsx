@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 import Garuda from '../../../../assets/dasboard-admin/garuda.svg';
 import Line from '../../../../assets/dasboard-admin/line.svg';
@@ -83,7 +84,7 @@ export default function ListBooking() {
                         <Link to={'/customer'} className='btn btn-primary col-12 col-md-2 show-all-booking-btn position-absolute end-0 bottom-0'>Show All Booking</Link>
                     </div>}
             </div>
-            {allBookings == 0 && <NotFound alert={'Booking'} />}
+            {allBookings == 0 && <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className="mt-5 m-auto" />}
         </>
     );
 }
