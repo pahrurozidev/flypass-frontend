@@ -59,10 +59,12 @@ const rootReducer = (state = globalState, action) => {
         const flights = action.flights.filter((data) => {
             return data.departureAirport.name === flight.departure &&
                 data.arrivalAirport.name === flight.destination &&
-                data.FlightType.name === "Domestic" &&
+                data.FlightType.name === flight.trip &&
                 data.departureDate === flight.departureDate &&
                 data.FlightClass.name === flight.passenger
         })
+
+        console.log(flights);
 
         return {
             ...state,
@@ -118,7 +120,7 @@ const rootReducer = (state = globalState, action) => {
         const flights = action.flights.filter((data) => {
             return data.departureAirport.name === flight.destination &&
                 data.arrivalAirport.name === flight.departure &&
-                data.FlightType.name === "Domestic" &&
+                data.FlightType.name === flight.trip &&
                 data.departureDate === flight.returnDate &&
                 data.FlightClass.name === flight.passenger
         })

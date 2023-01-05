@@ -120,6 +120,12 @@ export default function Card() {
                                                                     <span>{booking[0].PassengerContact.title}</span>
                                                                 </div>
                                                             </div>
+
+                                                            {console.log(booking)}
+
+                                                            <div className="fs-6 mt-2 text-end ticket-status">
+                                                                <span className={`${booking[0].BookingStatus.name == 'Completed' ? 'bg-primary' : 'bg-danger'} py-1 px-3 text-white rounded`}>{booking[0].BookingStatus.name}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,6 +192,10 @@ export default function Card() {
                                                                         <span className="title">Title</span>
                                                                         <span>{booking[0].PassengerContact.title}</span>
                                                                     </div>
+                                                                </div>
+
+                                                                <div className="fs-6 mt-2 text-end ticket-status">
+                                                                    <span className="bg-primary py-1 px-3 text-white rounded">{booking[0].BookingStatus.name}</span>
                                                                 </div>
                                                             </div>
                                                         </div>

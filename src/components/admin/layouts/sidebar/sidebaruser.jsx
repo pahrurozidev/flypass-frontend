@@ -25,10 +25,10 @@ class Sidebaruser extends Component {
             ${(this.props.showSidebarProps && `show-sidebar`)}`}>
                 <div className="d-flex align-items-center mt-3 text-decoration-none d-flex justify-content-between items-center sidebar-logo pb-4">
 
-                    <Link to={"/"}>
+                    <a href='/'>
                         <img src={Logo} alt="FlyPass" className={`logo-large 
                     ${(this.props.showSidebarProps && `show-logo-large`)}`} />
-                    </Link>
+                    </a>
 
                     <ArrowCircleLeft
                         size={33}

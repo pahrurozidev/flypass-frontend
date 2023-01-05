@@ -19,10 +19,10 @@ export default function LoginPage() {
                 password: password,
             });
             alert("Kamu Berhasil Login");
-            console.log(data);
             localStorage.setItem("token", data.data.user.accesstToken)
             localStorage.setItem("id", data.data.user.id)
             history.push('/');
+            window.location.reload();
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data);
@@ -48,7 +48,7 @@ export default function LoginPage() {
                                 <label htmlFor="password">Password</label>
                                 <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                                 <Link to={'/resetpassword'}>
-                                        <span style={{textDecoration:"none"}}>Forgot Password?</span>
+                                    <span style={{ textDecoration: "none" }}>Forgot Password?</span>
                                 </Link>
                             </li>
                             <li>

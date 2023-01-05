@@ -455,18 +455,22 @@ footer a {
         width: 50%;
         justify-content: flex-start;
     }
+
     .border-user-auth .dropdown {
         left: 22%;
         right: 130px !important;
     }
+
     .bell {
         right: 20px !important;
         top: 260px !important;
     }
+
     .dropdown-menu.home-page {
         top: 110%;
         left: 25%;
     }
+
     .bell .nav-item .dropdown-menu {
         top: 140%;
         left: 825%;
@@ -970,3 +974,96 @@ footer a {
 }
 
 /* notification */
+
+/* reset & restyle */
+/* navbar */
+.navbar-nav a:nth-child(1),
+.navbar-nav .user-image {
+    margin-top: 0px;
+}
+
+.border-user-auth {
+    margin-bottom: 100vh;
+    margin-top: 28px;
+    width: 100% !important;
+    border: 0 !important;
+}
+
+
+.border-user-auth-item {
+    width: 300px !important;
+}
+
+/* .bell-auth {
+    position: absolute;
+    right: -20px !important;
+} */
+
+@media screen and (min-width: 576px) {
+    .bell-auth {
+        position: absolute;
+        right: -10px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 586px) {
+    .bell-auth {
+        position: absolute;
+        right: 0px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 607px) {
+    .bell-auth {
+        position: absolute;
+        right: 5px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 647px) {
+    .bell-auth {
+        position: absolute;
+        right: 83px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bell-auth {
+        position: absolute;
+        right: 0px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 782px) {
+    .bell-auth {
+        position: absolute;
+        right: 5px !important;
+        top: -43px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .border-user-auth {
+        margin-bottom: 0%;
+        margin-top: 0px;
+        border: 1px solid silver !important;
+    }
+
+    .border-user-auth-item {
+        width: 100% !important;
+    }
+
+    .bell-auth {
+        position: relative;
+        right: 0px !important;
+        top: 10px;
+    }
+}
+
+/* navbar */
+/* reset & restyle */
