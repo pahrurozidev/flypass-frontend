@@ -130,12 +130,6 @@ export default function Navbar() {
     // console.log(parseNotif);
 
     const updateReadHandler = (id, message, bookingId) => {
-
-        admin && API.transactionsGet().then((transactions) => {
-            const transaction = transactions.filter((t) => t.bookingId == bookingId);
-            navigate(`/transaction/${transaction[0].id}`);
-        })
-
         API.updateNotifications(id).then((notif) => console.log(notif));
     };
     // notificaiton | socket.io
@@ -205,14 +199,15 @@ export default function Navbar() {
                                                     <hr className="dropdown-divider m-0" />
                                                 </li>
                                                 {admin ?
-                                                    <li onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}>
+                                                    <Link onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}
+                                                        to={`${`/transaction/${notif.bookingId}`}`} className="text-decoration-none">
                                                         <a className={`dropdown-item d-flex align-items-center py-3 unread ${notif.isRead && 'read text-muted'}`} href="#">
                                                             <div className='d-flex flex-column gap-2'>
                                                                 <span className="font-weight-bold">{notif.message}</span>
                                                                 <div className="small text-gray-500">{moment(notif.updatedAt).format('LLLL')}</div>
                                                             </div>
                                                         </a>
-                                                    </li> :
+                                                    </Link> :
                                                     <Link onClick={() => updateReadHandler(notif.id, notif.message, notif.bookingId)}
                                                         to={`${notif.message == 'Waiting for payment' ?
                                                             `/search/flight/payment/${notif.bookingId}` :
