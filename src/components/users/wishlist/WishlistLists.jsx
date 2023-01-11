@@ -31,7 +31,7 @@ export default function WishlistList() {
                         {/* header label */}
                         <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                             <h2 className='fs-4'>Wishlist</h2>
-                            <p className='header-text fw-light col-12 col-lg-9'>This is a list of your favorite flights</p>
+                            <p className='header-text fw-light col-12 col-lg-9 p-0'>This is a list of your favorite flights</p>
                         </div>
 
                         {/* broadcrumb */}

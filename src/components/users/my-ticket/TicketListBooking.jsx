@@ -47,7 +47,7 @@ export default function Card() {
                     {/* header label */}
                     <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
                         <h2 className='fs-4'>Selamat Datang, {name}</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Hallo {name}, selamat datang di dashboard. Anda dapat melihat tiket penerbangan yang sudah anda pesan. Anda juga dapat melihat beberapa menu lainnya seperti my ticket, wishlist, profile, notifikasi dan riwayat transaksi yang telah dilakukan.</p>
+                        <p className='header-text fw-light col-12 col-lg-9 p-0'>Hallo {name}, selamat datang di dashboard. Anda dapat melihat tiket penerbangan yang sudah anda pesan. Anda juga dapat melihat beberapa menu lainnya seperti my ticket, wishlist, profile, notifikasi dan riwayat transaksi yang telah dilakukan.</p>
                     </div>
 
                     {/* broadcrumb */}

@@ -9,16 +9,17 @@ import moment from 'moment';
 import { io } from 'socket.io-client';
 import Logo from '../../../assets/dasboard-admin/Logo.svg';
 import Profile from '../../../assets/dasboard-admin/profile.svg';
-import './main/css/style.css';
-import './main/css/bootstrap.min.css';
-import './main/css/owl.carousel.min.css';
-import './main/fonts/icomoon/style.css';
-import './main/js/jquery-3.3.1.min.js';
-import './main/js/bootstrap.min.js';
-import './main/js/jquery.sticky.js';
-import './main/js/main.js';
+import '../../../assets/homepageNavbar/css/style.css';
+import '../../../assets/homepageNavbar/css/bootstrap.min.css';
+// import './main/css/owl.carousel.min.css';
+import '../../../assets/homepageNavbar/fonts/icomoon/style.css';
+// import './main/js/jquery-3.3.1.min.js';
+// import './main/js/bootstrap.min.js';
+// import './main/js/jquery.sticky.js';
+// import './main/js/main.js';
 import { Home, LogOut, Bell, User, XCircle } from 'react-feather';
 import { ArrowCircleDown, ArrowCircleRight } from 'iconsax-react';
+import '../../../styles/homepage.css';
 
 export default function Navbar() {
 

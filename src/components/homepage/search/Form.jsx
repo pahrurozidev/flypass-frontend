@@ -103,7 +103,7 @@ class Form extends Component {
                         <div
                             className={`departure-search rounded shadow ${this.state.showDeparture ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {/* {departureAirports.map((airports) => (
+                                {departureAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3 rounded"
                                         onClick={(event) => this.getDepartureAirportHandler(event, airports.name)}>
@@ -114,7 +114,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))} */}
+                                ))}
                             </ul>
                         </div>
                     </li>
@@ -138,7 +138,7 @@ class Form extends Component {
                         <div
                             className={`arrival-search ${this.state.showArrival ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {/* {arrivalAirports.map((airports) => (
+                                {arrivalAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3"
                                         onClick={(event) => this.getArrivalAirportHandler(event, airports.name)}>
@@ -149,7 +149,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))} */}
+                                ))}
                             </ul>
                         </div>
                     </li>
@@ -159,7 +159,7 @@ class Form extends Component {
                         <select name="trip" id="trip" className="trip"
                             onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                             onClick={() => this.hideAllList()}
-                            required>
+                            required style={{ height: '45px' }}>
                             <option value="">Trip</option>
                             <option value="Domestic">One Way</option>
                             <option value="International">Round Trip</option>
@@ -187,7 +187,7 @@ class Form extends Component {
                         <label htmlFor="passenger">Passenger / Class</label>
                         <select name="passenger" id="passenger" onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                             onClick={() => this.hideAllList()}
-                            required>
+                            required style={{ height: '45px' }}>
                             <option value="">Passenger</option>
                             <option value="Economy">Economy</option>
                             <option value="Business">Business</option>

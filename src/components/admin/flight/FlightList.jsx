@@ -37,7 +37,7 @@ class FlightList extends Component {
                     {/* header label */}
                     <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
                         <h2 className='fs-4'>Flight</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan semua list penerbangan yang tersedia.</p>
+                        <p className='header-text fw-light col-12 col-lg-9 p-0'>Halaman ini menampilkan semua list penerbangan yang tersedia.</p>
                     </div>
 
                     {/* broadcrumb */}

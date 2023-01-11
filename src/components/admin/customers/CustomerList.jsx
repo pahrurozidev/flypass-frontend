@@ -27,7 +27,7 @@ export default function CustomerList() {
                     {/* header label */}
                     <div className='border rounded p-4 pt-3 pb-3 pb-md-1'>
                         <h2 className='fs-4'>Customers</h2>
-                        <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan semua list customer yang telah melakukan pemesanan atau booking tiket penerbangan.</p>
+                        <p className='header-text fw-light col-12 col-lg-9 p-0'>Halaman ini menampilkan semua list customer yang telah melakukan pemesanan atau booking tiket penerbangan.</p>
                     </div>
 
                     {/* broadcrumb */}

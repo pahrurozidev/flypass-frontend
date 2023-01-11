@@ -30,7 +30,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <img src={Fligh} alt="" className="fligh" />
+            <img src={Fligh} alt="" className="fligh" style={{ height: '100%' }} />
         </section>
     );
 }

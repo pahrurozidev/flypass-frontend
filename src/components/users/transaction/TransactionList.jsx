@@ -28,7 +28,7 @@ export default function TransactionList() {
             {/* header label */}
             <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
               <h2 className='fs-4'>All History</h2>
-              <p className='header-text fw-light col-12 col-lg-9'>Pada halaman ini anda dapat melihat riwayat transaksi yang telah dilakukan.</p>
+              <p className='header-text fw-light col-12 col-lg-9 p-0'>Pada halaman ini anda dapat melihat riwayat transaksi yang telah dilakukan.</p>
             </div>
 
             {/* broadcrumb */}

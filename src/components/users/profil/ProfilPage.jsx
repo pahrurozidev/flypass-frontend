@@ -25,7 +25,7 @@ export default function ProfilPage() {
           {/* header label */}
           <div className='border rounded px-2 pt-md-3 px-md-3 pb-1 pt-3'>
             <h2 className='fs-4'>Your Profile, {user.name}</h2>
-            <p className='header-text fw-light col-12 col-lg-9'>Halaman ini menampilkan data diri anda, jika belum lengkap silahkan perbaharui dan lengkapi.</p>
+            <p className='header-text fw-light col-12 col-lg-9 p-0'>Halaman ini menampilkan data diri anda, jika belum lengkap silahkan perbaharui dan lengkapi.</p>
           </div>
 
           {/* broadcrumb */}
