@@ -65,15 +65,19 @@ nav {
 
 .flypass-logo {
     width: 120px;
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .jumbotron {
-    margin-top: 70px;
+    /* margin-top: 70px; */
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
 }
 
 .jumbotron img {
-    width: 100%;
+    width: 100% !important;
+    height: 500px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-x: 500px;
@@ -81,6 +85,7 @@ nav {
 
 /* form search */
 .form-search {
+    /* margin-top: 450px; */
     height: 180px;
     border-radius: 20px;
     background: white;
@@ -944,13 +949,38 @@ footer a {
 }
 
 .unread {
-    background: #458ad3;
-    color: white;
+    background: #007AFF !important;
+    width: 100% !important;
+}
+
+.unread p,
+.unread small,
+.unread h4 {
+    color: white !important;
+}
+
+.mobile-notif {
+    position: relative;
+    top: -6px;
+    height: 63.5px;
+    margin-right: 25px !important;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 425px) {
+    .mobile-notif {
+        margin-right: 35px !important;
+    }
 }
 
 .read {
-    background: white;
-    /* color: black; */
+    background: snow !important;
+}
+
+.read h4,
+.read small {
+    color: rgb(138, 138, 138) !important;
+    /* opacity: .5; */
 }
 
 .bell-auth {
@@ -958,7 +988,7 @@ footer a {
 }
 
 .notif-count {
-    background: #007AFF;
+    background: rgb(255, 0, 0);
     position: absolute;
     color: white;
     border-radius: 100%;
@@ -969,8 +999,108 @@ footer a {
     margin: auto;
     text-align: center;
 
-    top: -8px;
-    right: -8px;
+    top: 27px;
+    right: 5px;
+}
+
+.notif-count__mobile {
+    top: 12px;
+    right: -10px;
+}
+
+.notif-dropdown {
+    width: 250px;
+    position: relative;
+    left: -25px !important;
+
+    font-size: 14px;
+}
+
+.desktop-notif-drop {
+    display: none !important;
+}
+
+@media screen and (min-width: 992px) {
+    .desktop-notif-drop {
+        display: inline-block !important;
+    }
+}
+
+.mobile-notif-drop {
+    position: absolute;
+    width: 45vh !important;
+    left: -170px !important;
+    top: 60px !important;
+
+    font-size: 14px;
+    text-align: left;
+}
+
+.mobile-notif-drop .unread {
+    margin-top: -8px !important;
+    padding: 15px 10px;
+    /* border-top: 1px solid silver; */
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-notif-drop small {
+        display: block;
+        margin-top: -10px !important;
+    }
+}
+
+.mobile-notif-drop div:hover {
+    background: #007AFF;
+    color: white;
+}
+
+.mobile-notif-drop div:hover p {
+    color: white;
+}
+
+.mobile-notif-drop p {
+    color: black;
+}
+
+.notif-dropdown .nav-link {
+    border-bottom: 1px solid silver;
+    padding: 10px !important;
+}
+
+.site-nav-wrap .nav-link {
+    font-size: 14px !important;
+}
+
+.notif-dropdown .nav-link:hover {
+    background: #007AFF;
+}
+
+.notif-dropdown .nav-link:hover p,
+.notif-dropdown .nav-link:hover small {
+    color: white;
+}
+
+.notif-dropdown p {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.notif-dropdown small {
+    display: block;
+    margin-top: -20px;
+    color: black;
+}
+
+.read-more {
+    display: block !important;
+    color: black !important;
+}
+
+.read-more:hover {
+    background: #007AFF !important;
+    font-size: 14px !important;
+    display: block;
+    color: white !important;
 }
 
 /* notification */
@@ -1065,5 +1195,181 @@ footer a {
     }
 }
 
+.bell-auth__reset {
+    /* position: none !important; */
+    background: red !important;
+}
+
+.site-navbar-wrap {
+    background: transparent !important;
+    position: relative;
+    top: 0;
+}
+
+.site-navbar {
+    background: transparent;
+    color: black !important;
+}
+
+.second-navbar {
+    background-image: linear-gradient(to left, #0064cead,
+            rgb(211, 207, 207));
+    /* position: relative; */
+    z-index: 999;
+}
+
+.has-children__modify {
+    /* background: red; */
+    width: 40px !important;
+}
+
+.nav-side {
+    background: red !important;
+}
+
+.site-navigation {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 992px) {
+    .site-navigation {
+        margin-top: 0px;
+    }
+}
+
 /* navbar */
+
+/* jumbotron */
+.jumbotron {
+    width: 100% !important;
+}
+
+.jumbotron img {
+    height: 200px;
+}
+
+@media screen and (min-width: 375px) {
+    .jumbotron img {
+        height: 250px;
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .jumbotron img {
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .jumbotron img {
+        height: 400px;
+    }
+}
+
+/* jumbotron */
+
+/* form search */
+.form-search {
+    border-top: 1px solid silver;
+}
+
+@media screen and (min-width: 375px) {
+    .form-search {
+        border-top: none;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+    .form-search {
+        top: 650px;
+    }
+
+}
+
+@media screen and (min-width: 1000px) {
+    .form-search {
+        top: 400px;
+    }
+
+}
+
+/* form search */
+
+/* service */
+.service {
+    margin-top: 900px;
+}
+
+@media screen and (min-width: 426px) {
+    .service {
+        margin-top: 980px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .service {
+        margin-top: 1050px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .service {
+        margin-top: 550px;
+    }
+}
+
+/* logo */
+.flypass-logo-update {
+    margin-top: 13px;
+}
+
+/* logo */
+
+/* service */
+
+/* login */
+.login-container,
+.payment-container {
+    margin-top: 120px !important;
+}
+
+/* login */
+
+/* mobile side */
+.mobile-side {
+    height: 100vh;
+    width: 80% !important;
+    position: fixed;
+    top: 0px;
+    right: -900px;
+    z-index: 9999 !important;
+
+    font-size: 14px !important;
+    transition: all .3s;
+}
+
+@media screen and (min-width: 500px) {
+    .mobile-side {
+        width: 50% !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .mobile-side {
+        display: none;
+    }
+}
+
+.mobile-side-show {
+    right: 0;
+}
+
+.mobile-side-item {
+    width: 80%;
+    margin: 80px auto;
+}
+
+/* mobile side */
+
 /* reset & restyle */

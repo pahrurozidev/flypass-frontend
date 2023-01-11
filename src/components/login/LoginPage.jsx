@@ -31,12 +31,12 @@ export default function LoginPage() {
     }
 
     return (
-        <section className="container login-container">
+        <section className="container login-container mt-5">
             <section>
                 <div className='login-form'>
                     <div className='login-header'>
                         <h1>Login</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipg elit.</p>
                     </div>
                     <form onSubmit={Auth}>
                         <ul className='p-0'>

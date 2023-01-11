@@ -150,6 +150,19 @@ const rootReducer = (state = globalState, action) => {
             ...state,
             notifCount: state.notifCount + 1,
         }
+    } else if (action.type === actionType.RESET_INPUT) {
+
+        return {
+            ...state,
+            flight: {
+                departure: '',
+                destination: '',
+                trip: '',
+                departureDate: '0000-00-00',
+                returnDate: '',
+                passenger: '',
+            },
+        }
     } else {
         return state;
     }

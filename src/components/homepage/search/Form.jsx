@@ -103,7 +103,7 @@ class Form extends Component {
                         <div
                             className={`departure-search rounded shadow ${this.state.showDeparture ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {departureAirports.map((airports) => (
+                                {/* {departureAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3 rounded"
                                         onClick={(event) => this.getDepartureAirportHandler(event, airports.name)}>
@@ -114,7 +114,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))}
+                                ))} */}
                             </ul>
                         </div>
                     </li>
@@ -138,7 +138,7 @@ class Form extends Component {
                         <div
                             className={`arrival-search ${this.state.showArrival ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {arrivalAirports.map((airports) => (
+                                {/* {arrivalAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3"
                                         onClick={(event) => this.getArrivalAirportHandler(event, airports.name)}>
@@ -149,7 +149,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))}
+                                ))} */}
                             </ul>
                         </div>
                     </li>
@@ -196,7 +196,7 @@ class Form extends Component {
                 </ul>
                 <ul className="button">
                     <li>
-                        <button type='button' className="button_reset" onClick={() => this.hideAllList()}>Reset</button>
+                        <button type='button' className="button_reset" onClick={() => this.props.resetInputDispatch()}>Reset</button>
                     </li>
                     <li>
                         <button
@@ -235,6 +235,9 @@ const mapDispatchToProps = (dispatch) => {
             type: actionType.CHANGE_ARRIVAL,
             airport: airport,
         }),
+        resetInputDispatch: () => dispatch({
+            type: actionType.RESET_INPUT,
+        })
     }
 }
 

@@ -1139,3 +1139,7 @@ td {
 .status_col .alert {
     width: 90px !important;
 }
+
+.image-sub {
+    max-height: 400px;
+}

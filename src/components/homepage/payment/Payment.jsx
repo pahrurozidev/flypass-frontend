@@ -23,7 +23,7 @@ export default function Payment() {
         <React.Fragment>
             <Navbar />
 
-            <main className='container'>
+            <main className='container payment-container'>
                 <BookingBar />
                 {(location === `/search/flight/${id}`) && <FlightDetail
                     bookings={(booking) => setBook(booking)} />}

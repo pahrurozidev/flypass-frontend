@@ -12,7 +12,7 @@ import Searched from "../components/homepage/searched/Searched";
 import NotFound from "../components/homepage/notfound/NotFound";
 
 // style homepage
-import '../styles/homepage.css'
+import '../styles/homepage.css';
 
 class Home extends Component {
     render() {

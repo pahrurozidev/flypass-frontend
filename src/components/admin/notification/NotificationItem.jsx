@@ -53,6 +53,7 @@ export default function NotificationList() {
                             <div className={`card d-flex flex-row items-center unread ${notif.isRead && 'text-muted read'}`}
                                 onClick={() => onShowNotificationHandler(notif.id, notif.message, notif.bookingId, notif.isRead)}>
                                 <div className="card-body">
+                                    {console.log(notif.isRead)}
                                     <h4 className={`card-title`}>{notif.message}</h4>
                                     <small className='notif-date'>{moment(notif.updatedAt).format('LLLL')}</small>
                                 </div>
