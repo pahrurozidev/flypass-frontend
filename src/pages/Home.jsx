@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import ReactLoading from 'react-loading';
 import Navbar from '../components/homepage/navbar/Navbar';
 import Jumbotron from '../components/homepage/jumbotron/Jumbotron';
 import Search from '../components/homepage/search/Search';
@@ -21,10 +22,21 @@ class Home extends Component {
                 <Navbar />
                 <Jumbotron />
                 <Search />
+
+                {console.log(this.props.flightLoad)}
+
                 {(this.props.onSubmit && this.props.flights.length !== 0) ? <Searched /> :
-                    this.props.onSubmit && this.props.flights.length === 0 && <NotFound
+                    this.props.onSubmit && this.props.flights.length === 0 &&
+
+                    <NotFound
                         departureAlert={this.props.departureAlert}
-                        returnAlert={this.props.returnAlert} />}
+                        returnAlert={this.props.returnAlert} />
+
+                    // this.props.flightLoad && <div className="loader-search">
+                    //     {console.log('loader berjalan')}
+                    //     <ReactLoading type={'bars'} color={'silver'} height={'10%'} width={'10%'} className='m-auto' />
+                    // </div>
+                }
                 <Service />
                 <Offer />
                 <Contact />
@@ -41,6 +53,7 @@ const mapStateToProps = (state) => {
         departureAlert: state.departureAlert,
         returnAlert: state.returnAlert,
         notifCount: state.notifCount,
+        flightLoad: state.flightLoad,
     }
 }
 

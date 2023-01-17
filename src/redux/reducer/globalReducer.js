@@ -26,6 +26,7 @@ const globalState = {
 
     user: '',
     notifCount: 0,
+    flightLoad: false,
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -64,14 +65,13 @@ const rootReducer = (state = globalState, action) => {
                 data.FlightClass.name === flight.passenger
         })
 
-        console.log(flights);
-
         return {
             ...state,
             onSubmit: true,
             departureAlert: flights.length === 0 && true,
             flights: flights,
             departureFlights: flights,
+            flightLoad: flights.length != 0 && true,
         }
     } else if (action.type === actionType.INPUT_SEARCH_FLIGHT) {
         const inputForm = { ...state.flight };
@@ -92,6 +92,16 @@ const rootReducer = (state = globalState, action) => {
         return {
             ...state,
             flights: action.flights
+        }
+    } else if (action.type === actionType.CHANGE_FLIGHT) {
+        const flight = { ...state.flight };
+
+        return {
+            ...state,
+            flight: {
+                departure: flight.destination,
+                destination: flight.departure,
+            },
         }
     } else if (action.type === actionType.FLIGHT_DETAIL) {
         return {
@@ -158,7 +168,7 @@ const rootReducer = (state = globalState, action) => {
                 departure: '',
                 destination: '',
                 trip: '',
-                departureDate: '0000-00-00',
+                departureDate: '',
                 returnDate: '',
                 passenger: '',
             },

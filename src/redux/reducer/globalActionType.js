@@ -16,4 +16,5 @@ export const actionType = {
     USER: 'USER',
     NOTIF_COUNT: 'NOTIF_COUNT',
     RESET_INPUT: 'RESET_INPUT',
+    CHANGE_FLIGHT: 'CHANGE_FLIGHT',
 }

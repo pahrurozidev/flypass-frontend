@@ -853,9 +853,9 @@ footer a {
 }
 
 @media screen and (min-width: 1400px) {
-    .booking-form input {
+    /* .booking-form input {
         width: 180px !important;
-    }
+    } */
 }
 
 .btn-booking {
@@ -1369,6 +1369,45 @@ footer a {
     width: 80%;
     margin: 80px auto;
 }
+
+/* searched */
+.not-found {
+    top: 230px !important;
+}
+
+.searched {
+    top: 250px !important;
+}
+
+@media screen and (min-width: 426px) {
+    .not-found,
+    .searched {
+        top: 300px !important;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .not-found,
+    .searched {
+        top: 350px !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .not-found,
+    .searched
+     {
+        top: 250px !important;
+    }
+}
+
+.loader-search {
+    display: block;
+    margin-top: 380px !important;
+}
+
+/* searched */
+
 
 /* mobile side */
 

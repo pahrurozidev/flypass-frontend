@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
+import swal from 'sweetalert';
 import { useHistory } from 'react-router-use-history';
 
 export default function RegisterPage() {
@@ -18,6 +19,18 @@ export default function RegisterPage() {
 
     const Register = async (e) => {
         e.preventDefault();
+
+        if (password !== confirmationPassword) {
+            history.push('/register');
+
+            swal({
+                title: "Password Confirmation Not Match!",
+                text: "",
+                icon: "warning",
+                button: "Ok!",
+            });
+        }
+
         try {
             await axios.post(`${import.meta.env.VITE_BASE_URL}/v1/register`, {
                 email: email,
@@ -27,16 +40,33 @@ export default function RegisterPage() {
                 birthDate: birthDate,
                 gender: gender,
                 phone: phone
-            });
-            alert("Kamu Berhasil Register Silahkan Login");
-            history.push('/login');
+            }).then((res) => {
+                history.push('/login');
+
+                swal({
+                    title: "Register Succeessfully!",
+                    text: "",
+                    icon: "success",
+                    button: "Ok!",
+                });
+            })
+                .catch((error) => {
+                    if (error.response.data.message == 'email is already used') {
+                        swal({
+                            title: "Email is already used!",
+                            text: "",
+                            icon: "warning",
+                            button: "Ok!",
+                        });
+                    }
+                });
+
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data);
             }
         }
     }
-
 
     return (
         <section className="container login-container">

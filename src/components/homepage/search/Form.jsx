@@ -29,6 +29,7 @@ class Form extends Component {
         event.preventDefault();
 
         API.flights().then((flights) => {
+            console.log(flights);
             this.props.submitSearchFlightDispatch(flights);
         })
     }
@@ -68,6 +69,10 @@ class Form extends Component {
             showDeparture: false,
             showArrival: false,
         })
+    }
+
+    onChangeflightHandler = () => {
+        this.props.onChangeflightDispatch()
     }
 
     render() {
@@ -119,7 +124,7 @@ class Form extends Component {
                         </div>
                     </li>
                     <li className='change-icon mx-lg-2'>
-                        <div>
+                        <div onClick={() => this.onChangeflightHandler()} role='button'>
                             <img src={Change} alt="" className='shadow rounded-circle' />
                         </div>
                     </li>
@@ -160,17 +165,31 @@ class Form extends Component {
                             onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                             onClick={() => this.hideAllList()}
                             required style={{ height: '45px' }}>
-                            <option value="">Trip</option>
-                            <option value="Domestic">One Way</option>
-                            <option value="International">Round Trip</option>
+
+                            {this.props.flight.trip == '' || this.props.flight.trip == undefined ?
+                                <>
+                                    <option selected>Trip</option>
+                                    <option value="Domestic">One Way</option>
+                                    <option value="International">Round Trip</option>
+                                </> :
+                                <>
+                                    <option value="Domestic">One Way</option>
+                                    <option value="International">Round Trip</option>
+                                </>
+                            }
                         </select>
                     </li>
                     {/* <!-- Departure Date --> */}
                     <li>
                         <label htmlFor="departure-date">Departure Date</label>
-                        <input type="date" id="departureDate" name="departureDate"
-                            className="date" onChange={(event) => this.props.inputSearchFlightDispatch(event)}
+                        <input
+                            type="date"
+                            id="departureDate"
+                            name="departureDate"
+                            className="date"
+                            onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                             onClick={() => this.hideAllList()}
+                            value={this.props.flight.departureDate}
                             required />
                     </li>
                     {/* <!-- Return Date --> */}
@@ -180,6 +199,7 @@ class Form extends Component {
                             <input type="date" id="returnDate" name="returnDate"
                                 className="date" onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                                 onClick={() => this.hideAllList()}
+                                value={this.props.flight.returnDate}
                                 required />
                         </li>}
                     {/* <!-- Passenger --> */}
@@ -188,9 +208,17 @@ class Form extends Component {
                         <select name="passenger" id="passenger" onChange={(event) => this.props.inputSearchFlightDispatch(event)}
                             onClick={() => this.hideAllList()}
                             required style={{ height: '45px' }}>
-                            <option value="">Passenger</option>
-                            <option value="Economy">Economy</option>
-                            <option value="Business">Business</option>
+
+                            {this.props.flight.passenger == '' || this.props.flight.passenger == undefined ?
+                                <>
+                                    <option selected>Passenger</option>
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
+                                </> :
+                                <>
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
+                                </>}
                         </select>
                     </li>
                 </ul>
@@ -237,6 +265,9 @@ const mapDispatchToProps = (dispatch) => {
         }),
         resetInputDispatch: () => dispatch({
             type: actionType.RESET_INPUT,
+        }),
+        onChangeflightDispatch: () => dispatch({
+            type: actionType.CHANGE_FLIGHT
         })
     }
 }

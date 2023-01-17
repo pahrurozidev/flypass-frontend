@@ -46,7 +46,7 @@ class Searched extends Component {
 
     render() {
         return (
-            <section class="container m-auto card pt-3 pb-3 flight-result">
+            <section class="container m-auto card pt-3 pb-3 flight-result searched">
                 <div className='card p-3 pb-md-0 select-flight d-flex flex-row'>
                     {this.props.departureFlight ?
                         <div className='d-flex flex-column flex-md-row justify-content-between col-12'>

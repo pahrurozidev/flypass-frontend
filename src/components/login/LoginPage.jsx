@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import Fligh from '../../assets/homepage/flight.webp';
 import axios from 'axios';
 import { useHistory } from 'react-router-use-history'
+import swal from 'sweetalert';
 
 export default function LoginPage() {
 
@@ -18,14 +19,29 @@ export default function LoginPage() {
                 email: email,
                 password: password,
             });
-            alert("Kamu Berhasil Login");
+
             localStorage.setItem("token", data.data.user.accesstToken)
             localStorage.setItem("id", data.data.user.id)
             history.push('/');
-            window.location.reload();
+            // window.location.reload();
+
+            swal({
+                title: "Login Success",
+                text: "",
+                icon: "success",
+                button: "Ok!",
+            });
         } catch (error) {
+            if (error.response.status == 401) {
+                swal({
+                    title: "Account Not Found!",
+                    text: "",
+                    icon: "warning",
+                    button: "Ok!",
+                });
+            }
             if (error.response) {
-                setMsg(error.response.data);
+                setMsg(error.response);
             }
         }
     }

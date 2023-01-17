@@ -17,7 +17,7 @@ import '../../../assets/homepageNavbar/fonts/icomoon/style.css';
 // import './main/js/bootstrap.min.js';
 // import './main/js/jquery.sticky.js';
 // import './main/js/main.js';
-import { Home, LogOut, Bell, User, XCircle } from 'react-feather';
+import { Home, LogOut, Bell, User, XCircle, X } from 'react-feather';
 import { ArrowCircleDown, ArrowCircleRight } from 'iconsax-react';
 import '../../../styles/homepage.css';
 
@@ -372,7 +372,7 @@ export default function Navbar() {
                 {/* mobile */}
                 <div className={`bg-light mobile-side ${showSidebar && 'mobile-side-show'}`}>
                     {/* icon close */}
-                    <XCircle size={30} className='float-right mt-4 me-4' role={'button'} onClick={() => setShowSidebar(false)} />
+                    <XCircle size={30} className='text-secondary float-right mt-4 me-4 shadow rounded-circle' role={'button'} onClick={() => setShowSidebar(false)} />
                     <div className='d-flex flex-column justify-content-end gap-4 mobile-side-item'>
                         <div>Home</div>
                         <div>My Booking</div>
@@ -380,10 +380,10 @@ export default function Navbar() {
                         <div>Contact</div>
                         {login == false ?
                             <>
-                                <li><Link to={"/login"} class="nav-link">Login</Link></li>
-                                <li><Link to={"/register"} class="nav-link">
+                                <div><Link to={"/login"} class="text-dark">Login</Link></div>
+                                <div><Link to={"/register"} class="mt-2 d-block">
                                     <span className='bg-primary text-white py-2 px-3 rounded shadow'>Register</span>
-                                </Link></li>
+                                </Link></div>
                             </> :
                             <div>
                                 <a href="#" class="nav-link m-0 p-0">
