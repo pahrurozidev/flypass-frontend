@@ -147,7 +147,7 @@ export default function PaymentList() {
                       <div className='col-6 col-md-4 mb-2'>: Rp {bookByUser[0].totalPrice}</div>
                     </div>
                     <p>*Please pay before
-                      21/12/2022 17:38:00</p>
+                      21/01/2023 05:00 PM</p>
                   </div>
 
                   <div className='mt-4 mt-md-2'>

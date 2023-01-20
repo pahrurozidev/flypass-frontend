@@ -15,6 +15,8 @@ import NotFound from "../components/homepage/notfound/NotFound";
 import '../styles/homepage.css'
 
 class Home extends Component {
+
+
     render() {
         return (
             <Fragment>

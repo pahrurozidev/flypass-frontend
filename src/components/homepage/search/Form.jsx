@@ -50,14 +50,18 @@ class Form extends Component {
         })
     }
 
-    showDepartureList = () => {
+    showDepartureList = (event) => {
+        event.stopPropagation();
+
         this.setState({
             showDeparture: true,
             showArrival: false,
         })
     }
 
-    hideDepartureList = () => {
+    hideDepartureList = (event) => {
+        event.stopPropagation();
+
         this.setState({
             showDeparture: false,
             showArrival: true
@@ -75,6 +79,22 @@ class Form extends Component {
         this.props.onChangeflightDispatch()
     }
 
+    resetInputHandler = () => {
+        this.props.resetInputDispatch()
+
+        this.setState({
+            showDeparture: false,
+            showArrival: false,
+        })
+    }
+
+    onClickFormHandler = (event) => {
+        
+        this.setState({
+            showDeparture: false,
+            showArrival: false,
+        })
+    }
 
     render() {
         const departure = this.props.flight.departure.toLowerCase();
@@ -86,15 +106,14 @@ class Form extends Component {
         const arrivalAirports = this.state.airports.filter((airports) => {
             return airports.name.toLowerCase().includes(destination)
         });
-
-        // console.log(this.props.flight);
-
+        
         return (
             <form
                 action=""
                 className='booking-form'
                 id='booking'
-                onSubmit={(event) => this.onSubmitSearchHandler(event)}>
+                onSubmit={(event) => this.onSubmitSearchHandler(event)}
+                onClick={(event) => this.onClickFormHandler(event)}>
                 <ul>
                     {/* <!-- departure --> */}
                     <li>
@@ -104,14 +123,14 @@ class Form extends Component {
                             name="departure"
                             id="departure"
                             onChange={(event) => this.props.inputSearchFlightDispatch(event)}
-                            onClick={() => this.showDepartureList()}
+                            onClick={(event) => this.showDepartureList(event)}
                             placeholder="Departure"
                             value={this.props.flight.departure}
                             required />
                         <div
                             className={`departure-search rounded shadow ${this.state.showDeparture ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {/* {departureAirports.map((airports) => (
+                                {departureAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3 rounded"
                                         onClick={(event) => this.getDepartureAirportHandler(event, airports.name)}>
@@ -122,7 +141,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))} */}
+                                ))}
                             </ul>
                         </div>
                     </li>
@@ -140,14 +159,14 @@ class Form extends Component {
                             name="destination"
                             id="destination"
                             onChange={(event) => this.props.inputSearchFlightDispatch(event)}
-                            onClick={() => this.hideDepartureList()}
+                            onClick={(event) => this.hideDepartureList(event)}
                             value={this.props.flight.destination}
                             placeholder="Arrival"
                             required />
                         <div
                             className={`arrival-search ${this.state.showArrival ? 'd-block' : 'd-none'}`}>
                             <ul class="list-group gap-1">
-                                {/* {arrivalAirports.map((airports) => (
+                                {arrivalAirports.map((airports) => (
                                     <li
                                         class="list-group-item border py-3"
                                         onClick={(event) => this.getArrivalAirportHandler(event, airports.name)}>
@@ -158,7 +177,7 @@ class Form extends Component {
                                             <div>{airports.country}</div>
                                         </div>
                                     </li>
-                                ))} */}
+                                ))}
                             </ul>
                         </div>
                     </li>
@@ -230,7 +249,7 @@ class Form extends Component {
                 </ul>
                 <ul className="button">
                     <li>
-                        <button type='button' className="button_reset" onClick={() => this.props.resetInputDispatch()}>Reset</button>
+                        <button type='button' className="button_reset" onClick={() => this.resetInputHandler()}>Reset</button>
                     </li>
                     <li>
                         <button
@@ -248,6 +267,7 @@ const mapStateToProps = (state) => {
     return {
         flights: state.flights,
         flight: state.flight,
+        searchBox: state.searchBox,
     }
 }
 
