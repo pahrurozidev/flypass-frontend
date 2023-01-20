@@ -101,6 +101,10 @@ const rootReducer = (state = globalState, action) => {
             flight: {
                 departure: flight.destination,
                 destination: flight.departure,
+                trip: flight.trip,
+                departureDate: flight.departureDate,
+                returnDate: flight.returnDate,
+                passenger: flight.passenger,
             },
         }
     } else if (action.type === actionType.FLIGHT_DETAIL) {

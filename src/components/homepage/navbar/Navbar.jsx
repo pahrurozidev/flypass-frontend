@@ -70,78 +70,78 @@ export default function Navbar() {
     }
 
     // notificaiton | socket.io
-    if (location == '/' || location == `/search/flight/${id}` || location == `/search/flight/payment/${id}` && token) {
-        const socket = io(`${import.meta.env.VITE_BASE_URL}`);
+    // if (location == '/' || location == `/search/flight/${id}` || location == `/search/flight/payment/${id}` && token) {
+    //     const socket = io(`${import.meta.env.VITE_BASE_URL}`);
 
-        useEffect(() => {
-            setTimeout(() => {
-                API.adminNotifications().then((notif) => {
-                    // console.log('effect');
-                    const notifs = notif.filter((notifs) => notifs.isRead == false);
-                    setParseNotif(notifs.reverse())
-                })
-            }, 2000);
+    //     useEffect(() => {
+    //         setTimeout(() => {
+    //             API.adminNotifications().then((notif) => {
+    //                 // console.log('effect');
+    //                 const notifs = notif.filter((notifs) => notifs.isRead == false);
+    //                 setParseNotif(notifs.reverse())
+    //             })
+    //         }, 2000);
 
-            !admin &&
-                API.userNotifications().then((notif) => {
-                    const notifs = notif.filter((notifs) => notifs.isRead == false);
-                    setParseNotif(notifs.reverse())
-                })
-        }, [])
+    //         !admin &&
+    //             API.userNotifications().then((notif) => {
+    //                 const notifs = notif.filter((notifs) => notifs.isRead == false);
+    //                 setParseNotif(notifs.reverse())
+    //             })
+    //     }, [])
 
-        useEffect(() => {
-            API.whoAmI().then((user) => {
-                setUserId(user.id.toString());
-            })
+    //     useEffect(() => {
+    //         API.whoAmI().then((user) => {
+    //             setUserId(user.id.toString());
+    //         })
 
-            socket.on('connect', () => {
-                console.log('connected');
-            });
+    //         socket.on('connect', () => {
+    //             console.log('connected');
+    //         });
 
-        }, [count, notifications]);
+    //     }, [count, notifications]);
 
-        if (admin) {
-            socket.emit('connected', 'admin');
+    //     if (admin) {
+    //         socket.emit('connected', 'admin');
 
-            socket.on('notif-to-admin', (newNotif) => {
-                setcount(count + 1);
+    //         socket.on('notif-to-admin', (newNotif) => {
+    //             setcount(count + 1);
 
-                if (admin) {
-                    API.adminNotifications().then((notif) => {
-                        const notifs = notif.filter((notifs) => notifs.isRead == false)
-                        setParseNotif(notifs.reverse())
-                    })
-                } else {
-                    API.userNotifications().then((notif) => {
-                        const notifs = notif.filter((notifs) => notifs.isRead == false)
-                        setParseNotif(notifs.reverse())
-                    })
-                }
+    //             if (admin) {
+    //                 API.adminNotifications().then((notif) => {
+    //                     const notifs = notif.filter((notifs) => notifs.isRead == false)
+    //                     setParseNotif(notifs.reverse())
+    //                 })
+    //             } else {
+    //                 API.userNotifications().then((notif) => {
+    //                     const notifs = notif.filter((notifs) => notifs.isRead == false)
+    //                     setParseNotif(notifs.reverse())
+    //                 })
+    //             }
 
-                setNotifications([newNotif, ...notifications]);
-            });
-        } else {
-            socket.emit('connected', userId);
+    //             setNotifications([newNotif, ...notifications]);
+    //         });
+    //     } else {
+    //         socket.emit('connected', userId);
 
-            socket.on('notif-to-user', (newNotif) => {
-                setcount(count + 1);
+    //         socket.on('notif-to-user', (newNotif) => {
+    //             setcount(count + 1);
 
-                if (admin) {
-                    API.adminNotifications().then((notif) => {
-                        const notifs = notif.filter((notifs) => notifs.isRead == false)
-                        setParseNotif(notifs)
-                    })
-                } else {
-                    API.userNotifications().then((notif) => {
-                        const notifs = notif.filter((notifs) => notifs.isRead == false)
-                        setParseNotif(notifs)
-                    })
-                }
+    //             if (admin) {
+    //                 API.adminNotifications().then((notif) => {
+    //                     const notifs = notif.filter((notifs) => notifs.isRead == false)
+    //                     setParseNotif(notifs)
+    //                 })
+    //             } else {
+    //                 API.userNotifications().then((notif) => {
+    //                     const notifs = notif.filter((notifs) => notifs.isRead == false)
+    //                     setParseNotif(notifs)
+    //                 })
+    //             }
 
-                setNotifications([newNotif, ...notifications]);
-            });
-        }
-    }
+    //             setNotifications([newNotif, ...notifications]);
+    //         });
+    //     }
+    // }
     // console.log(count);
     // console.log(parseNotif);
     // notificaiton | socket.io
