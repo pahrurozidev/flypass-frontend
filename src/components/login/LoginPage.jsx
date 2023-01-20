@@ -51,8 +51,8 @@ export default function LoginPage() {
             <section>
                 <div className='login-form'>
                     <div className='login-header'>
-                        <h1>Login</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipg elit.</p>
+                        <h1>Sign In</h1>
+                        {/* <p>Selamat Datang, Please login this here!</p> */}
                     </div>
                     <form onSubmit={Auth}>
                         <ul className='p-0'>

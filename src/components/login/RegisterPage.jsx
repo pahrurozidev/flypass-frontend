@@ -74,7 +74,7 @@ export default function RegisterPage() {
                 <div>
                     <div className='login-header'>
                         <h1>Sign Up</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> */}
                     </div>
                     <p className='text-center'>{msg}</p>
                     <form onSubmit={Register} className='px-5 pb-4'>
