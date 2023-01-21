@@ -300,7 +300,7 @@ export default function CustomerDetail() {
                                 <section className='card p-3'>
                                     <h5 className='border-bottom pb-2'>Payment Substantiation</h5>
                                     {ShowTransaction &&
-                                        <div className="card"><img src={detailTransaction[0].Image} alt="" className='col-12 image-sub' /></div>}
+                                        <div className="card"><img src={detailTransaction[0].Image} alt="" className='col-12 image-sub'/></div>}
                                 </section>
                                 <section className='card p-3'>
                                     <h5 className='border-bottom pb-2'>Payment</h5>

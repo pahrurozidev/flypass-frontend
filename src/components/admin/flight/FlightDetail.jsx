@@ -79,59 +79,59 @@ function FlightDetail() {
                         <div className="card p-4 pb-1 px-3 mt-3 admin-flight-detail">
                             <section>
                                 <h5 className='border-bottom pb-4'>Flight Detail</h5>
-                                <div className='mt-4 d-md-flex gap-md-5'>
+                                <div className='mt-4 d-flex flex-column flex-md-row gap-md-5'>
                                     <div className='d-flex flex-column gap-4 gap-md-2 col'>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Departure</p>
                                             <p className='col'>: {flight.departureAirport.city}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Departure Date</p>
                                             <p className='col'>: {flight.departureDate}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Departure Time</p>
                                             <p className='col'>: {flight.departureTime.slice(0, -3)}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Duration</p>
                                             <p className='col'>: {flight.duration.slice(0, -3)}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Airline</p>
                                             <p className='col'>: {flight.Airline.name}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Flight Class</p>
                                             <p className='col'>: {flight.FlightClass.name}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Baggage</p>
                                             <p className='col'>: {flight.baggage} kg</p>
                                         </div>
                                     </div>
-                                    <div className='d-flex flex-column mt-4 gap-4 gap-md-2 mt-md-0 col '>
-                                        <div className='d-flex col-lg-10'>
+                                    <div className='d-flex flex-column mt-4 gap-4 gap-md-2 mt-md-0 col'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Arrival</p>
                                             <p className='col'>: {flight.arrivalAirport.city}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Arrival Date</p>
                                             <p className='col'>: {flight.arrivalDate}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Arrival Time</p>
                                             <p className='col'>: {flight.arrivalTime.slice(0, -3)}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Flight Type</p>
                                             <p className='col'>: {flight.FlightType && flight.FlightType.name}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Airplane</p>
                                             <p className='col'>: {flight.Airplane.model}</p>
                                         </div>
-                                        <div className='d-flex col-lg-10'>
+                                        <div className='d-flex'>
                                             <p className='col fw-bold'>Price</p>
                                             <p className='col'>: Rp. {flight.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                                         </div>
